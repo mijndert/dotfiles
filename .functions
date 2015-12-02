@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Create a new directory and enter it
+mkd() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Run `dig` and display the most useful info
+digga() {
+	dig +nocmd "$1" any +multiline +noall +answer
+}
