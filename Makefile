@@ -1,4 +1,4 @@
-.PHONY: all bin default dotfiles etc install
+.PHONY: all dotfiles etc install
 
 all: dotfiles
 
