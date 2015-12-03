@@ -26,6 +26,3 @@ export MANPAGER="less -X";
 # Virtualenv
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-
-# Set Homebrew GH token
-export HOMEBREW_GITHUB_API_TOKEN=111ae0f402b38a277339f80a26f0f827f7c873e2
