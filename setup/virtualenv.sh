@@ -10,6 +10,3 @@ mkvirtualenv dev
 
 # install requirements
 pip install -Ur pip_requirements.txt
-
-# deactive dev
-deactivate
