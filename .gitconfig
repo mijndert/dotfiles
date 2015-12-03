@@ -17,6 +17,9 @@
 
 	# Clone a repository including all submodules
 	c = clone --recursive
+	
+	# Push changes
+	pu = push
 
 	# Commit all changes
 	ca = !git add -A && git commit -av
