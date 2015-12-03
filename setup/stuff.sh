@@ -43,5 +43,8 @@ brew install sshuttle
 pip install virtualenv
 pip install virtualenvwrapper
 
+# Vim
+brew install vim
+
 # Remove outdated versions from the cellar
 brew cleanup
