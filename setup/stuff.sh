@@ -20,6 +20,7 @@ brew install coreutils
 brew install findutils
 brew install tree
 brew install wget
+brew install curl
 
 # More recent versions of some OS X tools
 brew tap homebrew/dupes
