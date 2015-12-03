@@ -130,3 +130,12 @@
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
 	default = matching
 
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Mijndert Stuij
+	email = mijndert@mijndertstuij.nl

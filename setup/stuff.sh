@@ -39,5 +39,9 @@ brew install ansible
 # Sshuttle
 brew install sshuttle
 
+# Install virtualenv
+pip install virtualenv
+pip install virtualenvwrapper
+
 # Remove outdated versions from the cellar
 brew cleanup

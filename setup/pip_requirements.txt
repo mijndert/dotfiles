@@ -1,0 +1,7 @@
+awscli
+boto
+Jinja2
+saws
+awacs
+jmespath
+troposphere

@@ -8,3 +8,4 @@ sudo -v
 . stuff.sh
 . bash.sh
 . osx.sh
+. virtualenv.sh
