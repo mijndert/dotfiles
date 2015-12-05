@@ -114,8 +114,5 @@ alias cp='cp -i'
 # move file interactive
 alias mv='mv -i'
 
-# some protection for rm
-alias rm='rm -I'
-
 # untar
 alias untar='tar xvf'
