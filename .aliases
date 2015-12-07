@@ -15,6 +15,7 @@ alias h="history"
 alias l="ls -lah"
 alias sud="sudo -i"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias v="vim"
 
 # Set env through aws-cli
 alias awscred="source awscred"
