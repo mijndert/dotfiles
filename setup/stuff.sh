@@ -46,5 +46,8 @@ pip install virtualenvwrapper
 # Vim
 brew install vim
 
+# Slackcat
+brew install slackcat
+
 # Remove outdated versions from the cellar
 brew cleanup
