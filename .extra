@@ -2,8 +2,3 @@
 
 # AWS CLI completion
 complete -C aws_completer aws
-
-# Git completion
-if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-  . /usr/local/etc/bash_completion.d/git-completion.bash
-fi
