@@ -16,6 +16,7 @@ brew upgrade
 
 # GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
+
 # GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
 brew install tree
@@ -46,8 +47,8 @@ pip install virtualenvwrapper
 # Vim
 brew install vim
 
-# Slackcat
-brew install slackcat
-
 # Remove outdated versions from the cellar
 brew cleanup
+
+# Symlink ssh config
+ln -s ~/Code/dotfiles/ssh_config ~/.ssh/config
