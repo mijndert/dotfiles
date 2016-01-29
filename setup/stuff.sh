@@ -47,6 +47,9 @@ pip install virtualenvwrapper
 # Vim
 brew install vim
 
+# Watch
+brew install watch
+
 # Remove outdated versions from the cellar
 brew cleanup
 

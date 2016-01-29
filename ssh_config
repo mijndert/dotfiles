@@ -1,3 +1,6 @@
+Host *
+	ForwardAgent yes
+
 Host vps
 	HostName mijndertstuij.nl
 	User mijndert
