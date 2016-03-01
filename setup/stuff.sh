@@ -23,6 +23,9 @@ brew install tree
 brew install wget
 brew install curl
 
+# Packer
+brew install packer
+
 # More recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
