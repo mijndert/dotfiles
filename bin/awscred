@@ -1,0 +1,17 @@
+#!/bin/bash
+AWSDIR=~/.aws/
+        if [ -z "$1" ]; then
+                echo "Example: awscred gct"
+        else
+        if [ -n $1 ] ; then
+		echo "Enabling account $1 ..."
+		export AWS_CONFIG_DIR=$AWSDIR
+                export AWS_CONFIG_FILE=$AWSDIR$1
+                export AWS_ACCOUNT_NAME=$1
+		export AWS_ACCESS_KEY_ID=$(cat $AWSDIR$1 | grep ^aws_access_key_id | cut -f2- -d"=" | tr -d " ")
+		export AWS_SECRET_ACCESS_KEY=$(cat $AWSDIR$1 | grep ^aws_secret_access_key | cut -f2- -d"=" | tr -d " ")
+                echo "$1 is now active"
+        else
+                echo "$1 - file does not exist in $AWSDIR"
+	fi
+fi

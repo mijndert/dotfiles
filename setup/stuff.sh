@@ -58,3 +58,6 @@ brew cleanup
 
 # Symlink ssh config
 ln -s ~/Code/dotfiles/ssh_config ~/.ssh/config
+
+# symlink my awscred binary
+ln -s ~/Code/dotfiles/bin/awscred /usr/local/bin/awscred

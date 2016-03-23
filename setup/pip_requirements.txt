@@ -6,4 +6,3 @@ awacs
 jmespath
 troposphere
 pytz
-maybe
