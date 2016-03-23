@@ -1,10 +1,9 @@
 Host *
 	ForwardAgent yes
 
-Host vps
+Host mijndertstuij.nl
 	HostName mijndertstuij.nl
 	User mijndert
-	ForwardAgent yes
 
 Host *.fdmg.org
 	User mstuij
