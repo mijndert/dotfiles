@@ -24,7 +24,7 @@ alias awscred="source awscred"
 alias dockerenv="eval "$(docker-machine env default)""
 
 # sshuttle tunnel
-alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=vps 0/0'
+alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndertstuij.nl 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
 
 # Detect which `ls` flavor is in use
