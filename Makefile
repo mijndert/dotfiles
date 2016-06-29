@@ -14,5 +14,5 @@ dotfiles:
 	for file in $(shell find $(CURDIR) -maxdepth 0 -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
-	done
-	ln -sfn ~/Code/dotfiles/atom ~/.atom
+	done; \
+	ln -sfn $(CURDIR)/atom $(HOME)/.atom
