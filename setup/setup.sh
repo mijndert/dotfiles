@@ -5,7 +5,8 @@
 # Ask for the administrator password upfront
 sudo -v
 
-. stuff.sh
+. brew.sh
 . bash.sh
 . osx.sh
+. symlinks.sh
 . virtualenv.sh

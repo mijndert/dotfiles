@@ -1,0 +1,56 @@
+@import "ui-variables";
+
+.tree-view {
+  font-size: @font-size;
+
+  .selected:before {
+  	background: @base02;
+    box-shadow: inset -2px 0 3px rgba(0,0,0, .1);
+  }
+
+  .status-added {
+    color: @text-color-success !important;
+  }
+  .status-ignored {
+    color: @text-color-highlight !important;
+  }
+  .status-modified {
+    color: @text-color-modified !important;
+  }
+  .status-removed {
+    color: @text-color-error !important;
+  }
+  .status-renamed {
+    color: @text-color-renamed !important;
+  }
+}
+
+.focusable-panel {
+  opacity: 1;
+  background: @base03;
+  box-shadow: inset -3px 0 3px rgba(0,0,0, .1);
+
+  &:focus {
+    background: @base03;
+
+    .selected:before {
+      background: lighten(@base02, 2%) !important;
+    }
+
+    .selected {
+      color: lighten(@text-color, 20%) !important;
+    }
+    .selected.status-added {
+      color: lighten(@text-color-success, 5%) !important;
+    }
+    .selected.status-modified {
+      color: lighten(@text-color-modified, 5%) !important;
+    }
+    .status-removed {
+      color: lighten(@text-color-error, 5%) !important;
+    }
+    .status-renamed {
+      color: lighten(@text-color-renamed, 5%) !important;
+    }
+  }
+}

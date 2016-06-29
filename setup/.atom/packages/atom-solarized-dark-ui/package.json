@@ -1,0 +1,34 @@
+{
+  "name": "atom-solarized-dark-ui",
+  "theme": "ui",
+  "version": "0.25.0",
+  "description": "Solarized dark theme for interface components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tclem/atom-solarized-dark-ui.git"
+  },
+  "engines": {
+    "atom": ">=0.50.0"
+  },
+  "readme": "# Atom Solarized Dark UI theme\n\nMy personal take on a full solarized feel for Atom, recommended for use with the\n[Solarized Dark Syntax](https://github.com/atom/solarized-dark-syntax) theme.\n\n![screen shot](https://f.cloud.github.com/assets/136521/2304949/df273aea-a23d-11e3-91fd-182b5f2212cf.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/tclem/atom-solarized-dark-ui/issues"
+  },
+  "homepage": "https://github.com/tclem/atom-solarized-dark-ui#readme",
+  "_id": "atom-solarized-dark-ui@0.25.0",
+  "_shasum": "6bcb50c645c163b94e88c6a85ea9381d400a42b1",
+  "_resolved": "file:../d-116413-50183-17ec8q5/package.tgz",
+  "_from": "../d-116413-50183-17ec8q5/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

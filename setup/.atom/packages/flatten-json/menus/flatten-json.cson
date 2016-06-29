@@ -1,0 +1,19 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Flatten JSON'
+      'submenu': [
+        {
+          'label': 'Flatten'
+          'command': 'flatten-json:flatten'
+        }
+        {
+          'label': 'Unflatten'
+          'command': 'flatten-json:unflatten'
+        }
+      ]
+    ]
+  }
+]

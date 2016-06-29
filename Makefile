@@ -1,10 +1,13 @@
 .PHONY: all dotfiles etc install
 
-all: dotfiles
+all: bin dotfiles
 
-default: install
-
-install: all
+bin:
+	# add aliases for things in bin
+	for file in $(shell find $(CURDIR)/bin -type f -not -name "*-backlight" -not -name ".*.swp"); do \
+		f=$$(basename $$file); \
+		sudo ln -sf $$file /usr/local/bin/$$f; \
+	done
 
 dotfiles:
 	# add aliases for dotfiles
