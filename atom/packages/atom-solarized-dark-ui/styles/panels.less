@@ -1,0 +1,60 @@
+@import "ui-mixins";
+@import "ui-variables";
+@import "buttons";
+
+.panel {
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+}
+
+atom-panel {
+  .text(normal);
+  position: relative;
+  background-color: @tool-panel-background-color;
+
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+
+  &.left {
+    border-right: 1px solid @tool-panel-border-color;
+  }
+  &.right {
+    border-right: 2px solid @tool-panel-border-color;
+  }
+  &.bottom {
+    border-top: 1px solid @tool-panel-border-color;
+    box-shadow: inset 0 1px 0 @background-color-highlight;
+  }
+
+  a {
+    color: @text-color-subtle;
+  }
+}
+
+.inset-panel {
+  position: relative;
+  background-color: @inset-panel-background-color;
+}
+
+.panel-heading {
+  .text(normal);
+
+  border-bottom: 1px solid @panel-heading-border-color;
+  border-top: 1px solid fadein(@background-color-highlight, 10%);
+
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(@panel-heading-background-color, darken(@panel-heading-background-color, 2%));
+
+  .btn {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.status-bar {
+  color: @base01;
+}
