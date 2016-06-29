@@ -1,12 +1,18 @@
 # dotfiles
 
-**To install:**
+**How to install**
 
 ```console
 $ make
 ```
 
-This will create symlinks from this repo to your home folder.
+This will create symlinks from this repo to your home folder and symlink everything in bin to /usr/local/bin/
+
+```console
+$ sh setup/setup.sh
+```
+
+This will execute all scripts in the setup directory
 
 **Credits**
 
