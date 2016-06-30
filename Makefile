@@ -16,3 +16,4 @@ dotfiles:
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
 	ln -sfn $(CURDIR)/atom $(HOME)/.atom
+	ln -sfn $(CURDIR)/ssh_config $(HOME)/.ssh/config

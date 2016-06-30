@@ -8,5 +8,4 @@ sudo -v
 . brew.sh
 . bash.sh
 . osx.sh
-. symlinks.sh
 . virtualenv.sh
