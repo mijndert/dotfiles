@@ -1,10 +1,10 @@
-.PHONY: all dotfiles etc install
+.PHONY: all bin dotfiles
 
 all: bin dotfiles
 
 bin:
 	# add aliases for things in bin
-	for file in $(shell find -maxdepth 0 $(CURDIR)/bin -type f -not -name "*-backlight" -not -name ".*.swp"); do \
+	for file in $(shell find $(CURDIR)/bin -type f -not -name "*-backlight" -not -name ".*.swp"); do \
 		f=$$(basename $$file); \
 		sudo ln -sf $$file /usr/local/bin/$$f; \
 	done
@@ -15,5 +15,5 @@ dotfiles:
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
-	ln -sfn $(CURDIR)/atom $(HOME)/.atom
-	ln -sfn $(CURDIR)/ssh_config $(HOME)/.ssh/config
+	ln -sfn $(CURDIR)/atom $(HOME)/.atom \
+	ln -sfn $(CURDIR)/config $(HOME)/.ssh/
