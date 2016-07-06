@@ -1,6 +1,10 @@
 #!/bin/bash
 # Bash wrappers for docker run commands
 
+dupdate(){
+	docker images | awk '/^REPOSITORY|\<none\>/ {next} {print $1}' | xargs -n 1 docker pull
+}
+
 #
 # Helper Functions
 #
