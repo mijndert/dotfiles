@@ -1,7 +1,7 @@
 {
   "name": "pigments",
   "main": "./lib/pigments",
-  "version": "0.29.3",
+  "version": "0.31.2",
   "description": "A package to display colors in project and files.",
   "keywords": [
     "colors",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "underscore-plus": "1.x",
+    "event-kit": "2.x",
     "fs-plus": "2.x",
     "async": "0.2.6",
     "css-color-function": "0.1.x",
@@ -67,10 +68,10 @@
     "url": "https://github.com/abe33/atom-pigments/issues"
   },
   "homepage": "https://github.com/abe33/atom-pigments#readme",
-  "_id": "pigments@0.29.3",
-  "_shasum": "788ee6fa2a37b9504f45e5c4e47b4126e61dc8f0",
-  "_resolved": "file:../d-116529-97677-16jcbpm/package.tgz",
-  "_from": "../d-116529-97677-16jcbpm/package.tgz",
+  "_id": "pigments@0.31.2",
+  "_shasum": "fc50ed25984bc72c8e2a4c732ccf66fa7a829c14",
+  "_resolved": "file:../d-116618-63802-1rz4h77/package.tgz",
+  "_from": "../d-116618-63802-1rz4h77/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -111,7 +112,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/atom-utils/node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -121,7 +122,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/atom-utils/node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -200,6 +201,11 @@
         "path": "node_modules/delegato/node_modules/mixto/lib/mixin.js"
       },
       {
+        "name": "event-kit",
+        "version": "2.0.0",
+        "path": "node_modules/event-kit/lib/event-kit.js"
+      },
+      {
         "name": "fs-plus",
         "version": "2.9.1",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
@@ -276,6 +282,8 @@
         "node_modules/css-color-function/package.json",
         "node_modules/delegato/node_modules/mixto/package.json",
         "node_modules/delegato/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/package.json",
         "node_modules/fs-plus/node_modules/async/component.json",
         "node_modules/fs-plus/node_modules/async/package.json",
         "node_modules/fs-plus/node_modules/mkdirp/package.json",
@@ -812,6 +820,10 @@
         "node_modules/css-color-function/node_modules/rgb/index.js",
         "node_modules/delegato/lib/delegator.js",
         "node_modules/delegato/node_modules/mixto/lib/mixin.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
         "node_modules/fs-plus/lib/fs-plus.js",
         "node_modules/fs-plus/node_modules/async/lib/async.js",
         "node_modules/fs-plus/node_modules/mkdirp/examples/pow.js",
@@ -841,6 +853,7 @@
         ],
         "dependencies": {
           "underscore-plus": "1.x",
+          "event-kit": "2.x",
           "fs-plus": "2.x",
           "async": "0.2.6",
           "css-color-function": "0.1.x",
@@ -1070,7 +1083,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -1093,7 +1106,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {

@@ -1,6 +1,6 @@
 {
   "name": "language-ansible",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Simple ansible syntax package",
   "repository": {
     "type": "git",
@@ -16,10 +16,10 @@
     "url": "https://github.com/haad/language-Ansible/issues"
   },
   "homepage": "https://github.com/haad/language-Ansible#readme",
-  "_id": "language-ansible@0.1.6",
-  "_shasum": "55080bc898387a920c1ab2945ae2d2ecd30517cf",
-  "_resolved": "file:../d-116524-83773-bdfgwi/package.tgz",
-  "_from": "../d-116524-83773-bdfgwi/package.tgz",
+  "_id": "language-ansible@0.1.8",
+  "_shasum": "50b6ce4136cc489773b401b3822b9c90633a9f00",
+  "_resolved": "file:../d-116622-40801-4rj87x/package.tgz",
+  "_from": "../d-116622-40801-4rj87x/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
