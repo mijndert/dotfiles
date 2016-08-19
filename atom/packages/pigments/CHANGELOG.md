@@ -1,3 +1,35 @@
+<a name="v0.31.2"></a>
+# v0.31.2 (2016-07-18)
+
+## Bug Fixes
+
+- Fix invalid color matches in CSS ids ([bbb37271](https://github.com/abe33/atom-pigments/commit/bbb37271d4d78b0dc87ccf407b84d770d76c7103), [#167](https://github.com/abe33/atom-pigments/issues/167))
+
+<a name="v0.31.1"></a>
+# v0.31.1 (2016-07-08)
+
+## Bug Fixes
+
+- Use event kit instead of requiring atom in expression registry ([cc29bc7d](https://github.com/abe33/atom-pigments/commit/cc29bc7d85146e5ecbf2b2cc8ea0ac8b7a84dbe8))
+
+<a name="v0.31.0"></a>
+# v0.31.0 (2016-07-05)
+
+## Features
+
+- Add support for HCG color model ([6e722f0a](https://github.com/abe33/atom-pigments/commit/6e722f0a19c6f2aa9189959ce4522a9584cfd9f3), [#204](https://github.com/abe33/atom-pigments/issues/204))
+
+<a name="v0.30.0"></a>
+# v0.30.0 (2016-07-04)
+
+## Features
+
+- Add contextual menu and commands to copy formatted color value ([1830f897](https://github.com/abe33/atom-pigments/commit/1830f8979134e51c09be211f7871effa9a37cd80), [#170](https://github.com/abe33/atom-pigments/issues/170))
+
+## Bug Fixes
+
+- Fix support for case-insensitive CSS expressions ([879a0603](https://github.com/abe33/atom-pigments/commit/879a0603f6205ca67cc7aea6377b8e1b94e93c4e), [#177](https://github.com/abe33/atom-pigments/issues/177))
+
 <a name="v0.29.3"></a>
 # v0.29.3 (2016-06-28)
 
