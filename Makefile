@@ -15,4 +15,5 @@ dotfiles:
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
-	ln -sfn $(CURDIR)/config $(HOME)/.ssh/
+	ln -sfn $(CURDIR)/config $(HOME)/.ssh/; \
+	ln -sfn $(CURDIR)/.atom/ ~/.atom
