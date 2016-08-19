@@ -20,9 +20,6 @@ alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip
 # Set env through aws-cli
 alias awscred="source awscred"
 
-# Set docker env
-alias dockerenv="eval "$(docker-machine env default)""
-
 # sshuttle tunnel
 alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndertstuij.nl 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
@@ -94,14 +91,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
-
-# Lock the screen (when going AFK)
-alias afk="i3lock -c 000000"
 
 # vhosts
 alias hosts='sudo nano /etc/hosts'
