@@ -11,15 +11,31 @@ patterns: [
     name: "comment.line.number-sign.ansible"
   }
   {
+    captures:
+      "2":
+        name: "variable.parameter.ansible"
+    match: "^(\\[[0-9a-zA-Z_,=-]+(((\\:)children)*)\\])"
+    name: "string.quoted.double.ansible"
+  }
+  {
     match: "(\\{\\{ *[^\\{\\}]+ *\\}\\})|(\\$\\{[^\\{\\}]+\\})"
     name: "storage.type.ansible"
   }
   {
     captures:
       "2":
+        name: "keyword.other.ansible"
+      "3":
         name: "string.quoted.double.ansible"
-    match: "\\- (name\\:|include\\:) (.*)|(^(- |\\s*)\\w+\\ *:)"
-    name: "keyword.other.ansible"
+    match: "(\\-) (name\\:|include\\:) (.*)"
+    name: "text"
+  }
+  {
+    captures:
+      "2":
+        name: "keyword.other.ansible"
+    match: "(\\s*(\\w+:))?\\s"
+    name: "text"
   }
   {
     begin: "- {"
@@ -33,7 +49,7 @@ patterns: [
     name: "text"
     patterns: [
         {
-          match: "(role\\:)|(tags\\:)|(when\\:)|(\\w+:)"
+          match: "(role\\:)|(tags\\:)|(when\\:)|(\\S+:)?"
           name: "keyword.other.ansible"
         }
     ]
@@ -44,26 +60,18 @@ patterns: [
       "1":
         name: "entity.other.attribute-name.ansible"
       "2":
-        name: "text"
-    contentName: "string.other.ansible"
-    end: "(\\\"?[,\"=\\n])"
-    name: "variable.complex.ansible"
+        name: "string.quoted.double.ansible"
+    contentName: "constant.other.ansible"
+    end: "(\\\"?[,\"=\\n ])"
     patterns: [
       {
         include: "$self"
       }
       {
         match: "."
-        name: "constant.other.ansible"
+        name: "text"
       }
     ]
-  }
-  {
-    captures:
-      "2":
-        name: "variable.parameter.ansible"
-    match: "^(\\[[0-9a-zA-Z_,=-]+(((\\:)children)*)\\])"
-    name: "string.quoted.double.ansible"
   }
 ]
 scopeName: "source.ansible"

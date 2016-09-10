@@ -522,6 +522,7 @@
   &[data-name$=".fsi"]:before            { .fsharp-icon;         .medium-blue; }
 
   // Flow
+  &[data-name$=".js.flow"]:before,
   &[data-name$=".flowconfig"]:before     { .flow-icon;         .medium-orange; }
 
   // FLUX
@@ -1009,6 +1010,7 @@
 
   // Jinja
   &[data-name$=".jinja"]:before          { .jinja-icon;             .dark-red; }
+  &[data-name$=".jinja2"]:before         { .jinja-icon;           .medium-red; }
 
   // JSONiq
   &[data-name$=".jq"]:before             { .sql-icon;            .medium-blue; }
@@ -1099,7 +1101,6 @@
 
   // Logos
   &[data-name$=".xm"]:before             { .mobile-icon;           .dark-blue; }
-  &[data-name$=".x"]:before              { .mobile-icon;          .dark-green; }
   &[data-name$=".xi"]:before             { .mobile-icon;            .dark-red; }
 
   // Logtalk
@@ -1219,7 +1220,8 @@
   &[data-name$=".rnh"]:before,
   &[data-name$=".rno"]:before,
   &[data-name$=".roff"]:before,
-  &[data-name$=".run"]:before      { .manpage-icon;        .dark-maroon; }
+  &[data-name$=".run"]:before      { .manpage-icon;              .dark-maroon; }
+  &[data-name$=".pic"]:before      { .manpage-icon;             .medium-green; }
 
   // MediaWiki
   &[data-name$=".mediawiki"]:before      { .mediawiki-icon;    .medium-yellow; }
@@ -1278,6 +1280,9 @@
   &[data-name$=".duby"]:before           { .mirah-icon;          .medium-blue; }
   &[data-name$=".mir"]:before,
   &[data-name$=".mirah"]:before          { .mirah-icon;           .light-blue; }
+
+  // Mocha
+  &[data-name="mocha.opts"]:before       { .mocha-icon;         .light-maroon; }
 
   // Modelica
   &[data-name$=".mo"]:before             { .circle-icon;           .light-red; }
@@ -1341,6 +1346,7 @@
   &[data-name$=".nse"]:before            { .nmap-icon;             .dark-blue; }
 
   // NodeJS
+  &[data-name=".nvmrc"]:before,
   &[data-name=".node-version"]:before    { .node-icon;          .medium-green; }
 
   // Nodemon
@@ -1398,6 +1404,7 @@
   &[data-name$=".inl"]:before            { .cpp-icon;              .auto(red); }
   &[data-name$=".m"]:before              { .objc-icon;           .medium-blue; }
   &[data-name$=".mm"]:before             { .objc-icon;           .medium-blue; }
+  &[data-name$=".x"]:before              { .objc-icon;            .dark-green; }
   &[data-name$=".swift"]:before          { .swift-icon;         .medium-green; }
   &[data-name$=".cs"]:before             { .csharp-icon;          .auto(blue); }
   &[data-name$=".csx"]:before            { .csscript-icon;        .dark-green; }
@@ -1565,6 +1572,7 @@
 
   // Pug/Jade
   &[data-name$=".pug"]:before            { .pug-icon;             .medium-red; }
+  &[data-name^=".pug-lintrc"]:before     { .pug-icon;          .medium-orange; }
   &[data-name$=".jade"]:before           { .jade-icon;            .medium-red; }
 
   // Puppet
@@ -1865,7 +1873,7 @@
   // SAS
   &[data-name$=".sas"]:before            { .sas-icon;            .medium-blue; }
 
-  // SQL
+  // SQL & variants such as PLSQL, T-SQL, etc.
   &[data-name$=".sql"]:before,
   &[data-name$=".SQL"]:before,
   &[data-name$=".ddl"]:before,
@@ -1873,6 +1881,7 @@
   &[data-name$=".viw"]:before,
   &[data-name$=".db2"]:before,
   &[data-name$=".prc"]:before            { .sql-icon; }
+  &[data-name$=".dsql"]:before           { .tsql-icon;             .medium-purple; }
   &[data-name$=".pls"]:before,           // PLSQL
   &[data-name$=".pck"]:before,
   &[data-name$=".pks"]:before,
@@ -1944,6 +1953,9 @@
   &[data-name$=".tt"]:before             { .tt-icon;             .medium-blue; }
   &[data-name$=".tt2"]:before            { .tt-icon;             .medium-blue; }
   &[data-name$=".tt3"]:before            { .tt-icon;           .medium-purple; }
+
+  // Tern
+  &[data-name$=".tern-project"]:before   { .tern-icon;           .medium-blue; }
 
   // Terraform
   &[data-name$=".tf"]:before             { .terraform-icon;      .dark-purple; }
@@ -2189,6 +2201,9 @@
   // Cargo
   &[data-name$="Cargo.toml"]:before      { .package-icon;       .light-orange; }
   &[data-name$="Cargo.lock"]:before      { .package-icon;        .dark-orange; }
+
+  // CircleCI
+  &[data-name="circle.yml"]:before       { .circleci-icon;      .medium-green; }
 
   // CMake
   &[data-name="CMakeLists.txt"]:before   { .cmake-icon;           .medium-red; }
