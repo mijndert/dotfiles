@@ -5,6 +5,7 @@
 # Ask for the administrator password upfront
 sudo -v
 
+. xcode.sh
 . brew.sh
 . bash.sh
 . osx.sh
