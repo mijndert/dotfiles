@@ -1,6 +1,10 @@
 Host *
 	ForwardAgent yes
 
-Host mijndertstuij.nl
+Host mijndert
 	HostName mijndertstuij.nl
 	User mijndert
+
+Host jorijn
+	HostName jorijn.com
+	User root

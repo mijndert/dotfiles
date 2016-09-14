@@ -1,0 +1,105 @@
+---
+- name: My Play
+  hosts: all
+  become: yes
+  environment:
+    http_proxy: "{{ proxy_url }}"
+    https_proxy: "{{ proxy_url }}"
+  vars_files:
+    - ../../vars/defaults.yml
+  vars:
+    test: asdada
+    zookeeper_properties:
+      - name: /asdasd/dasasd/dasdas/dasd/sadasd/asd/sad
+        value: asdasd
+      - name: /asdasd/asdd/addd/dd/dd/d
+        value: asdasd
+      - name: /asdasda/asdasd/asdasd
+        value: "https://{{ dns_name }}.{{ dns_zone }}/"
+      - name: /adasda/asdasd
+        value: asdasdasd
+      - name: /qweqwe
+        value: asdasdasd
+  roles:
+    - role: setup-networking
+      tags: networking
+    - { role: common, tags: [ "co", "o" ], var: "http://{{tt}}", a_war: ["{{asd}}", "http://{{123}}", "assd"], when: True }
+
+- name: My Play
+  hosts: all
+  become: yes
+  roles:
+    - { role: common, tags: "common", test_var: 123, another_war: 31123, when: True }
+
+- name: My Play
+  hosts: all
+  become: yes
+  roles:
+    -
+      role: common
+      tags: "common"
+      test_var: "http://{{test}}"
+      another_war: 31123
+      when: True
+
+- name: My Play
+  hosts: all
+  become: yes
+  roles:
+    - role: common
+      tags:
+        - "common"
+        - "test"
+      test_var: http://123
+      another_war: 31123
+      when: True
+  tasks:
+    - include: test.yml
+    - name: test
+      apt: name=test state="present" test={{item}} test2="http://{{item}}"
+
+    - apt: name=test
+
+    - meta: flush_handlers
+
+openstack_identity_region: asdad
+openstack_identity_token_expiration: 28800
+openstack_identity_admin_url: http://{{ host }}:{{ port }}
+openstack_identity_internal_url: http://{{ host }}:{{ port }}
+openstack_identity_public_url: http://{{ host }}:{{ port }}
+test:
+  test: 1
+  test: 2
+  test:
+    - var: a
+    - var: b
+    - var: c
+
+openstack_telemetry_internal_url: "http://{{ host }}:{{ port }}"
+openstack_telemetry_public_url: "http://{{ host }}:{{ port }}"
+openstack_telemetry_admin_url: "http://{{ host }}:{{ port }}"
+
+###
+# Openstack Swift vars
+openstack_objectstorage_port: 8080
+openstack_objectstorage_internal_url: "http://{{ host }}:{{ port }}/v1"
+openstack_objectstorage_public_url: "http://{{ host }}:{{ port }}/v1"
+openstack_objectstorage_admin_url: "http://{{ host }}:{{ port }}"
+openstack_objectstorage_device: vdb
+openstack_objectstorage_storage_dir: /srv/node/
+openstack_objectstorage_swift_hash_path_suffix: suffix
+
+vpc_sub_list: [
+  { "cidr": "{{ vpc_sub_public[0].cidr }}", "az": "{{ vpc_sub_public[0].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Public", "Name": "{{ vpc_type }}-{{ vpc_env }} public" }' },
+  { "cidr": "{{ vpc_sub_public[1].cidr }}", "az": "{{ vpc_sub_public[1].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Public", "Name": "{{ vpc_type }}-{{ vpc_env }} public2" }' },
+  { "cidr": "{{ vpc_sub_public[2].cidr }}", "az": "{{ vpc_sub_public[2].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Public", "Name": "{{ vpc_type }}-{{ vpc_env }} public3" }' },
+  { "cidr": "{{ vpc_sub_priv[0].cidr }}", "az": "{{ vpc_sub_priv[0].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Private", "Name": "{{ vpc_type }}-{{ vpc_env }} private" }'},
+  { "cidr": "{{ vpc_sub_priv[1].cidr }}", "az": "{{ vpc_sub_priv[1].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Private", "Name": "{{ vpc_type }}-{{ vpc_env }} private2" }'},
+  { "cidr": "{{ vpc_sub_priv[2].cidr }}", "az": "{{ vpc_sub_priv[2].az }}",
+    "resource_tags": '{ "Environment": "{{ vpc_env }}", "Stack":"{{ stack_name }}", "Tier": "Private", "Name": "{{ vpc_type }}-{{ vpc_env }} private3" }'}
+]
