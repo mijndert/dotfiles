@@ -2,6 +2,7 @@
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/dupes'
+tap 'caskroom/fonts'
 
 # Make sure apps get installed in system Applications dir
 cask_args appdir: '/Applications'
@@ -48,3 +49,13 @@ cask 'skype'
 cask 'slack'
 cask 'transmit'
 cask 'vlc'
+
+# App Store
+mas 'Xcode', id:497799835
+mas 'Pixelmator', id:407963104
+
+# Fonts
+cask 'font-sauce-code-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
