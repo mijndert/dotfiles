@@ -46,13 +46,19 @@ cask 'transmission'
 cask 'telegram'
 cask 'sequel-pro'
 cask 'skype'
-cask 'slack'
+#cask 'slack'
+cask 'Caskroom/versions/slack-beta'
 cask 'transmit'
 cask 'vlc'
 
 # App Store
 mas 'Xcode', id:497799835
 mas 'Pixelmator', id:407963104
+mas 'Deckset', id:847496013
+mas 'Amphetamine', id:937984704
+mas 'Noizio', id:928871589
+mas 'Tweetbot', id:557168941
+mas 'Wunderlist', id:410628904
 
 # Fonts
 cask 'font-sauce-code-powerline'

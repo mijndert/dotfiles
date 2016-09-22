@@ -18,16 +18,10 @@ Follow these install instructions to setup a new Mac.
 
 ## Missing apps
 
-- Amphetamine (MAS)
 - AppCleaner
-- Deckset (MAS)
 - Docker
 - Office
-- Noizio (MAS)
 - Dropshare
 - Lightroom
-- Pixelmator
 - PyCharm
-- Tweetbot (MAS)
 - Vmware fusion
-- Wunderlist
