@@ -18,10 +18,6 @@ Follow these install instructions to setup a new Mac.
 
 ## Missing apps
 
-- AppCleaner
-- Docker
 - Office
-- Dropshare
 - Lightroom
-- PyCharm
 - Vmware fusion
