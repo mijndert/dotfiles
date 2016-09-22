@@ -1,22 +1,33 @@
-# dotfiles
+# Mijndert's dotfiles
 
-**How to install**
+## What is this?
 
-```console
-$ make
-```
+This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything which is needed to install my preffered setup of OS X is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles.
 
-This will create symlinks from this repo to your home folder and symlink everything in bin to /usr/local/bin/
+## How to
 
-```console
-$ sh setup/setup.sh
-```
+Follow these install instructions to setup a new Mac.
 
-This will execute all scripts in the setup directory
+1. Update OS X to the latest version with the App Store
+2. Install 1password
+3. Copy SSH keys to ~/.ssh and make sure they're set to 600
+4. Clone this repository some place
+5. Run 'make' in the root of the repository to symlink all dotfiles and binaries
+6. Go into the setup folder and run 'sh setup.sh' to execute all scripts there
+7. Install some apps that are missing using the Mac App Store
 
-**Credits**
+## Missing apps
 
-Most of the stuff in this repository came from Jessie Frazelle and Jacob Kiers.
-
-* https://github.com/jfrazelle/dotfiles
-* https://bitbucket.org/jacobkiers/dotfiles
+- Amphetamine (MAS)
+- AppCleaner
+- Deckset (MAS)
+- Docker
+- Office
+- Noizio (MAS)
+- Dropshare
+- Lightroom
+- Pixelmator
+- PyCharm
+- Tweetbot (MAS)
+- Vmware fusion
+- Wunderlist
