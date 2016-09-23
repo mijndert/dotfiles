@@ -10,11 +10,11 @@ bin:
 	done
 
 dotfiles:
-	# add aliases for dotfiles
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp" -not -name ".travis.yml" -not -name ".irssi" -not -name ".gnupg"); do \
+	# add aliases for dotfiles -maxdepth 0
+	for file in $(shell find $(CURDIR) -maxdepth 0 -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp" -not -name ".travis.yml" -not -name ".irssi" -not -name ".gnupg"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
 	mkdir /usr/local/bin/; \
 	ln -sfn $(CURDIR)/config $(HOME)/.ssh/; \
-	ln -sfn $(CURDIR)/.atom/ ~/.atom
+	ln -sfn $(CURDIR)/atom/ ~/.atom
