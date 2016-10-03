@@ -2,11 +2,10 @@ ColorScanner = require '../lib/color-scanner'
 ColorContext = require '../lib/color-context'
 registry = require '../lib/color-expressions'
 
-fdescribe 'ColorScanner', ->
+describe 'ColorScanner', ->
   [scanner, editor, text, result, lastIndex] = []
 
   withScannerForString = (string, block) ->
-    console.log 'here'
     describe "with '#{string.replace(/#/g, '+')}'", ->
       beforeEach ->
         text = string

@@ -469,6 +469,7 @@
   &[data-name$=".spacemacs"]:before,
   &[data-name$=".emacs.desktop"]:before,
   &[data-name$=".el"]:before             { .emacs-icon;        .medium-purple; }
+  &[data-name$=".elc"]:before            { .emacs-icon;          .dark-purple; }
 
   // EmberScript
   &[data-name$=".emberscript"]:before    { .em-icon;              .medium-red; }
@@ -528,6 +529,10 @@
   // FLUX
   &[data-name$=".fx"]:before             { .flux-icon;           .medium-blue; }
   &[data-name$=".flux"]:before           { .flux-icon;             .dark-blue; }
+
+  // FontForge
+  &[data-name$=".pe"]:before             { .ff-icon;           .medium-orange; }
+  &[data-name$=".sfd"]:before            { .ff-icon;               .dark-blue; }
 
   // FORTRAN
   &[data-name$=".f"]:before,
@@ -1560,6 +1565,8 @@
   // PostScript
   &[data-name$=".ps"]:before             { .postscript-icon;      .medium-red; }
   &[data-name$=".eps"]:before            { .postscript-icon;   .medium-orange; }
+  &[data-name$=".pfb"]:before            { .postscript-icon;     .dark-maroon; }
+  &[data-name$=".afm"]:before            { .postscript-icon;    .medium-green; }
 
   // POV-Ray SDL
   &[data-name$=".pov"]:before            { .povray-icon;           .dark-blue; }
@@ -1774,6 +1781,7 @@
   &[data-name$=".sfproj"]:before         { .sf-icon;            .light-orange; }
 
   // Shell
+  &[data-name$=".inputrc"]:before       { .terminal-icon; }
   &[data-name$=".sh"]:before,
   &[data-name$=".bats"]:before,
   &[data-name$=".bash"]:before,

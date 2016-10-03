@@ -1,14 +1,15 @@
-fs = require 'fs'
-{Emitter, CompositeDisposable, Task, Range} = require 'atom'
-Color = require './color'
-ColorMarker = require './color-marker'
-ColorExpression = require './color-expression'
-VariablesCollection = require './variables-collection'
-scopeFromFileName = require './scope-from-file-name'
+[
+  Color, ColorMarker, VariablesCollection,
+  Emitter, CompositeDisposable, Task, Range,
+  fs
+] = []
 
 module.exports =
 class ColorBuffer
   constructor: (params={}) ->
+    unless Emitter?
+      {Emitter, CompositeDisposable, Task, Range} = require 'atom'
+
     {@editor, @project, colorMarkers} = params
     {@id} = @editor
     @emitter = new Emitter
@@ -47,6 +48,8 @@ class ColorBuffer
       @update()
 
     if @project.getPaths()? and @isVariablesSource() and !@project.hasPath(@editor.getPath())
+      fs ?= require 'fs'
+
       if fs.existsSync(@editor.getPath())
         @project.appendPath(@editor.getPath())
       else
@@ -102,6 +105,9 @@ class ColorBuffer
     @initializePromise
 
   restoreMarkersState: (colorMarkers) ->
+    Color ?= require './color'
+    ColorMarker ?= require './color-marker'
+
     @updateVariableRanges()
 
     @colorMarkers = colorMarkers
@@ -179,6 +185,8 @@ class ColorBuffer
 
   getPath: -> @editor.getPath()
 
+  getScope: -> @project.scopeFromFileName(@getPath())
+
   updateIgnoredScopes: ->
     @ignoredScopes = @project.getIgnoredScopes().map (scope) ->
       try new RegExp(scope)
@@ -215,7 +223,7 @@ class ColorBuffer
     config =
       buffer: @editor.getText()
       registry: @project.getVariableExpressionsRegistry().serialize()
-      scope: scopeFromFileName(@editor.getPath())
+      scope: @getScope()
 
     new Promise (resolve, reject) =>
       @task = Task.once(
@@ -269,6 +277,8 @@ class ColorBuffer
 
   createColorMarkers: (results) ->
     return Promise.resolve([]) if @destroyed
+
+    ColorMarker ?= require './color-marker'
 
     new Promise (resolve, reject) =>
       newResults = []
@@ -373,15 +383,19 @@ class ColorBuffer
     if @project.colorPickerAPI?
       @project.colorPickerAPI.open(@editor, @editor.getLastCursor())
 
-
   scanBufferForColors: (options={}) ->
     return Promise.reject("This ColorBuffer is already destroyed") if @destroyed
+
+    Color ?= require './color'
+
     results = []
     taskPath = require.resolve('./tasks/scan-buffer-colors-handler')
     buffer = @editor.getBuffer()
     registry = @project.getColorExpressionsRegistry().serialize()
 
     if options.variables?
+      VariablesCollection ?= require './variables-collection'
+
       collection = new VariablesCollection()
       collection.addMany(options.variables)
       options.variables = collection
@@ -402,6 +416,7 @@ class ColorBuffer
     config =
       buffer: @editor.getText()
       bufferPath: @getPath()
+      scope: @getScope()
       variables: variables
       colorVariables: variables.filter (v) -> v.isColor
       registry: registry

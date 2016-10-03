@@ -16,3 +16,6 @@
   pigments: {}
   welcome:
     showOnStartup: false
+".source.yaml":
+  editor:
+    showIndentGuide: true

@@ -1,122 +1,22 @@
-{CompositeDisposable, Disposable} = require 'atom'
-uris = require './uris'
-ColorProject = require './color-project'
-[PigmentsProvider, PigmentsAPI, url] = []
+[
+  Palette, PaletteElement,
+  ColorSearch, ColorResultsElement,
+  ColorProject, ColorProjectElement,
+  ColorBuffer, ColorBufferElement,
+  ColorMarker, ColorMarkerElement,
+  VariablesCollection, PigmentsProvider, PigmentsAPI,
+  Disposable,
+  url, uris
+] = []
 
 module.exports =
-  config:
-    traverseIntoSymlinkDirectories:
-      type: 'boolean'
-      default: false
-    sourceNames:
-      type: 'array'
-      default: [
-        '**/*.styl'
-        '**/*.stylus'
-        '**/*.less'
-        '**/*.sass'
-        '**/*.scss'
-      ]
-      description: "Glob patterns of files to scan for variables."
-      items:
-        type: 'string'
-    ignoredNames:
-      type: 'array'
-      default: [
-        "vendor/*",
-        "node_modules/*",
-        "spec/*",
-        "test/*"
-      ]
-      description: "Glob patterns of files to ignore when scanning the project for variables."
-      items:
-        type: 'string'
-    ignoredBufferNames:
-      type: 'array'
-      default: []
-      description: "Glob patterns of files that won't get any colors highlighted"
-      items:
-        type: 'string'
-    extendedSearchNames:
-      type: 'array'
-      default: ['**/*.css']
-      description: "When performing the `find-colors` command, the search will scans all the files that match the `sourceNames` glob patterns and the one defined in this setting."
-    supportedFiletypes:
-      type: 'array'
-      default: ['*']
-      description: "An array of file extensions where colors will be highlighted. If the wildcard `*` is present in this array then colors in every file will be highlighted."
-    extendedFiletypesForColorWords:
-      type: 'array'
-      default: []
-      description: "An array of file extensions where color values such as `red`, `azure` or `whitesmoke` will be highlighted. By default CSS and CSS pre-processors files are supported."
-    ignoredScopes:
-      type: 'array'
-      default: []
-      description: "Regular expressions of scopes in which colors are ignored. For example, to ignore all colors in comments you can use `\\.comment`."
-      items:
-        type: 'string'
-
-    autocompleteScopes:
-      type: 'array'
-      default: [
-        '.source.css'
-        '.source.css.less'
-        '.source.sass'
-        '.source.css.scss'
-        '.source.stylus'
-      ]
-      description: 'The autocomplete provider will only complete color names in editors whose scope is present in this list.'
-      items:
-        type: 'string'
-    extendAutocompleteToVariables:
-      type: 'boolean'
-      default: false
-      description: 'When enabled, the autocomplete provider will also provides completion for non-color variables.'
-    extendAutocompleteToColorValue:
-      type: 'boolean'
-      default: false
-      description: 'When enabled, the autocomplete provider will also provides color value.'
-    markerType:
-      type: 'string'
-      default: 'background'
-      enum: [
-        'native-background'
-        'native-underline'
-        'native-outline'
-        'native-dot'
-        'native-square-dot'
-        'background'
-        'outline'
-        'underline'
-        'dot'
-        'square-dot'
-        'gutter'
-      ]
-    sortPaletteColors:
-      type: 'string'
-      default: 'none'
-      enum: ['none', 'by name', 'by color']
-    groupPaletteColors:
-      type: 'string'
-      default: 'none'
-      enum: ['none', 'by file']
-    mergeColorDuplicates:
-      type: 'boolean'
-      default: false
-    delayBeforeScan:
-      type: 'integer'
-      default: 500
-      description: 'Number of milliseconds after which the current buffer will be scanned for changes in the colors. This delay starts at the end of the text input and will be aborted if you start typing again during the interval.'
-    ignoreVcsIgnoredPaths:
-      type: 'boolean'
-      default: true
-      title: 'Ignore VCS Ignored Paths'
-
   activate: (state) ->
+    ColorProject ?= require './color-project'
+
     @patchAtom()
 
     @project = if state.project?
-      atom.deserializers.deserialize(state.project)
+      ColorProject.deserialize(state.project)
     else
       new ColorProject()
 
@@ -225,12 +125,16 @@ module.exports =
     new PigmentsAPI(@getProject())
 
   consumeColorPicker: (api) ->
+    Disposable ?= require('atom').Disposable
+
     @getProject().setColorPickerAPI(api)
 
     new Disposable =>
       @getProject().setColorPickerAPI(null)
 
   consumeColorExpressions: (options={}) ->
+    Disposable ?= require('atom').Disposable
+
     registry = @getProject().getColorExpressionsRegistry()
 
     if options.expressions?
@@ -245,6 +149,8 @@ module.exports =
       new Disposable -> registry.removeExpression(name)
 
   consumeVariableExpressions: (options={}) ->
+    Disposable ?= require('atom').Disposable
+
     registry = @getProject().getVariableExpressionsRegistry()
 
     if options.expressions?
@@ -257,6 +163,56 @@ module.exports =
       registry.createExpression(name, regexpString, priority, scopes, handle)
 
       new Disposable -> registry.removeExpression(name)
+
+  deserializePalette: (state) ->
+    Palette ?= require './palette'
+    Palette.deserialize(state)
+
+  deserializeColorSearch: (state) ->
+    ColorSearch ?= require './color-search'
+    ColorSearch.deserialize(state)
+
+  deserializeColorProject: (state) ->
+    ColorProject ?= require './color-project'
+    ColorProject.deserialize(state)
+
+  deserializeColorProjectElement: (state) ->
+    ColorProjectElement ?= require './color-project-element'
+    element = new ColorProjectElement
+
+    if @project?
+      element.setModel(@getProject())
+    else
+      subscription = atom.packages.onDidActivatePackage (pkg) =>
+        if pkg.name is 'pigments'
+          subscription.dispose()
+          element.setModel(@getProject())
+
+    element
+
+  deserializeVariablesCollection: (state) ->
+    VariablesCollection ?= require './variables-collection'
+    VariablesCollection.deserialize(state)
+
+  pigmentsViewProvider: (model) ->
+    element = if model instanceof (ColorBuffer ?= require './color-buffer')
+      ColorBufferElement ?= require './color-buffer-element'
+      element = new ColorBufferElement
+    else if model instanceof (ColorMarker ?= require './color-marker')
+      ColorMarkerElement ?= require './color-marker-element'
+      element = new ColorMarkerElement
+    else if model instanceof (ColorSearch ?= require './color-search')
+      ColorResultsElement ?= require './color-results-element'
+      element = new ColorResultsElement
+    else if model instanceof (ColorProject ?= require './color-project')
+      ColorProjectElement ?= require './color-project-element'
+      element = new ColorProjectElement
+    else if model instanceof (Palette ?= require './palette')
+      PaletteElement ?= require './palette-element'
+      element = new PaletteElement
+
+    element.setModel(model) if element?
+    element
 
   shouldDisplayContextMenu: (event) ->
     @lastEvent = event
@@ -274,12 +230,16 @@ module.exports =
   getProject: -> @project
 
   findColors: ->
+    uris ?= require './uris'
+
     pane = atom.workspace.paneForURI(uris.SEARCH)
     pane ||= atom.workspace.getActivePane()
 
     atom.workspace.openURIInPane(uris.SEARCH, pane, {})
 
   showPalette: ->
+    uris ?= require './uris'
+
     @project.initialize().then ->
       pane = atom.workspace.paneForURI(uris.PALETTE)
       pane ||= atom.workspace.getActivePane()
@@ -289,6 +249,8 @@ module.exports =
       console.error reason
 
   showSettings: ->
+    uris ?= require './uris'
+
     @project.initialize().then ->
       pane = atom.workspace.paneForURI(uris.SETTINGS)
       pane ||= atom.workspace.getActivePane()
@@ -297,11 +259,7 @@ module.exports =
     .catch (reason) ->
       console.error reason
 
-  reloadProjectVariables: ->
-    @project.initialize().then =>
-      @project.loadPathsAndVariables()
-    .catch (reason) ->
-      console.error reason
+  reloadProjectVariables: -> @project.reload()
 
   createPigmentsReport: ->
     atom.workspace.open('pigments-report.json').then (editor) =>
@@ -379,27 +337,3 @@ module.exports =
             regionNode = @regionNodesByHighlightId[id][i]
 
             regionNode.textContent = newRegionState.text if newRegionState.text?
-
-  loadDeserializersAndRegisterViews: ->
-    ColorBuffer = require './color-buffer'
-    ColorSearch = require './color-search'
-    Palette = require './palette'
-    ColorBufferElement = require './color-buffer-element'
-    ColorMarkerElement = require './color-marker-element'
-    ColorResultsElement = require './color-results-element'
-    ColorProjectElement = require './color-project-element'
-    PaletteElement = require './palette-element'
-    VariablesCollection = require './variables-collection'
-
-    ColorBufferElement.registerViewProvider(ColorBuffer)
-    ColorResultsElement.registerViewProvider(ColorSearch)
-    ColorProjectElement.registerViewProvider(ColorProject)
-    PaletteElement.registerViewProvider(Palette)
-
-    atom.deserializers.add(Palette)
-    atom.deserializers.add(ColorSearch)
-    atom.deserializers.add(ColorProject)
-    atom.deserializers.add(ColorProjectElement)
-    atom.deserializers.add(VariablesCollection)
-
-module.exports.loadDeserializersAndRegisterViews()

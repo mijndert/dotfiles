@@ -1,29 +1,42 @@
-{Emitter} = require 'atom'
-{Minimatch} = require 'minimatch'
-registry = require './color-expressions'
-ColorParser = require './color-parser'
-ColorContext = require './color-context'
-scopeFromFileName = require './scope-from-file-name'
+[Emitter, Minimatch, ColorContext, registry] = []
 
 module.exports =
 class ColorSearch
   @deserialize: (state) -> new ColorSearch(state.options)
 
   constructor: (@options={}) ->
-    {@sourceNames, ignoredNames, @context} = @options
+    {@sourceNames, ignoredNames: @ignoredNameSources, @context, @project} = @options
+    {Emitter} = require 'atom' unless Emitter?
     @emitter = new Emitter
-    @context ?= new ColorContext({registry})
+
+    if @project?
+      @init()
+    else
+      subscription = atom.packages.onDidActivatePackage (pkg) =>
+        if pkg.name is 'pigments'
+          subscription.dispose()
+          @project = pkg.mainModule.getProject()
+          @init()
+
+  init: ->
+    {Minimatch} = require 'minimatch' unless Minimatch?
+    ColorContext ?= require './color-context'
+
+    @context ?= new ColorContext(registry: @project.getColorExpressionsRegistry())
+
     @parser = @context.parser
     @variables = @context.getVariables()
     @sourceNames ?= []
-    ignoredNames ?= []
+    @ignoredNameSources ?= []
 
     @ignoredNames = []
-    for ignore in ignoredNames when ignore?
+    for ignore in @ignoredNameSources when ignore?
       try
         @ignoredNames.push(new Minimatch(ignore, matchBase: true, dot: true))
       catch error
         console.warn "Error parsing ignore pattern (#{ignore}): #{error.message}"
+
+    @search() if @searchRequested
 
   getTitle: -> 'Pigments Find Results'
 
@@ -38,12 +51,16 @@ class ColorSearch
     @emitter.on 'did-complete-search', callback
 
   search: ->
-    re = new RegExp registry.getRegExp()
+    unless @project?
+      @searchRequested = true
+      return
+
+    re = new RegExp @project.getColorExpressionsRegistry().getRegExp()
     results = []
 
     promise = atom.workspace.scan re, paths: @sourceNames, (m) =>
       relativePath = atom.project.relativize(m.filePath)
-      scope = scopeFromFileName(relativePath)
+      scope = @project.scopeFromFileName(relativePath)
       return if @isIgnored(relativePath)
 
       newMatches = []
@@ -78,5 +95,8 @@ class ColorSearch
   serialize: ->
     {
       deserializer: 'ColorSearch'
-      @options
+      options: {
+        @sourceNames,
+        ignoredNames: @ignoredNameSources
+      }
     }

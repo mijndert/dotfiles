@@ -382,7 +382,7 @@ registry.createExpression 'pigments:gray', strip("
 colors = Object.keys(SVGColors.allCases)
 colorRegexp = "(?:#{namePrefixes})(#{colors.join('|')})\\b(?![ \\t]*[-\\.:=\\(])"
 
-registry.createExpression 'pigments:named_colors', colorRegexp, ['css', 'less', 'styl', 'stylus', 'sass', 'scss'], (match, expression, context) ->
+registry.createExpression 'pigments:named_colors', colorRegexp, [], (match, expression, context) ->
   [_,name] = match
 
   @colorExpression = @name = name
@@ -674,13 +674,13 @@ registry.createExpression 'pigments:stylus_shade', strip("
   @rgba = context.mixColors(black, baseColor, amount).rgba
 
 # tint(red, 50%)
-registry.createExpression 'pigments:sass_tint', strip("
+registry.createExpression 'pigments:compass_tint', strip("
   tint#{ps}
     (#{notQuote})
     #{comma}
     (#{floatOrPercent}|#{variables})
   #{pe}
-"), ['sass', 'scss'], (match, expression, context) ->
+"), ['sass:compass', 'scss:compass'], (match, expression, context) ->
   [_, subexpr, amount] = match
 
   amount = context.readFloatOrPercent(amount)
@@ -693,13 +693,13 @@ registry.createExpression 'pigments:sass_tint', strip("
   @rgba = context.mixColors(baseColor, white, amount).rgba
 
 # shade(red, 50%)
-registry.createExpression 'pigments:sass_shade', strip("
+registry.createExpression 'pigments:compass_shade', strip("
   shade#{ps}
     (#{notQuote})
     #{comma}
     (#{floatOrPercent}|#{variables})
   #{pe}
-"), ['sass', 'scss'], (match, expression, context) ->
+"), ['sass:compass', 'scss:compass'], (match, expression, context) ->
   [_, subexpr, amount] = match
 
   amount = context.readFloatOrPercent(amount)
@@ -710,6 +710,44 @@ registry.createExpression 'pigments:sass_shade', strip("
   black = new context.Color(0,0,0)
 
   @rgba = context.mixColors(baseColor, black, amount).rgba
+
+# tint(red, 50%)
+registry.createExpression 'pigments:bourbon_tint', strip("
+  tint#{ps}
+    (#{notQuote})
+    #{comma}
+    (#{floatOrPercent}|#{variables})
+  #{pe}
+"), ['sass:bourbon', 'scss:bourbon'], (match, expression, context) ->
+  [_, subexpr, amount] = match
+
+  amount = context.readFloatOrPercent(amount)
+  baseColor = context.readColor(subexpr)
+
+  return @invalid = true if context.isInvalid(baseColor)
+
+  white = new context.Color(255, 255, 255)
+
+  @rgba = context.mixColors(white, baseColor, amount).rgba
+
+# shade(red, 50%)
+registry.createExpression 'pigments:bourbon_shade', strip("
+  shade#{ps}
+    (#{notQuote})
+    #{comma}
+    (#{floatOrPercent}|#{variables})
+  #{pe}
+"), ['sass:bourbon', 'scss:bourbon'], (match, expression, context) ->
+  [_, subexpr, amount] = match
+
+  amount = context.readFloatOrPercent(amount)
+  baseColor = context.readColor(subexpr)
+
+  return @invalid = true if context.isInvalid(baseColor)
+
+  black = new context.Color(0,0,0)
+
+  @rgba = context.mixColors(black, baseColor, amount).rgba
 
 # desaturate(#855, 20%)
 # desaturate(#855, 0.2)
@@ -852,7 +890,7 @@ registry.createExpression 'pigments:contrast_1_argument', strip("
   {@rgb} = context.contrast(baseColor)
 
 # color(green tint(50%))
-registry.createExpression 'pigments:css_color_function', "(?:#{namePrefixes})(#{insensitive 'color'}#{ps}(#{notQuote})#{pe})", ['css', 'less', 'sass', 'scss', 'styl', 'stylus'], (match, expression, context) ->
+registry.createExpression 'pigments:css_color_function', "(?:#{namePrefixes})(#{insensitive 'color'}#{ps}(#{notQuote})#{pe})", ['css'], (match, expression, context) ->
   try
     [_,expr] = match
     for k,v of context.vars
@@ -1365,6 +1403,13 @@ registry.createExpression 'pigments:latex_predefined', strip('
   [_, name] = match
   @hex = context.SVGColors.allCases[name].replace('#','')
 
+
+registry.createExpression 'pigments:latex_predefined_dvipnames', strip('
+  \\{(Apricot|Aquamarine|Bittersweet|Black|Blue|BlueGreen|BlueViolet|BrickRed|Brown|BurntOrange|CadetBlue|CarnationPink|Cerulean|CornflowerBlue|Cyan|Dandelion|DarkOrchid|Emerald|ForestGreen|Fuchsia|Goldenrod|Gray|Green|GreenYellow|JungleGreen|Lavender|LimeGreen|Magenta|Mahogany|Maroon|Melon|MidnightBlue|Mulberry|NavyBlue|OliveGreen|Orange|OrangeRed|Orchid|Peach|Periwinkle|PineGreen|Plum|ProcessBlue|Purple|RawSienna|Red|RedOrange|RedViolet|Rhodamine|RoyalBlue|RoyalPurple|RubineRed|Salmon|SeaGreen|Sepia|SkyBlue|SpringGreen|Tan|TealBlue|Thistle|Turquoise|Violet|VioletRed|White|WildStrawberry|Yellow|YellowGreen|YellowOrange)\\}
+'), ['tex'], (match, expression, context) ->
+  [_, name] = match
+  @hex = context.DVIPnames[name].replace('#','')
+
 registry.createExpression 'pigments:latex_mix', strip('
   \\{([^!\\n\\}]+[!][^\\}\\n]+)\\}
 '), ['tex'], (match, expression, context) ->
@@ -1389,3 +1434,30 @@ registry.createExpression 'pigments:latex_mix', strip('
     op.unshift(nextColor) if op.length > 0
 
   @rgb = nextColor.rgb
+
+#     #######  ########
+#    ##     ##    ##
+#    ##     ##    ##
+#    ##     ##    ##
+#    ##  ## ##    ##
+#    ##    ##     ##
+#     ##### ##    ##
+
+# Qt.rgba(1.0,0.5,0.0,0.7)
+registry.createExpression 'pigments:qt_rgba', strip("
+  Qt\\.rgba#{ps}\\s*
+    (#{float})
+    #{comma}
+    (#{float})
+    #{comma}
+    (#{float})
+    #{comma}
+    (#{float})
+  #{pe}
+"), ['qml', 'c', 'cc', 'cpp'], 1, (match, expression, context) ->
+  [_,r,g,b,a] = match
+
+  @red = context.readFloat(r) * 255
+  @green = context.readFloat(g) * 255
+  @blue = context.readFloat(b) * 255
+  @alpha = context.readFloat(a)

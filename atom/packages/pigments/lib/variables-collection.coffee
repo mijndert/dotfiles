@@ -1,8 +1,4 @@
-{Emitter} = require 'atom'
-ColorContext = require './color-context'
-ColorExpression = require './color-expression'
-Color = require './color'
-registry = require './color-expressions'
+[Emitter, ColorExpression, ColorContext, Color, registry] = []
 
 nextId = 0
 
@@ -17,18 +13,49 @@ class VariablesCollection
   }
 
   constructor: (state) ->
+    Emitter ?= require('atom').Emitter
+
     @emitter = new Emitter
+
+    @reset()
+    @initialize(state?.content)
+
+  onDidChange: (callback) ->
+    @emitter.on 'did-change', callback
+
+  onceInitialized: (callback) ->
+    return unless callback?
+    if @initialized
+      callback()
+    else
+      disposable = @emitter.on 'did-initialize', ->
+        disposable.dispose()
+        callback()
+
+  initialize: (content=[]) ->
+    iteration = (cb) =>
+      start = new Date
+      end = new Date
+
+      while content.length > 0 and end - start < 100
+        v = content.shift()
+        @restoreVariable(v)
+
+      if content.length > 0
+        requestAnimationFrame(-> iteration(cb))
+      else
+        cb?()
+
+    iteration =>
+      @initialized = true
+      @emitter.emit('did-initialize')
+
+  reset: ->
     @variables = []
     @variableNames = []
     @colorVariables = []
     @variablesByPath = {}
     @dependencyGraph = {}
-
-    if state?.content?
-      @restoreVariable(v) for v in state.content
-
-  onDidChange: (callback) ->
-    @emitter.on 'did-change', callback
 
   getVariables: -> @variables.slice()
 
@@ -133,6 +160,8 @@ class VariablesCollection
   add: (variable, batch=false) ->
     [status, previousVariable] = @getVariableStatus(variable)
 
+    variable.default ||= variable.path.match /\/.pigments$/
+
     switch status
       when 'moved'
         previousVariable.range = variable.range
@@ -204,24 +233,40 @@ class VariablesCollection
 
     delete @dependencyGraph[variable.name]
 
-  getContext: -> new ColorContext({@variables, @colorVariables, registry})
+  getContext: ->
+    ColorContext ?= require './color-context'
+    registry ?= require './color-expressions'
 
-  evaluateVariables: (variables) ->
+    new ColorContext({@variables, @colorVariables, registry})
+
+  evaluateVariables: (variables, callback) ->
     updated = []
+    remainingVariables = variables.slice()
 
-    for v in variables
-      wasColor = v.isColor
-      @evaluateVariableColor(v, wasColor)
-      isColor = v.isColor
+    iteration = (cb) =>
+      start = new Date
+      end = new Date
 
-      if isColor isnt wasColor
-        updated.push(v)
+      while remainingVariables.length > 0 and end - start < 100
+        v = remainingVariables.shift()
+        wasColor = v.isColor
+        @evaluateVariableColor(v, wasColor)
+        isColor = v.isColor
 
-        if isColor
-          @buildDependencyGraph(v)
+        if isColor isnt wasColor
+          updated.push(v)
+          @buildDependencyGraph(v) if isColor
 
-    if updated.length > 0
-      @emitChangeEvent(@updateDependencies({updated}))
+          end = new Date
+
+      if remainingVariables.length > 0
+        requestAnimationFrame(-> iteration(cb))
+      else
+        cb?()
+
+    iteration =>
+      @emitChangeEvent(@updateDependencies({updated})) if updated.length > 0
+      callback?(updated)
 
   updateVariable: (previousVariable, variable, batch) ->
     previousDependencies = @getVariableDependencies(previousVariable)
@@ -242,6 +287,8 @@ class VariablesCollection
       @emitChangeEvent(@updateDependencies(updated: [previousVariable]))
 
   restoreVariable: (variable) ->
+    Color ?= require './color'
+
     @variableNames.push(variable.name)
     @variables.push variable
     variable.id = nextId++
@@ -399,8 +446,12 @@ class VariablesCollection
       @emitter.emit 'did-change', {created, destroyed, updated}
 
   updateColorVariablesExpression: ->
+    registry ?= require './color-expressions'
+
     colorVariables = @getColorVariables()
     if colorVariables.length > 0
+      ColorExpression ?= require './color-expression'
+
       registry.addExpression(ColorExpression.colorExpressionForColorVariables(colorVariables))
     else
       registry.removeExpression('pigments:variables')
@@ -428,6 +479,7 @@ class VariablesCollection
 
         res.isAlternate = true if v.isAlternate
         res.noNamePrefix = true if v.noNamePrefix
+        res.default = true if v.default
 
         if v.isColor
           res.isColor = true

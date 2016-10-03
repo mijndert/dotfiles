@@ -1,3 +1,96 @@
+<a name="v0.36.0"></a>
+# v0.36.0 (2016-09-30)
+
+## Features
+
+- Implement a better reload command ([6fd1f4e3](https://github.com/abe33/atom-pigments/commit/6fd1f4e31b748c958e7708ff5687e2430691fc13))  <br>It will actually clear paths and variables to properly rescan the project
+- Change default marker type to `native-background`
+
+<a name="v0.35.3"></a>
+# v0.35.3 (2016-09-29)
+
+## Bug Fixes
+
+- Fix default colors not always available in context ([122725b0](https://github.com/abe33/atom-pigments/commit/122725b04ccf8f36bab528895246f16cd6a28446))
+
+<a name="v0.35.2"></a>
+# v0.35.2 (2016-09-28)
+
+## Bug Fixes
+
+- Fix autocomplete provider ([8d234c7d](https://github.com/abe33/atom-pigments/commit/8d234c7d618f0c5e8cefa6603c4953f8b0f7418d))
+
+<a name="v0.35.1"></a>
+# v0.35.1 (2016-09-24)
+
+- Remove console log.
+
+<a name="v0.35.0"></a>
+# v0.35.0 (2016-09-22)
+
+## Features
+
+- Add support for QT rgba function ([d1322d4f](https://github.com/abe33/atom-pigments/commit/d1322d4f2983ea01f74a41e9fe4d0ff59990a8d3), [#226](https://github.com/abe33/atom-pigments/issues/226))
+- Implement sass default variables support ([b9b65efb](https://github.com/abe33/atom-pigments/commit/b9b65efbddddc538e192dcc7b522c2740e13559d), [#223](https://github.com/abe33/atom-pigments/issues/223))
+- Implement suggestion from value for all variables ([182761b8](https://github.com/abe33/atom-pigments/commit/182761b8e1bfb1448dd403b3d2dc46583fa1a0cf), [#142](https://github.com/abe33/atom-pigments/issues/142))
+
+## Bug Fixes
+
+- Change default source names to also handle CSS files ([0db760db](https://github.com/abe33/atom-pigments/commit/0db760dba33da81e3721e4632627d22042184ba5), [#224](https://github.com/abe33/atom-pigments/issues/224))
+
+<a name="v0.34.0"></a>
+# v0.34.0 (2016-08-27)
+
+## Bug Fixes
+
+- Fix restoration of project settings view ([4aa200fd](https://github.com/abe33/atom-pigments/commit/4aa200fd0865be12c4faae2dd5cf1adda03a07fa))
+- Fix color search serialization ([ab002ebd](https://github.com/abe33/atom-pigments/commit/ab002ebd26b8b5c0c0f03dfece379908d080e5a6))
+- Fix error on palette element restoration ([f200085a](https://github.com/abe33/atom-pigments/commit/f200085ac84d3856f73b04586c504f85d2aca04f))
+
+## Performances
+
+- Lazily load color project dependencies ([898b7071](https://github.com/abe33/atom-pigments/commit/898b70716fd759bedbc01d5b7320ad8503ca4531))
+
+<a name="v0.33.1"></a>
+# v0.33.1 (2016-08-25)
+
+## Bug Fixes
+
+- Fix use of screenLineForScreenRow as fallback in dot marker offset computation ([3cc8a64e](https://github.com/abe33/atom-pigments/commit/3cc8a64e9657843f1c90d069b7291ecececa473e), [#219](https://github.com/abe33/atom-pigments/issues/219))
+- Bump markers version ([ea1ac655](https://github.com/abe33/atom-pigments/commit/ea1ac655c686a64af8017d8ee18206665d014075))
+
+<a name="v0.33.0"></a>
+# v0.33.0 (2016-08-24)
+
+## Features
+
+- Add setting to change the sass shade and tint implementation ([c0fb124b](https://github.com/abe33/atom-pigments/commit/c0fb124b977d4f970cd4f9fb106f830945d065e8), [#166](https://github.com/abe33/atom-pigments/issues/166))
+
+<a name="v0.32.1"></a>
+# v0.32.1 (2016-08-23)
+
+## Bug Fixes
+
+- Add missing resources ([9f703082](https://github.com/abe33/atom-pigments/commit/9f703082d3340f83b194067f69ef1afc2e264728))
+
+<a name="v0.32.0"></a>
+# v0.32.0 (2016-08-23)
+
+## Features
+
+- Add DVIP names ([bd717d49](https://github.com/abe33/atom-pigments/commit/bd717d4942e1635ab36f357fc528e95157fde042))
+
+## Bug Fixes
+
+- Fix inconsistent dot marker update on pane change ([8c3d46c7](https://github.com/abe33/atom-pigments/commit/8c3d46c71c50a8e4bd023f68b3265c199a96726c), [#211](https://github.com/abe33/atom-pigments/issues/211))
+- Prevent CSS color from being available in preprocessors ([ba897301](https://github.com/abe33/atom-pigments/commit/ba89730185f2fdb9a471a7cf425d5a62d55685b6), [#207](https://github.com/abe33/atom-pigments/issues/207))
+- Change color words setting to allow no highlighting ([8c01d473](https://github.com/abe33/atom-pigments/commit/8c01d473deffdbba08504dedf93a9a565e19d5c0), [#217](https://github.com/abe33/atom-pigments/issues/217))
+
+## Breaking Changes
+
+- due to [8c01d473](https://github.com/abe33/atom-pigments/commit/8c01d473deffdbba08504dedf93a9a565e19d5c0), the `extendedFiletypesForColorWords` no longer exists, it is now replaced with `filetypesForColorWords` which is no longer
+concatenated to a default scope.
+
 <a name="v0.31.2"></a>
 # v0.31.2 (2016-07-18)
 
@@ -175,7 +268,7 @@
 - Add support for sass variable variations ([b9e9dbe6](https://github.com/abe33/atom-pigments/commit/b9e9dbe6a3bcadba51e4515b3e7ee23e7816c1f1))
   <br>Variables such as `$some-color` are now also available as `$some_color`
 - Change scopes for SVG names color expression  ([30f2ffee](https://github.com/abe33/atom-pigments/commit/30f2ffeea9be8d7396aa9eae8f6cd72654945cc4), [#153](https://github.com/abe33/atom-pigments/issues/153))
-  <br>Its now limited to CSS and CSS pre-processor files. The supported scopes can be extended through the `extendedFiletypesForColorWords` setting.
+  <br>Its now limited to CSS and CSS pre-processor files. The supported scopes can be extended through the `filetypesForColorWords` setting.
 
 ## Bug Fixes
 

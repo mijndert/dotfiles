@@ -1,10 +1,10 @@
-{Emitter} = require 'event-kit'
-ColorExpression = require './color-expression'
-vm = require 'vm'
+[Emitter, vm] = []
 
 module.exports =
 class ExpressionsRegistry
   @deserialize: (serializedData, expressionsType) ->
+    vm ?= require 'vm'
+
     registry = new ExpressionsRegistry(expressionsType)
 
     for name, data of serializedData.expressions
@@ -17,6 +17,8 @@ class ExpressionsRegistry
 
   # The {Object} where color expression handlers are stored
   constructor: (@expressionsType) ->
+    Emitter ?= require('event-kit').Emitter
+
     @colorExpressions = {}
     @emitter = new Emitter
     @regexpStrings = {}
@@ -41,7 +43,14 @@ class ExpressionsRegistry
 
     return expressions if scope is '*'
 
-    expressions.filter (e) -> '*' in e.scopes or scope in e.scopes
+    matchScope = (a) -> (b) ->
+      [aa, ab] = a.split(':')
+      [ba, bb] = b.split(':')
+
+      aa is ba and (not ab? or not bb? or ab is bb)
+
+    expressions.filter (e) ->
+      '*' in e.scopes or e.scopes.some(matchScope(scope))
 
   getExpression: (name) -> @colorExpressions[name]
 

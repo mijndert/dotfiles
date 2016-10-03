@@ -1,9 +1,6 @@
-{CompositeDisposable} = require 'atom'
 {SpacePenDSL, EventsDelegation, registerOrUpdateElement} = require 'atom-utils'
-{THEME_VARIABLES} = require './uris'
-pigments = require './pigments'
-Palette = require './palette'
-StickyTitle = require './sticky-title'
+
+[CompositeDisposable, THEME_VARIABLES, pigments, Palette, StickyTitle] = []
 
 class PaletteElement extends HTMLElement
   SpacePenDSL.includeInto(this)
@@ -41,11 +38,25 @@ class PaletteElement extends HTMLElement
         @ol outlet: 'list'
 
   createdCallback: ->
-    @project = pigments.getProject()
-    @subscriptions = new CompositeDisposable
+    pigments ?= require './pigments'
 
+    @project = pigments.getProject()
+
+    if @project?
+      @init()
+    else
+      subscription = atom.packages.onDidActivatePackage (pkg) =>
+        if pkg.name is 'pigments'
+          subscription.dispose()
+          @project = pigments.getProject()
+          @init()
+
+  init: ->
     return if @project.isDestroyed()
 
+    CompositeDisposable ?= require('atom').CompositeDisposable
+
+    @subscriptions = new CompositeDisposable
     @subscriptions.add @project.onDidUpdateVariables =>
       if @palette?
         @palette.variables = @project.getColorVariables()
@@ -99,6 +110,8 @@ class PaletteElement extends HTMLElement
     @list.innerHTML = ''
 
     if @groupPaletteColors is 'by file'
+      StickyTitle ?= require './sticky-title'
+
       palettes = @getFilesPalettes()
       for file, palette of palettes
         li = document.createElement('li')
@@ -118,6 +131,8 @@ class PaletteElement extends HTMLElement
       @buildList(@list, @getColorsList(@palette))
 
   getGroupHeader: (label) ->
+    THEME_VARIABLES ?= require('./uris').THEME_VARIABLES
+
     header = document.createElement('div')
     header.className = 'pigments-color-group-header'
 
@@ -132,6 +147,8 @@ class PaletteElement extends HTMLElement
     header
 
   getFilesPalettes: ->
+    Palette ?= require './palette'
+
     palettes = {}
 
     @palette.eachColor (variable) =>
@@ -143,11 +160,16 @@ class PaletteElement extends HTMLElement
     palettes
 
   buildList: (container, paletteColors) ->
+    THEME_VARIABLES ?= require('./uris').THEME_VARIABLES
+
     paletteColors = @checkForDuplicates(paletteColors)
     for variables in paletteColors
       li = document.createElement('li')
       li.className = 'pigments-color-item'
       {color} = variables[0]
+
+      continue unless color.toCSS?
+
       html = """
       <div class="pigments-color">
         <span class="pigments-color-preview"
@@ -193,7 +215,7 @@ class PaletteElement extends HTMLElement
       colors = []
 
       findColor = (color) ->
-        return col for col in colors when col.isEqual(color)
+        return col for col in colors when col.isEqual?(color)
 
       for v in paletteColors
         if key = findColor(v.color)
@@ -212,9 +234,3 @@ class PaletteElement extends HTMLElement
 module.exports =
 PaletteElement =
 registerOrUpdateElement 'pigments-palette', PaletteElement.prototype
-
-PaletteElement.registerViewProvider = (modelClass) ->
-  atom.views.addViewProvider modelClass, (model) ->
-    element = new PaletteElement
-    element.setModel(model)
-    element
