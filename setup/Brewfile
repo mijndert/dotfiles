@@ -34,6 +34,7 @@ brew 'vim'
 brew 'watch'
 
 # Apps
+cask 'aerial'
 cask 'atom'
 cask 'appcleaner'
 cask 'docker-beta'
