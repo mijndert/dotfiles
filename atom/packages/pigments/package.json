@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
-        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11693-68502-1kc5mas"
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11694-88414-1tjjt1e"
     ]
   ],
-  "_from": "../d-11693-68502-fsu9cz/package.tgz",
-  "_id": "pigments@0.36.0",
+  "_from": "../d-11694-88414-1op8bgf/package.tgz",
+  "_id": "pigments@0.37.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pigments",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
-    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11693-68502-fsu9cz/package.tgz",
-  "_shasum": "31add1aff43aca2d9c490c0afdad1310c0dc37e4",
+  "_resolved": "file:../d-11694-88414-1op8bgf/package.tgz",
+  "_shasum": "2c8e92049614b6c274aad087caee9c3e3658fa18",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11693-68502-fsu9cz/package.tgz",
-  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11693-68502-1kc5mas",
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11694-88414-1op8bgf/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11694-88414-1tjjt1e",
   "bugs": {
     "url": "https://github.com/abe33/atom-pigments/issues"
   },
@@ -199,6 +199,16 @@
       "type": "boolean",
       "default": true,
       "title": "Ignore VCS Ignored Paths"
+    },
+    "notifyReloads": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether Pigments will use a notification once the `Pigments: Reload` command completes or not. The notification includes informations about the result of the reload."
+    },
+    "dismissableReloadNotifications": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the reload notifications should be dismissed by a user action or not."
     }
   },
   "consumedServices": {
@@ -274,7 +284,7 @@
     "type": "git",
     "url": "git+https://github.com/abe33/atom-pigments.git"
   },
-  "version": "0.36.0",
+  "version": "0.37.0",
   "viewProviders": [
     "pigmentsViewProvider"
   ]
