@@ -4,6 +4,7 @@
     disabledPackages: [
       "git-status"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-solarized-dark-ui"
       "solarized-dark-syntax"

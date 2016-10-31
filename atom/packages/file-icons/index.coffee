@@ -13,11 +13,12 @@ module.exports =
     onChanges:
       type: 'boolean'
       default: false
-      description: 'Only colour icons when file is modified'
+      title: 'Only colour when changed'
+      description: 'Show different icon colours for modified files only. Requires that project be a Git repository.'
     tabPaneIcon:
       type: 'boolean'
       default: true
-      description: 'Show file icons on tab pane'
+      title: 'Show icons in file tabs'
 
   activate: (state) ->
     @disableSetiIcons true
@@ -27,9 +28,16 @@ module.exports =
       @colour newValue
     @colour atom.config.get colouredIcons
     atom.commands.add 'body', 'file-icons:toggle-colours', (event) ->
-    	atom.config.set colouredIcons, !(atom.config.get colouredIcons)
+      atom.config.set colouredIcons, !(atom.config.get colouredIcons)
     
     @observe true
+    
+    # gh-435: Strip path attributes from Markdown-Preview on startup
+    atom.packages.onDidActivateInitialPackages ->
+      selector = '.file-icons-tab-pane-icon .tab[data-type="MarkdownPreviewView"]'
+      tabs = atom.views.getView(atom.workspace).querySelectorAll(selector)
+      for tab in tabs
+        tab.itemTitle.removeAttribute "data-path"
 
     atom.config.onDidChange 'file-icons.forceShow', ({newValue, oldValue}) =>
       @forceShow newValue
