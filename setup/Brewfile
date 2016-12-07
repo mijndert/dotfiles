@@ -61,6 +61,7 @@ cask 'slack-beta' # cask 'slack'
 cask 'openttd'
 cask 'kitematic'
 cask 'transmit'
+cask 'visual-studio-code'
 cask 'vlc'
 
 # App Store

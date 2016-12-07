@@ -1,0 +1,74 @@
+'scopeName': 'text.interpolation.hashicorp'
+'name': 'HashiCorp String Interpolation'
+'injectionSelector': 'string.interpolated'
+'patterns': [
+  {
+    'name': 'string'
+    'match': '\\$\\$'
+  }
+  {
+    'begin': '(\\$\\{)'
+    'beginCaptures':
+      '1':
+        'name': 'variable.interpolation.begin'
+    'end': '(\\})'
+    'endCaptures':
+      '1':
+        'name': 'variable.interpolation.end'
+    'name': 'none'
+    'patterns': [
+      {
+        'include': '#interplang'
+      }
+    ]
+  }
+]
+'repository':
+  'interplang':
+    'patterns': [
+      {
+        'match': '\\b(base64decode|base64encode|cidrhost|cidrnetmask|cidrsubnet|coalesce|compact|concat|element|file|format|formatlist|index|join|length|lookup|lower|replace|split|upper)\\s*(?:\\()'
+        'captures':
+          '1':
+            'name': 'support.function'
+          '2':
+            'name': 'meta.brace.round'
+      }
+      {
+        'match': '\\b(var|self|module|count|path)\\b'
+        'name': 'support.variable'
+      }
+      {
+        'match': '\\b\\d+\\b'
+        'name': 'constant.numeric'
+      }
+      {
+        'comment': 'Handle curly braces in regex eg. {1,2}'
+        'match': '(?:\\{)(\\d?)(?:,?)(\\d?)(?:\\})'
+        'captures':
+          '1':
+            'name': 'constant.numeric'
+          '2':
+            'name': 'constant.numeric'
+      }
+      {
+        'begin': '(\\$\\{)'
+        'beginCaptures':
+          '1':
+            'name': 'variable.interpolation.begin'
+        'end': '(\\})'
+        'endCaptures':
+          '1':
+            'name': 'variable.interpolation.end'
+        'name': 'none'
+        'patterns': [
+          {
+            'include': '#interplang'
+          }
+        ]
+      }
+      {
+        'match': '\\*'
+        'name': 'support.constant'
+      }
+    ]

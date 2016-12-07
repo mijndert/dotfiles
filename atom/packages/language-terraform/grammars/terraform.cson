@@ -1,0 +1,184 @@
+'scopeName': 'source.terraform'
+'name': 'Terraform'
+'fileTypes': [
+	'tf'
+	'tfvars'
+]
+'foldingStartMarker': '\\{\\s*$'
+'foldingStopMarker': '^\\s*\\}'
+
+'patterns': [
+	{'include': '#comments'}
+	{'include': '#sections'}
+	{'include': '#literals'}
+	{'include': '#keywords'}
+	{'include': '#properties'}
+]
+
+'repository':
+	'comments':
+		'patterns': [
+				{
+					'match': '#.*'
+					'name': 'comment.number-sign'
+				}
+				{
+					'match': '\\/\\/.*'
+					'name': 'comment.double-slash'
+				}
+				{
+					'begin': '\\/\\*'
+					'end': '\\*\\/'
+					'name': 'comment.block'
+				}
+		]
+	'primitives':
+		'patterns': [
+			{
+				'match': '\\b(?:true|false)\\b'
+				'name': 'constant.language'
+			}
+			{
+				'match': '\\b(?:\\d+[kKmMgG]?b?)\\b'
+				'name': 'constant.numeric'
+			}
+			{'include': '#heredocs'}
+			{'include': '#strings'}
+		]
+	'strings':
+		'patterns': [
+			{
+				'comment': 'Terraform claims it only uses double-quoted strings'
+				'begin': '"'
+				'end': '"'
+				'name': 'string.interpolated'
+				'contentName': 'entity'
+			}
+		]
+	'heredocs':
+		'patterns': [
+			{
+				'begin': '<<(\\w*JSON)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.json'}
+				]
+			}
+			{
+				'begin': '<<(\\w*YA?ML)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.yaml'}
+				]
+			}
+			{
+				'begin': '<<(\\w*XML)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.xml'}
+				]
+			}
+			{
+				'begin': '<<(\\w*SH)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.shell'}
+				]
+			}
+			{
+				'begin': '<<(\\w+)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'name': 'keyword.operator.heredoc'
+				'contentName': 'string.interpolated'
+			}
+		]
+	'literals':
+		'patterns': [
+			{'include': '#primitives'}
+			{'include': '#lists'}
+		]
+	'lists':
+		'patterns': [
+			{
+				'name': 'language.list'
+				'begin': '\\['
+				'end': '\\]'
+				'patterns': [
+					{'include': '#primitives'}
+					{'match': ','}
+				]
+			}
+		]
+	'sections':
+		'patterns': [
+			{
+				'begin': '(\\w+)\\s*((:?"(\\w|-)*"\\s*)*)\\s*(\\{)'
+				'beginCaptures':
+					'1':
+						'name': 'entity.name.section'
+					'2':
+						'name': 'variable.parameter'
+					'3':
+						'name': 'punctuation.section.begin'
+				'end': '(\\})'
+				'endCaptures':
+					'1':
+						'name': 'punctuation.section.end'
+				'name': 'meta.section'
+				'patterns': [
+					{'include': '$base'}
+				]
+			}
+		]
+	'properties':
+		'patterns': [
+			{
+				'match': '\\b(count|depends_on|lifecycle|create_before_destroy|ignore_changes|prevent_destroy)\\b\\s*(=)'
+				'captures':
+					'1':
+						'name': 'support.variable'
+					'2':
+						'name': 'punctuation.assignment'
+			}
+		]
+	'keywords':
+		'patterns': [
+			{
+				'match': '\\b(resource|provider|variable|output|module)\\b'
+				'name': 'support.type'
+			}
+		]

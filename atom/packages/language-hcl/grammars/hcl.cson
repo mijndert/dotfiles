@@ -1,0 +1,221 @@
+# If this is your first time writing a language grammar, check out:
+#   - http://manual.macromates.com/en/language_grammars
+
+'scopeName': 'source.hcl'
+'name': 'HashiCorp Configuration Language'
+'fileTypes': [
+  'hcl',
+  'nomad',
+  'tf'
+]
+'patterns': [
+  {
+    'include': '#value'
+  }
+]
+
+'repository':
+  'constant':
+    'match': '\\b(?:true|false|null)\\b'
+    'name': 'constant.language.hcl'
+
+  'number':
+    'comment': 'handles integer and decimal numbers'
+    'match': '-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?'
+    'name': 'constant.numeric.hcl'
+
+  'kwString':
+    'match': '\\b(?:[\\w\\d_-]+)\\b'
+    'name': 'entity.name.key.hcl'
+
+  'string':
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.hcl'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.hcl'
+    'name': 'string.quoted.double.hcl'
+    'patterns': [
+      {
+        'match': '(?x:                # turn on extended mode\n                     \\\\                # a literal backslash\n                     (?:               # ...followed by...\n                       ["\\\\/bfnrt]     # one of these characters\n                       |               # ...or...\n                       u               # a u\n                       [0-9a-fA-F]{4}  # and four hex digits\n                     )\n                   )'
+        'name': 'constant.character.escape.hcl'
+      }
+      {
+        'match': '\\\\.'
+        'name': 'invalid.illegal.unrecognized-string-escape.hcl'
+      }
+      { 'include': '#interpolation' }
+    ]
+
+  'array':
+    'begin': '\\['
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.array.begin.hcl'
+    'end': '\\]'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.array.end.hcl'
+    'name': 'meta.structure.array.hcl'
+    'patterns': [
+      {
+        'include': '#value'
+      }
+      {
+        'match': ','
+        'name': 'punctuation.separator.array.hcl'
+      }
+      {
+        'match': '[^\\s\\]]'
+        'name': 'invalid.illegal.expected-array-separator.hcl'
+      }
+    ]
+
+  'object':
+    'begin': '\\{'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.dictionary.begin.hcl'
+    'comment': 'a HCL object'
+    'end': '\\}'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.dictionary.end.hcl'
+    'name': 'meta.structure.dictionary.hcl'
+    'patterns': [
+      {
+        'comment': 'the HCL object value'
+        'include': '#comment'
+      }
+      {
+        'comment': 'the HCL object key'
+        'include': '#string'
+      }
+      {
+        'comment': 'the HCL object key'
+        'include': '#kwString'
+      }
+      {
+        'begin': '='
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.separator.dictionary.key-value.hcl'
+        'end': '(,)|(?=\\})'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.separator.dictionary.pair.hcl'
+        'name': 'meta.structure.dictionary.value.hcl'
+        'patterns': [
+          {
+            'comment': 'the HCL object value'
+            'include': '#value'
+          }
+        ]
+      }
+      {
+        'match': '[^\\s\\}]'
+        'name': 'invalid.illegal.expected-dictionary-separator.hcl'
+      }
+    ]
+
+  'comment':
+    'begin': '(^[ \\t]+)?(?=(#|//))'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.hcl'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.hcl'
+        'end': '\\n'
+        'name': 'comment.line.double-slash.hcl'
+      }
+      {
+        'begin': '#'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.hcl'
+        'end': '\\n'
+        'name': 'comment.line.pound.hcl'
+      }
+    ]
+
+  'heredoc':
+    'begin': '(?>\\=\\s*<<(\\w+))'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.hcl'
+    'end': '^\\1$'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.hcl'
+    'name': 'string.unquoted.heredoc.hcl'
+    'patterns': [
+      { 'include': '#interpolation' }
+    ]
+
+  'interpolation':
+    'begin': '\\$\\{'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.hcl'
+    'end': '\\}'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.hcl'
+    'name': 'source.hcl.embedded.source'
+    'patterns': [
+      {
+        'begin': '\\{'
+        'beginCaptures':
+          '0':
+            'name': 'meta.brace.curly.hcl'
+        'end': '\\}'
+        'endCaptures':
+          '0':
+            'name': 'meta.brace.curly.hcl'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'include': '$self'
+      }
+    ]
+
+  'value':
+    'comment': 'the \'value\' diagram at http://json.org'
+    'patterns': [
+      {
+        'include': '#constant'
+      }
+      {
+        'include': '#number'
+      }
+      {
+        'include': '#kwString'
+      }
+      {
+        'include': '#heredoc'
+      }
+      {
+        'include': '#string'
+      }
+      {
+        'include': '#array'
+      }
+      {
+        'include': '#object'
+      }
+      {
+        'include': '#comment'
+      }
+    ]

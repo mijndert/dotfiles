@@ -643,6 +643,7 @@
   &[data-name="configure.ac"]:before     { .code-icon;            .medium-red; }
   &[data-name="Settings.StyleCop"]:before{ .code-icon;          .medium-green; }
   &[data-name$=".4th"]:before            { .code-icon;           .medium-blue; }
+  &[data-name$=".abnf"]:before           { .code-icon;          .medium-green; }
   &[data-name$=".aepx"]:before           { .code-icon;         .medium-purple; }
   &[data-name$=".agda"]:before           { .code-icon;             .dark-cyan; }
   &[data-name$=".appxmanifest"]:before   { .code-icon;         .medium-orange; }
@@ -652,6 +653,7 @@
   &[data-name$=".axml"]:before           { .code-icon;             .dark-blue; }
   &[data-name$=".befunge"]:before        { .code-icon;         .medium-orange; }
   &[data-name$=".bmx"]:before            { .code-icon;             .dark-blue; }
+  &[data-name$=".bnf"]:before            { .code-icon;         .medium-maroon; }
   &[data-name$=".brs"]:before            { .code-icon;             .dark-blue; }
   &[data-name$=".capnp"]:before          { .code-icon;              .dark-red; }
   &[data-name$=".cbl"]:before            { .code-icon;         .medium-maroon; }
@@ -672,6 +674,7 @@
   &[data-name$=".dotsettings"]:before    { .code-icon;              .dark-red; }
   &[data-name$=".dyl"]:before            { .code-icon;           .medium-blue; }
   &[data-name$=".dylan"]:before          { .code-icon;           .medium-blue; }
+  &[data-name$=".ebnf"]:before           { .code-icon;            .medium-red; }
   &[data-name$=".ecl"]:before            { .code-icon;           .medium-blue; }
   &[data-name$=".eclxml"]:before         { .code-icon;            .dark-green; }
   &[data-name$=".filters"]:before        { .code-icon;           .medium-pink; }
@@ -1031,6 +1034,7 @@
   &[data-name$="._js"]:before            { .js-icon;            .auto(orange); }
   &[data-name$=".jsb"]:before            { .js-icon;            .auto(maroon); }
   &[data-name$=".jsm"]:before            { .js-icon;              .auto(blue); }
+  &[data-name$=".mjs"]:before            { .js-icon;              .auto(blue); }
   &[data-name$=".jss"]:before            { .js-icon;             .auto(green); }
   &[data-name$=".es6"]:before            { .js-icon;            .auto(yellow); }
   &[data-name$=".es"]:before             { .js-icon;            .auto(yellow); }
@@ -1401,7 +1405,7 @@
   &[data-name="package.json"]:before     { .npm-icon;             .medium-red; }
 
   // NSIS
-  &[data-name$=".nsi"]:before            { .nsis-icon;           .medium-cyan; }
+  &[data-name$=".nsi"]:before            { .nsis-icon;         .medium-purple; }
   &[data-name$=".nsh"]:before            { .nsis-icon;             .dark-cyan; }
 
   // Nu
@@ -1706,6 +1710,10 @@
   &[data-name="Contributors"]:before,    &[data-name$=".1ST"]:before,
   &[data-name$=".1st"]:before            { .book-icon;           .medium-blue; }
 
+  // Reason
+  &[data-name$=".re"]:before             { .reason-icon;          .medium-red; }
+  &[data-name$=".rei"]:before            { .reason-icon;       .medium-orange; }
+
   // Rebol
   &[data-name$=".rebol"]:before,
   &[data-name$=".reb"]:before            { .rebol-icon;           .dark-green; }
@@ -1810,7 +1818,6 @@
   &[data-name$=".scm"]:before            { .scheme-icon;          .medium-red; }
   &[data-name$=".sld"]:before            { .scheme-icon;         .medium-blue; }
   &[data-name$=".sps"]:before            { .scheme-icon;       .medium-purple; }
-  &[data-name$=".ss"]:before             { .scheme-icon;         .medium-pink; }
 
   // Scilab
   &[data-name$=".sci"]:before            { .scilab-icon;         .dark-purple; }
@@ -1883,6 +1890,9 @@
   // Sigils
   &[data-name$=".sigils"]:before         { .sigils-icon;            .dark-red; }
 
+  // SilverStripe
+  &[data-name$=".ss"]:before             { .silverstripe-icon;   .medium-blue; }
+
   // Sketch
   &[data-name$=".sketch"]:before         { .sketch-icon;       .medium-orange; }
 
@@ -1894,6 +1904,9 @@
 
   // Smali
   &[data-name$=".smali"]:before          { .android-icon;       .medium-green; }
+
+  // Snyk
+  &[data-name$=".snyk"]:before           { .snyk-icon;           .dark-purple; }
 
   // SourcePawn / PAWN
   &[data-name$=".sma"]:before,
@@ -2277,6 +2290,9 @@
   // Code Climate
   &[data-name=".codeclimate.yml"]:before { .cc-icon;            .medium-green; }
 
+  // Codecov
+  &[data-name="codecov.yml"]:before      { .codecov-icon;          .dark-pink; }
+
   // Composer
   &[data-name="composer.json"]:before,
   &[data-name="composer.lock"]:before    { .composer-icon;     .medium-yellow; }
@@ -2332,6 +2348,9 @@
   &[data-name$="Gulpfile.babel.js"]:before,
   &[data-name$="gulpfile.babel.js"]:before { .gulp-icon;          .medium-red; }
 
+  // Makefile.boot
+  &[data-name="Makefile.boot"]:before      { .boot-icon;         .auto(green); }
+
   // Manual Pages
   &[data-name^="tmac."]:before             { .manpage-icon;       .dark-green; }
 
@@ -2348,7 +2367,7 @@
   &[data-name="riemann.config"]:before     { .clojure-icon;     .auto(maroon); }
 
   // Rollup
-  &[data-name^="rollup.config."]:before    { .rollup-icon;         .auto(red); }
+  &[data-name^="rollup.config."]:before    { .rollup-icon;        .medium-red; }
 
   // Scrutinizer
   &[data-name$=".scrutinizer.yml"]:before  { .scrutinizer-icon;    .dark-blue; }
@@ -2439,17 +2458,26 @@ body.file-icons-on-changes {
 }
 
 
-// #gh-400: Temporary fix for Laravel icon in Atom Material UI
+// Temporary fixes for Atom Material UI
 .theme-atom-material-ui{
 
-  .entry[is="tree-view-file"] > .icon-file-text[data-name$=".blade.php"]:before{
-    .laravel-icon;
-    .medium-orange;
+  .entry[is="tree-view-file"] > .icon-file-text{
 
-    font-size: 16px !important;
-    transform: scale(1.35) !important;
-    top: 2px;
-    left: -1px;
+    // #gh-400: Laravel icon
+    &[data-name$=".blade.php"]:before{
+      .laravel-icon;
+      .medium-orange;
+
+      font-size: 16px !important;
+      transform: scale(1.35) !important;
+      top: 2px;
+      left: -1px;
+    }
+
+    // JavaScript
+    &[data-name$=".js"]:before{
+      font-size: 19px !important;
+    }
   }
 
   .file-icons-tab-pane-icon & @{pane-tab-selector}[data-name$=".blade.php"]:before{

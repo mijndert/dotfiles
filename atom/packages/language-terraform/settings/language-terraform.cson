@@ -1,0 +1,4 @@
+'.source.terraform':
+  'editor':
+    'increaseIndentPattern': '^.*(\\{[^}]*|\\[[^\\]]*)$'
+    'decreaseIndentPattern': '^\\s*[}\\]],?\\s*$'

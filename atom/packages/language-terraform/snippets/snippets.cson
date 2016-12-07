@@ -1,0 +1,300 @@
+'.source.terraform':
+  'variable':
+    'prefix': 'variable'
+    'body': """
+      variable "$1" {
+        default = "$2"
+      }$3
+    """
+
+  'variable-map':
+    'prefix': 'variable-map'
+    'body': """
+      variable "${1:name}" {
+      	type = "map"
+      	default = {
+      		${3:key1} = "${4:val1}"
+      		${5:key2} = "${6:val2}"
+      	}
+      }$7
+    """
+
+  'variable-string':
+    'prefix': 'variable-string'
+    'body': """
+	variable "${1:name}" {
+	  type    = "string"
+	  default = "${2:value}"
+	}$3
+    """
+
+  'variable-list':
+    'prefix': 'variable-list'
+    'body': """
+	variable "${1:name}" {
+		type    = "list"
+		default = ["${2:value1}", "${3:value1}"]
+	}$4
+    """
+
+  'provisioner':
+    'prefix': 'provisioner'
+    'body': """
+        provisioner "${1:name}" {
+        	${2}
+        }
+    """
+
+  'provider':
+    'prefix': 'provider'
+    'body': """
+      provider "${1:name}" {
+      	${2}
+      }
+    """
+
+  'provider-aws':
+    'prefix': 'provider-aws'
+    'body': """
+	provider "aws" {
+		access_key = "${1}"
+		secret_key = "${2}"
+		region = "${3}"
+	}${4}
+    """
+
+  'value':
+    'prefix': 'value'
+    'body': 'value = "$1"'
+
+  'tags':
+    'prefix': 'tags'
+    'body': """
+      tags {
+        $1 = "$2"
+      }$3
+    """
+
+  'alias':
+    'prefix': 'alias'
+    'body': """
+      alias {
+        $1 = "$2"
+      }$3
+    """
+
+  'ingress':
+    'prefix': 'ingress'
+    'body': """
+      ingress {
+        from_port = $1
+        to_port = $2
+        protocol = "$3"
+        cidr_blocks = ["$4"]
+      }$5
+    """
+
+  'egress':
+    'prefix': 'egress'
+    'body': """
+      egress {
+        from_port = $1
+        to_port = $2
+        protocol = "$3"
+        cidr_blocks = ["$4"]
+      }$5
+    """
+
+  'name':
+    'prefix': 'name'
+    'body': 'name = "$1"'
+
+  'description':
+    'prefix': 'description'
+    'body': 'description = "$1"'
+
+  'protocol':
+    'prefix': 'protocol'
+    'body': 'protocol = "$1"'
+
+  'resource':
+    'prefix': 'resource'
+    'body': """
+      resource "$1" "$2" {
+          $3
+      }$4
+    """
+
+  'email':
+    'prefix': 'email'
+    'body': 'email = "$1"'
+
+  'token':
+    'prefix': 'token'
+    'body': 'token = "$1"'
+
+  'region':
+    'prefix': 'region'
+    'body': 'region = "$1"'
+
+  'size':
+    'prefix': 'size'
+    'body': 'size = "$1"'
+
+  'ip address':
+    'prefix': 'ip_address'
+    'body': 'ip_address = "$1"'
+
+  'domain':
+    'prefix': 'domain'
+    'body': 'domain = "$1"'
+
+  'type':
+    'prefix': 'type'
+    'body': 'type = "$1"'
+
+  'module':
+    'prefix': 'module'
+    'body': """
+      module "$1" {
+        source = "$2"
+      }$3
+    """
+
+  'module-path':
+    'prefix': 'module-path'
+    'body': """
+       module "${1:name}" {
+      	source = "${2:./modules/}"
+      	${3}
+      }
+    """
+
+  'module-git':
+    'prefix': 'module-git'
+    'body': """
+        module "${1:name}" {
+        	source = "github.com/${2:owner}/${3:repo}?${4:ref=}"
+        	${5}
+        }
+    """
+
+  'module-git-priv':
+    'prefix': 'module-git-priv'
+    'body': """
+      module "${1:name}" {
+      	source = "git::ssh://git@github.com/${2:owner}/${3:repo}.git${4:?ref=}"
+      	${5}
+      }
+    """
+
+  'secret key':
+    'prefix': 'secret_key'
+    'body': 'secret_key = "$1"'
+
+  'access key':
+    'prefix': 'access_key'
+    'body': 'access_key = "$1"'
+
+  'api url':
+    'prefix': 'api_url'
+    'body': 'api_url = "$1"'
+
+  'api key':
+    'prefix': 'api_key'
+    'body': 'api_key = "$1"'
+
+  'host':
+    'prefix': 'host'
+    'body': 'host = "$1"'
+
+  'image':
+    'prefix': 'image'
+    'body': 'image = "$1"'
+
+  'account file':
+    'prefix': 'account_file'
+    'body': 'account_file = "$1"'
+
+  'project':
+    'prefix': 'project'
+    'body': 'project = "$1"'
+
+  'user name':
+    'prefix': 'user_name'
+    'body': 'user_name = "$1"'
+
+  'tenant name':
+    'prefix': 'tenant_name'
+    'body': 'tenant_name = "$1"'
+
+  'user':
+    'prefix': 'user'
+    'body': 'user = "$1"'
+
+  'password':
+    'prefix': 'password'
+    'body': 'password = "$1"'
+
+  'auth url':
+    'prefix': 'auth_url'
+    'body': 'auth_url = "$1"'
+
+  'akey':
+    'prefix': 'akey'
+    'body': 'akey = "$1"'
+
+  'skey':
+    'prefix': 'skey'
+    'body': 'skey = "$1"'
+
+  'usesandbox':
+    'prefix': 'usesandbox'
+    'body': 'usesandbox = "$1"'
+
+  'domainid':
+    'prefix': 'domainid'
+    'body': 'domainid = "$1"'
+
+  'address':
+    'prefix': 'address'
+    'body': 'address = "$1"'
+
+  'path':
+    'prefix': 'path'
+    'body': 'path = "$1"'
+
+  'datacenter':
+    'prefix': 'datacenter'
+    'body': 'datacenter = "$1"'
+
+  'ami':
+    'prefix': 'ami'
+    'body': 'ami = "$1"'
+
+  'instance type':
+    'prefix': 'instance_type'
+    'body': 'instance_type = "$1"'
+
+  'listener':
+    'prefix': 'listener'
+    'body': """
+      listener {
+        instance_port = $1
+        instance_protocol = "$2"
+        lb_port = $3
+        lb_protocol = "$4"
+      }$5
+    """
+
+  'health check':
+    'prefix': 'health_check'
+    'body': """
+      health_check {
+        healthy_threshold = $1
+        unhealthy_threshold = $2
+        timeout = $3
+        target = "$4"
+        interval = $5
+      }$6
+    """
