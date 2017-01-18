@@ -2,60 +2,160 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
-        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-1161014-72482-nurm6m"
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11708-1426-w4etv0"
     ]
   ],
-  "_from": "../d-1161014-72482-eiyahj/package.tgz",
-  "_id": "file-icons@1.7.25",
+  "_from": "../d-11708-1426-fp8orw/package.tgz",
+  "_id": "file-icons@2.0.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
-    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161014-72482-eiyahj/package.tgz",
-  "_shasum": "3e363a0422a935a6a27974e7f60c86421f3d3958",
+  "_resolved": "file:../d-11708-1426-fp8orw/package.tgz",
+  "_shasum": "b258ec12a8dd96476cabde7b930667c069b1b3f5",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-1161014-72482-eiyahj/package.tgz",
-  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-1161014-72482-nurm6m",
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-11708-1426-fp8orw/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-11708-1426-w4etv0",
+  "atom-mocha": {
+    "interactive": {
+      "mocha": {
+        "bail": true
+      }
+    }
+  },
+  "atomTestRunner": "./node_modules/.bin/atom-mocha",
   "bugs": {
-    "url": "https://github.com/DanBrooker/file-icons/issues"
+    "url": "https://github.com/file-icons/atom/issues"
   },
-  "dependencies": {},
+  "configSchema": {
+    "coloured": {
+      "type": "boolean",
+      "default": true,
+      "description": "Untick this for colourless icons",
+      "order": 1
+    },
+    "onChanges": {
+      "type": "boolean",
+      "default": false,
+      "title": "Only colour when changed",
+      "description": "Show different icon colours for modified files only. Requires that project be a Git repository.",
+      "order": 2
+    },
+    "tabPaneIcon": {
+      "type": "boolean",
+      "default": true,
+      "title": "Show icons in file tabs",
+      "order": 3
+    },
+    "defaultIconClass": {
+      "type": "string",
+      "default": "default-icon",
+      "title": "Default icon class",
+      "description": "CSS class added to files that lack an icon.",
+      "order": 4
+    },
+    "strategies": {
+      "type": "object",
+      "title": "Match strategies",
+      "description": "Advanced settings for dynamic icon assignment.",
+      "order": 5,
+      "properties": {
+        "grammar": {
+          "type": "boolean",
+          "default": true,
+          "order": 1,
+          "title": "Change on grammar override",
+          "description": "Change a file's icon when manually setting its language."
+        },
+        "hashbangs": {
+          "type": "boolean",
+          "default": true,
+          "order": 2,
+          "title": "Check hashbangs",
+          "description": "Allow lines like `#!/usr/bin/perl` to affect icons."
+        },
+        "modelines": {
+          "type": "boolean",
+          "default": true,
+          "order": 3,
+          "title": "Check modelines",
+          "description": "Allow [Vim](http://vim.wikia.com/wiki/Modeline_magic) and [Emacs](https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables) modelines to change icons."
+        },
+        "usertypes": {
+          "type": "boolean",
+          "default": true,
+          "order": 4,
+          "title": "Use custom file-types",
+          "description": "Respect the user's [custom language-type settings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-language-recognition)."
+        },
+        "linguist": {
+          "type": "boolean",
+          "default": true,
+          "order": 5,
+          "title": "Use .gitattributes",
+          "description": "Honour [`linguist-language`](https://github.com/github/linguist#using-gitattributes) attributes in local `.gitattributes` files."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "micromatch": "*"
+  },
   "description": "Assign file extension icons and colours for improved visual grepping",
-  "devDependencies": {},
-  "engines": {
-    "atom": ">0.181.0"
+  "devDependencies": {
+    "atom-mocha": "*",
+    "coffee-script": "*",
+    "get-options": "*",
+    "rimraf": "*",
+    "tmp": "*",
+    "unzip": "*"
   },
-  "homepage": "https://github.com/DanBrooker/file-icons",
+  "engines": {
+    "atom": ">1.11.0"
+  },
+  "homepage": "https://github.com/file-icons/atom",
   "license": "MIT",
-  "main": "index",
+  "main": "lib/main.js",
   "name": "file-icons",
   "optionalDependencies": {},
   "private": true,
-  "readme": "# If you've just updated and your icons are all messed up, please restart Atom before filing an issue.\n\nSome of the underlying icon fonts have updated and rearranged their icons, a restart will fix this.\n\n## Installing\n#### On the command line:\n```ssh\napm install file-icons\n```\n#### On Atom:\nGo to `Preferences > Install`, search for `file-icons` and install it.\n\n# file-icons\n\nAdds file specific icons to atom for improved visual grepping. Works with Tree View and Fuzzy Finder and Tabs.\n\n![Screenshot](https://raw.githubusercontent.com/DanBrooker/file-icons/master/preview.png)\n\nA number of icons and colours are provided by default for a range of common file types.\nIf you have file that you would like custom icons for you can easily add this yourself.\n\nIcons are now specified via CSS (Less) only.\n\n## No Colours\n\nDisable colours in the settings.\n\n## Unity Theme\n\nBy default the Unity theme hides icons, you can force to show the icons in the settings\n\n# Customisation\nThe following CSS can be added to your user stylesheet to customise files with the `.rb` file extension:\n\n```less\n@import \"packages/file-icons/styles/colors\"; // to use the colours\n@import \"packages/file-icons/styles/icons\";  // to use the defined icons\n```\n\n```less\n@import \"packages/file-icons/styles/items\";\n@{pane-tab-selector}, .icon-file-text {\n  &[data-name$=\".rb\"]          { .medium-red;             } // Colours icon and filename\n  &[data-name$=\".rb\"]:before   { .ruby-icon; .medium-red; } // Colours icon only\n}\n```\n\nFolders\n```less\n@import \"packages/file-icons/styles/items\";\n@{pane-tab-selector}, .icon-file-directory {\n  &[data-name=\".git\"]:before { .git-icon; }\n}\n```\n\n## Icons\nIcons are located at `./stylesheets/icons.less`. You can create a custom CSS class and express its code through `content: \"\\fxxx\";`. Octicons is the default icon's class.\n\n```less\n.ruby-icon { content: \"\\f047\"; }\n```\n\n## Fonts\nSome custom fonts are already provided\n* [FontAwesome](http://fortawesome.github.io/Font-Awesome/)(`.fa`)\n* [FontMfizz](http://fizzed.com/oss/font-mfizz)(`.mf`)\n* [Icomoon](https://icomoon.io/)(`.iconmoon`)\n* [Devicons](http://vorillaz.github.io/devicons/)(`.devicons`)\n\n```less\n.coffee-icon { .fa; content: \"\\f0f4\"; }\n```\n\n## Colours\n\nColours are from the [Base16](https://github.com/chriskempson/base16) colour palette. CSS classes used to apply color follow its primary 8 (eight) colours and 3 (three) variants:\n\n  * Red, Green, Yellow, Blue, Maroon, Purple, Orange, Cyan.\n  * Light, Medium, Dark.\n\nMedium is colour provided by Base16. Light is medium lightened 15%. Dark is medium darkened 15%. In order to \"construct\" a CSS class color, you provide its variant followed by a dash (-).\n\n```less\n.light-red;\n.medium-blue;\n.dark-maroon;\n```\n\n# Changelog\nSee [CHANGELOG.md](CHANGELOG.md).\n\n\n# Acknowledgments\n\nWouldn't have even tried to make this if it weren't for [sommerper/filetype-color](https://github.com/sommerper/filetype-color)\nAlso thanks to all the [contributors](https://github.com/DanBrooker/file-icons/graphs/contributors).\n",
+  "providedServices": {
+    "file-icons.element-icons": {
+      "versions": {
+        "1.0.0": "provideService"
+      }
+    },
+    "atom.file-icons": {
+      "versions": {
+        "1.0.0": "suppressFOUC"
+      }
+    }
+  },
+  "readme": "File Icons\n==========\nFile-specific icons in Atom for improved visual grepping.\n\n<img alt=\"Icon previews\" width=\"850\" src=\"https://raw.githubusercontent.com/file-icons/atom/6714706f268e257100e03c9eb52819cb97ad570b/preview.png\" />\n\nSupports the following packages:\n\n* [`tree-view`](https://atom.io/packages/tree-view)\n* [`tabs`](https://atom.io/packages/tabs)\n* [`fuzzy-finder`](https://atom.io/packages/fuzzy-finder)\n* [`find-and-replace`](https://atom.io/packages/find-and-replace)\n* [`archive-view`](https://atom.io/packages/archive-view)\n\n\nInstallation\n------------\nOpen **Settings** → **Install** and search for `file-icons`.\n\nAlternatively, install through command-line:\n\n\tapm install file-icons\n\n\nCustomisation\n-------------\nEverything is handled using CSS classes. Use your [stylesheet][1] to change or tweak icons.\n\nConsult the package stylesheets to see what classes are used:\n\n* **Icons:**   [`styles/icons.less`](./styles/icons.less)\n* **Colours:** [`styles/colours.less`](./styles/colours.less)\n* **Fonts:**   [`styles/fonts.less`](./styles/fonts.less)\n\n\n#### Icon reference\n* [**File-Icons**](https://github.com/file-icons/source/blob/master/charmap.md) \n* [**FontAwesome**](http://fontawesome.io/cheatsheet/)\n* [**Mfizz**](https://github.com/Alhadis/MFixx/blob/master/charmap.md)\n* [**Devicons**](https://github.com/Alhadis/DevOpicons/blob/master/charmap.md)\n\n\n#### Examples\n\n* **Resize an icon:**\n\t~~~less\n\t.html5-icon:before{\n\t\tfont-size: 18px;\n\t}\n\t\n\t// Resize in tab-pane only:\n\t.tab > .html5-icon:before{\n\t\tfont-size: 18px;\n\t\ttop: 3px;\n\t}\n\t~~~\n\n\n* **Choose your own shades of orange:**\n\t~~~css\n\t.dark-orange   { color: #6a1e05; }\n\t.medium-orange { color: #b8743d; }\n\t.light-orange  { color: #cf9b67; }\n\t~~~\n\n\n* **Bring back PHP's blue-shield icon:**\n\t~~~css\n\t.php-icon:before{\n\t\tfont-family: MFizz;\n\t\tcontent: \"\\f147\";\n\t}\n\t~~~\n\n\n* **Assign icons by file extension:**\n\t~~~css\n\t.icon[data-name$=\".js\"]:before{\n\t\tfont-family: Devicons;\n\t\tcontent: \"\\E64E\";\n\t}\n\t~~~\n\n\n* **Assign icons to directories:**\n\t~~~less\n\t.directory > .header > .icon{\n\t\t\n\t\t&[data-path$=\".atom/packages\"]:before{\n\t\t\tfont-family: \"Octicons Regular\";\n\t\t\tcontent: \"\\f0c4\";\n\t\t}\n\t}\n\t~~~\n\n\n\nTroubleshooting\n---------------\n\n**A file's icon has stopped updating:**  \nIt's probably a caching issue. Do the following:\n\n1. Open the command palette: <kbd>Cmd/Ctrl + Shift + P</kbd>\n2. Run `file-icons:clear-cache`\n3. Reload the window, or restart Atom\n\n\n**The tree-view's files are borked and [look like this][6].**  \nIf you haven't restarted Atom since upgrading to [File-Icons v2][v2.0], do so now.\n\nIf restarting doesn't help, your stylesheet probably needs updating. See below.\n\n\n**My stylesheet has errors since updating:**  \nAs of [v2.0][], classes are used for displaying icons instead of mixins. Delete lines like these from your stylesheet:\n\n~~~diff\n-@import \"packages/file-icons/styles/icons\";\n-@import \"packages/file-icons/styles/items\";\n-@{pane-tab-selector},\n.icon-file-directory {\n\t&[data-name=\".git\"]:before {\n-\t\t.git-icon;\n+\t\tfont-family: Devicons;\n+\t\tcontent: \"\\E602\";\n\t}\n}\n~~~\n\nInstead of `@pane-tab…` variables, use `.tab > .icon[data-path]`:\n\n~~~diff\n-@pane-tab-selector,\n-@pane-tab-temp-selector,\n-@pane-tab-override {\n+.tab > .icon {\n \t&[data-path$=\".to.file\"] {\n \t\t\n \t}\n}\n~~~\n\nThese CSS classes are no longer used, so delete them:\n\n~~~diff\n-.file-icons-force-show-icons,\n-.file-icons-tab-pane-icon,\n-.file-icons-on-changes\n~~~\n\n\n**It's something else.**  \nPlease [file an issue][7]. Include screenshots if necessary.\n\n\nIntegration with other packages\n-------------------------------\nIf you're a package author, you can integrate File-Icons using Atom's services API:\n\nFirst, add this to your `package.json` file:\n\n```json\n\"consumedServices\": {\n\t\"file-icons.element-icons\": {\n\t\t\"versions\": {\n\t\t\t\"1.0.0\": \"consumeElementIcons\"\n\t\t}\n\t}\n}\n```\n\nSecondly, add a function named `consumeElementIcons` (or whatever you named it) to your package's main export:\n\n```js\nlet addIconToElement;\nmodule.exports.consumeElementIcons = function(func){\n\taddIconToElement = func;\n};\n```\n\nThen call the function it gets passed to display icons in the DOM:\n\n```js\nlet fileIcon = document.querySelector(\"li.file-entry > span.icon\");\naddIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\nThe returned value is a [`Disposable`][10] which clears the icon from memory once it's no longer needed:\n\n```js\nconst disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\nfileIcon.onDestroy(() => disposable.dispose());\n```\n\n**NOTE:** Remember to remove any default icon-classes before calling the service handler.\n\n```diff\n let fileIcon = document.querySelector(\"li.file-entry > span.icon\");\n+fileIcon.classList.remove(\"icon-file-text\");\n const disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\n\nAcknowledgements\n----------------\nOriginally based on [sommerper/filetype-color][8], but now sporting a shiny new file-icons API in `v2` thanks to [Alhadis][11]!\nAlso thanks to all the [contributors][9]\n\n\n[Referenced links]: ____________________________________________________\n[1]: http://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks\n[4]: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors\n[5]: https://github.com/Alhadis/DevOpicons/blob/master/charmap.md#JavaScript\n[6]: https://cloud.githubusercontent.com/assets/714197/21516010/4b79a8a8-cd39-11e6-8394-1e3ab778af92.png\n[7]: https://github.com/file-icons/atom/issues/new\n[8]: https://github.com/sommerper/filetype-color\n[9]: https://github.com/file-icons/atom/graphs/contributors\n[10]: https://atom.io/docs/api/latest/Disposable\n[11]: https://github.com/Alhadis\n[v2.0]: https://github.com/file-icons/atom/releases/tag/v2.0.0\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DanBrooker/file-icons.git"
+    "url": "git+https://github.com/file-icons/atom.git"
   },
-  "version": "1.7.25"
+  "version": "2.0.7"
 }
