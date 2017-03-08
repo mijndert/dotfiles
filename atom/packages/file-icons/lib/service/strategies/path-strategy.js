@@ -49,11 +49,15 @@ class PathStrategy extends Strategy {
 				path = this.filter(path);
 			}
 			
-			return icon =
+			icon =
 				IconTables.matchPath(path) ||
 				IconTables.matchName(name) ||
-				isFiltered && IconTables.matchName(resource.name) ||
 				null;
+			
+			if(isFiltered && (null === icon || icon.priority < 1))
+				icon = IconTables.matchName(resource.name);
+			
+			return icon || null;
 		}
 	}
 	
@@ -61,7 +65,7 @@ class PathStrategy extends Strategy {
 	filter(path){
 		return path
 			.replace(/~(?:orig|previous)$/, "")
-			.replace(/\.(?:inc?|dist|tm?pl|te?mp)$/i, "");
+			.replace(/^([^.]*\.[^.]+)\.(?:inc?|dist|tm?pl|te?mp)$/i, "$1");
 	}
 }
 

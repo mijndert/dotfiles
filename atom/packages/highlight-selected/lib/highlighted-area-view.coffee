@@ -1,4 +1,4 @@
-{Range, CompositeDisposable, Emitter} = require 'atom'
+{Range, CompositeDisposable, Emitter, MarkerLayer} = require 'atom'
 _ = require 'underscore-plus'
 StatusBarView = require './status-bar-view'
 
@@ -7,7 +7,8 @@ class HighlightedAreaView
 
   constructor: ->
     @emitter = new Emitter
-    @views = []
+    @markerLayers = []
+    @resultCount = 0
     @enable()
     @listenForTimeoutChange()
     @activeItemSubscription = atom.workspace.onDidChangeActivePaneItem =>
@@ -27,8 +28,11 @@ class HighlightedAreaView
   onDidAddMarker: (callback) =>
     @emitter.on 'did-add-marker', callback
 
+  onDidAddSelectedMarker: (callback) =>
+    @emitter.on 'did-add-selected-marker', callback
+
   onDidRemoveAllMarkers: (callback) =>
-    @emitter.on 'did-remove-all-markers', callback
+    @emitter.on 'did-remove-marker-layer', callback
 
   disable: =>
     @disabled = true
@@ -71,12 +75,18 @@ class HighlightedAreaView
   getActiveEditor: ->
     atom.workspace.getActiveTextEditor()
 
+  getActiveEditors: ->
+    atom.workspace.getPanes().map (pane) ->
+      activeItem = pane.activeItem
+      activeItem if activeItem and activeItem.constructor.name == 'TextEditor'
+
   handleSelection: =>
     @removeMarkers()
 
     return if @disabled
 
     editor = @getActiveEditor()
+
     return unless editor
     return if editor.getLastSelection().isEmpty()
     return unless @isWordSelected(editor.getLastSelection())
@@ -110,18 +120,34 @@ class HighlightedAreaView
         regexSearch =  "\\b" + regexSearch
       regexSearch = regexSearch + "\\b"
 
-    resultCount = 0
+    @resultCount = 0
+    if atom.config.get('highlight-selected.highlightInPanes')
+      @getActiveEditors().forEach (editor) =>
+        @highlightSelectionInEditor(editor, regexSearch, regexFlags, range)
+    else
+      @highlightSelectionInEditor(editor, regexSearch, regexFlags, range)
+
+    @statusBarElement?.updateCount(@resultCount)
+
+  highlightSelectionInEditor: (editor, regexSearch, regexFlags, range) ->
+    markerLayer = editor?.addMarkerLayer()
+    return unless markerLayer?
+    markerLayerForHiddenMarkers = editor.addMarkerLayer()
+    @markerLayers.push(markerLayer)
+    @markerLayers.push(markerLayerForHiddenMarkers)
     editor.scanInBufferRange new RegExp(regexSearch, regexFlags), range,
       (result) =>
-        resultCount += 1
-        unless @showHighlightOnSelectedWord(result.range, @selections)
-          marker = editor.markBufferRange(result.range)
-          decoration = editor.decorateMarker(marker,
-            {type: 'highlight', class: @makeClasses()})
-          @views.push marker
+        @resultCount += 1
+        if @showHighlightOnSelectedWord(result.range, @selections)
+          marker = markerLayerForHiddenMarkers.markBufferRange(result.range)
+          @emitter.emit 'did-add-selected-marker', marker
+        else
+          marker = markerLayer.markBufferRange(result.range)
           @emitter.emit 'did-add-marker', marker
-
-    @statusBarElement?.updateCount(resultCount)
+    editor.decorateMarkerLayer(markerLayer, {
+      type: 'highlight',
+      class: @makeClasses()
+    })
 
   makeClasses: ->
     className = 'highlight-selected'
@@ -146,14 +172,11 @@ class HighlightedAreaView
     outcome
 
   removeMarkers: =>
-    return unless @views?
-    return if @views.length is 0
-    for view in @views
-      view.destroy()
-      view = null
-    @views = []
-    @statusBarElement?.updateCount(@views.length)
-    @emitter.emit 'did-remove-all-markers'
+    @markerLayers.forEach (markerLayer) ->
+      markerLayer.destroy()
+    @markerLayers = []
+    @statusBarElement?.updateCount(0)
+    @emitter.emit 'did-remove-marker-layer'
 
   isWordSelected: (selection) ->
     if selection.getBufferRange().isSingleLine()

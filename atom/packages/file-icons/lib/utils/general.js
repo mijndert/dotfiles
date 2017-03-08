@@ -1,5 +1,7 @@
 "use strict";
 
+const {resolve} = require("path");
+
 module.exports = {
 	
 	/**
@@ -131,6 +133,21 @@ module.exports = {
 	
 	
 	/**
+	 * Normalise path separators.
+	 *
+	 * @example "C:\User\foo\..\bar" -> "C:/User/bar"
+	 * @param {String} input
+	 * @return {String}
+	 */
+	normalisePath(input){
+		input = resolve(input || "");
+		return "win32" === process.platform
+			? input.replace(/\\/g, "/")
+			: input;
+	},
+	
+	
+	/**
 	 * Monkey-patch an object's method with another function.
 	 *
 	 * @param {Object} subject
@@ -139,7 +156,10 @@ module.exports = {
 	 * @return {Function[]}
 	 */
 	punch(subject, methodName, handler){
-		const originalMethod = subject[methodName];
+		const value = subject[methodName];
+		const originalMethod = "function" !== typeof value
+			? () => value
+			: value;
 		
 		const punchedMethod = function(){
 			const call = () => originalMethod.apply(this, arguments);
@@ -222,6 +242,22 @@ module.exports = {
 		return new Promise(resolve => {
 			setTimeout(() => resolve(), delay);
 		});
+	},
+	
+	
+	/**
+	 * Replace any occurrences of $HOME with a tilde.
+	 *
+	 * @param {String} inputz
+	 * @return {String}
+	 */
+	tildify(input){
+		if("win32" === process.platform)
+			return input;
+		const home = process.env.HOME + "/";
+		return (0 === input.indexOf(home))
+			? input.substr(home.length).replace(/^\/?/, "~/")
+			: input;
 	},
 	
 	

@@ -1,25 +1,31 @@
 "use strict";
 
 const {CompositeDisposable} = require("atom");
-const Tab = require("./tab.js");
-const UI  = require("../ui.js");
+const Consumer = require("./consumer.js");
+const Tab      = require("./tab.js");
+const UI       = require("../ui.js");
 
 
-class Tabs{
+class Tabs extends Consumer {
+	
+	constructor(){
+		super("tabs");
+	}
+	
 	
 	init(){
-		this.active = false;
-		this.tabs = new Set();
+		super.init();
+		this.tabs          = new Set();
 		this.tabsByElement = new WeakMap();
+		this.tabElements   = null;
+	}
+	
+	
+	activate(){
 		const workspace = atom.views.getView(atom.workspace);
 		this.tabElements = workspace.getElementsByClassName("tab");
 		
-		setImmediate(_=> this.checkPackage());
-		this.disposables = new CompositeDisposable(
-			atom.packages.onDidActivatePackage(_=> this.checkPackage()),
-			atom.packages.onDidDeactivatePackage(_=> this.checkPackage()),
-			atom.packages.onDidActivateInitialPackages(_=> this.checkPackage()),
-			
+		this.disposables.add(
 			UI.delay.onOpenArchive(editor => {
 				const tabEl = this.tabForEditor(editor);
 				this.add(tabEl);
@@ -36,44 +42,41 @@ class Tabs{
 				this.add(tab);
 			})
 		);
+		this.addCurrentTabs();
+		
+		// Project Plus has a "switch" feature that flips between workspaces
+		// in the same window. Make sure Tabs are cleared when doing so.
+		if(atom.packages.activePackages["project-plus"]){
+			const util = this.loadPackageFile("lib/util.js");
+			this.punch(util, "switchToProject", oldFn => {
+				this.resetNodes();
+				const switchPromise = oldFn();
+				switchPromise.then(() => this.addCurrentTabs());
+				return switchPromise;
+			});
+		}
+	}
+	
+	
+	deactivate(){
+		for(const tab of this.tabs)
+			this.remove(tab);
 	}
 	
 	
 	reset(){
-		this.active = false;
-		this.tabs.forEach(tab => this.remove(tab));
-		this.tabs.clear();
+		this.resetNodes();
+		super.reset();
 		this.tabs = null;
-		
 		this.tabElements = null;
 		this.tabsByElement = null;
-		this.disposables.dispose();
-		this.disposables = null;
 	}
 	
 	
-	/**
-	 * Query the activation status of the Tabs package.
-	 *
-	 * @private
-	 */
-	checkPackage(){
-		const tabsPackage = atom.packages.activePackages["tabs"];
-		
-		if(tabsPackage && !this.active){
-			this.active = true;
-			this.package = tabsPackage.mainModule;
-			for(const bar of this.package.tabBarViews)
-				for(const tab of bar.getTabs())
-					this.add(tab);
-		}
-		
-		else if(!tabsPackage && this.active){
-			this.active = false;
-			this.package = null;
-			for(const tab of this.tabs)
-				this.remove(tab);
-		}
+	resetNodes(){
+		super.resetNodes();
+		this.tabs.forEach(tab => this.remove(tab));
+		this.tabs.clear();
 	}
 	
 	
@@ -90,6 +93,13 @@ class Tabs{
 			});
 			this.disposables.add(disposable);
 		}
+	}
+	
+	
+	addCurrentTabs(){
+		for(const bar of this.packageModule.tabBarViews)
+			for(const tab of bar.getTabs())
+				this.add(tab);
 	}
 	
 	
@@ -138,6 +148,7 @@ class Tabs{
 	
 	
 	fixIcon(tab){
+		if(!tab) return;
 		
 		// TODO: Remove check/updateIcon() once atom/tabs#402 is public
 		if("function" === typeof tab.updateIcon)
@@ -157,19 +168,6 @@ class Tabs{
 	closeAll(){
 		const workspace = atom.views.getView(atom.workspace);
 		atom.commands.dispatch(workspace, "tabs:close-all-tabs");
-	}
-	
-	
-	// TODO: A hot cup of Chai. Now.
-	ls(){
-		const tabs = [];
-		for(const paneItem of atom.workspace.getPaneItems()){
-			const name = paneItem.getFileName();
-			const tab = this.tabForEditor(paneItem);
-			tabs.push(tab);
-			Object.defineProperty(tabs, name, {value: tab.itemTitle});
-		}
-		return tabs;
 	}
 }
 

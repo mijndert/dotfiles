@@ -2,16 +2,18 @@
 
 const {CompositeDisposable, Disposable} = require("atom");
 const {isString} = require("../utils/general.js");
+const EntityType = require("../filesystem/entity-type.js");
 const FileSystem = require("../filesystem/filesystem.js");
 const Options = require("../options.js");
 const UI = require("../ui.js");
 
 const iconsByElement = new WeakMap();
+const iconDisposables = new WeakMap();
 
 
 class IconNode{
 	
-	constructor(resource, element){
+	constructor(resource, element, tabIcon = false){
 		const delegate = resource.icon;
 		
 		this.disposables = new CompositeDisposable();
@@ -34,13 +36,20 @@ class IconNode{
 			})
 		);
 		
-		if(!resource.isDirectory)
+		if(tabIcon){
+			this.disposables.add(
+				Options.onDidChange("tabPaneIcon", show => this.setVisible(show))
+			);
+			this.setVisible(Options.tabPaneIcon);
+		}
+		
+		if(resource.isFile)
 			this.disposables.add(
 				Options.onDidChange("defaultIconClass", _=> this.refresh())
 			);
 		
 		else if(delegate.getCurrentIcon())
-			this.element.classList.remove("icon-file-directory");
+			element.classList.remove(...delegate.getFallbackClasses());
 		
 		this.refresh();
 	}
@@ -50,6 +59,8 @@ class IconNode{
 		if(!this.destroyed){
 			this.disposables.dispose();
 			iconsByElement.delete(this.element);
+			this.appliedClasses = null;
+			this.classes   = null;
 			this.resource  = null;
 			this.element   = null;
 			this.destroyed = true;
@@ -135,31 +146,61 @@ class IconNode{
 	 * @public
 	 * @static
 	 *
-	 * @param {HTMLElement} element - DOM element receiving the icon-classes.
-	 * @param {String}         path - Absolute filesystem path
+	 * @param {HTMLElement} element
+	 *    DOM element receiving the icon-classes.
+	 *
+	 * @param {String} path
+	 *    Absolute filesystem path
+	 *
+	 * @param {EntityType} [typeHint={@link EntityType.FILE}]
+	 *    Resource type to assume for unreadable or remote paths.
+	 *    Defaults to a regular file.
+	 *
+	 * @param {Boolean} [isTabIcon=false]
+	 *    Hide node when tab-pane icons are disabled.
 	 *
 	 * @returns {Disposable}
 	 *    A Disposable that destroys the {IconNode} when disposed of. Authors
 	 *    are encouraged to do so once the element is no longer needed.
 	 */
-	static forElement(element, path){
+	static forElement(element, path, typeHint = EntityType.FILE, isTabIcon = false){
 		if(!element) return null;
 		const icon = iconsByElement.get(element);
 		
-		if(icon && !icon.destroyed)
-			return icon;
+		if(icon && !icon.destroyed && iconDisposables.has(icon))
+			return iconDisposables.get(icon);
 		
 		else{
 			if(!path)
 				throw new TypeError("Cannot create icon-node for empty path");
 			
-			const rsrc = FileSystem.get(path);
-			const node = new IconNode(rsrc, element);
+			const rsrc = FileSystem.get(path, false, typeHint);
+			const node = new IconNode(rsrc, element, isTabIcon);
 			
-			return new Disposable(() => node.destroy());
+			const disp = new Disposable(() => {
+				iconDisposables.delete(node);
+				node.destroy();
+			});
+			iconDisposables.set(node, disp);
+			return disp;
 		}
+	}
+	
+	
+	/**
+	 * Retrieve a previously-created {IconNode} for a DOM element.
+	 *
+	 * @param {HTMLElement} element
+	 * @return {IconNode}
+	 * @private
+	 */
+	static getIcon(element){
+		return element
+			? iconsByElement.get(element) || null
+			: null;
 	}
 }
 
 
+IconNode.prototype.destroyed = false;
 module.exports = IconNode;

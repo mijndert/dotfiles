@@ -14,7 +14,6 @@ class ColorBufferElement extends HTMLElement
     [@editorScrollLeft, @editorScrollTop] = [0, 0]
     @emitter = new Emitter
     @subscriptions = new CompositeDisposable
-    @shadowRoot = @createShadowRoot()
     @displayedMarkers = []
     @usedMarkers = []
     @unusedMarkers = []
@@ -85,6 +84,9 @@ class ColorBufferElement extends HTMLElement
     @subscriptions.add atom.config.observe 'editor.lineHeight', =>
       @editorConfigChanged()
 
+    @subscriptions.add atom.config.observe 'pigments.maxDecorationsInGutter', =>
+      @update()
+
     @subscriptions.add atom.config.observe 'pigments.markerType', (type) =>
       ColorMarkerElement ?= require './color-marker-element'
 
@@ -144,7 +146,7 @@ class ColorBufferElement extends HTMLElement
     if @editorElement.hasTiledRendering and not @useNativeDecorations()
       @style.webkitTransform = "translate3d(#{-@editorScrollLeft}px, #{-@editorScrollTop}px, 0)"
 
-  getEditorRoot: -> @editorElement.shadowRoot ? @editorElement
+  getEditorRoot: -> @editorElement
 
   editorConfigChanged: ->
     return if not @parentNode? or @useNativeDecorations()
@@ -300,7 +302,7 @@ class ColorBufferElement extends HTMLElement
         if Array.isArray changes
           changes?.forEach (change) =>
             @updateDotDecorationsOffsets(change.start.row, change.newExtent.row)
-        else
+        else if changes.start and changes.newExtent
           @updateDotDecorationsOffsets(changes.start.row, changes.newExtent.row)
 
     @updateGutterDecorations(type)
@@ -324,6 +326,7 @@ class ColorBufferElement extends HTMLElement
 
     markersByRows = {}
     maxRowLength = 0
+    maxDecorationsInGutter = atom.config.get('pigments.maxDecorationsInGutter')
 
     for m in markers
       if m.color?.isValid() and m not in @displayedMarkers
@@ -336,6 +339,8 @@ class ColorBufferElement extends HTMLElement
       deco = @decorationByMarkerId[m.id]
       row = m.marker.getStartScreenPosition().row
       markersByRows[row] ?= 0
+
+      continue if markersByRows[row] >= maxDecorationsInGutter
 
       rowLength = 0
 
@@ -438,7 +443,7 @@ class ColorBufferElement extends HTMLElement
       view.onDidRelease ({marker}) =>
         @displayedMarkers.splice(@displayedMarkers.indexOf(marker), 1)
         @releaseMarkerView(marker)
-      @shadowRoot.appendChild view
+      @appendChild view
 
     view.setModel(marker)
 
@@ -467,7 +472,7 @@ class ColorBufferElement extends HTMLElement
     @usedMarkers = []
     @unusedMarkers = []
 
-    Array::forEach.call @shadowRoot.querySelectorAll('pigments-color-marker'), (el) -> el.parentNode.removeChild(el)
+    Array::forEach.call @querySelectorAll('pigments-color-marker'), (el) -> el.parentNode.removeChild(el)
 
   ##     ######  ######## ##       ########  ######  ########
   ##    ##    ## ##       ##       ##       ##    ##    ##

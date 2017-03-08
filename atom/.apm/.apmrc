@@ -2,6 +2,6 @@
 ; modifications will be lost the next time any apm command is run.
 ;
 ; You should instead edit your .apmrc config located in ~/.atom/.apmrc
-cache = /Users/mijndert/Documents/Personal/dotfiles/atom/.apm
+cache = /Users/mijndert/.atom/.apm
 ; Hide progress-bar to prevent npm from altering apm console output.
 progress = false

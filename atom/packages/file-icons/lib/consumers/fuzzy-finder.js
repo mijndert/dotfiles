@@ -1,6 +1,7 @@
 "use strict";
 
 const {CompositeDisposable} = require("atom");
+const {normalisePath} = require("../utils/general.js");
 const Consumer = require("./consumer.js");
 
 
@@ -103,8 +104,14 @@ class FuzzyFinder extends Consumer{
 	trackList(args){
 		const {view, type} = args;
 		
+		if(null === this.jQueryRemoved)
+			this.jQueryRemoved = !!(view.selectListView && !view.viewForItem);
+		
 		if(!this.lists.has(view)){
-			this.punch(view, "viewForItem", oldFn => {
+			const target = this.jQueryRemoved
+				? [view.selectListView.props, "elementForItem"]
+				: [view, "viewForItem"];
+			this.punch(...target, oldFn => {
 				this.refresh(view);
 				return oldFn();
 			});
@@ -123,7 +130,9 @@ class FuzzyFinder extends Consumer{
 		}
 		
 		if(null !== this.maxItems)
-			view.setMaxItems(this.maxItems);
+			this.jQueryRemoved
+				? view.selectListView.props.maxResults = this.maxItems
+				: view.setMaxItems(this.maxItems);
 	}
 	
 	
@@ -138,20 +147,24 @@ class FuzzyFinder extends Consumer{
 		if(this.timeouts.get(list))
 			return;
 		
-		this.timeouts.set(list, setTimeout(_=> {
+		this.timeouts.set(list, setTimeout(() => {
 			this.timeouts.delete(list);
 			this.resetNodes();
 			
 			const paths = {};
 			list.items.map(item => {
-				const {filePath, projectRelativePath} = item;
-				paths[projectRelativePath] = filePath;
+				const filePath = normalisePath(item.filePath);
+				const projPath = normalisePath(item.projectRelativePath);
+				paths[projPath] = filePath;
 			});
 			
-			const items = Array.from(list.list[0].children);
+			const element = this.jQueryRemoved
+				? list.element.querySelector("ol.list-group")
+				: list.list[0];
+			const items = Array.from(element.children);
 			for(const item of items){
 				const iconElement = item.querySelector(".primary-line.file");
-				const {path} = iconElement.dataset;
+				const path = normalisePath(iconElement.dataset.path);
 				this.trackEntry(paths[path], iconElement)
 			}
 			this.emit("list-refreshed", items);
@@ -234,9 +247,13 @@ class FuzzyFinder extends Consumer{
 				resolve(results);
 			});
 			this.open(type);
-			const field = list.filterEditorView.getModel();
+			const field = this.jQueryRemoved
+				? list.selectListView.refs.queryEditor
+				: list.filterEditorView.getModel();
 			field.setText(query);
-			list.populateList();
+			this.jQueryRemoved
+				? list.selectListView.didChangeQuery()
+				: list.populateList();
 		});
 	}
 	
@@ -266,7 +283,7 @@ class FuzzyFinder extends Consumer{
 	 */
 	getVisible(list){
 		if(!list) return false;
-		const bounds = list[0].getBoundingClientRect();
+		const bounds = (list[0] || list.element).getBoundingClientRect();
 		return (bounds.width > 0 && bounds.height > 0);
 	}
 	
@@ -300,20 +317,6 @@ class FuzzyFinder extends Consumer{
 			default:
 				return ListType.NONE;
 		}
-	}
-	
-	
-	ls(list = null){
-		list = list || this.currentList[0];
-		const result = [];
-		const items = list.querySelectorAll(".list-group > li");
-		for(const item of items){
-			const value = item.querySelector(".primary-line");
-			result.push(value);
-			const {path} = value.dataset;
-			Object.defineProperty(result, path, {value});
-		}
-		return result;
 	}
 }
 

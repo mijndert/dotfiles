@@ -6,7 +6,7 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "atom-solarized-dark-ui"
+      "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:

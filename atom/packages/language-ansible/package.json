@@ -1,33 +1,59 @@
 {
-  "name": "language-ansible",
-  "version": "0.1.11",
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117020-65752-udkirl"
+    ]
+  ],
+  "_from": "../d-117020-65752-z9idh2/package.tgz",
+  "_id": "language-ansible@0.2.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-ansible",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117020-65752-z9idh2/package.tgz",
+  "_shasum": "8a88e3e9f45026124c7fcf90c8cd8dcdf9486f31",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65752-z9idh2/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117020-65752-udkirl",
+  "bugs": {
+    "url": "https://github.com/haad/language-Ansible/issues"
+  },
+  "dependencies": {},
   "description": "Simple ansible syntax package",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/haad/language-Ansible#readme",
+  "license": "MIT",
+  "name": "language-ansible",
+  "optionalDependencies": {},
+  "readme": "# Ansible Syntax Highligting Package\n\nThis extension to enable syntax highlighting for Ansible in the Atom Editor.\nIt's based on the [original Ansible Sublime-text package](https://github.com/clifford-github/sublime-ansible) with my own fixes.\n\n\n## Adding ansible yaml file detection\n\nFor now both methods doesn't support syntax highlighting based on path see (host_vars/group_vars)\nbelow.\n\n### Using file-types package\n\nAfter installing _file-types_ package user can define custom syntax associations for proper matching.\n\n#### config.cson\n\n```json\n\"*\":\n  \"file-types\":\n    \".*.yml$\": \"source.ansible\"\n    \".*/group_vars/.*\": \"source.ansible\"\n    \".*/host_vars/.*\": \"source.ansible\"\n```\n\n### Atom Custom File Types\n\nManually defining custom file types.\n\n```json\n\"*\":\n  core:\n    customFileTypes:\n      \"source.ansible\": [\n        \"yml\"\n      ]\n```\n\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haad/language-Ansible.git"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=0.174.0 <2.0.0"
-  },
-  "readme": "# Ansible Syntax Highligting Package\n\nThis extension is trying to make syntax highliting for Ansible better on Atom Editor.\nIt's based on [original Ansible Sublime-text package](https://github.com/clifford-github/sublime-ansible) with my own fixes.\n\n\n## Adding ansible yaml file detection\n\nFor now both methods doesn't support syntax highliting based on path see (host_vars/group_vars)\nbelow.\n\n### Using file-types package\n\nAfter intalling _file-types_ package user can define custom syntax associations for proper matching.\n\n#### config.cson\n\n```json\n\"*\":\n  \"file-types\":\n    \".*.yml$\": \"source.ansible\"\n    \".*/group_vars/.*\": \"source.ansible\"\n    \".*/host_vars/.*\": \"source.ansible\"\n```\n\n### Atom Custom File Types\n\nManually defining custom file types.\n\n```json\n\"*\":\n  core:\n    customFileTypes:\n      \"source.ansible\": [\n        \"yml\"\n      ]\n```\n\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/haad/language-Ansible/issues"
-  },
-  "homepage": "https://github.com/haad/language-Ansible#readme",
-  "_id": "language-ansible@0.1.11",
-  "_shasum": "abdc614f94c28bbe1f0a481ba6387773a27aaef1",
-  "_resolved": "file:../d-116716-7960-vds9qi/package.tgz",
-  "_from": "../d-116716-7960-vds9qi/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.2.1"
 }

@@ -34,7 +34,7 @@ patterns: [
     captures:
       "2":
         name: "keyword.other.ansible"
-    match: "(\\s*(\\w+:))?\\s"
+    match: "(\\s*(\\w+:))\\s"
     name: "text"
   }
   {

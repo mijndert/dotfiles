@@ -41,10 +41,10 @@ class IconDefinition{
 		if(props.matchPath)
 			this.matchPath = true;
 		
-		// Improve performance by forcing all groups to be non-capturing
+		// Improve performance by forcing groups to be non-capturing
 		for(const name in this){
 			const value = this[name];
-			if(isRegExp(value))
+			if(isRegExp(value) && !/\\[1-9]/.test(value.source.replace(/\\[^1-9]/g, "")))
 				this[name] = forceNonCapturing(value);
 		}
 	}
@@ -153,8 +153,8 @@ class IconDefinition{
 			const keyPattern = this.lang && !this.lang.ignoreCase
 				? caseKludge(key, !noFuzz)
 				: noFuzz
-					? fuzzyRegExp(key, String)
-					: escapeRegExp(key);
+					? escapeRegExp(key)
+					: fuzzyRegExp(key, String);
 			
 			const source = this.lang
 				? `^${keyPattern}$|${this.lang.source}`
@@ -197,6 +197,7 @@ class IconDefinition{
 			this.icon,
 			this.colour,
 			this.match,
+			this.priority,
 			this.matchPath,
 			this.interpreter,
 			this.scope,
@@ -210,8 +211,15 @@ class IconDefinition{
 				args.pop();
 			else break;
 		
-		if(args[3] === false && args.length === 4)
+		
+		// Shorten array further by pruning trailing defaults:
+		if(args[4] === false && args.length === 5)  // → matchPath=false
 			args.pop();
+		
+		if(args[3] === 1) args.length !== 4         // → priority=1
+			? args[3] = null
+			: args.pop();
+		
 		
 		return "[" + args.map(
 			arg => null === arg

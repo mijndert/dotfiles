@@ -4,118 +4,71 @@ const {isAbsolute, join, sep} = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
 const FileSystem    = require("../filesystem/filesystem.js");
 const TreeEntry     = require("./tree-entry.js");
+const Consumer      = require("./consumer.js");
+const UI            = require("../ui.js");
 
 
-class TreeView{
+class TreeView extends Consumer {
 	
-	init(){
-		this.disposables = new CompositeDisposable();
+	constructor(){
+		super("tree-view");
+		this.entryElements = null;
 		this.entries = new Map();
-		this.emitter = new Emitter();
 		this.element = null;
 		
-		this.checkPanes();
-		this.disposables.add(
-			atom.packages.onDidActivatePackage(_=> this.checkPanes()),
-			atom.packages.onDidDeactivatePackage(_=> this.checkPanes()),
-			atom.packages.onDidActivateInitialPackages(() => {
-				const workspace = atom.views.getView(atom.workspace);
-				atom.commands.dispatch(workspace, "tree-view:show");
-				this.checkPanes();
-			}),
-			
-			this.onDidAttach(() => {
-				if(this.metadata.consumedServices["file-icons.element-icons"]){
-					this.isRedundant = true;
-					return;
-				}
-				
-				this.entryElements = this.element[0].getElementsByClassName("entry");
-				
-				// TODO: Remove check when atom/tree-view#966 is merged/shipped
-				if("function" === typeof this.element.onEntryMoved){
-					const onMove = this.element.onEntryMoved(paths => {
-						FileSystem.fixPath(paths.oldPath, paths.newPath);
-					});
-					this.disposables.add(onMove);
-				}
-				this.disposables.add(
-					atom.project.onDidChangePaths(_=> this.rebuild()),
-					atom.config.onDidChange("tree-view.hideIgnoredNames", _=> this.rebuild()),
-					atom.config.onDidChange("tree-view.hideVcsIgnoredFiles", _=> this.rebuild()),
-					atom.config.onDidChange("tree-view.squashDirectoryNames", _=> this.rebuild()),
-					atom.config.onDidChange("tree-view.sortFoldersBeforeFiles", _=> this.rebuild())
-				);
-				this.rebuild();
+		this.disposables.set("project",
+			UI.onProjectsAvailable(() => {
+				this.show(true);
+				this.disposables.dispose("project");
 			})
 		);
 	}
 	
 	
-	reset(){
-		this.disposables.dispose();
-		this.emitter.dispose();
-		this.entries.clear();
+	init(){
+		super.init();
+		this.updateStatus();
+	}
+	
+	
+	activate(){
+		this.show(true);
+		const {treeView}   = this.packageModule;
+		this.element       = treeView;
+		this.entryElements = (treeView[0] || treeView.element).getElementsByClassName("entry");
 		
-		this.entryElements = null;
-		this.disposables = null;
-		this.entries = null;
-		this.emitter = null;
-		this.element = null;
-	}
-	
-	
-	onDidAttach(fn){
-		return this.emitter.on("did-attach", fn);
-	}
-	
-	
-	onDidRemove(fn){
-		return this.emitter.on("did-remove", fn);
-	}
-	
-	
-	/**
-	 * Query the activation status of the tree-view package.
-	 *
-	 * @private
-	 */
-	checkPanes(){
-		const treePackage = atom.packages.activePackages["tree-view"];
-		
-		if(treePackage && !this.element){
-			const {treeView} = treePackage.mainModule;
-			this.metadata = treePackage.metadata;
-			
-			if(treeView){
-				this.element = treeView;
-				this.emitter.emit("did-attach");
-			}
-			
-			else if(!this.pending){
-				this.pending = atom.commands.onDidDispatch(cmd => {
-					if("tree-view:toggle" === cmd.type || "tree-view:show" === cmd.type){
-						this.pending.dispose();
-						this.disposables.remove(this.pending);
-						delete this.pending;
-						
-						this.element = treePackage.mainModule.treeView;
-						this.emitter.emit("did-attach");
-					}
-				});
-				this.disposables.add(this.pending);
-			}
+		// TODO: Remove check when/if atom/tree-view#966 is merged/shipped
+		if("function" === typeof this.element.onEntryMoved){
+			const onMove = this.element.onEntryMoved(paths => {
+				FileSystem.fixPath(paths.oldPath, paths.newPath);
+			});
+			this.disposables.add(onMove);
 		}
+		this.disposables.add(
+			atom.project.onDidChangePaths(() => this.rebuild()),
+			atom.config.onDidChange("tree-view.hideIgnoredNames", () => this.rebuild()),
+			atom.config.onDidChange("tree-view.hideVcsIgnoredFiles", () => this.rebuild()),
+			atom.config.onDidChange("tree-view.squashDirectoryNames", () => this.rebuild()),
+			atom.config.onDidChange("tree-view.sortFoldersBeforeFiles", () => this.rebuild())
+		);
+		this.rebuild();
 		
-		else if(!treePackage && this.element){
-			this.element = null;
-			this.emitter.emit("did-remove");
-		}
+		// HACK (file-icons/atom#550): Needed to force refresh when switching projects in Project Plus.
+		// See: https://github.com/mehcode/atom-project-util/blob/f58bec9e582c43a74fc2ed1/index.js#L155
+		if(atom.packages.loadedPackages["project-plus"])
+			this.punch(treeView, "updateRoots", oldFn => {
+				const result = oldFn();
+				this.rebuild();
+				return result;
+			});
 	}
 	
 	
 
 	rebuild(){
+		if(!this.element || !this.element.roots)
+			return;
+		
 		for(const root of this.element.roots)
 			this.track(root.directory);
 	}
@@ -237,6 +190,20 @@ class TreeView{
 		
 		const workspace = atom.views.getView(atom.workspace);
 		atom.commands.dispatch(workspace, "tree-view:toggle");
+	}
+	
+	
+	
+	/**
+	 * Force tree-view to display by dispatching `tree-view:show`.
+	 *
+	 * @private
+	 */
+	show(startup=false){
+		if(startup && false === atom.config.get("file-icons.revealTreeView"))
+			return;
+		const workspace = atom.views.getView(atom.workspace);
+		atom.commands.dispatch(workspace, "tree-view:show");
 	}
 }
 

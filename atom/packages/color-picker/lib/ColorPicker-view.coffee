@@ -259,9 +259,9 @@
 
             Editor = atom.workspace.getActiveTextEditor() unless Editor
             EditorView = atom.views.getView Editor
+            EditorElement = Editor.getElement()
 
             return unless EditorView
-            EditorRoot = EditorView.shadowRoot or EditorView
 
             # Reset selection
             @selection = null
@@ -285,7 +285,9 @@
             _matches = _colorMatches.concat _variableMatches
 
             # Figure out which of the matches is the one the user wants
+            _cursorPosition = EditorElement.pixelPositionForScreenPosition Cursor.getScreenPosition()
             _cursorColumn = Cursor.getBufferColumn()
+
             _match = do -> for _match in _matches
                 return _match if _match.start <= _cursorColumn and _match.end >= _cursorColumn
 
@@ -299,8 +301,7 @@
                 @selection = match: _match, row: _cursorBufferRow
             # But if we don't have a match, center the Color Picker on last cursor
             else
-                _cursorPosition = Cursor.getPixelRect()
-                @selection = column: Cursor.getBufferColumn(), row: _cursorBufferRow
+                @selection = column: _cursorColumn, row: _cursorBufferRow
 
         #  Emit
         # ---------------------------
@@ -351,23 +352,22 @@
             _paneOffsetLeft = PaneView.offsetLeft
 
             _editorOffsetTop = EditorView.parentNode.offsetTop
-            _editorOffsetLeft = EditorRoot.querySelector('.scroll-view').offsetLeft
+            _editorOffsetLeft = EditorView.querySelector('.scroll-view').offsetLeft
             _editorScrollTop = EditorView.getScrollTop()
 
             _lineHeight = Editor.getLineHeightInPixels()
-            _lineOffsetLeft = EditorRoot.querySelector('.line').offsetLeft
+            _lineOffsetLeft = EditorView.querySelector('.line').offsetLeft
 
             # Center it on the middle of the selection range
             # TODO: There can be lines over more than one row
             if _match
-                _rect = EditorView.pixelRectForScreenRange(_selection.getScreenRange())
+                _rect = EditorElement.pixelRectForScreenRange(_selection.getScreenRange())
                 _right = _rect.left + _rect.width
-                _cursorPosition = Cursor.getPixelRect()
                 _cursorPosition.left = _right - (_rect.width / 2)
 
         #  Figure out where to place the Color Picker
         # ---------------------------
-            _totalOffsetTop = _paneOffsetTop + _cursorPosition.height - _editorScrollTop + _editorOffsetTop
+            _totalOffsetTop = _paneOffsetTop + _lineHeight - _editorScrollTop + _editorOffsetTop
             _totalOffsetLeft = _paneOffsetLeft + _editorOffsetLeft + _lineOffsetLeft
 
             _position =

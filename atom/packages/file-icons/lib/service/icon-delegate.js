@@ -1,7 +1,9 @@
 "use strict";
 
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
+const {normalisePath} = require("../utils/general.js");
 const StrategyManager = require("./strategy-manager.js");
+const EntityType = require("../filesystem/entity-type.js");
 const IconTables = require("../icons/icon-tables.js");
 const Options = require("../options.js");
 const Storage = require("../storage.js");
@@ -46,6 +48,15 @@ class IconDelegate{
 		return this.emitter.on("did-change-master", fn);
 	}
 	
+	
+	/**
+	 * Instruct {@link IconNode|IconNodes} to reapply their element's CSS classes.
+	 *
+	 * @param {Icon} from
+	 * @param {Icon} to
+	 * @emits did-change-icon
+	 * @private
+	 */
 	emitIconChange(from, to){
 		if(this.emitter)
 			this.emitter.emit("did-change-icon", {from, to});
@@ -58,56 +69,78 @@ class IconDelegate{
 	 * @return {Array}
 	 */
 	getClasses(){
-		const {resource} = this;
-		
-		let {colourMode} = Options;
-		if(Options.colourChangedOnly && !resource.vcsStatus)
-			colourMode = null;
+		const colourMode = Options.colourChangedOnly && !this.resource.vcsStatus
+			? null
+			: Options.colourMode;
 		
 		const icon = this.master
 			? this.master.getCurrentIcon()
 			: this.getCurrentIcon();
+		
 		let classes = icon
 			? icon.getClass(colourMode, true)
 			: this.getFallbackClasses();
 		
-		if(resource.isSymlink){
-			const type = resource.isDirectory ? "directory" : "file";
-			const linkClass = "icon-file-symlink-" + type;
-			classes
-				? classes[0] = linkClass
-				: classes = [linkClass];
-		}
-		
-		else if(resource.isSubmodule){
-			const moduleClass = "icon-file-submodule";
-			classes
-				? classes[0] = moduleClass
-				: classes = [moduleClass];
-		}
+		const replacement = this.getReplacementClass();
+		if(replacement) classes
+			? classes[0] = replacement
+			: classes = [replacement];
 		
 		return classes;
 	}
 	
 	
 	/**
-	 * Return the delegate's default CSS classes.
+	 * Return the icon-classes to use when nothing matches.
 	 *
-	 * @return {Array}
+	 * @return {String[]}
+	 * @private
 	 */
 	getFallbackClasses(){
 		const {resource} = this;
 		
-		// Show default directory icons
-		if(resource.isDirectory)
-			return resource.isRepo
-				? ["icon-repo"]
-				: ["icon-file-directory"];
+		if(resource.type & EntityType.DIRECTORY)
+			return ["icon-file-directory"];
 		
-		if(resource.isBinary)
+		else if(resource.isBinary)
 			return ["icon-file-binary"];
 		
-		return [...Options.defaultIconClass];
+		else{
+			const classes = Options.defaultIconClass || [];
+			
+			// Avoid referencing original array; return value is subject to modification
+			return classes.slice(0);
+		}
+	}
+	
+	
+	/**
+	 * Return an icon-class to replace the one used by the delegate.
+	 *
+	 * Used only in very specific circumstances, when the nature of an entity
+	 * takes precedence over usual icon-matching strategies. Examples include
+	 * symbolic links and submodule folders. Delegates may still apply their
+	 * colour classes, hence the reason a fixed value isn't used.
+	 *
+	 * @private
+	 * @return {String} Name of a CSS class, or the empty string if
+	 * no class replacement should be made.
+	 */
+	getReplacementClass(){
+		const {resource} = this;
+		
+		if(resource.isRepository && resource.isRoot)
+			return "icon-repo";
+		
+		else if(resource.isSymlink){
+			const type = resource.isDirectory ? "directory" : "file";
+			return "icon-file-symlink-" + type;
+		}
+		
+		else if(resource.isSubmodule)
+			return "icon-file-submodule";
+		
+		else return "";
 	}
 	
 	
@@ -155,7 +188,8 @@ class IconDelegate{
 			if(null !== priority)
 				this.currentPriority = priority;
 			
-			if(null === to && !this.resource.isDirectory)
+			// Re-evaluate icon unless resource is a directory
+			if(null === to && ~this.resource.type & EntityType.DIRECTORY)
 				to = this.getCurrentIcon();
 			
 			this.serialise();
@@ -187,11 +221,12 @@ class IconDelegate{
 	
 	
 	deserialise(){
-		const {path, isDirectory} = this.resource;
+		const path = normalisePath(this.resource.path);
 		
 		if(!Storage.hasIcon(path))
 			return;
 		
+		const {isDirectory} = this.resource;
 		const icons = isDirectory
 			? IconTables.directoryIcons
 			: IconTables.fileIcons;
@@ -210,7 +245,7 @@ class IconDelegate{
 	
 	serialise(){
 		if(!Storage.locked){
-			const {path} = this.resource;
+			const path = normalisePath(this.resource.path);
 			const icon = this.currentIcon;
 			
 			if(icon)

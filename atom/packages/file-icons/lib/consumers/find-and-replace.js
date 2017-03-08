@@ -1,7 +1,7 @@
 "use strict";
 
-const {isRegExp} = require("../utils/general.js");
-const Consumer   = require("./consumer.js");
+const {isRegExp, normalisePath, wait} = require("../utils/general.js");
+const Consumer = require("./consumer.js");
 
 
 class FindAndReplace extends Consumer {
@@ -13,12 +13,27 @@ class FindAndReplace extends Consumer {
 	
 	activate(){
 		const ResultView = this.loadPackageFile("lib/project/result-view");
+		const usesLegacy = !!ResultView.prototype.renderResult
 		const trackEntry = this.trackEntry.bind(this);
-		this.punch(ResultView.prototype, "renderResult", function(oldFn){
+		const methodName = usesLegacy ? "renderResult" : "render";
+		this.jQueryRemoved = !usesLegacy;
+		this.punch(ResultView.prototype, methodName, function(oldFn){
 			const result = oldFn();
-			trackEntry(this.filePath, this[0].querySelector(".icon"));
+			const path = normalisePath(this.filePath);
+			usesLegacy
+				? trackEntry(path, this[0].querySelector(".icon"))
+				: process.nextTick(() => {
+					trackEntry(path, this.element.querySelector(".icon"));
+				});
 			return result;
 		});
+		this.disposables.add(
+			atom.workspace.onDidDestroyPaneItem(event => {
+				const {item} = event;
+				if(item && "ResultsPaneView" === item.constructor.name)
+					this.resetNodes();
+			})
+		);
 	}
 	
 	
@@ -32,21 +47,32 @@ class FindAndReplace extends Consumer {
 			string = string.source;
 		}
 		
-		const {projectFindView} = this.package.mainModule;
-		projectFindView.findEditor.getModel().setText(string);
-		projectFindView.model.search(string, paths, "", {caseSensitive, useRegex});
+		const view = this.package.mainModule.projectFindView;
+		const editor = view.findEditor.getModel
+			? view.findEditor.getModel()
+			: view.findEditor;
+		editor.setText(string);
+		view.model.search(string, paths, "", {caseSensitive, useRegex});
 		
 		const openOpts = {activateItem: true, activatePane: true};
 		return atom.workspace.open(this.resultsURI, openOpts)
 			.then(() => wait(450))
-			.then(() => this.getResultsView().renderResults());
+			.then(() => this.showResults());
+	}
+	
+	
+	showResults(){
+		const view = this.getResultsView();
+		return this.jQueryRemoved
+			? view.render()
+			: view.resultsView.renderResults();
 	}
 	
 	
 	getResultsView(){
 		const pane = atom.workspace.paneForURI(this.resultsURI);
 		return pane
-			? pane.itemForURI(this.resultsURI).resultsView
+			? pane.itemForURI(this.resultsURI)
 			: null;
 	}
 }
