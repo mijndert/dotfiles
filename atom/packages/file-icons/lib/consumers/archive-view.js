@@ -1,6 +1,6 @@
 "use strict";
 
-const {normalisePath} = require("../utils/general.js");
+const {normalisePath} = require("alhadis.utils");
 const ArchiveEntry = require("./archive-entry.js");
 const Consumer = require("./consumer.js");
 
@@ -59,23 +59,6 @@ class ArchiveView extends Consumer {
 			this.punchClass("lib/archive-editor-view", {
 				createTreeEntries: this.parseEntries.bind(this)
 			});
-			
-			// HACK: Remove if atom/archive-view#45 defines `onDidDestroy`
-			if(!editorPrototype.onDidDestroy){
-				editorPrototype.onDidDestroy = function(fn){
-					const {Disposable} = require("atom");
-					const {view} = this;
-					if(view.disposables.disposed){
-						setImmediate(() => fn());
-						return new Disposable();
-					}
-					else{
-						let disposed = false;
-						view.disposables.add(new Disposable(() => disposed || fn()));
-						return new Disposable(() => disposed = true);
-					}
-				};
-			}
 		}
 	}
 	

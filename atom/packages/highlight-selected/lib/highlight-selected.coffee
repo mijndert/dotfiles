@@ -20,7 +20,7 @@ module.exports =
       default: false
     minimumLength:
       type: 'integer'
-      default: 0
+      default: 2
     timeout:
       type: 'integer'
       default: 20
@@ -49,7 +49,9 @@ module.exports =
     @subscriptions?.dispose()
     @subscriptions = null
 
-  provideHighlightSelectedV1: -> @areaView
+  provideHighlightSelectedV1Deprecated: -> @areaView
+
+  provideHighlightSelectedV2: -> @areaView
 
   consumeStatusBar: (statusBar) ->
     @areaView.setStatusBar statusBar

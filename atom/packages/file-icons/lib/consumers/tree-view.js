@@ -2,7 +2,7 @@
 
 const {isAbsolute, join, sep} = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const FileSystem    = require("../filesystem/filesystem.js");
+const {FileSystem}  = require("atom-fs");
 const TreeEntry     = require("./tree-entry.js");
 const Consumer      = require("./consumer.js");
 const UI            = require("../ui.js");
@@ -40,7 +40,7 @@ class TreeView extends Consumer {
 		// TODO: Remove check when/if atom/tree-view#966 is merged/shipped
 		if("function" === typeof this.element.onEntryMoved){
 			const onMove = this.element.onEntryMoved(paths => {
-				FileSystem.fixPath(paths.oldPath, paths.newPath);
+				FileSystem.updatePath(paths.oldPath, paths.newPath);
 			});
 			this.disposables.add(onMove);
 		}

@@ -1,9 +1,8 @@
 "use strict";
 
 const {CompositeDisposable, Disposable} = require("atom");
-const {isString} = require("../utils/general.js");
-const EntityType = require("../filesystem/entity-type.js");
-const FileSystem = require("../filesystem/filesystem.js");
+const {FileSystem, EntityType} = require("atom-fs");
+const {isString} = require("alhadis.utils");
 const Options = require("../options.js");
 const UI = require("../ui.js");
 

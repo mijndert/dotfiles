@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
-        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117020-65911-27389u"
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117225-94798-948m39"
     ]
   ],
-  "_from": "../d-117020-65911-1s57anw/package.tgz",
-  "_id": "highlight-selected@0.12.0",
+  "_from": "../d-117225-94798-qy3ss1/package.tgz",
+  "_id": "highlight-selected@0.13.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/highlight-selected",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
-    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117020-65911-1s57anw/package.tgz",
-  "_shasum": "b73bbec5b00d28cb5d54c4fbebbfd4aff41cd331",
+  "_resolved": "file:../d-117225-94798-qy3ss1/package.tgz",
+  "_shasum": "8b6ce153f680dfd60ab003835e666266c4420e5f",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117020-65911-1s57anw/package.tgz",
-  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117020-65911-27389u",
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117225-94798-qy3ss1/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117225-94798-948m39",
   "bugs": {
     "url": "https://github.com/richrace/highlight-selected/issues"
   },
@@ -47,7 +47,7 @@
     }
   },
   "dependencies": {
-    "underscore-plus": "1.x"
+    "grim": "^2.0.1"
   },
   "description": "Highlights the current word selected when double clicking",
   "devDependencies": {
@@ -70,7 +70,8 @@
     "highlightSelected": {
       "description": "Exposes Highlight Selected Events",
       "versions": {
-        "1.0.0": "provideHighlightSelectedV1"
+        "1.0.0": "provideHighlightSelectedV1Deprecated",
+        "2.0.0": "provideHighlightSelectedV2"
       }
     }
   },
@@ -80,5 +81,5 @@
     "type": "git",
     "url": "git+https://github.com/richrace/highlight-selected.git"
   },
-  "version": "0.12.0"
+  "version": "0.13.1"
 }

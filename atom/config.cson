@@ -3,6 +3,7 @@
     audioBeep: false
     disabledPackages: [
       "git-status"
+      "platformio-ide-terminal"
     ]
     telemetryConsent: "no"
     themes: [
@@ -10,6 +11,7 @@
       "solarized-dark-syntax"
     ]
   editor:
+    fontFamily: "Source Code Pro"
     fontSize: 12
     invisibles: {}
   "exception-reporting":

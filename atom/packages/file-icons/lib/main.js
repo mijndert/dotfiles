@@ -5,7 +5,6 @@ const Options        = require("./options.js");
 const UI             = require("./ui.js");
 const Consumers      = require("./consumers/all.js");
 const AutoCompiler   = require("./icons/auto-compiler.js");
-const FileSystem     = require("./filesystem/filesystem.js");
 const IconService    = require("./service/icon-service.js");
 
 
@@ -15,18 +14,16 @@ module.exports = {
 		Storage.init(state);
 		Options.init();
 		UI.init();
-		FileSystem.init();
 		Consumers.init();
 		UI.observe();
 		AutoCompiler.init();
 		IconService.init();
-		require("./utils/dev.js");
+		require("./debug.js");
 	},
 	
 	deactivate(){
 		Storage.lock();
 		Consumers.reset();
-		FileSystem.reset();
 		IconService.reset();
 		AutoCompiler.reset();
 		UI.reset();

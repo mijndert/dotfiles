@@ -35,8 +35,6 @@ describe "HighlightSelected", ->
           .then ({mainModule}) ->
             highlightSelected = mainModule
 
-      # Disabled until minimap-highlight-selected branch
-      # feature-highlight-selected-api is merged in
       # if hasMinimap
       #   waitsForPromise ->
       #     atom.packages.activatePackage('minimap').then ({mainModule}) ->
@@ -106,7 +104,7 @@ describe "HighlightSelected", ->
           editor.setSelectedBufferRange(range)
           advanceClock(20000)
 
-        it "adds the decoration only no selected words", ->
+        it "adds the decoration only on selected words", ->
           expect(editorElement.querySelectorAll(
             '.highlight-selected .region')).toHaveLength(3)
 
@@ -117,7 +115,7 @@ describe "HighlightSelected", ->
           editor.setSelectedBufferRanges([range1, range2])
           advanceClock(20000)
 
-        it "adds the decoration only no selected words", ->
+        it "adds the decoration only on selected words", ->
           expect(editorElement.querySelectorAll(
             '.highlight-selected .region')).toHaveLength(2)
 
@@ -207,8 +205,6 @@ describe "HighlightSelected", ->
           expect(editorElement.querySelectorAll('.highlight-selected.light-theme
             .region')).toHaveLength(4)
 
-    # Disabled until minimap-highlight-selected branch
-    # feature-highlight-selected-api is merged in
     # if hasMinimap
     #   describe "minimap highlight selected still works", ->
     #     beforeEach ->

@@ -2,10 +2,10 @@
 
 const path = require("path");
 const {CompositeDisposable, Disposable, Task} = require("atom");
-const FileSystem   = require("../filesystem/filesystem.js");
+const {FileSystem} = require("atom-fs");
 const Options      = require("../options.js");
 const Storage      = require("../storage.js");
-const {log}        = require("../utils/general.js");
+const {log}        = require("../debug.js");
 const UI           = require("../ui.js");
 
 const COMPILER_PATH = path.join(__dirname, "..", "..", "bin", "compile");

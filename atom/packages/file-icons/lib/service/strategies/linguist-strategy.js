@@ -3,9 +3,8 @@
 const path = require("path");
 const Micromatch = require("micromatch");
 const {CompositeDisposable, Disposable} = require("atom");
-const {PatternMap, PatternSet} = require("../../utils/pattern-lists.js");
-const MappedDisposable = require("../../utils/mapped-disposable.js");
-const FileSystem = require("../../filesystem/filesystem.js");
+const {MappedDisposable, PatternMap, PatternSet} = require("alhadis.utils");
+const {FileSystem} = require("atom-fs");
 const IconTables = require("../../icons/icon-tables.js");
 const Strategy = require("../strategy.js");
 

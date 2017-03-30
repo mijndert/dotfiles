@@ -1,8 +1,8 @@
 "use strict";
 
 const {dirname, join} = require("path");
+const {FileSystem} = require("atom-fs");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const {rgbToHSL} = require("./utils/general.js");
 let delayNext = false;
 
 
@@ -23,6 +23,19 @@ class UI {
 			atom.themes.onDidChangeActiveThemes(() => {
 				setImmediate(() => this.checkMotif());
 				this.fixOffset();
+			}),
+			this.onSaveNewFile(args => {
+				const file = FileSystem.get(args.file);
+				file.addEditor(args.editor);
+			}),
+			this.onOpenFile(editor => {
+				const path = editor.getPath();
+				let entity = FileSystem.get(path);
+				if("function" !== typeof entity.addEditor){
+					FileSystem.paths.delete(path);
+					entity = FileSystem.get(path);
+				}
+				entity.addEditor(editor);
 			})
 		);
 	}
@@ -188,7 +201,7 @@ class UI {
 	checkMotif(){
 		const colour = this.getThemeColour();
 		if(!colour) return;
-		const isLight = rgbToHSL(colour)[2] >= .5;
+		const isLight = this.rgbToHSL(colour)[2] >= .5;
 		if(isLight !== this.lightTheme){
 			this.lightTheme = isLight;
 			this.emitMotifChanged(isLight);
@@ -272,6 +285,42 @@ class UI {
 				: this.emitProjectsEmptied();
 			this.emitProjectsChanged({from, to});
 		}
+	}
+	
+	
+	/**
+	 * Convert an RGB colour to HSL.
+	 *
+	 * @param {Number[]} channels - An array holding each RGB component
+	 * @return {Number[]}
+	 */
+	rgbToHSL(channels){
+		if(!channels) return;
+		
+		const r     = channels[0] / 255;
+		const g     = channels[1] / 255;
+		const b     = channels[2] / 255;
+		const min   = Math.min(r, g, b);
+		const max   = Math.max(r, g, b);
+		const lum   = (max + min) / 2;
+		const delta = max - min;
+		const sat   = lum < .5
+			? (delta / (max + min))
+			: (delta / (2 - max - min));
+		
+		let hue;
+		switch(max){
+			case r:  hue =     (g - b) / delta; break;
+			case g:  hue = 2 + (b - r) / delta; break;
+			default: hue = 4 + (r - g) / delta; break;
+		}
+		
+		hue /= 6;
+		
+		if(hue < 0)
+			hue += 1;
+		
+		return [ hue || 0, sat || 0, lum || 0 ];
 	}
 }
 

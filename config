@@ -5,3 +5,6 @@ Host mijndertstuij.nl
 	HostName mijndertstuij.nl
 	User mijndert
 
+Host jorijn
+	HostName ssh.jorijn.com
+	User mijndert

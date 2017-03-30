@@ -1,9 +1,9 @@
 "use strict";
 
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const {normalisePath} = require("../utils/general.js");
+const {normalisePath} = require("alhadis.utils");
+const {EntityType} = require("atom-fs");
 const StrategyManager = require("./strategy-manager.js");
-const EntityType = require("../filesystem/entity-type.js");
 const IconTables = require("../icons/icon-tables.js");
 const Options = require("../options.js");
 const Storage = require("../storage.js");

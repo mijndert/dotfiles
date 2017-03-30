@@ -112,6 +112,10 @@ directoryIcons:
 		icon: "github"
 		match: /^\.github$/
 
+	GitLab:
+		icon: "gitlab"
+		match: /^\.gitlab$/
+
 	Meteor:
 		icon: "meteor"
 		match: /^\.meteor$/
@@ -237,6 +241,13 @@ fileIcons:
 			[".psq", "medium-purple"]
 		]
 
+	Alex:
+		icon: "alex"
+		match: [
+			[".alexrc", "auto-pink"]
+			[".alexignore", "auto-red"]
+		]
+
 	Alloy:
 		icon: "alloy"
 		scope: "alloy"
@@ -290,6 +301,12 @@ fileIcons:
 			[".g", "medium-red", "antlr"]
 			[".g4", "medium-orange"]
 		]
+
+	Antwar:
+		icon: "antwar"
+		priority: 2
+		match: /^\.?antwar\.conf(ig)?\.js$/i
+		colour: "dark-purple"
 
 	Apache:
 		icon: "apache"
@@ -813,6 +830,12 @@ fileIcons:
 	CodeKit:
 		icon: "codekit"
 		match: /(^config)?\.codekit\d*$/i
+
+	CodeShip:
+		icon: "codeship"
+		priority: 2
+		match: /^codeship-[\w.-]+\.ya?ml$/i
+		colour: "dark-blue"
 
 	CoffeeScript:
 		icon: "coffee"
@@ -1631,8 +1654,8 @@ fileIcons:
 	GitLab:
 		icon: "gitlab"
 		priority: 2
+		match: /^\.gitlab-ci\.yml$/
 		colour: "medium-orange"
-		match: /^\.gitlab-ci\.ya?ml$/i
 
 	Glade:
 		icon: "glade"
@@ -2014,7 +2037,7 @@ fileIcons:
 		icon: "jinja"
 		match: [
 			[".jinja", "dark-red", scope: "jinja", alias: /^(django|htmldjango|html\+django\/jinja|html\+jinja)$/i]
-			[".jinja2", "medium-red", alias: "jinja2"]
+			[/\.j(inja)?2$/i, "medium-red", alias: "jinja2"]
 		]
 
 	Jison:
@@ -2071,8 +2094,8 @@ fileIcons:
 		icon: "karma"
 		priority: 2
 		match: [
-			[/^karma\.conf\.js$/i, "medium-cyan"]
-			[/^karma\.conf\.coffee$/i, "medium-maroon"]
+			[/^karma\.conf(ig)?\.js$/i, "medium-cyan"]
+			[/^karma\.conf(ig)?\.coffee$/i, "medium-maroon"]
 		]
 
 	Keynote:
@@ -2300,6 +2323,12 @@ fileIcons:
 		match: /\.(md|mdown|markdown|mkd|mkdown|mkdn|rmd|ron|pmd)$/i
 		alias: /^(CommonMark|GFM|Pandoc)$|\bMarkdown\b/i
 		colour: "medium-blue"
+
+	MarkdownLint:
+		icon: "markdownlint"
+		match: ".markdownlintrc"
+		colour: "dark-green"
+		interpreter: "mdl"
 
 	Marko:
 		icon: "marko"
@@ -2912,7 +2941,6 @@ fileIcons:
 			[".ph", "dark-purple"]
 			[".plx", "medium-purple"]
 			[".pm", "dark-blue"]
-			[".t", "medium-blue"]
 			[/\.(psgi|xs)$/i, "medium-red"]
 		]
 
@@ -2979,6 +3007,12 @@ fileIcons:
 		scope: /\.plsql(\.oracle)?(\.|$)/i
 		match: /\.(pls|pck|pks|plb|plsql|pkb)$/i
 		colour: "medium-red"
+
+	PM2:
+		icon: "pm2"
+		priority: 2
+		match: /^ecosystem.conf(ig)?./i
+		colour: "medium-blue"
 
 	POD:
 		icon: "pod"
@@ -3072,10 +3106,16 @@ fileIcons:
 		match: ".spin"
 		colour: "medium-orange"
 
+	Proselint:
+		icon: "proselint"
+		priority: 2
+		match: ".proselintrc"
+		colour: "dark-cyan"
+
 	Protractor:
 		icon: "protractor"
 		priority: 2
-		match: /^protractor\.conf\./i
+		match: /^protractor\.(conf|config)\./i
 		colour: "medium-red"
 
 	Pug:
@@ -3314,7 +3354,6 @@ fileIcons:
 			[/^\.?(irbrc|gemrc|pryrc|ruby-(gemset|version))$/i, "medium-red"]
 			[/^(Appraisals|(Rake|[bB]uild|Cap|Danger|Deliver|Fast|Guard|Jar|Maven|Pod|Puppet|Snap)file(\.lock)?)$/, "medium-red"]
 			[/\.(jbuilder|rbuild|rb[wx]|builder)$/i, "dark-red"]
-			["_spec.rb", "light-green", priority: 2]
 			[/^rails$/, "medium-red"]
 			[".watchr", "dark-yellow"]
 		]
@@ -3518,10 +3557,10 @@ fileIcons:
 
 	SourcePawn:
 		icon: "clojure"
-		alias: "sourcemod"
-		match: /\.(sma|sp)$/i
-		colour: "auto-yellow"
-		scope: "sp"
+		match: [
+			[/\.(sma|sp)$/i, "auto-yellow", scope: "sp", alias: "sourcemod"]
+			[".inc", "medium-green"]
+		]
 
 	"Source Map":
 		icon: "sourcemap"
@@ -3635,7 +3674,7 @@ fileIcons:
 	Stylus:
 		icon: "stylus"
 		scope: "stylus"
-		match: ".styl"
+		match: /\.(styl|stylus)$/i
 		colour: "medium-green"
 
 	"Sublime Text":
@@ -3727,6 +3766,57 @@ fileIcons:
 		scope: /\.terra(form)?$/i
 		match: /\.tf(vars)?$/i
 		colour: "dark-purple"
+
+	"Test, CoffeeScript":
+		icon: "test-coffee"
+		priority: 1.5
+		matchPath: true
+		match: /([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.(coffee|iced)$/i
+		colour: "auto-maroon"
+
+	"Test, JavaScript":
+		icon: "test-js"
+		priority: 1.5
+		matchPath: true
+		match: /([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.([_ms]?js|js[bms]|es\d*)$/i
+		colour: "auto-yellow"
+
+	"Test, Perl":
+		icon: "test-perl"
+		match: [
+			[".t", "auto-blue"]
+			[/([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.p(er)?l$/i, "auto-blue", priority: 1.5, matchPath: true]
+		]
+
+	"Test, Python":
+		icon: "test-python"
+		priority: 1.5
+		matchPath: true
+		match: /([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.py(3|thon)?$/i
+		colour: "dark-blue"
+
+	"Test, React":
+		icon: "test-react"
+		priority: 1.5
+		matchPath: true
+		match: /([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.(jsx|react\.js)$/i
+		colour: "auto-blue"
+
+	"Test, Ruby":
+		icon: "test-ruby"
+		priority: 2
+		matchPath: true
+		match: /([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.rb$/i
+		colour: "auto-red"
+
+	"Test, TypeScript":
+		icon: "test-ts"
+		priority: 1.5
+		matchPath: true
+		match: [
+			[/([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.ts$/i, "auto-blue"]
+			[/([\\\x2F])(test|spec)s?\1((?!\1).)+[._-](spec|test)s?\.tsx$/i, ["light-blue", "medium-blue"]]
+		]
 
 	TeX:
 		icon: "tex"
@@ -4026,7 +4116,7 @@ fileIcons:
 		icon: "webpack"
 		priority: 2
 		match: [
-			[/webpack\.config\./i, "medium-blue"]
+			[/webpack\.conf(ig)?\./i, "medium-blue"]
 			[/^webpackfile\.js$/i, "medium-blue"]
 		]
 

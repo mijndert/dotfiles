@@ -1,17 +1,21 @@
 "use strict";
 
 const {CompositeDisposable, Disposable} = require("atom");
+const {EntityType, FileSystem} = require("atom-fs");
 const StrategyManager = require("./strategy-manager.js");
-const EntityType = require("../filesystem/entity-type.js");
-const FileSystem = require("../filesystem/filesystem.js");
-const IconTables = require("../icons/icon-tables.js");
-const IconNode = require("./icon-node.js");
+const IconTables      = require("../icons/icon-tables.js");
+const IconDelegate    = require("./icon-delegate.js");
+const IconNode        = require("./icon-node.js");
+const Storage         = require("../storage.js");
 
 
 class IconService{
 	
 	init(paths){
 		this.disposables = new CompositeDisposable();
+		this.disposables.add(
+			FileSystem.observe(this.handleResource.bind(this))
+		);
 		StrategyManager.init();
 		this.isReady = true;
 	}
@@ -24,6 +28,38 @@ class IconService{
 		
 		StrategyManager.reset();
 		this.isReady = false;
+	}
+	
+	
+	/**
+	 * Handle a newly-registered filesystem resource.
+	 *
+	 * @param {Resource} resource
+	 * @private
+	 */
+	handleResource(resource){
+		const icon = new IconDelegate(resource);
+		resource.icon = icon;
+		this.disposables.add(
+			resource.onDidDestroy(() => {
+				icon.destroy();
+				resource.icon = null;
+			})
+		);
+		
+		// TODO: Add `.inode` property to Resource class
+		if(resource.stats && resource.stats.ino){
+			const inode = resource.stats.ino;
+			Storage.setPathInode(resource.path, inode);
+		}
+		
+		if(resource.type & EntityType.SYMLINK)
+			this.disposables.add(
+				resource.onDidChangeRealPath(({from, to}) => {
+					const target = FileSystem.get(to);
+					icon.master = target.icon;
+				})
+			);
 	}
 	
 	

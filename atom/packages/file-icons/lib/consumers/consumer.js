@@ -2,9 +2,8 @@
 
 const {join, sep}  = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
-const MappedDisposable = require("../utils/mapped-disposable.js");
-const {punch}      = require("../utils/general.js");
-const FileSystem   = require("../filesystem/filesystem.js");
+const {MappedDisposable, punch} = require("alhadis.utils");
+const {FileSystem} = require("atom-fs");
 const IconNode     = require("../service/icon-node.js");
 
 

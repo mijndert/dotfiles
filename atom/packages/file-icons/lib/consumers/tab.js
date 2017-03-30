@@ -1,8 +1,8 @@
 "use strict";
 
 const {CompositeDisposable, Emitter} = require("atom");
-const {normalisePath} = require("../utils/general.js");
-const FileSystem   = require("../filesystem/filesystem.js");
+const {normalisePath} = require("alhadis.utils");
+const {FileSystem} = require("atom-fs");
 const IconNode     = require("../service/icon-node.js");
 const Options      = require("../options.js");
 
