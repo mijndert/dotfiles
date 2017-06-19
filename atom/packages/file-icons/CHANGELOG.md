@@ -3,7 +3,88 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.1...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.7...HEAD
+
+
+[v2.1.7] - 2017-05-31
+---------------------
+### Added
+- **New icons:** Browserslist (updated version), Junos (`.jos`), Telegram (`.tl`), Visio (`.vdw`, `.vdx`, `.vrd`, `.vsd`, `.vsdm`, `.vsdx`, `.vsl`, `.vss`, `.vssm`, `.vssx`, `.vst`, `.vstm`, `.vstx`, `.vsw`, `.vsx`, `.vtx`)
+- **Support:** FlowType (`.flow`), Jest (`.jsx.snap`), NodeJS (`BUNDLED_NODE_VERSION`)
+
+### Fixed
+- [[`#606`][]]: Wrong icon shown for TypeScript executables
+
+[v2.1.7]: https://github.com/file-icons/atom/releases/tag/v2.1.7
+[`#606`]: https://github.com/file-icons/atom/issues/606
+
+
+
+[v2.1.6] - 2017-05-18
+---------------------
+### Added
+- **New icons:** Browserslist (`browserslist`, `.browserslistrc`), Dragula (`dragula.{js,css}`), Moment (`moment.js`), Moment Timezone (`moment-timezone.js`)
+- **Support:** Docker (`.docker` directories), jQuery (`jquery.slim.js`)
+
+### Fixed
+- Tab-icons squashed by [`atom/one-light-ui#100`](https://github.com/atom/one-light-ui/pull/100)
+
+[v2.1.6]: https://github.com/file-icons/atom/releases/tag/v2.1.6
+
+
+[v2.1.5] - 2017-05-13
+---------------------
+### Added
+- **New icons:** Edge (`.edge`), Firebase (`.firebaserc`, `firebase.json`), GLSL (`.glsl`, `.glslv`, `.gsh`, `.gshader`), Vertex/Fragment Shader (`.fp`, `.frag`, `.frg`, `.fsh`, `.fshader`, `.vert`, `.vertex`, `.vrx`, `.vsh`), SketchUp LayOut (`.layout`), SketchUp Make (`.skp`), SketchUp Style Builder (`.style`), WebGL (`.webgl`)
+- **Support:** 3D Asset (`.comp`, `.geo{m,metry}`, `.tesc`, `.tese`), ChartJS (`chart.{bundle,min}.js`), NPM (`package-lock.json`)
+
+[v2.1.5]: https://github.com/file-icons/atom/releases/tag/v2.1.5
+
+
+
+[v2.1.4] - 2017-04-26
+---------------------
+### Added
+- **New icons:** Jolie (`.ol`, `.iol`), Nano (`.nanorc`), PegJS (`.pegjs`, `.pegcoffee`), Xamarin (`.workbook`)
+- **Support:** 3D Assets (`.cginc`, `.shader`), Circle CI (`.circleci` directories), Jest (`.js.snap`), Markdown (`.mdwn`), Python (`.pyi`), Visual Studio (`.vsixmanifest`, `.vstemplate`)
+
+### Fixed
+- [[`#559`][]]: Occasional error thrown when opening `fuzzy-finder`
+- [[`#586`][]]: Classes not removed when disposing of `addIconToElement` disposable
+- [[`#590`][]]: Unhandled exception thrown from [`project-plus`][`Tabs`] fix.
+
+[v2.1.4]: https://github.com/file-icons/atom/releases/tag/v2.1.4
+[`#559`]: https://github.com/file-icons/atom/issues/559
+[`#586`]: https://github.com/file-icons/atom/issues/586
+[`#590`]: https://github.com/file-icons/atom/issues/590
+
+
+
+[v2.1.3] - 2017-04-13
+---------------------
+### Added
+- **New icons:** BinTray (`.bintray.json`), Brotli (`.br`), DOM, MJML (`.mjml`), NASM (`.nasm`), NXC (`.nxc`), WebAssembly (`.wasm`, `.wast`, `.wat`), Yasm
+- **Support:** Stylelint (`.stylelintcache`), Webpack (`webpack.*.conf`)
+
+### Fixed
+- [[`#580`][]]: Obscure conflict with [`tree-view-autoresize`](https://github.com/lexcast/tree-view-autoresize) package
+- [[`#581`][]]: Errors thrown when opening remote directories containing a `.gitattributes` file
+
+[v2.1.3]: https://github.com/file-icons/atom/releases/tag/v2.1.3
+[`#580`]: https://github.com/file-icons/atom/issues/580
+[`#581`]: https://github.com/file-icons/atom/issues/581
+
+
+
+[v2.1.2] - 2017-03-30
+---------------------
+### Fixed
+- [[`#568`][]]: Exception thrown when installing package
+- [[`#571`][]]: Test-icons not applied to files in test-folder subdirectories
+
+[v2.1.2]: https://github.com/file-icons/atom/releases/tag/v2.1.2
+[`#568`]: https://github.com/file-icons/atom/issues/568
+[`#571`]: https://github.com/file-icons/atom/issues/571
 
 
 [v2.1.1] - 2017-03-22

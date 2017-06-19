@@ -1,7 +1,7 @@
 /*!
  * arr-diff <https://github.com/jonschlinkert/arr-diff>
  *
- * Copyright (c) 2014 Jon Schlinkert, contributors.
+ * Copyright (c) 2014-2016, Jon Schlinkert.
  * Licensed under the MIT License
  */
 
@@ -10,49 +10,19 @@
 var flatten = require('arr-flatten');
 var slice = [].slice;
 
-/**
- * Return the difference between the first array and
- * additional arrays.
- *
- * ```js
- * var diff = require('{%= name %}');
- *
- * var a = ['a', 'b', 'c', 'd'];
- * var b = ['b', 'c'];
- *
- * console.log(diff(a, b))
- * //=> ['a', 'd']
- * ```
- *
- * @param  {Array} `a`
- * @param  {Array} `b`
- * @return {Array}
- * @api public
- */
-
-function diff(arr, arrays) {
-  var argsLen = arguments.length;
-  var len = arr.length, i = -1;
-  var res = [], arrays;
-
-  if (argsLen === 1) {
-    return arr;
+module.exports = function(arr, arrays) {
+  arrays = flatten(slice.call(arguments, 1));
+  var len = arrays.length;
+  for (var i = 0; i < len; i++) {
+    remove(arr, arrays[i]);
   }
+  return arr;
+};
 
-  if (argsLen > 2) {
-    arrays = flatten(slice.call(arguments, 1));
+function remove(arr, ele) {
+  var idx = arr.indexOf(ele);
+  while (idx !== -1) {
+    arr.splice(idx, 1);
+    idx = arr.indexOf(ele);
   }
-
-  while (++i < len) {
-    if (!~arrays.indexOf(arr[i])) {
-      res.push(arr[i]);
-    }
-  }
-  return res;
 }
-
-/**
- * Expose `diff`
- */
-
-module.exports = diff;

@@ -16,6 +16,17 @@
 // Avoid enforcing fixed-width icons in tabs
 .tab > .icon:before { width: auto; }
 
+// ... unless the theme uses proportional units
+.theme-one-dark-ui,
+.theme-one-light-ui{
+	.tab-bar .tab > .title.icon:before{
+		font-size: 1.1em;
+		margin-right: .3em;
+		width: 1em;
+		top: auto;
+	}
+}
+
 // Turn off antialiasing for macOS
 .thicken{
 	-webkit-font-smoothing: subpixel-antialiased;
@@ -221,6 +232,7 @@
 .bazel-icon:before         { .fi; content: "\ea5a"; top: 1px; font-size: 16px; .sharpen; }
 .bem-icon:before           { .fi; content: "\ea59"; top: 2px; }
 .bibtex-icon:before        { .fi; content: "\e601"; top: 2px; font-size: 16px; .thicken; }
+.bintray-icon:before       { .fi; content: "\ea6e"; top: 2px; }
 .bithound-icon:before      { .fi; content: "\ea2a"; top: 2px; }
 .blender-icon:before       { .fi; content: "\e9fa"; top: 2px; }
 .bluespec-icon:before      { .fi; content: "\e93c"; top: 1px; font-size: 13px; left: 1px; }
@@ -230,6 +242,8 @@
 .brakeman-icon:before      { .fi; content: "\e9d6"; top: 2px; }
 .bro-icon:before           { .fi; content: "\e93b"; top: 3px; font-size: 16px; }
 .broccoli-icon:before      { .fi; content: "\e922"; top: 1px; font-size: 14px; }
+.brotli-icon:before        { .fi; content: "\ea6c"; top: 2px; }
+.browserslist-icon:before  { .fi; content: "\ea80"; top: 2px; }
 .brunch-icon:before        { .fi; content: "\ea47"; top: 3px; font-size: 17px; left: -1px; }
 .buck-icon:before          { .fi; content: "\ea46"; top: 2px; }
 .bundler-icon:before       { .fi; content: "\ea45"; top: 2px; font-size: 16px; }
@@ -283,6 +297,7 @@
 .doclets-icon:before       { .fi; content: "\ea3f"; top: 2px; }
 .doge-icon:before          { .fi; content: "\e946"; top: 2px; }
 .doxygen-icon:before       { .fi; content: "\e928"; top: 1px; font-size: 13px; }
+.dragula-icon:before       { .fi; content: "\1f44c";top: 3px; font-size: 17px; }
 .drone-icon:before         { .fi; content: "\ea3d"; top: 2px; }
 .dyalog-icon:before        { .fi; content: "\e90c"; top: 1px; font-size: 14px; left: 1px; }
 .dylib-icon:before         { .fi; content: "\ea15"; top: 2px; }
@@ -291,6 +306,7 @@
 .ec-icon:before            { .fi; content: "\e9c9"; top: 2px; }
 .ecere-icon:before         { .fi; content: "\e966"; top: 3px; font-size: 16px; }
 .editorconfig-icon:before  { .fi; content: "\ea1b"; top: 3px; }
+.edge-icon:before          { .fi; content: "\ea78"; top: 2px; }
 .eiffel-icon:before        { .fi; content: "\e967"; top: 2px; font-size: 16px; }
 .ejs-icon:before           { .fi; content: "\ea4b"; top: 3px; font-size: 16px; }
 .electron-icon:before      { .fi; content: "\ea27"; top: 3px; font-size: 16px; .sharpen; }
@@ -309,6 +325,7 @@
 .fbx-icon:before           { .fi; content: "\e9fc"; top: 2px; }
 .ff-icon:before            { .fi; content: "\fb00"; top: 3px; }
 .finder-icon:before        { .fi; content: "\e9e9"; top: 3px; font-size: 16px; }
+.firebase-icon:before      { .fi; content: "\ea7f"; top: 2px; }
 .flow-icon:before          { .fi; content: "\e921"; top: 1px; }
 .flux-icon:before          { .fi; content: "\e969"; top: 2px; }
 .font-icon:before          { .fi; content: "\e90f"; top: 1px; font-size: 14px; left: 1px; }
@@ -365,11 +382,13 @@
 .jasmine-icon:before       { .fi; content: "\ea3a"; top: 3px; font-size: 16px; }
 .jenkins-icon:before       { .fi; content: "\e667"; top: 3px; font-size: 18px; .sharpen; }
 .jest-icon:before          { .fi; content: "\ea39"; top: 2px; }
+.jolie-icon:before         { .fi; content: "\ea75"; top: 2px; }
 .jinja-icon:before         { .fi; content: "\e944"; top: 2px; }
 .jison-icon:before         { .fi; content: "\ea55"; top: 2px; }
 .jsonld-icon:before        { .fi; content: "\e958"; top: 3px; font-size: 17px; }
 .jsx-icon:before           { .fi; content: "\e9e6"; top: 1px; font-size: 14px; }
 .julia-icon:before         { .fi; content: "\26ec"; top: 1px; font-size: 14px; }
+.junos-icon:before         { .fi; content: "\ea81"; top: 2px; }
 .jupyter-icon:before       { .fi; content: "\e987"; top: 3px; font-size: 16px; }
 .karma-icon:before         { .fi; content: "\e9cd"; top: 2px; }
 .keynote-icon:before       { .fi; content: "\e9e5"; top: 2px; }
@@ -416,15 +435,20 @@
 .minizinc-icon:before      { .fi; content: "\ea53"; top: 2px; }
 .mirah-icon:before         { .fi; content: "\e995"; top: 2px; }
 .miranda-icon:before       { .fi; content: "\ea52"; top: 3px; font-size: 16px; }
+.mjml-icon:before          { .fi; content: "\ea6f"; top: 2px; }
 .mocha-icon:before         { .fi; content: "\26fe"; top: 2px; font-size: 17px; }
 .model-icon:before         { .fi; content: "\e9e8"; top: 2px; font-size: 16px; }
 .modula2-icon:before       { .fi; content: "\e996"; top: 2px; }
+.moment-icon:before        { .fi; content: "\1f558";top: 2px; }
+.moment-tz-icon:before     { .fi; content: "\1f30d";top: 2px; }
 .monkey-icon:before        { .fi; content: "\e997"; top: 3px; font-size: 18px; left: -1px; }
 .mruby-icon:before         { .fi; content: "\ea18"; top: 2px; }
 .mupad-icon:before         { .fi; content: "\e9ca"; top: 3px; font-size: 16px; }
 .mustache-icon:before      { .fi; content: "\e60f"; top: 2px; font-size: 16px; }
+.nano-icon:before          { .fi; content: "\ea76"; top: 2px; }
 .nanoc-icon:before         { .fi; content: "\ea51"; top: 2px; }
 .nant-icon:before          { .fi; content: "\e9e1"; top: 3px; transform: scale(1.2); }
+.nasm-icon:before          { .fi; content: "\ea72"; top: 2px; }
 .neko-icon:before          { .fi; content: "\ea05"; top: 2px; }
 .netlogo-icon:before       { .fi; content: "\e99c"; top: 2px; left: 1px; }
 .newrelic-icon:before      { .fi; content: "\e9d7"; top: 2px; }
@@ -442,6 +466,7 @@
 .nuget-icon:before         { .fi; content: "\e9d9"; top: 2px; }
 .numpy-icon:before         { .fi; content: "\e99d"; top: 2px; font-size: 14px; }
 .nunjucks-icon:before      { .fi; content: "\e953"; top: 2px; font-size: 16px; }
+.nxc-icon:before           { .fi; content: "\ea6b"; top: 2px; font-size: 16px; }
 .nvidia-icon:before        { .fi; content: "\e95d"; top: 2px; }
 .objj-icon:before          { .fi; content: "\e99e"; top: 2px; }
 .ocaml-icon:before         { .fi; content: "\e91a"; top: 1px; font-size: 14px; }
@@ -450,6 +475,7 @@
 .ooc-icon:before           { .fi; content: "\e9cb"; top: 2px; }
 .opa-icon:before           { .fi; content: "\2601"; top: 2px; }
 .opencl-icon:before        { .fi; content: "\e99f"; top: 2px; font-size: 16px; }
+.opengl-icon:before        { .fi; content: "\ea7a"; top: 3px; font-size: 18px; transform: scale(1.1); }
 .openoffice-icon:before    { .fi; content: "\e9e4"; top: 2px; }
 .org-icon:before           { .fi; content: "\e917"; top: 1px; font-size: 14px; left: 1px; }
 .owl-icon:before           { .fi; content: "\e957"; top: 2px; }
@@ -463,6 +489,7 @@
 .pascal-icon:before        { .fi; content: "\e92a"; top: 2px; }
 .patch-icon:before         { .fi; content: "\e961"; top: 2px; }
 .pawn-icon:before          { .fi; content: "\265f"; top: 1px; font-size: 14px; }
+.peg-icon:before           { .fi; content: "\ea74"; top: 3px; font-size: 16px; }
 .perl6-icon:before         { .fi; content: "\e96c"; top: 2px; }
 .phalcon-icon:before       { .fi; content: "\e94a"; top: 2px; }
 .phoenix-icon:before       { .fi; content: "\ea5f"; top: 3px; font-size: 17px; transform: scale(1.1); }
@@ -532,6 +559,9 @@
 .sigils-icon:before        { .fi; content: "\1f764";top: 3px; font-size: 16px; .sharpen; }
 .silverstripe-icon:before  { .fi; content: "\e800"; top: 2px; }
 .sketch-icon:before        { .fi; content: "\e927"; top: 2px; }
+.sketchup-lo-icon:before   { .fi; content: "\ea7c"; top: 2px; }
+.sketchup-mk-icon:before   { .fi; content: "\ea7e"; top: 2px; }
+.sketchup-sb-icon:before   { .fi; content: "\ea7d"; top: 2px; }
 .slash-icon:before         { .fi; content: "\e9a6"; top: 2px; }
 .snyk-icon:before          { .fi; content: "\ea1c"; top: 2px; font-size: 16px; }
 .sparql-icon:before        { .fi; content: "\e959"; top: 2px; }
@@ -550,6 +580,7 @@
 .sysverilog-icon:before    { .fi; content: "\e9c3"; top: 2px; }
 .tag-icon:before           { .fi; content: "\f015"; top: 2px; font-size: 14px; }
 .tcl-icon:before           { .fi; content: "\e956"; top: 2px; font-size: 16px; }
+.telegram-icon:before      { .fi; content: "\2708"; top: 2px; }
 .terminal-icon:before      { .fi; content: "\f0c8"; top: 2px; font-size: 14px; }
 .tern-icon:before          { .fi; content: "\1f54a";top: 4px; font-size: 16px; }
 .terraform-icon:before     { .fi; content: "\e916"; top: 1px; font-size: 14px; }
@@ -582,15 +613,20 @@
 .vagrant-icon:before       { .fi; content: "V";     top: 2px; font-size: 14px; }
 .varnish-icon:before       { .fi; content: "\e9b4"; top: 1px; font-size: 14px; }
 .verilog-icon:before       { .fi; content: "\e949"; top: 2px; }
+.vertex-icon:before        { .fi; content: "\ea79"; top: 2px; font-size: 16px; }
 .vhdl-icon:before          { .fi; content: "\e9aa"; top: 2px; }
 .video-icon:before         { .fi; content: "\f057"; top: 1px; font-size: 14px; }
 .virtualbox-icon:before    { .fi; content: "\ea3e"; top: 2px; font-size: 16px; }
+.visio-icon:before         { .fi; content: "\ea83"; top: 2px; }
 .vmware-icon:before        { .fi; content: "\ea49"; top: 3px; font-size: 16px; .sharpen; }
 .vue-icon:before           { .fi; content: "\e906"; top: 3px; }
+.wasm-icon:before          { .fi; content: "\ea70"; top: 2px; }
 .watchman-icon:before      { .fi; content: "\ea4f"; top: 2px; }
+.webgl-icon:before         { .fi; content: "\ea7b"; top: 3px; font-size: 18px; transform: scale(1.1); }
 .webpack-icon:before       { .fi; content: "\ea61"; top: 3px; font-size: 16px; }
 .wercker-icon:before       { .fi; content: "\ea19"; top: 2px; }
 .word-icon:before          { .fi; content: "\e9ed"; top: 2px; }
+.xamarin-icon:before       { .fi; content: "\ea77"; top: 2px; }
 .x10-icon:before           { .fi; content: "\2169"; top: 2px; }
 .xmos-icon:before          { .fi; content: "X";     top: 1px; font-size: 14px; }
 .xojo-icon:before          { .fi; content: "\e9af"; top: 2px; }

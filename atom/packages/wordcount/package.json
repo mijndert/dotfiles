@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117410-52686-1skp7qv.h1zf2sm7vi"
+    ]
+  ],
+  "_from": "../d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+  "_id": "wordcount@2.10.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/wordcount",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+  "_shasum": "ffb2505806c0b1429a012913097c5d77d2a1ea1a",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117410-52686-18ha9r5.40i381if6r/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117410-52686-1skp7qv.h1zf2sm7vi",
+  "bugs": {
+    "url": "https://github.com/nesQuick/atom-wordcount/issues"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "description": "Counts the words (and characters) in your current document, as well as in your selections and displays it in the status bar.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.180.0"
+  },
+  "homepage": "https://github.com/nesQuick/atom-wordcount#readme",
+  "keywords": [
+    "word count",
+    "word",
+    "count",
+    "character count",
+    "char",
+    "character",
+    "status",
+    "bar",
+    "highlight"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "wordcount",
+  "optionalDependencies": {},
+  "readme": "# Atom wordcount package\n\nCounts the words and characters in your current document and displays them in the status bar. Plus a handful of great features, like:\n\n  - Activates automatically on text files (define on which file extensions you want to activate it, or turn it \"Always on\")\n  - Counts the words and characters in your selection when you have made one (or multiple!)\n  - Writing goal tracker (with custom colors support)\n  - Works with unsaved files\n  - Option to exclude `codeblocks` from count\n  - Option to show the total price per word for the document. Currency symbol can be changed in Settings.\n\n\n![A screenshot of your spankin' package](https://cloud.githubusercontent.com/assets/584259/19187373/62f97ad8-8c8b-11e6-85aa-1282f94f509b.gif))\n\n*A special thanks goes to our [awesome contributors](https://github.com/nesQuick/atom-wordcount/graphs/contributors) 👏*\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nesQuick/atom-wordcount.git"
+  },
+  "version": "2.10.4"
+}

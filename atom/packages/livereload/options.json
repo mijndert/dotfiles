@@ -1,0 +1,49 @@
+{
+  "port": {
+    "title": "Port Number",
+    "description": "If the port is not available, the server will find and listen any available port.",
+    "type": "integer",
+    "default": 35729
+  },
+  "exts" : {
+    "title": "Additional Extensions",
+    "description": "The server will watch these comma-separated extensions as well as the defaults.",
+    "type": "string",
+    "default": "html, css, js, png, gif, jpg, php, php5, py, rb, erb, coffee"
+  },
+  "exclusions": {
+    "title": "Additional Exclusions",
+    "description": "The server will ignore these paths in addition to the defaults.",
+    "type": "string",
+    "default": ".DS_Store, .gitignore, .git/, .svn/, .hg/"
+  },
+  "applyCSSLive": {
+    "title": "Apply CSS Live",
+    "type": "boolean",
+    "description": "If checked, LiveReload will reload CSS files without refreshing the page.",
+    "default": true
+  },
+  "applyImageLive": {
+    "title": "Apply Image Live",
+    "type": "boolean",
+    "description": "If checked, LiveReload will reload image files without refreshing the page.",
+    "default": false
+  },
+  "useHTTPS": {
+    "title": "Use HTTPS Protocol",
+    "type": "boolean",
+    "default": false
+  },
+  "delayForUpdate": {
+    "title": "Delay for Update in Milliseconds",
+    "type": "number",
+    "description": "When the number is more than 0, the server add a delay before forcing browser to refresh.",
+    "default": 0
+  },
+  "autoStart": {
+    "title": "Auto Start Server",
+    "type": "boolean",
+    "description": "If checked, the livereload server will automatically start whenever new Atom window is opened.",
+    "default": false
+  }
+}

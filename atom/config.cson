@@ -1,9 +1,15 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "d84e31fd-9004-4873-b273-0e8114c2554b"
   core:
     audioBeep: false
     disabledPackages: [
       "git-status"
-      "platformio-ide-terminal"
+      "color-picker"
+      "flatten-json"
+      "livereload"
+      "wordcount"
     ]
     telemetryConsent: "no"
     themes: [
@@ -12,10 +18,12 @@
     ]
   editor:
     fontFamily: "Source Code Pro"
-    fontSize: 12
+    fontSize: 13
     invisibles: {}
   "exception-reporting":
     userId: "dc9a0782-028d-a8a7-2275-faacc762bd12"
+  livereload:
+    applyImageLive: true
   pigments: {}
   welcome:
     showOnStartup: false

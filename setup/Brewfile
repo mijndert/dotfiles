@@ -18,7 +18,7 @@ brew 'findutils'
 brew 'bash'
 
 # Install more recent versions of some OS X tools
-brew 'homebrew/dupes/grep'
+brew 'grep'
 
 # Install Binaries
 brew 'tree'
@@ -32,20 +32,19 @@ brew 'ansible'
 brew 'sshuttle'
 brew 'vim'
 brew 'watch'
+brew 'mas'
+brew 'unrar'
 
 # Apps
 cask 'aerial'
 cask 'atom'
 cask 'appcleaner'
-cask 'docker-beta'
 cask 'dropbox'
 cask 'dropshare'
 cask 'firefox'
-cask 'flux'
 cask 'insomnia'
 cask 'google-chrome'
 cask 'google-drive'
-cask 'intellij-idea'
 cask 'iterm2'
 cask 'insomnia'
 cask 'macdown'
@@ -57,11 +56,9 @@ cask 'spotify'
 cask 'spotify-notifications'
 cask 'sequel-pro'
 cask 'skype'
-cask 'slack-beta' # cask 'slack'
+cask 'slack' # cask 'slack-beta'
 cask 'openttd'
-cask 'kitematic'
 cask 'transmit'
-cask 'visual-studio-code'
 cask 'vlc'
 
 # App Store
@@ -71,7 +68,6 @@ mas 'Deckset', id:847496013
 mas 'Amphetamine', id:937984704
 mas 'Noizio', id:928871589
 mas 'Tweetbot', id:557168941
-mas 'Wunderlist', id:410628904
 
 # Fonts
 cask 'font-sauce-code-powerline'

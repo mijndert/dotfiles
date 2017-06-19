@@ -1,0 +1,103 @@
+/*!
+ * split-string <https://github.com/jonschlinkert/split-string>
+ *
+ * Copyright (c) 2015, 2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var extend = require('extend-shallow');
+
+module.exports = function(str, options, fn) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+
+  if (typeof options === 'function') {
+    fn = options;
+    options = null;
+  }
+
+  // allow separator to be defined as a string
+  if (typeof options === 'string') {
+    options = { sep: options };
+  }
+
+  var opts = extend({sep: '.'}, options);
+  var quotes = opts.quotes || ['"', "'", '`'];
+  var tokens = [];
+  var arr = [''];
+  var sep = opts.sep;
+  var len = str.length;
+  var idx = -1;
+  var closeIdx;
+
+  while (++idx < len) {
+    var ch = str[idx];
+    var next = str[idx + 1];
+    var tok = { val: ch, idx: idx, arr: arr, str: str };
+    tokens.push(tok);
+
+    if (ch === '\\') {
+      tok.val = keepEscaping(opts, str, idx) === true ? (ch + next) : next;
+      tok.escaped = true;
+      if (typeof fn === 'function') {
+        fn(tok);
+      }
+      arr[arr.length - 1] += tok.val;
+      idx++;
+      continue;
+    }
+
+    if (quotes.indexOf(ch) !== -1) {
+      closeIdx = getClose(str, ch, idx + 1);
+      if (closeIdx === -1) {
+        arr[arr.length - 1] += ch;
+        continue;
+      }
+
+      if (keepQuotes(ch, opts) === true) {
+        ch = str.slice(idx, closeIdx + 1);
+      } else {
+        ch = str.slice(idx + 1, closeIdx);
+      }
+
+      tok.val = ch;
+      tok.idx = idx = closeIdx;
+    }
+
+    if (typeof fn === 'function') {
+      fn(tok, tokens);
+      ch = tok.val;
+      idx = tok.idx;
+    }
+
+    if (tok.val === sep && tok.split !== false) {
+      arr.push('');
+      continue;
+    }
+
+    arr[arr.length - 1] += tok.val;
+  }
+
+  return arr;
+};
+
+function getClose(str, ch, i) {
+  var idx = str.indexOf(ch, i);
+  if (str.charAt(idx - 1) === '\\') {
+    return getClose(str, ch, idx + 1);
+  }
+  return idx;
+}
+
+function keepQuotes(ch, opts) {
+  if (opts.keepDoubleQuotes === true && ch === '"') return true;
+  if (opts.keepSingleQuotes === true && ch === "'") return true;
+  return opts.keepQuotes;
+}
+
+function keepEscaping(opts, str, idx) {
+  return opts.keepEscaping === true || str[idx + 1] === '\\';
+}

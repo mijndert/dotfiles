@@ -1,0 +1,18 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "LiveReload",
+          "submenu": [
+            {
+              "label": "Toggle Server",
+              "command": "livereload:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
