@@ -18,7 +18,7 @@
     ]
   editor:
     fontFamily: "Source Code Pro"
-    fontSize: 13
+    fontSize: 12
     invisibles: {}
   "exception-reporting":
     userId: "dc9a0782-028d-a8a7-2275-faacc762bd12"

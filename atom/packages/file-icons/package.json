@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
+        "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
-        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
+        "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
+        "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117431-2863-ftzjxd.mie3rtfbt9"
+      "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117617-94933-1sdhnh2.kt2exko6r"
     ]
   ],
-  "_from": "../d-117431-2863-1qnb4er.319oirudi/package.tgz",
-  "_id": "file-icons@2.1.7",
+  "_from": "../d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
+  "_id": "file-icons@2.1.9",
   "_inCache": true,
-  "_installable": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
+    "raw": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
-    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
+    "rawSpec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
+    "spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117431-2863-1qnb4er.319oirudi/package.tgz",
-  "_shasum": "130c9dad88f0de4892e3ed5380b871458e9b273c",
+  "_resolved": "file:../d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
+  "_shasum": "e1b373415541e4cf60fb3143a4701c546b9fd90a",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117431-2863-1qnb4er.319oirudi/package.tgz",
-  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117431-2863-ftzjxd.mie3rtfbt9",
+  "_spec": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/d-117617-94933-mpm72w.g1a0mgqfr/package.tgz",
+  "_where": "/private/var/folders/9w/23w4kfb561s8020hd26jy7w00000gn/T/apm-install-dir-117617-94933-1sdhnh2.kt2exko6r",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"
@@ -127,7 +126,7 @@
     "unzip": "*"
   },
   "engines": {
-    "atom": ">1.11.0"
+    "atom": ">1.17.0"
   },
   "homepage": "https://github.com/file-icons/atom",
   "license": "MIT",
@@ -147,13 +146,13 @@
       }
     }
   },
-  "readme": "File Icons\n==========\nFile-specific icons in Atom for improved visual grepping.\n\n<img alt=\"Icon previews\" width=\"850\" src=\"https://raw.githubusercontent.com/file-icons/atom/6714706f268e257100e03c9eb52819cb97ad570b/preview.png\" />\n\nSupports the following packages:\n\n* [`tree-view`](https://atom.io/packages/tree-view)\n* [`tabs`](https://atom.io/packages/tabs)\n* [`fuzzy-finder`](https://atom.io/packages/fuzzy-finder)\n* [`find-and-replace`](https://atom.io/packages/find-and-replace)\n* [`archive-view`](https://atom.io/packages/archive-view)\n\n\nInstallation\n------------\nOpen **Settings** → **Install** and search for `file-icons`.\n\nAlternatively, install through command-line:\n\n\tapm install file-icons\n\n\nCustomisation\n-------------\nEverything is handled using CSS classes. Use your [stylesheet][1] to change or tweak icons.\n\nConsult the package stylesheets to see what classes are used:\n\n* **Icons:**   [`styles/icons.less`](./styles/icons.less)\n* **Colours:** [`styles/colours.less`](./styles/colours.less)\n* **Fonts:**   [`styles/fonts.less`](./styles/fonts.less)\n\n\n#### Icon reference\n* [**File-Icons**](https://github.com/file-icons/source/blob/master/charmap.md) \n* [**FontAwesome 4.7.0**](http://fontawesome.io/cheatsheet/)\n* [**Mfizz**](https://github.com/file-icons/MFixx/blob/master/charmap.md)\n* [**Devicons**](https://github.com/file-icons/DevOpicons/blob/master/charmap.md)\n\n\n#### Examples\n\n* <a name=\"resize-an-icon\"></a>\n**Resize an icon:**\n\t~~~less\n\t.html5-icon:before{\n\t\tfont-size: 18px;\n\t}\n\t\n\t// Resize in tab-pane only:\n\t.tab > .html5-icon:before{\n\t\tfont-size: 18px;\n\t\ttop: 3px;\n\t}\n\t~~~\n\n\n* <a name=\"choose-your-own-shades-of-orange\"></a>\n**Choose your own shades of orange:**\n\t~~~css\n\t.dark-orange   { color: #6a1e05; }\n\t.medium-orange { color: #b8743d; }\n\t.light-orange  { color: #cf9b67; }\n\t~~~\n\n\n* <a name=\"bring-back-the-blue-shield-php-icon\"></a>\n**Bring back PHP's blue-shield icon:**\n\t~~~css\n\t.php-icon:before{\n\t\tfont-family: MFizz;\n\t\tcontent: \"\\f147\";\n\t}\n\t~~~\n\n\n* <a name=\"assign-icons-by-file-extension\"></a>\n**Assign icons by file extension:**\n\t~~~css\n\t.icon[data-name$=\".js\"]:before{\n\t\tfont-family: Devicons;\n\t\tcontent: \"\\E64E\";\n\t}\n\t~~~\n\n\n* <a name=\"assign-icons-to-directories\"></a>\n**Assign icons to directories:**\n\t~~~less\n\t.directory > .header > .icon{\n\t\t\n\t\t&[data-path$=\".atom/packages\"]:before{\n\t\t\tfont-family: \"Octicons Regular\";\n\t\t\tcontent: \"\\f0c4\";\n\t\t}\n\t}\n\t~~~\n\n\n\nTroubleshooting\n---------------\n\n<a name=\"error-after-installing\"></a>\n**I see this error after installing:**  \n> _\"Cannot read property 'onDidChangeIcon' of undefined\"_  \n\nA restart is needed to complete installation. Reload the window, or restart Atom.\n\nIf this doesn't help, [please file an issue][7].\n\n\n<a name=\"npm-error-when-installing\"></a>\n**Installation halts with an `npm` error:**  \n> _npm ERR! cb() never called!_  \n\nThere might be a corrupted download in your local cache.\nDelete `~/.atom/.apm`, then try again:\n\n\trm -rf ~/.atom/.apm\n\tapm install --production file-icons\n\n\n<a name=\"an-icon-has-stopped-updating\"></a>\n**An icon has stopped updating:**  \nIt's probably a caching issue. Do the following:\n\n1. Open the command palette: <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>\n2. Run `file-icons:clear-cache`\n3. Reload the window, or restart Atom\n\n\n<a name=\"the-tree-views-files-are-borked\"></a>\n**The tree-view's files are borked and [look like this][6]:**  \nIf you haven't restarted Atom since upgrading to [File-Icons v2][v2.0], do so now.\n\nIf restarting doesn't help, your stylesheet probably needs updating. See below.\n\n\n<a name=\"the-tree-view-keeps-opening-by-itself\"></a>\n**The tree-view keeps opening by itself when opening a project window:**  \n1. Open the dev-tools: **View** → **Developer** → **Toggle Developer Tools**\n2. Click the **Console** tab\n3. Run the following line, then restart Atom:\n\n~~~js\natom.config.set(\"file-icons.revealTreeView\", false);\n~~~\n\n\n<a name=\"my-stylesheet-has-errors-since-updating\"></a>\n**My stylesheet has errors since updating:**  \nAs of [v2.0][], classes are used for displaying icons instead of mixins. Delete lines like these from your stylesheet:\n\n~~~diff\n-@import \"packages/file-icons/styles/icons\";\n-@import \"packages/file-icons/styles/items\";\n-@{pane-tab-selector},\n.icon-file-directory {\n\t&[data-name=\".git\"]:before {\n-\t\t.git-icon;\n+\t\tfont-family: Devicons;\n+\t\tcontent: \"\\E602\";\n\t}\n}\n~~~\n\nInstead of `@pane-tab…` variables, use `.tab > .icon[data-path]`:\n\n~~~diff\n-@pane-tab-selector,\n-@pane-tab-temp-selector,\n-@pane-tab-override {\n+.tab > .icon {\n \t&[data-path$=\".to.file\"] {\n \t\t\n \t}\n}\n~~~\n\nThese CSS classes are no longer used, so delete them:\n\n~~~diff\n-.file-icons-force-show-icons,\n-.file-icons-tab-pane-icon,\n-.file-icons-on-changes\n~~~\n\n\n**It's something else.**  \nPlease [file an issue][7]. Include screenshots if necessary.\n\n\nIntegration with other packages\n-------------------------------\nIf you're a package author, you can integrate File-Icons using Atom's services API:\n\nFirst, add this to your `package.json` file:\n\n```json\n\"consumedServices\": {\n\t\"file-icons.element-icons\": {\n\t\t\"versions\": {\n\t\t\t\"1.0.0\": \"consumeElementIcons\"\n\t\t}\n\t}\n}\n```\n\nSecondly, add a function named `consumeElementIcons` (or whatever you named it) to your package's main export:\n\n```js\nlet addIconToElement;\nmodule.exports.consumeElementIcons = function(func){\n\taddIconToElement = func;\n};\n```\n\nThen call the function it gets passed to display icons in the DOM:\n\n```js\nlet fileIcon = document.querySelector(\"li.file-entry > span.icon\");\naddIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\nThe returned value is a [`Disposable`][10] which clears the icon from memory once it's no longer needed:\n\n```js\nconst disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\nfileIcon.onDestroy(() => disposable.dispose());\n```\n\n**NOTE:** Remember to remove any default icon-classes before calling the service handler.\n\n```diff\n let fileIcon = document.querySelector(\"li.file-entry > span.icon\");\n+fileIcon.classList.remove(\"icon-file-text\");\n const disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\n\nAcknowledgements\n----------------\nOriginally based on [sommerper/filetype-color][8], but now sporting a shiny new file-icons API in `v2` thanks to [Alhadis][11]!\nAlso thanks to all the [contributors][9]\n\n\n[Referenced links]: ____________________________________________________\n[1]: http://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks\n[4]: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors\n[5]: https://github.com/Alhadis/DevOpicons/blob/master/charmap.md#JavaScript\n[6]: https://cloud.githubusercontent.com/assets/714197/21516010/4b79a8a8-cd39-11e6-8394-1e3ab778af92.png\n[7]: https://github.com/file-icons/atom/issues/new\n[8]: https://github.com/sommerper/filetype-color\n[9]: https://github.com/file-icons/atom/graphs/contributors\n[10]: https://atom.io/docs/api/latest/Disposable\n[11]: https://github.com/Alhadis\n[v2.0]: https://github.com/file-icons/atom/releases/tag/v2.0.0\n",
+  "readme": "File Icons\n==========\nFile-specific icons in Atom for improved visual grepping.\n\n<img alt=\"Icon previews\" width=\"850\" src=\"https://raw.githubusercontent.com/file-icons/atom/6714706f268e257100e03c9eb52819cb97ad570b/preview.png\" />\n\nSupports the following core packages:\n\n* [`tree-view`](https://atom.io/packages/tree-view)\n* [`tabs`](https://atom.io/packages/tabs)\n* [`fuzzy-finder`](https://atom.io/packages/fuzzy-finder)\n* [`find-and-replace`](https://atom.io/packages/find-and-replace)\n* [`archive-view`](https://atom.io/packages/archive-view)\n\nAn API is offered for packages not listed above. See the [integration steps][13] for more info.\n\n\nInstallation\n------------\nOpen **Settings** → **Install** and search for `file-icons`.\n\nAlternatively, install through command-line:\n\n\tapm install file-icons\n\n\nCustomisation\n-------------\nEverything is handled using CSS classes. Use your [stylesheet][1] to change or tweak icons.\n\nConsult the package stylesheets to see what classes are used:\n\n* **Icons:**   [`styles/icons.less`](./styles/icons.less)\n* **Colours:** [`styles/colours.less`](./styles/colours.less)\n* **Fonts:**   [`styles/fonts.less`](./styles/fonts.less)\n\n\n#### Icon reference\n* [**File-Icons**](https://github.com/file-icons/source/blob/master/charmap.md) \n* [**FontAwesome 4.7.0**](http://fontawesome.io/cheatsheet/)\n* [**Mfizz**](https://github.com/file-icons/MFixx/blob/master/charmap.md)\n* [**Devicons**](https://github.com/file-icons/DevOpicons/blob/master/charmap.md)\n\n\n### Examples ####################################################################\n\n#### Resize an icon\n~~~less\n.html5-icon:before{\n\tfont-size: 18px;\n}\n\n// Resize in tab-pane only:\n.tab > .html5-icon:before{\n\tfont-size: 18px;\n\ttop: 3px;\n}\n~~~\n\n\n#### Choose your own shades of orange\n~~~css\n.dark-orange   { color: #6a1e05; }\n.medium-orange { color: #b8743d; }\n.light-orange  { color: #cf9b67; }\n~~~\n\n\n#### Bring back PHP's blue-shield icon\n~~~css\n.php-icon:before{\n\tfont-family: MFizz;\n\tcontent: \"\\f147\";\n}\n~~~\n\n\n#### Assign icons by file extension\nThe following examples use [attribute selectors][12] to target specific pathnames:\n\n~~~css\n.icon[data-name$=\".js\"]:before{\n\tfont-family: Devicons;\n\tcontent: \"\\E64E\";\n}\n~~~\n\n\n#### Assign icons to directories\n~~~less\n.directory > .header > .icon{\n\t&[data-path$=\".atom/packages\"]:before{\n\t\tfont-family: \"Octicons Regular\";\n\t\tcontent: \"\\f0c4\";\n\t}\n}\n~~~\n\n\n\nTroubleshooting\n---------------\n\n<a name=\"error-after-installing\"></a>\n#### I see this error after installing:\n> _\"Cannot read property 'onDidChangeIcon' of undefined\"_\n\nA restart is needed to complete installation. Reload the window, or restart Atom.\n\nIf this doesn't help, [please file an issue][7].\n\n\n\n<a name=\"npm-error-when-installing\"></a>\n#### Installation halts with an `npm` error:\n> _npm ERR! cb() never called!_\n\nThere might be a corrupted download in your local cache.\nDelete `~/.atom/.apm`, then try again:\n\n~~~shell\nrm -rf ~/.atom/.apm\napm install --production file-icons\n~~~\n\n\n\n<a name=\"an-icon-has-stopped-updating\"></a>\n#### An icon has stopped updating:\nIt's probably a caching issue. Do the following:\n\n1. Open the command palette: <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>\n2. Run `file-icons:clear-cache`\n3. Reload the window, or restart Atom\n\n\n\n<a name=\"the-tree-views-files-are-borked\"></a>\n#### The tree-view's files are borked and [look like this][6]:\nIf you haven't restarted Atom since upgrading to [File-Icons v2][v2.0], do so now.\n\nIf restarting doesn't help, your stylesheet probably needs updating. See below.\n\n\n\n<a name=\"the-tree-view-keeps-opening-by-itself\"></a>\n#### The tree-view keeps opening by itself when opening a project window:\n\n1. Open the dev-tools: **View** → **Developer** → **Toggle Developer Tools**\n2. Click the **Console** tab\n3. Run the following line, then restart Atom:\n\n~~~js\natom.config.set(\"file-icons.revealTreeView\", false);\n~~~\n\n\n\n<a name=\"my-stylesheet-has-errors-since-updating\"></a>\n#### My stylesheet has errors since updating:\nAs of [v2.0][], classes are used for displaying icons instead of mixins. Delete lines like these from your stylesheet:\n\n~~~diff\n-@import \"packages/file-icons/styles/icons\";\n-@import \"packages/file-icons/styles/items\";\n-@{pane-tab-selector},\n.icon-file-directory {\n\t&[data-name=\".git\"]:before {\n-\t\t.git-icon;\n+\t\tfont-family: Devicons;\n+\t\tcontent: \"\\E602\";\n\t}\n}\n~~~\n\n\nInstead of `@pane-tab…` variables, use `.tab > .icon[data-path]`:\n\n~~~diff\n-@pane-tab-selector,\n-@pane-tab-temp-selector,\n-@pane-tab-override {\n+.tab > .icon {\n \t&[data-path$=\".to.file\"] {\n \t\t\n \t}\n}\n~~~\n\n\nThese CSS classes are no longer used, so delete them:\n\n~~~diff\n-.file-icons-force-show-icons,\n-.file-icons-tab-pane-icon,\n-.file-icons-on-changes\n~~~\n\n\n#### It's something else.\nPlease [file an issue][7]. Include screenshots if necessary.\n\n\n\nIntegration with other packages\n-----------------------------------------------------------------------------------\nIf you're a package author, you can integrate File-Icons using Atom's services API.\n\nFirst, add this to your `package.json` file:\n\n```json\n\"consumedServices\": {\n\t\"file-icons.element-icons\": {\n\t\t\"versions\": {\n\t\t\t\"1.0.0\": \"consumeElementIcons\"\n\t\t}\n\t}\n}\n```\n\nSecondly, add a function named `consumeElementIcons` (or whatever you named it) to your package's main export:\n\n```js\nlet addIconToElement;\nmodule.exports.consumeElementIcons = function(func){\n\taddIconToElement = func;\n};\n```\n\nThen call the function it gets passed to display icons in the DOM:\n\n```js\nlet fileIcon = document.querySelector(\"li.file-entry > span.icon\");\naddIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\nThe returned value is a [`Disposable`][10] which clears the icon from memory once it's no longer needed:\n\n```js\nconst disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\nfileIcon.onDestroy(() => disposable.dispose());\n```\n\n**NOTE:** Remember to remove any default icon-classes *before* calling the service handler!\n\n```diff\n let fileIcon = document.querySelector(\"li.file-entry > span.icon\");\n+fileIcon.classList.remove(\"icon-file-text\");\n const disposable = addIconToElement(fileIcon, \"/path/to/file.txt\");\n```\n\n\nAcknowledgements\n------------------------------------------------------------------------------------------\nOriginally based on [sommerper/filetype-color][8], but now sporting a shiny new file-icons\nAPI in `v2` thanks to [Alhadis][11]! Also thanks to all the [contributors][9].\n\n\n[Referenced links]: ____________________________________________________\n[1]: https://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks\n[4]: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors\n[5]: https://github.com/file-icons/DevOpicons/blob/master/charmap.md#JavaScript\n[6]: https://cloud.githubusercontent.com/assets/714197/21516010/4b79a8a8-cd39-11e6-8394-1e3ab778af92.png\n[7]: https://github.com/file-icons/atom/issues/new\n[8]: https://github.com/sommerper/filetype-color\n[9]: https://github.com/file-icons/atom/graphs/contributors\n[10]: https://atom.io/docs/api/latest/Disposable\n[11]: https://github.com/Alhadis\n[12]: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors\n[13]: https://github.com/file-icons/atom#integration-with-other-packages\n[v2.0]: https://github.com/file-icons/atom/releases/tag/v2.0.0\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/file-icons/atom.git"
   },
-  "version": "2.1.7",
+  "version": "2.1.9",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -164,12 +163,12 @@
       },
       {
         "name": "arr-diff",
-        "version": "3.0.0",
+        "version": "4.0.0",
         "path": "node_modules/arr-diff/index.js"
       },
       {
         "name": "arr-flatten",
-        "version": "1.0.3",
+        "version": "1.1.0",
         "path": "node_modules/arr-flatten/index.js"
       },
       {
@@ -198,19 +197,29 @@
         "path": "node_modules/base/index.js"
       },
       {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/base/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/base/node_modules/is-descriptor/index.js"
+      },
+      {
         "name": "isobject",
         "version": "2.1.0",
         "path": "node_modules/base/node_modules/isobject/index.js"
       },
       {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/base/node_modules/kind-of/index.js"
+      },
+      {
         "name": "braces",
         "version": "2.2.2",
         "path": "node_modules/braces/index.js"
-      },
-      {
-        "name": "define-property",
-        "version": "1.0.0",
-        "path": "node_modules/braces/node_modules/define-property/index.js"
       },
       {
         "name": "cache-base",
@@ -221,6 +230,21 @@
         "name": "class-utils",
         "version": "0.3.5",
         "path": "node_modules/class-utils/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/class-utils/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/class-utils/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/class-utils/node_modules/kind-of/index.js"
       },
       {
         "name": "collection-visit",
@@ -244,18 +268,28 @@
       },
       {
         "name": "define-property",
-        "version": "0.2.5",
+        "version": "1.0.0",
         "path": "node_modules/define-property/index.js"
-      },
-      {
-        "name": "is-descriptor",
-        "version": "0.1.5",
-        "path": "node_modules/define-property/node_modules/is-descriptor/index.js"
       },
       {
         "name": "expand-brackets",
         "version": "2.1.4",
         "path": "node_modules/expand-brackets/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/expand-brackets/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/expand-brackets/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/expand-brackets/node_modules/kind-of/index.js"
       },
       {
         "name": "extend-shallow",
@@ -266,6 +300,21 @@
         "name": "extglob",
         "version": "1.1.0",
         "path": "node_modules/extglob/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/extglob/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/extglob/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/extglob/node_modules/kind-of/index.js"
       },
       {
         "name": "to-regex",
@@ -318,6 +367,11 @@
         "path": "node_modules/is-accessor-descriptor/index.js"
       },
       {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/is-accessor-descriptor/node_modules/kind-of/index.js"
+      },
+      {
         "name": "is-buffer",
         "version": "1.1.5",
         "path": "node_modules/is-buffer/index.js"
@@ -328,9 +382,19 @@
         "path": "node_modules/is-data-descriptor/index.js"
       },
       {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/is-data-descriptor/node_modules/kind-of/index.js"
+      },
+      {
         "name": "is-descriptor",
         "version": "1.0.0",
         "path": "node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/is-descriptor/node_modules/kind-of/index.js"
       },
       {
         "name": "is-extendable",
@@ -348,13 +412,18 @@
         "path": "node_modules/is-number/index.js"
       },
       {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/is-number/node_modules/kind-of/index.js"
+      },
+      {
         "name": "is-odd",
         "version": "1.0.0",
         "path": "node_modules/is-odd/index.js"
       },
       {
         "name": "is-plain-object",
-        "version": "2.0.3",
+        "version": "2.0.4",
         "path": "node_modules/is-plain-object/index.js"
       },
       {
@@ -364,12 +433,12 @@
       },
       {
         "name": "isobject",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "path": "node_modules/isobject/index.js"
       },
       {
         "name": "kind-of",
-        "version": "3.2.2",
+        "version": "4.0.0",
         "path": "node_modules/kind-of/index.js"
       },
       {
@@ -389,7 +458,7 @@
       },
       {
         "name": "micromatch",
-        "version": "3.0.1",
+        "version": "3.0.4",
         "path": "node_modules/micromatch/index.js"
       },
       {
@@ -408,24 +477,24 @@
         "path": "node_modules/nanomatch/index.js"
       },
       {
-        "name": "arr-diff",
-        "version": "4.0.0",
-        "path": "node_modules/nanomatch/node_modules/arr-diff/index.js"
-      },
-      {
-        "name": "define-property",
-        "version": "1.0.0",
-        "path": "node_modules/nanomatch/node_modules/define-property/index.js"
-      },
-      {
-        "name": "kind-of",
-        "version": "4.0.0",
-        "path": "node_modules/nanomatch/node_modules/kind-of/index.js"
-      },
-      {
         "name": "object-copy",
         "version": "0.1.0",
         "path": "node_modules/object-copy/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/object-copy/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/object-copy/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/object-copy/node_modules/kind-of/index.js"
       },
       {
         "name": "object-visit",
@@ -498,19 +567,34 @@
         "path": "node_modules/snapdragon/index.js"
       },
       {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/snapdragon/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/snapdragon/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/snapdragon/node_modules/kind-of/index.js"
+      },
+      {
         "name": "snapdragon-node",
-        "version": "2.0.1",
+        "version": "2.1.1",
         "path": "node_modules/snapdragon-node/index.js"
       },
       {
-        "name": "define-property",
-        "version": "1.0.0",
-        "path": "node_modules/snapdragon-node/node_modules/define-property/index.js"
+        "name": "snapdragon-util",
+        "version": "3.0.1",
+        "path": "node_modules/snapdragon-util/index.js"
       },
       {
-        "name": "snapdragon-util",
-        "version": "3.0.0",
-        "path": "node_modules/snapdragon-util/index.js"
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/snapdragon-util/node_modules/kind-of/index.js"
       },
       {
         "name": "source-map",
@@ -538,14 +622,49 @@
         "path": "node_modules/static-extend/index.js"
       },
       {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/static-extend/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/static-extend/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/static-extend/node_modules/kind-of/index.js"
+      },
+      {
         "name": "to-object-path",
         "version": "0.3.0",
         "path": "node_modules/to-object-path/index.js"
       },
       {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/to-object-path/node_modules/kind-of/index.js"
+      },
+      {
         "name": "to-regex",
         "version": "3.0.1",
         "path": "node_modules/to-regex/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/to-regex/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/to-regex/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/to-regex/node_modules/kind-of/index.js"
       },
       {
         "name": "to-regex-range",
@@ -571,6 +690,21 @@
         "name": "use",
         "version": "2.0.2",
         "path": "node_modules/use/index.js"
+      },
+      {
+        "name": "define-property",
+        "version": "0.2.5",
+        "path": "node_modules/use/node_modules/define-property/index.js"
+      },
+      {
+        "name": "is-descriptor",
+        "version": "0.1.5",
+        "path": "node_modules/use/node_modules/is-descriptor/index.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/use/node_modules/kind-of/index.js"
       }
     ],
     "extensions": {
@@ -627,17 +761,24 @@
         "node_modules/atom-fs/lib/system-task.js",
         "node_modules/atom-fs/lib/system.js",
         "node_modules/base/index.js",
+        "node_modules/base/node_modules/define-property/index.js",
+        "node_modules/base/node_modules/is-descriptor/index.js",
+        "node_modules/base/node_modules/is-descriptor/utils.js",
         "node_modules/base/node_modules/isobject/index.js",
+        "node_modules/base/node_modules/kind-of/index.js",
         "node_modules/base/utils.js",
         "node_modules/braces/index.js",
         "node_modules/braces/lib/braces.js",
         "node_modules/braces/lib/compilers.js",
         "node_modules/braces/lib/parsers.js",
         "node_modules/braces/lib/utils.js",
-        "node_modules/braces/node_modules/define-property/index.js",
         "node_modules/cache-base/index.js",
         "node_modules/cache-base/utils.js",
         "node_modules/class-utils/index.js",
+        "node_modules/class-utils/node_modules/define-property/index.js",
+        "node_modules/class-utils/node_modules/is-descriptor/index.js",
+        "node_modules/class-utils/node_modules/is-descriptor/utils.js",
+        "node_modules/class-utils/node_modules/kind-of/index.js",
         "node_modules/class-utils/utils.js",
         "node_modules/collection-visit/index.js",
         "node_modules/collection-visit/utils.js",
@@ -650,18 +791,24 @@
         "node_modules/debug/src/index.js",
         "node_modules/debug/src/node.js",
         "node_modules/define-property/index.js",
-        "node_modules/define-property/node_modules/is-descriptor/index.js",
-        "node_modules/define-property/node_modules/is-descriptor/utils.js",
         "node_modules/expand-brackets/index.js",
         "node_modules/expand-brackets/lib/compilers.js",
         "node_modules/expand-brackets/lib/parsers.js",
         "node_modules/expand-brackets/lib/utils.js",
+        "node_modules/expand-brackets/node_modules/define-property/index.js",
+        "node_modules/expand-brackets/node_modules/is-descriptor/index.js",
+        "node_modules/expand-brackets/node_modules/is-descriptor/utils.js",
+        "node_modules/expand-brackets/node_modules/kind-of/index.js",
         "node_modules/extend-shallow/index.js",
         "node_modules/extglob/index.js",
         "node_modules/extglob/lib/compilers.js",
         "node_modules/extglob/lib/extglob.js",
         "node_modules/extglob/lib/parsers.js",
         "node_modules/extglob/lib/utils.js",
+        "node_modules/extglob/node_modules/define-property/index.js",
+        "node_modules/extglob/node_modules/is-descriptor/index.js",
+        "node_modules/extglob/node_modules/is-descriptor/utils.js",
+        "node_modules/extglob/node_modules/kind-of/index.js",
         "node_modules/extglob/node_modules/to-regex/index.js",
         "node_modules/extglob/node_modules/to-regex/node_modules/regex-not/index.js",
         "node_modules/fill-range/index.js",
@@ -672,13 +819,17 @@
         "node_modules/has-value/node_modules/isobject/index.js",
         "node_modules/has-values/index.js",
         "node_modules/is-accessor-descriptor/index.js",
+        "node_modules/is-accessor-descriptor/node_modules/kind-of/index.js",
         "node_modules/is-buffer/index.js",
         "node_modules/is-data-descriptor/index.js",
+        "node_modules/is-data-descriptor/node_modules/kind-of/index.js",
         "node_modules/is-descriptor/index.js",
+        "node_modules/is-descriptor/node_modules/kind-of/index.js",
         "node_modules/is-descriptor/utils.js",
         "node_modules/is-extendable/index.js",
         "node_modules/is-extglob/index.js",
         "node_modules/is-number/index.js",
+        "node_modules/is-number/node_modules/kind-of/index.js",
         "node_modules/is-odd/index.js",
         "node_modules/is-plain-object/index.js",
         "node_modules/isarray/index.js",
@@ -701,10 +852,11 @@
         "node_modules/nanomatch/lib/compilers.js",
         "node_modules/nanomatch/lib/parsers.js",
         "node_modules/nanomatch/lib/utils.js",
-        "node_modules/nanomatch/node_modules/arr-diff/index.js",
-        "node_modules/nanomatch/node_modules/define-property/index.js",
-        "node_modules/nanomatch/node_modules/kind-of/index.js",
         "node_modules/object-copy/index.js",
+        "node_modules/object-copy/node_modules/define-property/index.js",
+        "node_modules/object-copy/node_modules/is-descriptor/index.js",
+        "node_modules/object-copy/node_modules/is-descriptor/utils.js",
+        "node_modules/object-copy/node_modules/kind-of/index.js",
         "node_modules/object-visit/index.js",
         "node_modules/object-visit/node_modules/isobject/index.js",
         "node_modules/object.pick/index.js",
@@ -724,9 +876,13 @@
         "node_modules/snapdragon/lib/position.js",
         "node_modules/snapdragon/lib/source-maps.js",
         "node_modules/snapdragon/lib/utils.js",
+        "node_modules/snapdragon/node_modules/define-property/index.js",
+        "node_modules/snapdragon/node_modules/is-descriptor/index.js",
+        "node_modules/snapdragon/node_modules/is-descriptor/utils.js",
+        "node_modules/snapdragon/node_modules/kind-of/index.js",
         "node_modules/snapdragon-node/index.js",
-        "node_modules/snapdragon-node/node_modules/define-property/index.js",
         "node_modules/snapdragon-util/index.js",
+        "node_modules/snapdragon-util/node_modules/kind-of/index.js",
         "node_modules/source-map/dist/source-map.debug.js",
         "node_modules/source-map/dist/source-map.js",
         "node_modules/source-map/dist/source-map.min.js",
@@ -748,13 +904,26 @@
         "node_modules/source-map-url/source-map-url.js",
         "node_modules/split-string/index.js",
         "node_modules/static-extend/index.js",
+        "node_modules/static-extend/node_modules/define-property/index.js",
+        "node_modules/static-extend/node_modules/is-descriptor/index.js",
+        "node_modules/static-extend/node_modules/is-descriptor/utils.js",
+        "node_modules/static-extend/node_modules/kind-of/index.js",
         "node_modules/to-object-path/index.js",
+        "node_modules/to-object-path/node_modules/kind-of/index.js",
         "node_modules/to-regex/index.js",
+        "node_modules/to-regex/node_modules/define-property/index.js",
+        "node_modules/to-regex/node_modules/is-descriptor/index.js",
+        "node_modules/to-regex/node_modules/is-descriptor/utils.js",
+        "node_modules/to-regex/node_modules/kind-of/index.js",
         "node_modules/to-regex-range/index.js",
         "node_modules/union-value/index.js",
         "node_modules/unset-value/index.js",
         "node_modules/urix/index.js",
         "node_modules/use/index.js",
+        "node_modules/use/node_modules/define-property/index.js",
+        "node_modules/use/node_modules/is-descriptor/index.js",
+        "node_modules/use/node_modules/is-descriptor/utils.js",
+        "node_modules/use/node_modules/kind-of/index.js",
         "node_modules/use/utils.js"
       ],
       ".json": [
@@ -766,21 +935,31 @@
         "node_modules/atob/bower.json",
         "node_modules/atob/package.json",
         "node_modules/atom-fs/package.json",
+        "node_modules/base/node_modules/define-property/package.json",
+        "node_modules/base/node_modules/is-descriptor/package.json",
         "node_modules/base/node_modules/isobject/package.json",
+        "node_modules/base/node_modules/kind-of/package.json",
         "node_modules/base/package.json",
-        "node_modules/braces/node_modules/define-property/package.json",
         "node_modules/braces/package.json",
         "node_modules/cache-base/package.json",
+        "node_modules/class-utils/node_modules/define-property/package.json",
+        "node_modules/class-utils/node_modules/is-descriptor/package.json",
+        "node_modules/class-utils/node_modules/kind-of/package.json",
         "node_modules/class-utils/package.json",
         "node_modules/collection-visit/package.json",
         "node_modules/component-emitter/package.json",
         "node_modules/copy-descriptor/package.json",
         "node_modules/debug/component.json",
         "node_modules/debug/package.json",
-        "node_modules/define-property/node_modules/is-descriptor/package.json",
         "node_modules/define-property/package.json",
+        "node_modules/expand-brackets/node_modules/define-property/package.json",
+        "node_modules/expand-brackets/node_modules/is-descriptor/package.json",
+        "node_modules/expand-brackets/node_modules/kind-of/package.json",
         "node_modules/expand-brackets/package.json",
         "node_modules/extend-shallow/package.json",
+        "node_modules/extglob/node_modules/define-property/package.json",
+        "node_modules/extglob/node_modules/is-descriptor/package.json",
+        "node_modules/extglob/node_modules/kind-of/package.json",
         "node_modules/extglob/node_modules/to-regex/node_modules/regex-not/package.json",
         "node_modules/extglob/node_modules/to-regex/package.json",
         "node_modules/extglob/package.json",
@@ -791,12 +970,16 @@
         "node_modules/has-value/node_modules/isobject/package.json",
         "node_modules/has-value/package.json",
         "node_modules/has-values/package.json",
+        "node_modules/is-accessor-descriptor/node_modules/kind-of/package.json",
         "node_modules/is-accessor-descriptor/package.json",
         "node_modules/is-buffer/package.json",
+        "node_modules/is-data-descriptor/node_modules/kind-of/package.json",
         "node_modules/is-data-descriptor/package.json",
+        "node_modules/is-descriptor/node_modules/kind-of/package.json",
         "node_modules/is-descriptor/package.json",
         "node_modules/is-extendable/package.json",
         "node_modules/is-extglob/package.json",
+        "node_modules/is-number/node_modules/kind-of/package.json",
         "node_modules/is-number/package.json",
         "node_modules/is-odd/package.json",
         "node_modules/is-plain-object/package.json",
@@ -810,10 +993,10 @@
         "node_modules/micromatch/package.json",
         "node_modules/mixin-deep/package.json",
         "node_modules/ms/package.json",
-        "node_modules/nanomatch/node_modules/arr-diff/package.json",
-        "node_modules/nanomatch/node_modules/define-property/package.json",
-        "node_modules/nanomatch/node_modules/kind-of/package.json",
         "node_modules/nanomatch/package.json",
+        "node_modules/object-copy/node_modules/define-property/package.json",
+        "node_modules/object-copy/node_modules/is-descriptor/package.json",
+        "node_modules/object-copy/node_modules/kind-of/package.json",
         "node_modules/object-copy/package.json",
         "node_modules/object-visit/node_modules/isobject/package.json",
         "node_modules/object-visit/package.json",
@@ -830,9 +1013,12 @@
         "node_modules/resolve-url/package.json",
         "node_modules/set-getter/package.json",
         "node_modules/set-value/package.json",
+        "node_modules/snapdragon/node_modules/define-property/package.json",
+        "node_modules/snapdragon/node_modules/is-descriptor/package.json",
+        "node_modules/snapdragon/node_modules/kind-of/package.json",
         "node_modules/snapdragon/package.json",
-        "node_modules/snapdragon-node/node_modules/define-property/package.json",
         "node_modules/snapdragon-node/package.json",
+        "node_modules/snapdragon-util/node_modules/kind-of/package.json",
         "node_modules/snapdragon-util/package.json",
         "node_modules/source-map/package.json",
         "node_modules/source-map-resolve/bower.json",
@@ -842,13 +1028,23 @@
         "node_modules/source-map-url/component.json",
         "node_modules/source-map-url/package.json",
         "node_modules/split-string/package.json",
+        "node_modules/static-extend/node_modules/define-property/package.json",
+        "node_modules/static-extend/node_modules/is-descriptor/package.json",
+        "node_modules/static-extend/node_modules/kind-of/package.json",
         "node_modules/static-extend/package.json",
+        "node_modules/to-object-path/node_modules/kind-of/package.json",
         "node_modules/to-object-path/package.json",
+        "node_modules/to-regex/node_modules/define-property/package.json",
+        "node_modules/to-regex/node_modules/is-descriptor/package.json",
+        "node_modules/to-regex/node_modules/kind-of/package.json",
         "node_modules/to-regex/package.json",
         "node_modules/to-regex-range/package.json",
         "node_modules/union-value/package.json",
         "node_modules/unset-value/package.json",
         "node_modules/urix/package.json",
+        "node_modules/use/node_modules/define-property/package.json",
+        "node_modules/use/node_modules/is-descriptor/package.json",
+        "node_modules/use/node_modules/kind-of/package.json",
         "node_modules/use/package.json",
         "package.json"
       ]
@@ -868,14 +1064,6 @@
           "atom-fs": "v0.1.2",
           "micromatch": "*",
           "print": "*"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/arr-diff"
-        ],
-        "dependencies": {
-          "arr-flatten": "^1.0.1"
         }
       },
       {
@@ -905,10 +1093,37 @@
       },
       {
         "paths": [
+          "node_modules/base/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/base/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
           "node_modules/base/node_modules/isobject"
         ],
         "dependencies": {
           "isarray": "1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/base/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -928,14 +1143,6 @@
           "snapdragon-node": "^2.0.1",
           "split-string": "^2.1.0",
           "to-regex": "^3.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/braces/node_modules/define-property"
-        ],
-        "dependencies": {
-          "is-descriptor": "^1.0.0"
         }
       },
       {
@@ -969,6 +1176,33 @@
       },
       {
         "paths": [
+          "node_modules/class-utils/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/class-utils/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/class-utils/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
           "node_modules/collection-visit"
         ],
         "dependencies": {
@@ -991,18 +1225,7 @@
           "node_modules/define-property"
         ],
         "dependencies": {
-          "is-descriptor": "^0.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/define-property/node_modules/is-descriptor"
-        ],
-        "dependencies": {
-          "is-accessor-descriptor": "^0.1.6",
-          "is-data-descriptor": "^0.1.4",
-          "kind-of": "^3.0.2",
-          "lazy-cache": "^2.0.2"
+          "is-descriptor": "^1.0.0"
         }
       },
       {
@@ -1018,6 +1241,33 @@
           "regex-not": "^1.0.0",
           "snapdragon": "^0.8.1",
           "to-regex": "^3.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/expand-brackets/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/expand-brackets/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/expand-brackets/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1042,6 +1292,33 @@
           "regex-not": "^1.0.0",
           "snapdragon": "^0.8.1",
           "to-regex": "^2.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/extglob/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/extglob/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/extglob/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1101,10 +1378,26 @@
       },
       {
         "paths": [
+          "node_modules/is-accessor-descriptor/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
           "node_modules/is-data-descriptor"
         ],
         "dependencies": {
           "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-data-descriptor/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1120,10 +1413,26 @@
       },
       {
         "paths": [
+          "node_modules/is-descriptor/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
           "node_modules/is-number"
         ],
         "dependencies": {
           "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-number/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1139,7 +1448,7 @@
           "node_modules/is-plain-object"
         ],
         "dependencies": {
-          "isobject": "^3.0.0"
+          "isobject": "^3.0.1"
         }
       },
       {
@@ -1173,15 +1482,15 @@
           "node_modules/micromatch/lib"
         ],
         "dependencies": {
-          "arr-diff": "^3.0.0",
+          "arr-diff": "^4.0.0",
           "array-unique": "^0.3.2",
-          "braces": "^2.0.3",
-          "define-property": "^0.2.5",
+          "braces": "^2.2.2",
+          "define-property": "^1.0.0",
           "extend-shallow": "^2.0.1",
           "extglob": "^1.1.0",
           "fragment-cache": "^0.2.1",
-          "kind-of": "^3.1.0",
-          "nanomatch": "^1.1.1",
+          "kind-of": "^4.0.0",
+          "nanomatch": "^1.2.0",
           "object.pick": "^1.2.0",
           "regex-not": "^1.0.0",
           "snapdragon": "^0.8.1",
@@ -1219,28 +1528,39 @@
       },
       {
         "paths": [
-          "node_modules/nanomatch/node_modules/define-property"
-        ],
-        "dependencies": {
-          "is-descriptor": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/nanomatch/node_modules/kind-of"
-        ],
-        "dependencies": {
-          "is-buffer": "^1.1.5"
-        }
-      },
-      {
-        "paths": [
           "node_modules/object-copy"
         ],
         "dependencies": {
           "copy-descriptor": "^0.1.0",
           "define-property": "^0.2.5",
           "kind-of": "^3.0.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/object-copy/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/object-copy/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/object-copy/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1320,20 +1640,39 @@
       },
       {
         "paths": [
+          "node_modules/snapdragon/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/snapdragon/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/snapdragon/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
           "node_modules/snapdragon-node"
         ],
         "dependencies": {
           "define-property": "^1.0.0",
           "isobject": "^3.0.0",
-          "snapdragon-util": "^3.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/snapdragon-node/node_modules/define-property"
-        ],
-        "dependencies": {
-          "is-descriptor": "^1.0.0"
+          "snapdragon-util": "^3.0.1"
         }
       },
       {
@@ -1342,6 +1681,14 @@
         ],
         "dependencies": {
           "kind-of": "^3.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/snapdragon-util/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1376,10 +1723,45 @@
       },
       {
         "paths": [
+          "node_modules/static-extend/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/static-extend/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/static-extend/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
           "node_modules/to-object-path"
         ],
         "dependencies": {
           "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/to-object-path/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1390,6 +1772,33 @@
           "define-property": "^0.2.5",
           "extend-shallow": "^2.0.1",
           "regex-not": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/to-regex/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/to-regex/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/to-regex/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       },
       {
@@ -1429,6 +1838,33 @@
           "define-property": "^0.2.5",
           "isobject": "^3.0.0",
           "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/use/node_modules/define-property"
+        ],
+        "dependencies": {
+          "is-descriptor": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/use/node_modules/is-descriptor"
+        ],
+        "dependencies": {
+          "is-accessor-descriptor": "^0.1.6",
+          "is-data-descriptor": "^0.1.4",
+          "kind-of": "^3.0.2",
+          "lazy-cache": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/use/node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
         }
       }
     ]
