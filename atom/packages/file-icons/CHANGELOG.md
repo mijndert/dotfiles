@@ -3,14 +3,42 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.9...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.11...HEAD
+
+
+[v2.1.11] - 2017-08-17
+----------------------
+### Added
+- **Support:** GIMP (`.gpl`), Minecraft (`.mcfunction`, `pack.mcmeta`, `.png.mcmeta`)
+
+### Fixed
+- [[`#639`][]]: Rare exception thrown when loading `.gitattributes` files
+- Regression with reading contents of opened text-buffers
+
+[v2.1.11]: https://github.com/file-icons/atom/releases/tag/v2.1.11
+[`#639`]:  https://github.com/file-icons/atom/issues/639
+
+
+
+[v2.1.10] - 2017-08-06
+----------------------
+### Added
+- **New icons:** Cairo, Codacy (`.codacy.yml`), Corel (`.cmx`, `.ccx`), CorelDRAW (`.cdr`, `.cdrx`, `.cdt`), Firebase Bolt (`.bolt`), Ghostscript, GIMP (`.xcf`, `.ggr`, `.gih`, `.vbr`), Graphite, HewlettPackard (`.hpgl`), Inkscape, OpenCV, Pipenv (`Pipfile`, `Pipfile.lock`), TortoiseSVN (`.tgitconfig`)
+- **Support:** Apache (`httpd{.+}*.conf`), Eagle (`.eup`), Generic code (`.sk`, `.sk{1,2}`), Images (`.cgm`, `.fig`, `.wmf`, `.emf`, `.wmz`, `.apm`, `.xwd`), KiCad (`.kicad_pcb-bak`, `.kicad_mod`, `.kicad_wks`, `fp-lib-table`), LLVM (`ubsan.blacklist`), MarkdownLint (`.mdlrc`, `.mdlrc.style.rb`), Moustache (`*.stache`), nginx (`nginx{.+}*.conf`), Printed Circuit Boards (`.pcb`, `.gbr`, `.gtl`, `.gbl`, `.gbs`, `.gto`, `.gts`, `.gtp`, `.gbo`, `.gbp`, `.drl`, `.dsn`, `.fab`, `.gko`, `.gpt`, `.gpb`, `.net`, `.pho`, `.{g,gm}[0-9]+`), Text (`.dri`, `.gpi`, `.rpt`), XML Page Specification (`.xps`)
+
+### Changed
+- Eagle icon replaced by generic circuit-board for `.brd` (Board) and `.sch` (Schematic) files.
+- MarkdownLint icon reduced in scale slightly
+
+[v2.1.10]: https://github.com/file-icons/atom/releases/tag/v2.1.10
+
 
 
 [v2.1.9] - 2017-07-16
 ---------------------
 ### Added
 - **New icons:** Atoum (`.atoum.php`), Behat (`behat.yml`), CPAN (`cpanfile`, `MANIFEST.SKIP`, `META.{yml,json}`), cURL (`.curlrc`), Flask (`flask{.*}.py`), Pod (`.pod`), tmux (`.tmux.conf`)
-- **Support:** C (`.xpm`), Generic code (`.cgi`, `.fcgi`), Jest (`jest.config.js`), Maps (`.map`), Mercurial (`.hgignore`, `.hgrc`, `.hgsub`, `.hgsubstate`), Perl (`.al`), Shell-scripts (`.mksh`, `.pdksh`), Tagfiles (`.hgtags`, `localtags`), TypeScript tests (`*.{spec|test}.{ts,tsx}`), Unit tests (`t/*.sh`, `t/*.t`, `.xspec`), Visual Studio (`.njsproj`)
+- **Support:** C (`.xpm`), Generic code (`.cgi`, `.fcgi`), Images (`.xwd`), Jest (`jest.config.js`), Maps (`.map`), Mercurial (`.hgignore`, `.hgrc`, `.hgsub`, `.hgsubstate`), Perl (`.al`), Shell-scripts (`.mksh`, `.pdksh`), Tagfiles (`.hgtags`, `localtags`), TypeScript tests (`*.{spec|test}.{ts,tsx}`), Unit tests (`t/*.sh`, `t/*.t`, `.xspec`), Visual Studio (`.njsproj`)
 - `.tdy` and `.tidy` to ignored file-extensions, used by [perltidy(1)][pltidy].
 
 ### Changed
@@ -134,7 +162,7 @@ An `apm` bug with handling scoped NPM modules [`#702`](https://github.com/atom/a
 [v2.1.0] - 2017-03-21
 ---------------------
 ### Added
-- **New icons:** Alex (`.alexrc`, `.alexignore`), Antwar (`antwar.{conf|config}.`), CodeShip (`codeship-*.yml`), MarkdownLint (`.markdownlintrc`), PM2 (`ecosystem.{config|conf}.*`), Proselint (`.proselintrc`), Tests folder (unassigned), Test-files (CoffeeScript: , Generic code, JavaScript, Perl, Python, React/JSX/TSX, Ruby, and TypeScript) (`{spec|test}/*.{spec|test}.{js|rb|pl…}`), Webpack (updated logo)
+- **New icons:** Alex (`.alexrc`, `.alexignore`), Antwar (`antwar.{conf|config}.`), CodeShip (`codeship-*.yml`), MarkdownLint (`.markdownlintrc`), PM2 (`ecosystem.{config|conf}.*`), Proselint (`.proselintrc`), Tests folder (unassigned), Test-files (CoffeeScript, Generic code, JavaScript, Perl, Python, React/JSX/TSX, Ruby, and TypeScript) (`{spec|test}/*.{spec|test}.{js|rb|pl…}`), Webpack (updated logo)
 - **Support:** GitLab (`.gitlab`), Jinja2 (`.j2`), Karma (`karma.config.*`), Protractor (`protractor.config.*`), SourcePawn (`.inc`), Stylus (`.stylus`), Webpack (`webpack.conf.*`)
 
 ### Changed

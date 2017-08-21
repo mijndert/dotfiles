@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-var forEach       = require('./for-each')
-  , isPlainObject = require('./is-plain-object')
-  , value         = require('./valid-value')
+var forEach       = require("./for-each")
+  , isPlainObject = require("./is-plain-object")
+  , ensureValue   = require("./valid-value")
+  , isArray       = Array.isArray
+  , copy
+  , copyItem;
 
-  , isArray = Array.isArray
-  , copy, copyItem;
-
-copyItem = function (value, key) {
+copyItem = function (value) {
 	var index;
 	if (!isPlainObject(value) && !isArray(value)) return value;
 	index = this[0].indexOf(value);
@@ -24,15 +24,19 @@ copy = function (source) {
 			target[key] = copyItem.call(this, value, key);
 		}, this);
 	} else {
-		forEach(source, function (value, key) {
-			target[key] = copyItem.call(this, value, key);
-		}, this);
+		forEach(
+			source,
+			function (value, key) {
+				target[key] = copyItem.call(this, value, key);
+			},
+			this
+		);
 	}
 	return target;
 };
 
 module.exports = function (source) {
-	var obj = Object(value(source));
+	var obj = Object(ensureValue(source));
 	if (obj !== source) return obj;
 	return copy.call([[], []], obj);
 };

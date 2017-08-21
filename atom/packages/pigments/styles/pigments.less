@@ -23,34 +23,17 @@
 }
 
 .background-color {
-  z-index: -2;
-
-  &:before {
-    content: '';
-    background: url(atom://pigments/resources/transparent-background.png);
-    z-index: -1;
-    border-radius: inherit;
-    box-sizing: border-box;
-    .absolute-box;
-  }
-
-  &:after {
-    content: '';
-    background: inherit;
-    z-index: -1;
-    border-radius: inherit;
-    box-sizing: border-box;
-    .absolute-box;
-  }
+  box-sizing: border-box;
+  background-attachment: fixed;
 }
 
 .icon-pigments::before {
   content: '';
-  width: 1.6em;
-  height: 1.6em;
+  width: 1em;
+  height: 1em;
   display: inline-block;
   background-image: url(atom://pigments/resources/icon.svg);
-  background-size: 1.6em;
+  background-size: 1em;
   vertical-align: middle;
 }
 
@@ -77,17 +60,14 @@ atom-panel-container.footer {
 }
 
 atom-text-editor {
-  .pigments-native-background .region,
-  .pigments-native-background-in-selection .region {
-    position: absolute;
-    white-space: pre;
+  .pigments-native-background {
+    position: relative;
     .background-color;
-    -webkit-font-smoothing: subpixel-antialiased;
-    font-weight: normal;
-    z-index: 1;
   }
+
   .pigments-native-background-in-selection {
-    display: none;
+    background: transparent !important;
+    color: inherit !important;
   }
 
   .pigments-native-underline .region,

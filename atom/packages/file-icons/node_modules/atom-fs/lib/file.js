@@ -200,10 +200,8 @@ class File extends Resource {
 	 * @private
 	 */
 	refreshBuffer(){
-		const data = this.buffer.cachedDiskContents;
-		null === data
-			? this.setData(this.buffer.lines.join("\n"))
-			: this.setData(data, true);
+		const data = this.buffer.getText();
+		this.setData(data, true);
 	}
 	
 	

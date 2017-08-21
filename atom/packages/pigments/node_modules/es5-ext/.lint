@@ -19,6 +19,7 @@ sub
 ./function/#/copy.js
 ./object/unserialize.js
 ./test/function/valid-function.js
+./test/function/#/to-string-tokens.js
 evil
 
 ./math/_pack-ieee754.js
@@ -34,6 +35,9 @@ predef+ Float32Array
 
 ./object/first-key.js
 forin
+
+./test
+predef+ Symbol
 
 ./test/reg-exp/#/index.js
 predef+ __dirname

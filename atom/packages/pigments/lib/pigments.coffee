@@ -3,7 +3,7 @@
   ColorSearch, ColorResultsElement,
   ColorProject, ColorProjectElement,
   ColorBuffer, ColorBufferElement,
-  ColorMarker, ColorMarkerElement,
+  ColorMarker,
   VariablesCollection, PigmentsProvider, PigmentsAPI,
   Disposable,
   url, uris
@@ -12,8 +12,6 @@
 module.exports =
   activate: (state) ->
     ColorProject ?= require './color-project'
-
-    @patchAtom()
 
     @project = if state.project?
       ColorProject.deserialize(state.project)
@@ -198,9 +196,6 @@ module.exports =
     element = if model instanceof (ColorBuffer ?= require './color-buffer')
       ColorBufferElement ?= require './color-buffer-element'
       element = new ColorBufferElement
-    else if model instanceof (ColorMarker ?= require './color-marker')
-      ColorMarkerElement ?= require './color-marker-element'
-      element = new ColorMarkerElement
     else if model instanceof (ColorSearch ?= require './color-search')
       ColorResultsElement ?= require './color-results-element'
       element = new ColorResultsElement
@@ -289,66 +284,3 @@ module.exports =
 
     JSON.stringify(o, null, 2)
     .replace(///#{atom.project.getPaths().join('|')}///g, '<root>')
-
-  patchAtom: ->
-    getModuleFromNodeCache = (name) ->
-      modulePath = Object.keys(require.cache).filter((s) -> s.indexOf(name) > -1)[0]
-      require.cache[modulePath]
-
-    getModuleFromSnapshotCache = (name) ->
-      if typeof snapshotResult is 'undefined'
-        null
-      else
-        modulePath = Object.keys(snapshotResult.customRequire.cache).filter((s) -> s.indexOf(name) > -1)[0]
-        snapshotResult.customRequire.cache[modulePath]
-
-    requireCore = (name) ->
-      module = getModuleFromNodeCache(name) ? getModuleFromSnapshotCache(name)
-      if module?
-        module.exports
-      else
-        throw new Error("Cannot find '#{name}' in the require cache.")
-
-    HighlightComponent = requireCore('highlights-component')
-    TextEditorPresenter = requireCore('text-editor-presenter')
-
-    unless TextEditorPresenter.getTextInScreenRange?
-      TextEditorPresenter::getTextInScreenRange = (screenRange) ->
-        if @displayLayer?
-          @model.getTextInRange(@displayLayer.translateScreenRange(screenRange))
-        else
-          @model.getTextInRange(@model.bufferRangeForScreenRange(screenRange))
-
-      _buildHighlightRegions = TextEditorPresenter::buildHighlightRegions
-      TextEditorPresenter::buildHighlightRegions = (screenRange) ->
-        regions = _buildHighlightRegions.call(this, screenRange)
-
-        if regions.length is 1
-          regions[0].text = @getTextInScreenRange(screenRange)
-        else
-          regions[0].text = @getTextInScreenRange([
-            screenRange.start
-            [screenRange.start.row, Infinity]
-          ])
-          regions[regions.length - 1].text = @getTextInScreenRange([
-            [screenRange.end.row, 0]
-            screenRange.end
-          ])
-
-          if regions.length > 2
-            regions[1].text = @getTextInScreenRange([
-              [screenRange.start.row + 1, 0]
-              [screenRange.end.row - 1, Infinity]
-            ])
-
-        regions
-
-      _updateHighlightRegions = HighlightComponent::updateHighlightRegions
-      HighlightComponent::updateHighlightRegions = (id, newHighlightState) ->
-        _updateHighlightRegions.call(this, id; newHighlightState)
-
-        if newHighlightState.class?.match /^pigments-native-background\s/
-          for newRegionState, i in newHighlightState.regions
-            regionNode = @regionNodesByHighlightId[id][i]
-
-            regionNode.textContent = newRegionState.text if newRegionState.text?

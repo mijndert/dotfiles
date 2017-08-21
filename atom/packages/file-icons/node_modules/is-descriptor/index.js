@@ -1,20 +1,22 @@
 /*!
  * is-descriptor <https://github.com/jonschlinkert/is-descriptor>
  *
- * Copyright (c) 2015, 2017, Jon Schlinkert.
+ * Copyright (c) 2015-2017, Jon Schlinkert.
  * Released under the MIT License.
  */
 
 'use strict';
 
-var utils = require('./utils');
+var typeOf = require('kind-of');
+var isAccessor = require('is-accessor-descriptor');
+var isData = require('is-data-descriptor');
 
 module.exports = function isDescriptor(obj, key) {
-  if (utils.typeOf(obj) !== 'object') {
+  if (typeOf(obj) !== 'object') {
     return false;
   }
   if ('get' in obj) {
-    return utils.isAccessor(obj, key);
+    return isAccessor(obj, key);
   }
-  return utils.isData(obj, key);
+  return isData(obj, key);
 };

@@ -1,3 +1,5 @@
+HashKnownHosts yes
+
 Host *
 	ForwardAgent yes
 	ConnectTimeout 30
