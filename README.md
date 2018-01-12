@@ -14,10 +14,3 @@ Follow these install instructions to setup a new Mac.
 4. Clone this repository some place
 5. Run 'make' in the root of the repository to symlink all dotfiles and binaries
 6. Go into the setup folder and run 'sh setup.sh' to execute all scripts there
-7. Install some apps that are missing using the Mac App Store
-
-## Missing apps
-
-- Office
-- Lightroom
-- Vmware fusion

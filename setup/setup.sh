@@ -9,5 +9,4 @@ sudo -v
 . brew.sh
 . bash.sh
 . osx.sh
-. jekyll.sh
 . virtualenv.sh
