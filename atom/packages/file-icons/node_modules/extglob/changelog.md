@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.0.0
+
+**Added features**
+
+- Adds [.capture](readme.md#capture) method for capturing matches, thanks to [devongovett](https://github.com/devongovett)
+
+
 ### v1.0.0
 
 **Breaking changes**

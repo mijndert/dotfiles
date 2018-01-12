@@ -1,0 +1,31 @@
+'.source.powershell':
+  'For Loop':
+    'prefix': 'for'
+    'body': 'For (\$${1:i} = 0; \$$1 -le ${2:count}; ${3:++\$$1})\n{\n\t${0:# code}\n}'
+  'Foreach':
+    'prefix': 'foreach'
+    'body': 'Foreach (\$${1:item} in \$${2:items})\n{\n\$$1\n}'
+  'If Condition':
+    'prefix': 'if'
+    'body': 'If (${1:# condition})\n{\n\t${0:# code}\n}'
+  'new-object':
+    'prefix': 'new'
+    'body': 'New-Object'
+  '.DESCRIPTION':
+    'prefix': '.d'
+    'body': '.DESCRIPTION\n'
+  '.EXAMPLE':
+    'prefix': '.e'
+    'body': '.EXAMPLE\n'
+  '.PARAMETER':
+    'prefix': '.p'
+    'body': '.PARAMETER ${1:Name}'
+  '.SYNOPSIS':
+    'prefix': '.s'
+    'body': '.SYNOPSIS\n'
+  'Function Cmdlet':
+    'prefix': 'func'
+    'body': '<#\n.SYNOPSIS\n\tShort description\n\n.DESCRIPTION\n\tLong description\n\n.OUTPUTS\n\tThe value returned by this cmdlet\n\n.EXAMPLE\n\tExample of how to use this cmdlet\n\n.LINK\n\tTo other relevant cmdlets or help\n#>\nFunction ${1:Verb}-${2:Noun}\n{\n\t[CmdletBinding()]\n\t[OutputType([Nullable])]\n\tParam\n\t(\n\t\t# Param1 help description\n\t\t[Parameter(Mandatory, ValueFromPipelineByPropertyName, Position=0)]\n\t\t\$Param1,\n\n\t\t# Param2 help description\n\t\t[int]\n\t\t\$Param2\n\t)\n\tBegin\n\t{\n\t\t${3:# code}\n\t}\n\tProcess\n\t{\n\t}\n\tEnd\n\t{\n\t}\n}'
+  'Switch':
+    'prefix': 'switch'
+    'body': 'switch (\$${1:x})\n{\n\t"value1" {}\n\t{\$_ -in "A","B","C"} {}\n\t"value3" {}\n\tDefault {}\n}'

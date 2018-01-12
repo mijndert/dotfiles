@@ -1,15 +1,15 @@
 /*!
  * object-visit <https://github.com/jonschlinkert/object-visit>
  *
- * Copyright (c) 2015, Jon Schlinkert.
- * Licensed under the MIT License.
+ * Copyright (c) 2015, 2017, Jon Schlinkert.
+ * Released under the MIT License.
  */
 
 'use strict';
 
 var isObject = require('isobject');
 
-module.exports = function visit(thisArg, method, target) {
+module.exports = function visit(thisArg, method, target, val) {
   if (!isObject(thisArg) && typeof thisArg !== 'function') {
     throw new Error('object-visit expects `thisArg` to be an object.');
   }
@@ -22,9 +22,12 @@ module.exports = function visit(thisArg, method, target) {
     return thisArg;
   }
 
+  var args = [].slice.call(arguments, 3);
   target = target || {};
+
   for (var key in target) {
-    thisArg[method](key, target[key]);
+    var arr = [key, target[key]].concat(args);
+    thisArg[method].apply(thisArg, arr);
   }
   return thisArg;
 };

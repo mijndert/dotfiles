@@ -22,6 +22,21 @@ class TreeView extends Consumer {
 				this.disposables.dispose("project");
 			})
 		);
+		
+		// Monkey-patching doesn't fire if user opens project to an existing (and empty)
+		// workspace window. See: https://github.com/file-icons/atom/issues/655#issuecomment-335127348
+		this.disposables.set("pane",
+			atom.workspace.onDidChangeActivePaneItem(item => {
+				const pkg = atom.packages.loadedPackages[this.name];
+				if(!this.active && pkg && item && "TreeView" === item.constructor.name){
+					this.package       = pkg;
+					this.packagePath   = pkg.path;
+					this.packageModule = pkg.mainModule;
+					this.updateStatus();
+					this.disposables.dispose("pane");
+				}
+			})
+		);
 	}
 	
 	
@@ -85,7 +100,8 @@ class TreeView extends Consumer {
 	
 	
 	track(...entries){
-		for(const entry of entries){
+		for(let entry of entries){
+			entry = Array.isArray(entry) ? entry[1] : entry;
 			if(!this.entries.has(entry)){
 				const isDirectory = "expansionState" in entry;
 				const element     = this.elementForEntry(entry);

@@ -1,6 +1,7 @@
 'use strict';
 
-var utils = require('./utils');
+var util = require('util');
+var visit = require('object-visit');
 
 /**
  * Map `visit` over an array of objects.
@@ -10,16 +11,27 @@ var utils = require('./utils');
  * @param  {Object} `arr` Array of objects.
  */
 
-module.exports = function mapVisit(collection, method, arr) {
-  if (!Array.isArray(arr)) {
-    throw new TypeError('expected an array');
+module.exports = function mapVisit(collection, method, val) {
+  if (isObject(val)) {
+    return visit.apply(null, arguments);
   }
 
-  arr.forEach(function(val) {
-    if (typeof val === 'string') {
-      collection[method](val);
+  if (!Array.isArray(val)) {
+    throw new TypeError('expected an array: ' + util.inspect(val));
+  }
+
+  var args = [].slice.call(arguments, 3);
+
+  for (var i = 0; i < val.length; i++) {
+    var ele = val[i];
+    if (isObject(ele)) {
+      visit.apply(null, [collection, method, ele].concat(args));
     } else {
-      utils.visit(collection, method, val);
+      collection[method].apply(collection, [ele].concat(args));
     }
-  });
+  }
 };
+
+function isObject(val) {
+  return val && (typeof val === 'function' || (!Array.isArray(val) && typeof val === 'object'));
+}

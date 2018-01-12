@@ -9,3 +9,7 @@ mkd() {
 digga() {
 	dig +nocmd "$1" any +multiline +noall +answer
 }
+
+weather() {
+	curl -s wttr.in/$1 | head -n7
+}

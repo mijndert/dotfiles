@@ -5,12 +5,13 @@ const {lstat, realpath, statify} = require("alhadis.utils");
 const Directory     = require("./directory.js");
 const EntityType    = require("./entity-type.js");
 const File          = require("./file.js");
+const PathMap       = require("./path-map.js");
 
 
 class FileSystem {
 	
 	constructor(){
-		this.paths = new Map();
+		this.paths = new PathMap();
 		this.inodes = new Map();
 		this.emitter = new Emitter();
 		this.disposables = new CompositeDisposable();
