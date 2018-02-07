@@ -1,3 +1,0 @@
-[submodule "vendor/PowerShell"]
-	path = vendor/PowerShell
-	url = https://github.com/SublimeText/PowerShell.git
