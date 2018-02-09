@@ -21,7 +21,7 @@ alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip
 alias awscred="source awscred"
 
 # sshuttle tunnel
-alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndertstuij.nl 0/0'
+alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@ssh.jorijn.com 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
 
 # Detect which `ls` flavor is in use
