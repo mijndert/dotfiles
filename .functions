@@ -15,9 +15,9 @@ weather() {
 }
 
 n() {
-        $EDITOR ~/notes/"$*".txt
+        $EDITOR ~/Documents/notes/"$*".txt
 }
 
 nls() {
-        ls -c ~/notes/ | grep "$*"
+        ls -c ~/Documents/notes/ | grep "$*"
 }
