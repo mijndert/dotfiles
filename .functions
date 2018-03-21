@@ -13,3 +13,11 @@ digga() {
 weather() {
 	curl -s wttr.in/$1 | head -n7
 }
+
+n() {
+        $EDITOR ~/notes/"$*".txt
+}
+
+nls() {
+        ls -c ~/notes/ | grep "$*"
+}
