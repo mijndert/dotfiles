@@ -16,6 +16,7 @@ alias l="ls -lah"
 alias sud="sudo -i"
 alias v="vim"
 alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias sp='vim ~/Documents/Notes/scratchpad-$(date +"%m-%d-%Y-%T")'
 
 # Set env through aws-cli
 alias awscred="source /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts.sh"
