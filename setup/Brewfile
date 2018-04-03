@@ -36,14 +36,14 @@ brew 'unrar'
 brew 'awscli'
 
 # Apps
-cask 'aerial'
+cask 'amazon-workspaces'
 cask 'appcleaner'
 cask 'dropbox'
 cask 'docker'
 cask 'dropshare'
 cask 'firefox'
-cask 'insomnia'
-cask 'google-drive'
+cask 'google-drive-file-stream'
+cask 'imageoptim'
 cask 'iterm2'
 cask 'macdown'
 cask 'pycharm-ce'
@@ -51,6 +51,7 @@ cask 'transmission'
 cask 'telegram'
 cask 'spotify'
 cask 'spotify-notifications'
+cask 'the-unarchiver'
 cask 'skype'
 cask 'slack'
 cask 'keybase'
@@ -62,7 +63,7 @@ mas 'Xcode', id:497799835
 mas 'Pixelmator', id:407963104
 mas 'Deckset', id:847496013
 mas 'Amphetamine', id:937984704
-mas 'Noizio', id:928871589
+#mas 'Noizio', id:928871589
 mas 'Tweetbot', id:557168941
 
 # Fonts
