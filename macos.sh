@@ -15,17 +15,17 @@ sudo defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool t
 ###############################################################################
 
 # Disable press-and-hold for keys in favor of key repeat
-defaults write -g ApplePressAndHoldEnabled -bool false
+#defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write -g AppleKeyboardUIMode -int 3
 
 # Set a blazingly fast keyboard repeat rate
-defaults write -g KeyRepeat -int 1
+#defaults write -g KeyRepeat -int 1
 
 # Set a shorter Delay until key repeat
-defaults write -g InitialKeyRepeat -int 12
+#defaults write -g InitialKeyRepeat -int 12
 
 ###############################################################################
 # Screensaver
@@ -39,10 +39,10 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Finder
 ###############################################################################
 
-# Show icons for hard drives, servers, and removable media on the desktop
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# Do not show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
@@ -195,34 +195,6 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 # Show battery percentage.
 #defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-
-###############################################################################
-# Keyboard Shortcuts
-###############################################################################
-
-# Add the keyboard shortcut ⌘⌥↑ to select previous conversation.
-defaults write -app Messages NSUserKeyEquivalents -dict-add "Select Previous Conversation" "@~↑"
-
-# Add the keyboard shortcut ⌘⌥↓ to select next conversation.
-defaults write -app Messages NSUserKeyEquivalents -dict-add "Select Next Conversation" "@~↓"
-
-# Add the keyboard shortcut ⌘⌥→ to select next tab.
-defaults write -g NSUserKeyEquivalents -dict-add "Select Next Tab" -string "@~→"
-
-# Add the keyboard shortcut ⌘⌥← to select previous tab.
-defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" -string "@~←"
-
-# Add the keyboard shortcut ⌘⌥→ to show next tab.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Next Tab" -string "@~→"
-
-# Add the keyboard shortcut ⌘⌥← to show previous tab.
-defaults write -g NSUserKeyEquivalents -dict-add "Show Previous Tab" -string "@~←"
-
-# Add the keyboard shortcut ⌘^F to enter full screen.
-defaults write -g NSUserKeyEquivalents -dict-add "Enter Full Screen" -string "@^f"
-
-# Add the keyboard shortcut ⌘^F to exit full screen.
-defaults write -g NSUserKeyEquivalents -dict-add "Exit Full Screen" -string "@^f"
 
 ###############################################################################
 # Photos

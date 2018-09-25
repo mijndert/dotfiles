@@ -28,7 +28,7 @@ ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
 
 # Link ssh client configuration
-ln -sf "$DOTFILES_DIR/config" $(HOME)/.ssh/
+ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 
 # Set macOS defaults
 source macos.sh
