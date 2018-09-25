@@ -1,0 +1,31 @@
+#!/bin/bash
+
+mkd() {
+	mkdir -p "$@" && cd "$@"
+}
+
+digga() {
+	dig +nocmd "$1" any +multiline +noall +answer
+}
+
+weather() {
+	curl -s wttr.in/$1 | head -n7
+}
+
+dupdate(){
+	docker images | awk '/^REPOSITORY|\<none\>/ {next} {print $1}' | xargs -n 1 docker pull
+}
+
+dcleanup(){
+	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+del_stopped(){
+	local name=$1
+	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+	if [[ "$state" == "false" ]]; then
+		docker rm $name
+	fi
+}
