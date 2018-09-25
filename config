@@ -18,6 +18,6 @@ Host git-codecommit.*.amazonaws.com
   User APKAJPVDEG4V7OTRY5UA
   IdentityFile ~/.ssh/mijndert-rsa-20161101
 
-Host mijndertstuij.nl
+Host mijndert
 	HostName mijndertstuij.nl
 	User mijndert

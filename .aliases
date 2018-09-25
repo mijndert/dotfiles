@@ -16,10 +16,9 @@ alias l="ls -lah"
 alias sud="sudo -i"
 alias v="vim"
 alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
-alias sp='vim ~/Documents/Notes/scratchpad-$(date +"%m-%d-%Y-%T")'
 
 # Set env through aws-cli
-alias awscred="source /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts_iam.sh"
+alias awscred=". /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts_iam.sh"
 
 # sshuttle tunnel
 alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@mijndertstuij.nl 0/0'
@@ -54,9 +53,6 @@ alias sudo='sudo '
 # Get week number
 alias week='date +%V'
 
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
@@ -69,16 +65,8 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
-alias map="xargs -n1"
-
 # vhosts
 alias hosts='sudo nano /etc/hosts'
-
-# copy working directory
-alias cwd='pwd | tr -d "\r\n" | xclip -selection clipboard'
 
 # copy file interactive
 alias cp='cp -i'
