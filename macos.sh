@@ -1,33 +1,6 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# General
-###############################################################################
-
-# Disable "close windows when quitting an app" (required for iTerm2 3.x).
-defaults write -g NSQuitAlwaysKeepsWindows -bool true
-
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-sudo defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-
-###############################################################################
-# Keyboard
-###############################################################################
-
-# Disable press-and-hold for keys in favor of key repeat
-#defaults write -g ApplePressAndHoldEnabled -bool false
-
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
-defaults write -g AppleKeyboardUIMode -int 3
-
-# Set a blazingly fast keyboard repeat rate
-#defaults write -g KeyRepeat -int 1
-
-# Set a shorter Delay until key repeat
-#defaults write -g InitialKeyRepeat -int 12
-
-###############################################################################
 # Screensaver
 ###############################################################################
 
@@ -43,9 +16,6 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-
-# When performing a search, search the current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -130,13 +100,11 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Save to disk (not to iCloud) by default
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
 # Set dark mode.
 osascript -e 'tell application "System Events" to set dark mode of appearance preferences to true'
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 ###############################################################################
 # Safari & WebKit
@@ -181,20 +149,6 @@ defaults write com.apple.TextEdit RichText -int 0
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-###############################################################################
-# Disk Utility
-###############################################################################
-
-# Enable advanced image options in Disk Utility (e.g. checksums)
-defaults write com.apple.DiskUtility advanced-image-options -bool true
-
-###############################################################################
-# Menu Bar
-###############################################################################
-
-# Show battery percentage.
-#defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 ###############################################################################
 # Photos
