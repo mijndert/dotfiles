@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 
-# Check for Homebrew and install if we don't have it
-if test ! $(which brew); then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# Do all macOS-specific things
+if [[ `uname` == 'Darwin' ]]; then
+  which -s brew
+  if [[ $? != 0 ]]; then
+    echo 'Installing Homebrew...'
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  # Set macOS defaults
+  source macos.sh
+
+  # Install all dependencies from Brewfile
+  brew update
+  brew tap homebrew/bundle
+  brew bundle
+
+  # Install Bash
+  brew install bash bash-completion
+  grep -Fxq '/usr/local/bin/bash' /etc/shells || sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+  chsh -s /usr/local/bin/bash $USER
 fi
-
-# Install all dependencies from Brewfile
-brew update
-brew tap homebrew/bundle
-brew bundle
-
-# Install Bash
-brew install bash bash-completion
-grep -Fxq '/usr/local/bin/bash' /etc/shells || sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
-chsh -s /usr/local/bin/bash $USER
 
 # Get the dotfiles installation directory
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -29,6 +36,3 @@ ln -sf "$DOTFILES_DIR/.gitconfig" ~
 
 # Link ssh client configuration
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
-
-# Set macOS defaults
-source macos.sh
