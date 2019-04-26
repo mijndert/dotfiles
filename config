@@ -6,7 +6,7 @@ Host github.com
 Host *
   AddKeysToAgent yes
   UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/mijndert_ed25519
   ForwardAgent yes
   ConnectTimeout 30
   KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
