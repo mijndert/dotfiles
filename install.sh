@@ -17,9 +17,12 @@ if [[ `uname` == 'Darwin' ]]; then
   brew bundle
 
   # Install Bash
-  brew install bash bash-completion
-  grep -Fxq '/usr/local/bin/bash' /etc/shells || sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
-  chsh -s /usr/local/bin/bash $USER
+  #brew install bash bash-completion
+  #grep -Fxq '/usr/local/bin/bash' /etc/shells || sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+  #chsh -s /usr/local/bin/bash $USER
+  curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  sh /tmp/install-ohmyzsh.sh --unattended
+  chsh -s /usr/local/bin/zsh $USER
 fi
 
 # Get the dotfiles installation directory
