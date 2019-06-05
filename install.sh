@@ -16,26 +16,22 @@ if [[ `uname` == 'Darwin' ]]; then
   brew tap homebrew/bundle
   brew bundle
 
-  # Install Bash
-  #brew install bash bash-completion
-  #grep -Fxq '/usr/local/bin/bash' /etc/shells || sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
-  #chsh -s /usr/local/bin/bash $USER
+  # Install shell
   curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh /tmp/install-ohmyzsh.sh --unattended
   chsh -s /usr/local/bin/zsh $USER
 fi
 
 # Get the dotfiles installation directory
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES_DIR=$(pwd)
 
 # Link dotfiles
 ln -sf "$DOTFILES_DIR/.aliases" ~
-ln -sf "$DOTFILES_DIR/.aws_completer" ~
-ln -sf "$DOTFILES_DIR/.bash_profile" ~
-ln -sf "$DOTFILES_DIR/.bash_prompt" ~
 ln -sf "$DOTFILES_DIR/.exports" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
-
-# Link ssh client configuration
+ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
+
+# Install pure-prompt
+npm install --global pure-prompt

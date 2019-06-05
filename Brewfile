@@ -24,6 +24,7 @@ brew 'watch'
 brew 'mas'
 brew 'unrar'
 brew 'awscli'
+brew 'node'
 
 cask_args appdir: '/Applications'
 # cask 'amazon-workspaces'
