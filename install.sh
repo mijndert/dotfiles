@@ -19,6 +19,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # Install shell
   curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh /tmp/install-ohmyzsh.sh --unattended
+  grep -Fxq '/usr/local/bin/zsh' /etc/shells || sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
   chsh -s /usr/local/bin/zsh $USER
 fi
 
