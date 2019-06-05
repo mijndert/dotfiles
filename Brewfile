@@ -1,8 +1,11 @@
-tap 'caskroom/cask'
-tap 'homebrew/bundle'
-tap 'homebrew/dupes'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+
+brew 'zsh'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
 
 brew 'coreutils'
 brew 'findutils'
@@ -24,29 +27,29 @@ brew 'awscli'
 
 cask_args appdir: '/Applications'
 # cask 'amazon-workspaces'
-cask 'appcleaner'
+#cask 'appcleaner'
 # cask 'dropbox'
-cask 'docker'
+#cask 'docker'
 # cask 'dropshare'
 # cask 'google-drive-file-stream'
-cask 'imageoptim'
-cask 'iterm2'
+#cask 'imageoptim'
+#cask 'iterm2'
 # cask 'macdown'
-cask 'transmission'
-cask 'telegram'
-cask 'spotify'
-cask 'spotify-notifications'
-cask 'the-unarchiver'
+#cask 'transmission'
+#cask 'telegram'
+#cask 'spotify'
+#cask 'spotify-notifications'
+#cask 'the-unarchiver'
 # cask 'skype'
 # cask 'slack'
 # cask 'keybase'
-cask 'transmit'
-cask 'vlc'
+#cask 'transmit'
+#cask 'vlc'
 #
-mas 'Pixelmator', id:407963104
-mas 'Amphetamine', id:937984704
-mas 'Tweetbot', id:557168941
+#mas 'Pixelmator', id:407963104
+#mas 'Amphetamine', id:937984704
+#mas 'Tweetbot', id:557168941
 #
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+#cask 'font-source-code-pro'
+#cask 'font-source-sans-pro'
+#cask 'font-source-serif-pro'
