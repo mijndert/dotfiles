@@ -20,6 +20,8 @@ alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip
 # Set env through aws-cli
 alias awscred=". /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts_iam.sh"
 
+alias dry="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=$DOCKER_HOST moncho/dry"
+
 # sshuttle tunnel
 alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@mijndertstuij.nl 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
