@@ -18,7 +18,7 @@ alias v="vim"
 alias upip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 # Set env through aws-cli
-alias awscred=". /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts_iam.sh"
+alias awscred="/bin/bash /Users/mijndert/Documents/devops_library/scripts/credentials/aws_sts_iam.sh"
 
 # sshuttle tunnel
 alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@mijndertstuij.nl 0/0'
@@ -76,3 +76,6 @@ alias mv='mv -i'
 
 # untar
 alias untar='tar xvf'
+
+# password 
+alias pwgen='cat /dev/urandom | base64 | tr -dc '0-9a-zA-Z' | head -c$1'
