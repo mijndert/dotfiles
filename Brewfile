@@ -25,7 +25,9 @@ brew 'mas'
 brew 'unrar'
 brew 'awscli'
 brew 'node'
+brew 'jq'
 
+# Only used when installing my Mac from scratch (never)
 cask_args appdir: '/Applications'
 # cask 'amazon-workspaces'
 #cask 'appcleaner'
