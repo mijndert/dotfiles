@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 
 # oh-my-zsh
 ZSH_THEME=""
-plugins=(git osx cp aws)
+plugins=(git osx cp aws docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
 # source external files
