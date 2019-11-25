@@ -86,11 +86,14 @@
 	trustctime = false
 	editor = vim
 
+	# Make diff fancy
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+	ui = true
 
 [color "branch"]
 
@@ -100,10 +103,19 @@
 
 [color "diff"]
 
-	meta = yellow bold
+	meta = 11
 	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+	old = red bold # deletions
+	new = green bold # additions
+	commit = yellow bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 
 [color "status"]
 

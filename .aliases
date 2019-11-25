@@ -26,7 +26,7 @@ alias dry="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -e D
 alias createdocs="/Users/mijndert/Documents/aws_landingzone_tools/Documentation/create_documentation.sh"
 
 # sshuttle tunnel
-alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@mijndertstuij.nl 0/0'
+alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@ssh.jorijn.com 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
 
 # Detect which `ls` flavor is in use

@@ -26,6 +26,7 @@ brew 'unrar'
 brew 'awscli'
 brew 'node'
 brew 'jq'
+brew 'diff-so-fancy'
 
 # Only used when installing my Mac from scratch (never)
 cask_args appdir: '/Applications'
@@ -33,7 +34,6 @@ cask_args appdir: '/Applications'
 #cask 'appcleaner'
 # cask 'dropbox'
 #cask 'docker'
-# cask 'dropshare'
 # cask 'google-drive-file-stream'
 #cask 'imageoptim'
 #cask 'iterm2'
@@ -47,12 +47,11 @@ cask_args appdir: '/Applications'
 # cask 'slack'
 # cask 'keybase'
 #cask 'transmit'
-#cask 'vlc'
-#
+
 #mas 'Pixelmator', id:407963104
 #mas 'Amphetamine', id:937984704
 #mas 'Tweetbot', id:557168941
-#
+
 #cask 'font-source-code-pro'
 #cask 'font-source-sans-pro'
 #cask 'font-source-serif-pro'
