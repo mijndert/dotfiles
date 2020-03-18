@@ -30,26 +30,26 @@ brew 'diff-so-fancy'
 
 # Only used when installing my Mac from scratch (never)
 cask_args appdir: '/Applications'
-# cask 'amazon-workspaces'
-#cask 'appcleaner'
+cask 'amazon-workspaces'
+cask 'appcleaner'
 # cask 'dropbox'
-#cask 'docker'
-# cask 'google-drive-file-stream'
+cask 'docker'
+cask 'google-drive-file-stream'
 #cask 'imageoptim'
-#cask 'iterm2'
-# cask 'macdown'
-#cask 'transmission'
-#cask 'telegram'
-#cask 'spotify'
+cask 'iterm2'
+cask 'macdown'
+cask 'transmission'
+cask 'telegram'
+cask 'spotify'
 #cask 'spotify-notifications'
-#cask 'the-unarchiver'
+cask 'the-unarchiver'
 # cask 'skype'
-# cask 'slack'
-# cask 'keybase'
+ cask 'slack'
+cask 'keybase'
 #cask 'transmit'
 
-#mas 'Pixelmator', id:407963104
-#mas 'Amphetamine', id:937984704
+mas 'Pixelmator', id:407963104
+mas 'Amphetamine', id:937984704
 #mas 'Tweetbot', id:557168941
 
 #cask 'font-source-code-pro'
