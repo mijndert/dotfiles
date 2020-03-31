@@ -35,6 +35,5 @@ ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 
 # Install pure-prompt
-#npm install --global pure-prompt
-npm install -g spaceship-prompt
+npm install --global pure-prompt
 
