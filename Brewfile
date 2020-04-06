@@ -28,6 +28,7 @@ brew 'awscli'
 brew 'node'
 brew 'jq'
 brew 'diff-so-fancy'
+brew 'tmux'
 
 # Only used when installing my Mac from scratch (never)
 cask_args appdir: '/Applications'
