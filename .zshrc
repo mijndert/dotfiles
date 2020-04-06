@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 export EDITOR=vim
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
