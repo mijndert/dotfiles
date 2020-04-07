@@ -10,14 +10,11 @@ plugins=(git osx cp aws docker docker-compose)
 
 # source external files
 source $ZSH/oh-my-zsh.sh
-
 source ~/.aliases
 source ~/.functions
-
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # set prompt
 autoload -U promptinit; promptinit
 prompt pure
-
