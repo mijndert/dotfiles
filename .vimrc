@@ -7,4 +7,5 @@ set number
 set hlsearch
 set ruler
 set backspace=2
+set wildmenu
 highlight Comment ctermfg=green
