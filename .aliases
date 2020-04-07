@@ -12,6 +12,7 @@ alias h="history"
 alias l="ls -lah"
 alias sud="sudo -i"
 alias v="vim"
+alias t="tmux"
 
 # Set env through aws-cli
 alias aws="noglob aws"
