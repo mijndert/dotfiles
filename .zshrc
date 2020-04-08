@@ -3,7 +3,6 @@ export EDITOR=vim
 export PATH=PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # oh-my-zsh
 ZSH_THEME=""
@@ -19,3 +18,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # set prompt
 autoload -U promptinit; promptinit
 prompt pure
+
+# override whatever is setting this to 1
+export VIRTUAL_ENV_DISABLE_PROMPT
