@@ -29,6 +29,7 @@ brew 'node'
 brew 'jq'
 brew 'diff-so-fancy'
 brew 'tmux'
+brew 'irssi'
 
 # Only used when installing my Mac from scratch (never)
 cask_args appdir: '/Applications'
