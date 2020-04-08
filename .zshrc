@@ -20,4 +20,4 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # override whatever is setting this to 1
-export VIRTUAL_ENV_DISABLE_PROMPT
+export VIRTUAL_ENV_DISABLE_PROMPT=
