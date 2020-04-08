@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
 
-###############################################################################
-# Screensaver
-###############################################################################
-
-# Require password immediately after sleep or screen saver begins
+# Ask for a password asap
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-###############################################################################
-# Finder
-###############################################################################
 
 # Do not show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
@@ -29,25 +21,11 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 # New Finder Window shows your home folder
 defaults write com.apple.finder NewWindowTarget PfHm
 
-# Use column view in all Finder windows by default
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
-
-# Expand the following File Info panes:
-# "General", "Open with", and "Sharing & Permissions"
-defaults write com.apple.finder FXInfoPanesExpanded -dict \
-    General -bool true \
-    OpenWith -bool true \
-    Privileges -bool true
-
 # Show all filename extensions.
 defaults write -g AppleShowAllExtensions -bool true
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-###############################################################################
-# Dock
-###############################################################################
 
 # Set the icon size of Dock items to 40 pixels
 defaults write com.apple.dock tilesize -int 40
@@ -58,38 +36,14 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-###############################################################################
-# Hot Corners
-###############################################################################
-
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-
 # Bottom right screen corner → Start screen saver
 defaults write com.apple.dock wvous-br-corner -int 5
 defaults write com.apple.dock wvous-br-modifier -int 0
 
-###############################################################################
-# Printing
-###############################################################################
-
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-###############################################################################
-# System
-###############################################################################
-
-# Save to disk (not to iCloud) by default
+# Save to disk instead of iCloud
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Set dark mode.
@@ -97,10 +51,6 @@ osascript -e 'tell application "System Events" to set dark mode of appearance pr
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-###############################################################################
-# Safari & WebKit
-###############################################################################
 
 # Always restore session at launch.
 defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
@@ -111,15 +61,8 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari ShowDevelopMenu -bool true
 
-# Send Do-Not-Track header
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-
 # Add a context menu item for showing the Web Inspector in web views
 defaults write -g WebKitDeveloperExtras -bool true
-
-###############################################################################
-# Activity Monitor
-###############################################################################
 
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
@@ -131,10 +74,6 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-###############################################################################
-# TextEdit
-###############################################################################
-
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
 
@@ -142,16 +81,8 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
-###############################################################################
-# Photos
-###############################################################################
-
 # Stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-
-###############################################################################
-# Kill affected applications
-###############################################################################
 
 for app in "Dock" "Finder" "Safari"; do
     killall "${app}" > /dev/null 2>&1
