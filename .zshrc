@@ -9,6 +9,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 ZSH_THEME=""
 plugins=(git osx cp aws docker docker-compose virtualenv)
 
+DISABLE_MAGIC_FUNCTIONS=true
+
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source ~/.functions
