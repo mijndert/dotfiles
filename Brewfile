@@ -31,6 +31,8 @@ brew 'diff-so-fancy'
 brew 'tmux'
 brew 'irssi'
 brew 'reattach-to-user-namespace'
+brew 'gnu-getopt'
+brew 'bat'
 
 # Only used when installing my Mac from scratch (never)
 #cask_args appdir: '/Applications'
