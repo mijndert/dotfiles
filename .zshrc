@@ -8,12 +8,46 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 
 ZSH_THEME=""
 plugins=(git osx cp aws docker docker-compose virtualenv)
-
 DISABLE_MAGIC_FUNCTIONS=true
-
 source $ZSH/oh-my-zsh.sh
-source ~/.aliases
-source ~/.functions
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias dl="cd ~/Downloads"
+alias dev="cd ~/dev"
+alias cat="bat"
+alias g="git"
+alias h="history"
+alias sud="sudo -i"
+alias v="vim"
+alias t="tmux -2"
+alias aws="noglob aws"
+alias awscred="source /Users/mijndert/dev/devops_library/scripts/credentials/aws_sts.sh"
+alias dry="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=$DOCKER_HOST moncho/dry"
+alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@ssh.jorijn.com 0/0'
+alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
+alias l="ls -lF -G"
+alias la="ls -laF -G"
+alias lsd="ls -lF -G | grep --color=never '^d'"
+alias ls="command ls -G"
+alias grep='grep --color=auto '
+alias sudo='sudo '
+alias week='date +%V'
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias hosts='sudo nano /etc/hosts'
+alias cp='cp -i'
+alias mv='mv -i'
+alias pwgen='cat /dev/urandom | base64 | tr -dc '0-9a-zA-Z' | head -c$1'
+alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
+
+dupdate(){
+	docker images | awk '/^REPOSITORY|\<none\>/ {next} {print $1}' | xargs -n 1 docker pull
+}
+dcleanup(){
+	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
