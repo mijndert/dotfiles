@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 # Do all macOS-specific things
-if [[ `uname` == 'Darwin' ]]; then
-  which -s brew
-  if [[ $? != 0 ]]; then
+if [[ $(uname) == 'Darwin' ]]; then
+  if [[ $(command -v brew) != 0 ]]; then
     echo 'Installing Homebrew...'
-      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
   # Set macOS defaults
@@ -25,7 +24,7 @@ if [[ `uname` == 'Darwin' ]]; then
   curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh /tmp/install-ohmyzsh.sh --unattended
   grep -Fxq '/usr/local/bin/zsh' /etc/shells || sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
-  chsh -s /usr/local/bin/zsh $USER
+  chsh -s /usr/local/bin/zsh "$USER"
 fi
 
 # Get the dotfiles installation directory
