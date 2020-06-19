@@ -8,7 +8,7 @@ if [[ $(uname) == 'Darwin' ]]; then
   fi
 
   # Set macOS defaults
-  source macos.sh
+  sh ./macos.sh
 
   # Install all dependencies from Brewfile
   brew update
