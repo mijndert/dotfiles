@@ -37,7 +37,7 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias hosts='sudo nano /etc/hosts'
 alias cp='cp -i'
 alias mv='mv -i'
-alias pwgen='cat /dev/urandom | base64 | tr -dc '0-9a-zA-Z' | head -c$1'
+alias pw='cat /dev/urandom | base64 | tr -dc '0-9a-zA-Z' | head -c$1'
 alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
 alias tf="terraform"
 
