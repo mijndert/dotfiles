@@ -36,6 +36,7 @@ ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
 ln -sf "$DOTFILES_DIR/.ansible.cfg" ~
+ln -sf "$DOTFILES_DIR/.curlrc" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 
 # Install pure-prompt
