@@ -54,3 +54,4 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -U promptinit; promptinit
 prompt pure
+
