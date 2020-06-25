@@ -37,8 +37,9 @@ ln -sf "$DOTFILES_DIR/.tmux.conf" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
 ln -sf "$DOTFILES_DIR/.ansible.cfg" ~
 ln -sf "$DOTFILES_DIR/.curlrc" ~
+ln -sf "$DOTFILES_DIR/.alias" ~
+ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 
 # Install pure-prompt
 npm install --global pure-prompt
-
