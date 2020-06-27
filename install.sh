@@ -19,7 +19,7 @@ fi
 # Do python stuff
 ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 ln -s -f /usr/local/bin/python3 /usr/local/bin/python
-pip install virtualenv
+pip install virtualenv virtualenvwrapper
 
 # Install shell
 curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
