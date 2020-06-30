@@ -35,6 +35,9 @@ brew 'reattach-to-user-namespace'
 brew 'gnu-getopt'
 brew 'bat'
 brew 'terraform'
+brew 'dive'
+brew 'telnet'
+brew 'tree'
 
 # Only used when installing my Mac from scratch (never)
 #cask_args appdir: '/Applications'
