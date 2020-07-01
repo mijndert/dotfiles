@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "teamookla/speedtest"
 
 brew 'zsh'
 brew 'zsh-autosuggestions'
@@ -38,6 +39,7 @@ brew 'terraform'
 brew 'dive'
 brew 'telnet'
 brew 'tree'
+brew 'speedtest'
 
 # Only used when installing my Mac from scratch (never)
 #cask_args appdir: '/Applications'
