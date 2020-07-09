@@ -18,6 +18,8 @@ if [[ $(uname) == 'Darwin' ]]; then
   brew bundle
 fi
 
+for i in $(cat vscode/vscode_extensions.txt); do code --install-extension $i; done
+
 ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 ln -s -f /usr/local/bin/python3 /usr/local/bin/python
 pip install virtualenv virtualenvwrapper
@@ -28,7 +30,6 @@ grep -Fxq '/usr/local/bin/zsh' /etc/shells || sudo bash -c "echo /usr/local/bin/
 chsh -s /usr/local/bin/zsh "$USER"
 
 DOTFILES_DIR=$(pwd)
-
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
 ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
@@ -38,5 +39,6 @@ ln -sf "$DOTFILES_DIR/.curlrc" ~
 ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
+ln -sf "$DOTFILES_DIR/vscode/settings.json" ~/Library/Application\ Support/Code/User/settings.json
 
 npm install --global pure-prompt

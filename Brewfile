@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "homebrew/cask-fonts"
 tap "teamookla/speedtest"
 
 brew 'zsh'
@@ -41,26 +42,26 @@ brew 'telnet'
 brew 'tree'
 brew 'speedtest'
 
-# Only used when installing my Mac from scratch (never)
-#cask_args appdir: '/Applications'
-#cask 'amazon-workspaces'
-#cask 'appcleaner'
-#cask 'dropbox'
-#cask 'docker'
-#cask 'google-drive-file-stream'
-#cask 'imageoptim'
-#cask 'iterm2'
-#cask 'macdown'
-#cask 'transmission'
-#cask 'telegram'
-#cask 'spotify'
-#cask 'spotify-notifications'
-#cask 'the-unarchiver'
-#cask 'skype'
-#cask 'slack'
-#cask 'keybase'
-#cask 'transmit'
+cask_args appdir: '/Applications'
+cask 'amazon-workspaces'
+cask 'appcleaner'
+cask 'docker'
+cask 'google-drive-file-stream'
+cask 'iterm2'
+cask 'macdown'
+cask 'transmission'
+cask 'telegram'
+cask 'spotify'
+cask 'slack'
+cask 'transmit'
+cask 'visual-studio-code'
+cask 'viscosity'
+cask 'textual'
+cask 'firefox'
+cask 'fanny'
+cask 'sequel-pro'
 
-#mas 'Pixelmator', id:407963104
-#mas 'Amphetamine', id:937984704
-#mas 'Tweetbot', id:557168941
+cask 'font-jetbrains-mono'
+
+mas 'Pixelmator', id:407963104
+mas 'Amphetamine', id:937984704

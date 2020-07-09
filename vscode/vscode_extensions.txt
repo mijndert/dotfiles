@@ -1,0 +1,5 @@
+dracula-theme.theme-dracula
+ms-azuretools.vscode-docker
+hashicorp.terraform
+qinjia.seti-icons
+wayou.vscode-todo-highlight
