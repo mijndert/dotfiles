@@ -18,7 +18,7 @@ if [[ $(uname) == 'Darwin' ]]; then
   brew bundle
 fi
 
-for i in $(cat vscode/vscode_extensions.txt); do code --install-extension $i; done
+for i in $(cat vscode/vscode_extensions.txt); do code --install-extension "$i"; done
 
 ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 ln -s -f /usr/local/bin/python3 /usr/local/bin/python
