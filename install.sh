@@ -44,5 +44,6 @@ source ~/.zshrc
 pip install virtualenv virtualenvwrapper
 
 # VS Code
+code
 ln -sf "$DOTFILES_DIR/vscode/settings.json" ~/Library/Application\ Support/Code/User/settings.json
 for i in $(cat vscode/vscode_extensions.txt); do code --install-extension "$i"; done
