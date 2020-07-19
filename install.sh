@@ -38,8 +38,6 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 
-ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
-ln -s -f /usr/local/bin/python3 /usr/local/bin/python
 pip install virtualenv virtualenvwrapper
 
 npm install --global pure-prompt
