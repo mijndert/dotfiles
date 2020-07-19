@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
