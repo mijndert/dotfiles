@@ -21,8 +21,8 @@ Run script
 
 VS Code
 
-Open command palette > shell command
-Restart terminal session
+- Open command palette > shell command
+- Restart terminal session
 
 ```
 DOTFILES_DIR=$(pwd)
