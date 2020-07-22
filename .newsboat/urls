@@ -1,8 +1,13 @@
-# Self
 https://mijndertstuij.nl/feed.xml
 
-# Slashdot 
-http://rss.slashdot.org/Slashdot/slashdotMain
+# Tech
+http://rss.slashdot.org/Slashdot/slashdotMain "~Slashdot"
+https://www.theverge.com/rss/index.xml "~The Verge"
+https://newsboat.org/news.atom "~Newsboat"
+
+# Games
+https://www.polygon.com/rss/index.xml "~Polygon" 
 
 # AWS
-https://aws.amazon.com/about-aws/whats-new/recent/feed/
+https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~AWS - What's new"
+https://cloudonaut.io/feed/rss.xml "~Cloudonaut"
