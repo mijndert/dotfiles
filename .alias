@@ -25,3 +25,4 @@ alias pw='cat /dev/urandom | base64 | tr -dc '0-9a-zA-Z' | head -c$1'
 alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
 alias tf="terraform"
 alias ap="ansible-playbook"
+alias nb="newsboat"
