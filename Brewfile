@@ -41,6 +41,7 @@ brew 'telnet'
 brew 'tree'
 brew 'speedtest'
 brew 'awk'
+brew 'newsboat'
 
 cask_args appdir: '/Applications'
 cask 'amazon-workspaces'
