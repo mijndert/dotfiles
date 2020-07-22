@@ -9,5 +9,4 @@ set ruler
 set backspace=2
 set wildmenu
 set nuw=3
-highlight LineNr ctermfg=white ctermbg=black
 highlight Comment ctermfg=green
