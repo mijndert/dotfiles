@@ -8,7 +8,7 @@ prepopulate-query-feeds yes
 cleanup-on-quit yes
 delete-read-articles-on-quit yes
 
-cache-file "/Users/mijndert/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
+cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 
 show-read-feeds no
 feed-sort-order unreadarticlecount-asc
