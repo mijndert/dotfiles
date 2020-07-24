@@ -6,3 +6,10 @@ dcleanup(){
 	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
 	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
+
+n() {
+  note="$HOME/Google Drive/Personal/Notes/scratch.md"
+  date +'%n## %Y-%m-%d %H:%M:%S' >> $note
+  printf "\n" >> $note
+  v $note
+}
