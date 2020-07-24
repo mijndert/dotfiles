@@ -4,10 +4,16 @@ https://mijndertstuij.nl/feed.xml
 http://rss.slashdot.org/Slashdot/slashdotMain "~Slashdot"
 https://www.theverge.com/rss/index.xml "~The Verge"
 https://newsboat.org/news.atom "~Newsboat"
+https://www.inputmag.com/rss "~Input"
+https://wired.com/rss "~Wired"
+https://blog.mozilla.org/rss "~Mozilla"
+https://www.teslarati.com/rss "~Teslarati"
+https://hnrss.org/frontpage "~HN Frontpage"
 
 # Games
 https://www.polygon.com/rss/index.xml "~Polygon" 
+https://www.nintendolife.com/feeds/latest  "~Nintendo Life"
 
 # AWS
-https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~AWS - What's new"
+https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services"
 https://cloudonaut.io/feed/rss.xml "~Cloudonaut"
