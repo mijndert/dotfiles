@@ -26,3 +26,4 @@ alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$
 alias tf="terraform"
 alias ap="ansible-playbook"
 alias nb="newsboat"
+alias o="open"
