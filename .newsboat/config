@@ -18,4 +18,6 @@ color listnormal_unread yellow default
 color listfocus blue default reverse bold
 color listfocus_unread blue default reverse bold
 
+articlelist-format "%D  %?T?|%-17T| ?%t"
+
 browser "open -a /Applications/Firefox.app '%u'"
