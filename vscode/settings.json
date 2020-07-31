@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "Monokai Classic Icons",
+    "workbench.iconTheme": "vs-seti",
     "workbench.colorTheme": "Dracula",
     "workbench.startupEditor": "newUntitledFile",
     "terraform.indexing": {
