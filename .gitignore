@@ -2,3 +2,4 @@
 Brewfile.lock.json
 *.swp
 .newsboat/cache*
+.newsboat/history.cmdline

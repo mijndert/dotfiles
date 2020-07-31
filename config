@@ -4,9 +4,9 @@ Host github.com
     MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
 
 Host *
-  #AddKeysToAgent yes
-  #UseKeychain yes
-  #IdentityFile ~/.ssh/id_rsa
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
   ForwardAgent yes
   ConnectTimeout 30
   KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256

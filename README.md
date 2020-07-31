@@ -1,5 +1,9 @@
 # dotfiles
 
+Minimal dotfiles with some opinionated defaults.
+
+## How to 
+
 Install command line tools
 
 ```shell
