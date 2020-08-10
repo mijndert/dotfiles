@@ -10,7 +10,7 @@ alias t="tmux -2"
 alias aws="noglob aws"
 alias awscred="source /Users/mijndert/dev/devops_library/scripts/credentials/aws_sts.sh"
 alias dry="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=$DOCKER_HOST moncho/dry"
-alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@ssh.jorijn.com 0/0'
+alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=mijndert@ssh.mijndertstuij.nl 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
 alias l="ls -lF -G"
 alias la="ls -laF -G"
