@@ -43,7 +43,7 @@ brew 'speedtest'
 brew 'awk'
 brew 'newsboat'
 brew 'starship'
-brew 'weechat'
+brew 'lf'
 
 #cask_args appdir: '/Applications'
 #cask 'amazon-workspaces'
