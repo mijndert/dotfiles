@@ -44,6 +44,7 @@ brew 'awk'
 brew 'newsboat'
 brew 'starship'
 brew 'lf'
+brew 'kubectl'
 
 #cask_args appdir: '/Applications'
 #cask 'amazon-workspaces'
