@@ -45,6 +45,8 @@ brew 'newsboat'
 brew 'starship'
 brew 'lf'
 brew 'kubectl'
+brew 'eksctl'
+brew 'kubectx'
 brew 'minikube'
 
 #cask_args appdir: '/Applications'
