@@ -48,6 +48,7 @@ brew 'kubectl'
 brew 'eksctl'
 brew 'kubectx'
 brew 'minikube'
+brew 'k9s'
 
 #cask_args appdir: '/Applications'
 #cask 'amazon-workspaces'
