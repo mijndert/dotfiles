@@ -20,5 +20,6 @@
     "editor.fontFamily": "'Jetbrains Mono', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "extensions.ignoreRecommendations": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0
 }
