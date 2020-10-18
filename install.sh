@@ -6,7 +6,7 @@ DOTFILES_DIR=$(pwd)
 
 # Mac-specific stuff goes here
 if [[ $(uname) == 'Darwin' ]]; then
-  sudo xcodebuild -license accept
+  #sudo xcodebuild -license accept
   
   if [[ $(command -v brew) != 0 ]]; then
     echo 'Installing Homebrew...'

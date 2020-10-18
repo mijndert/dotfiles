@@ -47,7 +47,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Set dark mode.
-osascript -e 'tell application "System Events" to set dark mode of appearance preferences to true'
+#osascript -e 'tell application "System Events" to set dark mode of appearance preferences to true'
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40

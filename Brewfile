@@ -65,11 +65,10 @@ brew 'k9s'
 #cask 'visual-studio-code'
 #cask 'viscosity'
 #cask 'textual'
-#cask 'firefox'
 #cask 'fanny'
 #cask 'sequel-pro'
 
-#cask 'font-jetbrains-mono'
+cask 'font-jetbrains-mono'
 
 #mas 'Pixelmator', id:407963104
 #mas 'Amphetamine', id:937984704
