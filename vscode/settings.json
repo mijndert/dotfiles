@@ -21,5 +21,6 @@
     "editor.fontLigatures": true,
     "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2
 }
