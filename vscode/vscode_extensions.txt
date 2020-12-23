@@ -1,7 +1,0 @@
-dracula-theme.theme-dracula
-ms-azuretools.vscode-docker
-hashicorp.terraform
-qinjia.seti-icons
-wayou.vscode-todo-highlight
-compulim.indent4to2
-ginfuru.ginfuru-vscode-jekyll-syntax
