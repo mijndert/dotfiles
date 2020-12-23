@@ -1,4 +1,3 @@
-syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -10,3 +9,6 @@ set backspace=2
 set wildmenu
 set nuw=3
 highlight Comment ctermfg=green
+packadd! dracula
+syntax enable
+colorscheme dracula

@@ -21,7 +21,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
-# autoload -U promptinit; promptinit
-# prompt pure
-
 eval "$(starship init zsh)"
