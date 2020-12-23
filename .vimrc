@@ -8,6 +8,7 @@ set ruler
 set backspace=2
 set wildmenu
 set nuw=3
+set noswapfile
 
 let g:dracula_colorterm = 0
 let g:dracula_italic = 0
