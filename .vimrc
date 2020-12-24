@@ -9,6 +9,7 @@ set backspace=2
 set wildmenu
 set nuw=3
 set noswapfile
+set paste
 
 let g:dracula_colorterm = 0
 let g:dracula_italic = 0
