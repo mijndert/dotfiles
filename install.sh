@@ -25,7 +25,7 @@ curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/
 sh /tmp/install-ohmyzsh.sh --unattended
 grep -Fxq '/usr/local/bin/zsh' /etc/shells || sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"
 chsh -s /usr/local/bin/zsh "$USER"
-#npm install --global pure-prompt
+npm install --global pure-prompt
 
 # Symlink all config files
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
