@@ -38,6 +38,7 @@ brew 'minikube'
 brew 'k9s'
 brew 'pre-commit'
 brew 'terraform-docs'
+brew 'diff-so-fancy'
 brew 'node'
 
 #cask_args appdir: '/Applications'
