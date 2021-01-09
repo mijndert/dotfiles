@@ -37,14 +37,8 @@ ln -sf "$DOTFILES_DIR/.curlrc" ~
 ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
-ln -sf "$DOTFILES_DIR/bin" ~
 ln -sf "$DOTFILES_DIR/.newsboat" ~
 
 # Virtualenvwrapper 
 source ~/.zshrc
 pip install virtualenv virtualenvwrapper
-
-# VS Code
-code
-ln -sf "$DOTFILES_DIR/vscode/settings.json" ~/Library/Application\ Support/Code/User/settings.json
-for i in $(cat vscode/vscode_extensions.txt); do code --install-extension "$i"; done
