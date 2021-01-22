@@ -2,7 +2,7 @@ export ZSH=~/.oh-my-zsh
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export PATH=~/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
 export VIRTUAL_ENV_DISABLE_PROMPT=
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
