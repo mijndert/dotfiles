@@ -52,12 +52,9 @@ brew 'node'
 #cask 'telegram'
 #cask 'spotify'
 #cask 'slack'
-#cask 'transmit'
 #cask 'visual-studio-code'
 #cask 'viscosity'
-#cask 'textual'
-#cask 'fanny'
-#cask 'sequel-pro'
+#cask 'obsidian'
 
 cask 'font-jetbrains-mono'
 
