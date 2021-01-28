@@ -8,7 +8,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 
 ZSH_THEME=""
-plugins=(git osx cp aws brew pip python docker)
+plugins=(git osx cp aws brew pip python docker kubectl)
 DISABLE_MAGIC_FUNCTIONS=true 
 
 DISABLE_UPDATE_PROMPT=true
