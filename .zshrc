@@ -4,11 +4,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
-export VIRTUAL_ENV_DISABLE_PROMPT=
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-
 ZSH_THEME=""
-plugins=(git osx cp aws brew pip python docker kubectl)
+plugins=(git cp aws brew docker kubectl)
 DISABLE_MAGIC_FUNCTIONS=true 
 
 DISABLE_UPDATE_PROMPT=true
