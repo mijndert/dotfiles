@@ -16,7 +16,6 @@ source ~/.alias
 source ~/.functions
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/bin/virtualenvwrapper.sh
 
 autoload -Uz promptinit; promptinit
 prompt pure
