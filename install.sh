@@ -6,8 +6,7 @@ DOTFILES_DIR=$(pwd)
 
 # Mac-specific stuff goes here
 if [[ $(uname) == 'Darwin' ]]; then
-  #sudo xcodebuild -license accept
-  
+
   if [[ $(command -v brew) != 0 ]]; then
     echo 'Installing Homebrew...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -38,7 +37,3 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
-
-# Virtualenvwrapper 
-source ~/.zshrc
-pip install virtualenv virtualenvwrapper

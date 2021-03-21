@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
 # Ask for a password asap
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
@@ -46,9 +59,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Save to disk instead of iCloud
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Set dark mode.
-#osascript -e 'tell application "System Events" to set dark mode of appearance preferences to true'
-
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
@@ -67,6 +77,16 @@ defaults write -g WebKitDeveloperExtras -bool true
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
+# Enable press and hold
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+
+# Set a blazingly fast keyboard repeat rate (for backspace mostly)
+#defaults write NSGlobalDomain KeyRepeat -int 1
+#defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
@@ -83,6 +103,9 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 # Stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 for app in "Dock" "Finder" "Safari"; do
     killall "${app}" > /dev/null 2>&1
