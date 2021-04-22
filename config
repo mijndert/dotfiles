@@ -1,7 +1,10 @@
 HashKnownHosts yes
 
 Host github.com
-    MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
+  Hostname ssh.github.com
+  Port 443
+  User git
+  MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
 
 Host *
   AddKeysToAgent yes
