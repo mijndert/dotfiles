@@ -21,3 +21,4 @@ https://www.openttd.org/feed.xml "~OpenTTD"
 # AWS
 https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services"
 https://cloudonaut.io/feed/rss.xml "~Cloudonaut"
+https://github.com/aws/aws-cdk/releases.atom "~AWS CDK Releases"
