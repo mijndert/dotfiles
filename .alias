@@ -29,3 +29,4 @@ alias nb="newsboat"
 alias o="open"
 alias d="docker"
 alias k="kubectl"
+alias watch='watch '
