@@ -9,3 +9,4 @@ set backspace=2
 set wildmenu
 set nuw=3
 set noswapfile
+syntax on

@@ -6,9 +6,12 @@ Host github.com
   User git
   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
 
+host i-* mi-*
+    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+
 Host *
   AddKeysToAgent yes
-  UseKeychain yes
+  #UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
   ForwardAgent yes
   ConnectTimeout 30
@@ -17,3 +20,4 @@ Host *
   Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
   ServerAliveInterval 10
   ServerAliveCountMax 1
+
