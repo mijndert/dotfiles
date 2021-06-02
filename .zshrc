@@ -2,7 +2,7 @@ export ZSH=~/.oh-my-zsh
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export PATH=$(brew --prefix)/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
 ZSH_THEME=""
 plugins=(git cp aws brew docker kubectl)
