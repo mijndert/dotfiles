@@ -73,7 +73,7 @@
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = /Users/mijndert/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -141,24 +141,11 @@
 
 [push]
 
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+  default = matching
 
 [user]
 	name = Mijndert Stuij
 	email = mijndert@mijndertstuij.nl
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
-[pull]
-	rebase = false
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 
 [init]
 	defaultBranch = main
