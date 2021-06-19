@@ -7,7 +7,8 @@ set hlsearch
 set ruler
 set backspace=2
 set wildmenu
+set wildmode=longest:list,full
+set pastetoggle=<leader>p 
 set nuw=3
 set noswapfile
 syntax on
-set pastetoggle=<leader>p 

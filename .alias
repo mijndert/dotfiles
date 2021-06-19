@@ -24,5 +24,6 @@ alias ap="ansible-playbook"
 alias nb="newsboat"
 alias o="open"
 alias d="docker"
+alias t="tmux"
 alias k="kubectl"
 alias watch='watch '
