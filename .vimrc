@@ -10,3 +10,4 @@ set wildmenu
 set nuw=3
 set noswapfile
 syntax on
+set pastetoggle=<leader>p 
