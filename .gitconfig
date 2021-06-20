@@ -67,32 +67,17 @@
 
 [apply]
 
-	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
 [core]
 
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore_global
-	attributesfile = ~/.gitattributes
-
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-
-	# Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	editor = vim
-
-	# Make diff fancy
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = true
 
 [color "branch"]
@@ -104,9 +89,9 @@
 [color "diff"]
 
 	meta = 11
-	frag = magenta bold # line info
-	old = red bold # deletions
-	new = green bold # additions
+	frag = magenta bold 
+	old = red bold 
+	new = green bold 
 	commit = yellow bold
 	whitespace = red reverse
 
@@ -125,23 +110,20 @@
 
 [diff]
 
-	# Detect copies as well as renames
 	renames = copies
 	compactionHeuristic = true
 
 [help]
 
-	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
 [merge]
 
-	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
 [push]
 
-  default = matching
+  default = current
 
 [user]
 	name = Mijndert Stuij
