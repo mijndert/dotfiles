@@ -1,24 +1,22 @@
-https://mijndertstuij.nl/feed.xml
-https://jelmerdeboer.nl/feed/ "~Jelmer de Boer"
-https://world.hey.com/dhh/feed.atom "~DHH"
+https://mijndertstuij.nl/feed.xml "Blogs"
+https://jelmerdeboer.nl/feed/ "~Jelmer de Boer" "Blogs"
+https://world.hey.com/dhh/feed.atom "~DHH" "Blogs"
+https://blog.jessfraz.com/index.xml "~Jess Frazelle" "Blogs"
 
-# Tech
-http://rss.slashdot.org/Slashdot/slashdotMain "~Slashdot"
-https://www.theverge.com/rss/index.xml "~The Verge"
-https://newsboat.org/news.atom "~Newsboat"
-https://www.inputmag.com/rss "~Input"
-https://wired.com/rss "~Wired"
-https://blog.mozilla.org/rss "~Mozilla"
-https://www.teslarati.com/rss "~Teslarati"
-https://hnrss.org/frontpage "~HN Frontpage"
-https://blog.jessfraz.com/index.xml "~Jess Frazelle"
+http://rss.slashdot.org/Slashdot/slashdotMain "~Slashdot" "Tech"
+https://www.theverge.com/rss/index.xml "~The Verge" "Tech"
+https://www.inputmag.com/rss "~Input" "Tech"
+https://wired.com/rss "~Wired" "Tech"
+https://www.teslarati.com/rss "~Teslarati" "Tech"
+https://hnrss.org/frontpage "~HN Frontpage" "Tech"
 
-# Games
-https://www.polygon.com/rss/index.xml "~Polygon" 
-https://www.nintendolife.com/feeds/latest  "~Nintendo Life"
-https://www.openttd.org/feed.xml "~OpenTTD"
+https://newsboat.org/news.atom "~Newsboat" "Applications"
+https://blog.mozilla.org/rss "~Mozilla" "Applications"
 
-# AWS
-https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services"
-https://cloudonaut.io/feed/rss.xml "~Cloudonaut"
-https://github.com/aws/aws-cdk/releases.atom "~AWS CDK Releases"
+https://www.polygon.com/rss/index.xml "~Polygon" "Games"
+https://www.nintendolife.com/feeds/latest  "~Nintendo Life" "Games"
+https://www.openttd.org/feed.xml "~OpenTTD" "Games"
+
+https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services" "AWS"
+https://cloudonaut.io/feed/rss.xml "~Cloudonaut" "AWS"
+https://github.com/aws/aws-cdk/releases.atom "~AWS CDK Releases" "AWS"
