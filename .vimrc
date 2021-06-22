@@ -12,3 +12,5 @@ set pastetoggle=<leader>p
 set nuw=3
 set noswapfile
 syntax on
+highlight LineNr ctermfg=DarkGrey 
+nnoremap <esc><esc> :noh<return>
