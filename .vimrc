@@ -1,3 +1,5 @@
+syntax on
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -13,6 +15,5 @@ set nuw=3
 set noswapfile
 set background=dark
 
-syntax on
 highlight LineNr ctermfg=DarkGrey 
 nnoremap <esc><esc> :noh<return>
