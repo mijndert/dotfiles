@@ -13,7 +13,5 @@ set wildmode=longest:list,full
 set pastetoggle=<leader>p 
 set nuw=3
 set noswapfile
-set background=dark
-
 highlight LineNr ctermfg=DarkGrey 
 nnoremap <esc><esc> :noh<return>
