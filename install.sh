@@ -33,4 +33,4 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
-ln -sf "$DOTFILES_DIR/bin/tm" /usr/local/bin/
+ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
