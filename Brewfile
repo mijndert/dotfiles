@@ -40,6 +40,7 @@ brew 'terraform-docs'
 brew 'diff-so-fancy'
 brew 'node'
 brew 'hugo'
+brew 'sonobuoy'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
