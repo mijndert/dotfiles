@@ -41,6 +41,7 @@ brew 'diff-so-fancy'
 brew 'node'
 brew 'hugo'
 brew 'sonobuoy'
+brew 'aws-cdk'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
