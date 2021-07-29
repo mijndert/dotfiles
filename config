@@ -3,7 +3,7 @@ host i-* mi-*
 
 Host *
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/ed25519
+  IdentityFile ~/.ssh/id_rsa 
   ForwardAgent yes
   ConnectTimeout 30
   ServerAliveInterval 10
