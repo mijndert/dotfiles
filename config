@@ -8,4 +8,7 @@ Host *
   ConnectTimeout 30
   ServerAliveInterval 10
   ServerAliveCountMax 1
-
+  PasswordAuthentication no
+  ChallengeResponseAuthentication no
+  HashKnownHosts yes
+  UseKeyChain no
