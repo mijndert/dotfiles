@@ -27,3 +27,4 @@ alias d="docker"
 alias t="tmux"
 alias k="kubectl"
 alias watch='watch '
+alias tree="tree -C"

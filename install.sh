@@ -14,11 +14,11 @@ if [[ $(uname) == 'Darwin' ]]; then
     brew bundle
   fi
 
-  curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-  sh /tmp/install-ohmyzsh.sh --unattended
+  #curl -Lo /tmp/install-ohmyzsh.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  #sh /tmp/install-ohmyzsh.sh --unattended
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
-  npm install --global pure-prompt
+  #npm install --global pure-prompt
 
   sh ./macos.sh
 fi
