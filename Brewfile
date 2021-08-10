@@ -42,6 +42,7 @@ brew 'node'
 brew 'hugo'
 brew 'sonobuoy'
 brew 'aws-cdk'
+brew 'mdbook'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
