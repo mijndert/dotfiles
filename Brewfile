@@ -43,6 +43,7 @@ brew 'hugo'
 brew 'sonobuoy'
 brew 'aws-cdk'
 brew 'mdbook'
+brew 'helm'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
