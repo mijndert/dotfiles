@@ -60,7 +60,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
