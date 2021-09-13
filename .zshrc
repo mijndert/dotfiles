@@ -16,7 +16,7 @@ HISTFILE=~/.zsh_history
 
 # Quicker navigation to sub dirs in most visited dirs
 setopt auto_cd
-cdpath=($HOME/code)
+cdpath=($HOME/dev)
 
 # Use modern completion system
 autoload -Uz compinit
