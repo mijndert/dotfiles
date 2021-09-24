@@ -4,14 +4,12 @@ reload-threads 6
 download-retries 4
 download-timeout 10
 prepopulate-query-feeds yes
-
 cleanup-on-quit yes
 delete-read-articles-on-quit yes
-
-cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
-
 show-read-feeds no
 feed-sort-order unreadarticlecount-asc
+
+cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 
 color info default default reverse
 color listnormal_unread white default
