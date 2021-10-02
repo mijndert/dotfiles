@@ -1,0 +1,24 @@
+#!/bin/bash
+
+BASEDIR=~/Documents/Journal
+
+DAY=$(date +%d)
+MONTH=$(date +%b)
+YEAR=$(date +%Y)
+JOURNALDIR=$YEAR/$MONTH
+
+cd $BASEDIR
+pwd
+
+if [ ! -d $YEAR/$MONTH ]
+then  
+  mkdir -p $YEAR/$MONTH
+fi
+
+if [ ! -f $YEAR/$MONTH/$DAY.md ]
+then
+  cp template.md $YEAR/$MONTH/$DAY.md
+  vim $YEAR/$MONTH/$DAY.md
+else
+  vim $YEAR/$MONTH/$DAY.md
+fi

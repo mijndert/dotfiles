@@ -32,3 +32,4 @@ ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
 ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
 ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
+ln -sf "$DOTFILES_DIR/bin/journal" $(brew --prefix)/bin/
