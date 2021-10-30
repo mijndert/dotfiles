@@ -26,6 +26,16 @@ compinit
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1) /";
 }
+
+# function aws_profile {
+#   _profile=$(aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':')
+#   if [[ "${_profile}" == "(<not)" ]]; then
+#     echo "(none)"
+#   else
+#     echo "${_profile}"
+#   fi
+# }
+
 setopt PROMPT_SUBST
 PS1="%~ \$(parse_git_branch)\$ "
 
