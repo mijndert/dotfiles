@@ -18,5 +18,5 @@ color listfocus_unread blue default reverse bold
 
 articlelist-format "%D  %?T?|%-17T| ?%t"
 
-#browser "open -a /Applications/Firefox.app '%u'"
-browser "open -a safari '%u'"
+browser "open -a /Applications/Firefox.app '%u'"
+#browser "open -a safari '%u'"
