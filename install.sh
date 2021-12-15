@@ -17,6 +17,9 @@ if [[ $(uname) == 'Darwin' ]]; then
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
 
+  ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
+  ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
+
   sh ./macos.sh
 fi
 
@@ -30,5 +33,3 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
-ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
-ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
