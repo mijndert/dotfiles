@@ -5,6 +5,10 @@ host dev
    HostName 192.168.64.2
    User ubuntu 
 
+host puffy
+   HostName puffy.mijndertstuij.nl
+   User mijndert
+
 Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
