@@ -25,3 +25,5 @@ https://www.openttd.org/feed.xml "~OpenTTD" "Games"
 
 https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services" "AWS"
 https://cloudonaut.io/feed/rss.xml "~Cloudonaut" "AWS"
+
+https://undeadly.org/errata/errata.rss "~OpenBSD Errata" "OpenBSD"
