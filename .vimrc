@@ -8,6 +8,7 @@ set hlsearch
 set ruler
 set backspace=2
 set wildmenu
+set path=$PWD/** 
 set wildmode=longest:list,full
 set pastetoggle=<leader>p 
 set nuw=3
