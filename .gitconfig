@@ -131,6 +131,9 @@
 [user]
 	name = Mijndert Stuij
 	email = mijndert@mijndertstuij.nl
+	signingkey = 988BDF408A68B074
 
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true

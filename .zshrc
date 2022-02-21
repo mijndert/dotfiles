@@ -33,3 +33,4 @@ source ~/.alias
 source ~/.functions
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export GPG_TTY=$(tty)

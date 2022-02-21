@@ -25,4 +25,3 @@ alias watch='watch '
 alias tree="tree -C"
 alias awsaccount="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"
 alias m="multipass"
-alias shell="ssh ubuntu@$(multipass info dev --format json | jq -r '.info.dev.ipv4[0]')"
