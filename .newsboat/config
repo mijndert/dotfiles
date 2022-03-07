@@ -10,7 +10,7 @@ show-read-feeds no
 feed-sort-order unreadarticlecount-asc
 confirm-mark-all-feeds-read no
 articlelist-format "%D  %?T?|%-17T| ?%t"
-browser "open -a /Applications/Firefox.app '%u'"
+browser "open '%u'"
 cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 color info default default reverse
 color listnormal_unread white default
