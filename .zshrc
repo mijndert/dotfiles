@@ -2,6 +2,7 @@
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+export GPG_TTY=$(tty)
 
 # Enable ctrl + R for backward search
 bindkey "^R" history-incremental-search-backward
@@ -33,4 +34,3 @@ source ~/.alias
 source ~/.functions
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export GPG_TTY=$(tty)
