@@ -1,5 +1,5 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
+stap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
@@ -29,11 +29,8 @@ brew 'newsboat'
 brew 'kubectl'
 brew 'kubectx'
 brew 'sceptre'
-brew 'diff-so-fancy'
 brew 'node'
-brew 'hugo'
 brew 'aws-cdk'
-brew 'mdbook'
 brew 'helm'
 
 # cask 'font-jetbrains-mono'
@@ -43,3 +40,6 @@ brew 'helm'
 # cask 'spotify'
 # cask 'visual-studio-code'
 # cask 'docker'
+# cask 'mouse-fix'
+# cask 'obsidian'
+# cask 'slack' 
