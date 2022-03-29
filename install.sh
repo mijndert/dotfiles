@@ -33,3 +33,10 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
+
+# Some Vim stuff...
+mkdir ~/.vim/colors
+cp $DOTFILES_DIR/nord.vim ~/.vim/colors
+git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
+
+exit 0;

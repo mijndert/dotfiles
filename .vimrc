@@ -15,3 +15,4 @@ set nuw=3
 set noswapfile
 highlight LineNr ctermfg=DarkGrey 
 nnoremap <esc><esc> :noh<return>
+colorscheme nord
