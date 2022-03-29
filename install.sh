@@ -38,5 +38,7 @@ ln -sf "$DOTFILES_DIR/.newsboat" ~
 mkdir ~/.vim/colors
 cp $DOTFILES_DIR/nord.vim ~/.vim/colors
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
+git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/plugins/start/editorconfig-vim
 
 exit 0;
+
