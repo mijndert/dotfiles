@@ -13,6 +13,7 @@ set wildmode=longest:list,full
 set pastetoggle=<leader>p 
 set nuw=3
 set noswapfile
+set clipboard=unnamed
 highlight LineNr ctermfg=DarkGrey 
-nnoremap <esc><esc> :noh<return>
+nnoremap <esc><esc> :noh<return> 
 colorscheme nord
