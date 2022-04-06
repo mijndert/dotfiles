@@ -1,5 +1,5 @@
 tap "homebrew/bundle"
-stap "homebrew/cask"
+tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
@@ -32,7 +32,6 @@ brew 'sceptre'
 brew 'node'
 brew 'aws-cdk'
 brew 'helm'
-brew 'rust'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
