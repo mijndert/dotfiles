@@ -8,7 +8,6 @@ cleanup-on-quit yes
 delete-read-articles-on-quit yes
 show-read-feeds no
 feed-sort-order unreadarticlecount-asc
-confirm-mark-all-feeds-read no
 articlelist-format "%D  %?T?|%-17T| ?%t"
 browser "open '%u'"
 cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
