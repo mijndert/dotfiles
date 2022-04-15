@@ -46,6 +46,10 @@ defaults write com.apple.dock tilesize -int 40
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
+# Remove all Dock items
+defaults delete com.apple.dock recent-apps
+defaults delete com.apple.dock persistent-others
+
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
