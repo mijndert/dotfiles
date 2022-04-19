@@ -1,4 +1,5 @@
 syntax on
+colorscheme nord
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -15,5 +16,5 @@ set nuw=3
 set noswapfile
 set clipboard=unnamed
 highlight LineNr ctermfg=DarkGrey 
+filetype plugin indent on
 nnoremap <esc><esc> :noh<return> 
-colorscheme nord
