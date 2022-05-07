@@ -9,20 +9,20 @@
 	pager = less -FRSX
 
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    pager = true
-    status = auto
-    ui = true
+	branch = auto
+	diff = auto
+	interactive = auto
+	pager = true
+	status = auto
+	ui = true
 
 [color "status"]
-    added = green
-    changed = yellow
-    untracked = red
+	added = green
+	changed = yellow
+	untracked = red
 
 [push]
-    default = current
+	default = current
 
 [user]
 	name = Mijndert Stuij
