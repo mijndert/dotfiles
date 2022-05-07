@@ -1,33 +1,3 @@
-[alias]
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	# View the current working tree status using the short format
-	s = status -s
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
-	# Clone a repository including all submodules
-	c = clone --recursive
-	# Push changes
-	pu = push
-	# Commit all changes
-	ca = !git add -A && git commit -av
-	# Switch to a branch, creating it if necessary
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
-	# Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
-	# Remove branches that have already been merged with master
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-
-	alias = config --get-regexp 'alias.*'
-	today=log --color --graph --pretty=format:'%Cgreen[%Creset%h%Cgreen]%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since=yesterday
 [init]
 	defaultBranch = main
 
@@ -35,44 +5,24 @@
 	whitespace = fix
 
 [core]
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-	trustctime = false
 	editor = vim
-	
+	pager = less -FRSX
+
 [color]
-  ui = auto
-  diff = auto
-  status = auto
-  branch = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+    branch = auto
+    diff = auto
+    interactive = auto
+    pager = true
+    status = auto
+    ui = true
 
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-
-[diff]
-	renames = copies
-	compactionHeuristic = true
-
-[help]
-	autocorrect = 1
-
-[merge]
-	log = true
+    added = green
+    changed = yellow
+    untracked = red
 
 [push]
-  default = current
+    default = current
 
 [user]
 	name = Mijndert Stuij
@@ -81,3 +31,16 @@
 
 [commit]
 	gpgsign = true
+
+[alias]
+	p = pull
+	c = clone --recursive
+	pu = push
+	ca = !git add -A && git commit -av
+	co = checkout
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	s = status -s
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
