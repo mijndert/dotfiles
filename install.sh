@@ -5,20 +5,29 @@ DOTFILES_DIR=$(pwd)
 
 if [[ $(uname) == 'Darwin' ]]; then
 
+  if [[ $(uname -m) == 'arm64' ]]; then
+    echo "Setting Path to /opt/homebrew/bin:\$PATH"
+      export PATH=/opt/homebrew/bin:$PATH
+  else
+    echo "Setting Path to /usr/local/bin:\$PATH"
+      export PATH=/usr/local/bin:$PATH
+  fi
+
   if [[ $(command -v brew) != 0 ]]; then
-    echo 'Installing Homebrew...'
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo 'Installing Homebrew and packages...'
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      brew update
+      brew tap homebrew/bundle
+      brew bundle
   else 
-    brew update
-    brew tap homebrew/bundle
-    brew bundle
+    echo 'Installing packages...'
+      brew update
+      brew tap homebrew/bundle
+      brew bundle
   fi
 
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
-
-  ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
-  ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
 
   sh ./macos.sh
 fi
@@ -33,6 +42,8 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
+ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
+ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
 
 # Some Vim stuff...
 mkdir ~/.vim/colors
