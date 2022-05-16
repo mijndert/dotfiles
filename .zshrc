@@ -23,12 +23,11 @@ cdpath=($HOME/dev)
 autoload -Uz compinit
 compinit
 
-# Put the name of the Git branch in PS1
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1) /";
 }
 setopt PROMPT_SUBST
-PS1="%~ \$(parse_git_branch)\$ "
+PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f$ '
 
 source ~/.alias
 source ~/.functions
