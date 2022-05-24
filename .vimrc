@@ -12,9 +12,7 @@ set wildmenu
 set path=$PWD/** 
 set wildmode=longest:list,full
 set pastetoggle=<leader>p 
-set nuw=3
 set noswapfile
 set clipboard=unnamed
-highlight LineNr ctermfg=DarkGrey 
 filetype plugin indent on
 nnoremap <esc><esc> :noh<return> 

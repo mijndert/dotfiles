@@ -52,4 +52,3 @@ git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/star
 git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/plugins/start/editorconfig-vim
 
 exit 0;
-
