@@ -8,6 +8,7 @@ https://jorijn.com/rss/ "~Jorijn Schrijvershof" "Blogs"
 https://usesthis.com/feed.atom "~Uses this" "Blogs"
 https://motivational.hashnode.dev/rss.xml "~Bjarni Spans" "Blogs"
 https://chanc.ee/index.xml "~Chancee" "Blogs"
+https://kwon.nyc/notes/index.xml "~Rachel Kwon" "Blogs"
 
 http://rss.slashdot.org/Slashdot/slashdotMain "~Slashdot" "Tech"
 https://www.theverge.com/rss/index.xml "~The Verge" "Tech"
@@ -20,7 +21,6 @@ https://newsboat.org/news.atom "~Newsboat" "Applications"
 https://blog.mozilla.org/rss "~Mozilla" "Applications"
 
 https://www.polygon.com/rss/index.xml "~Polygon" "Games"
-https://www.nintendolife.com/feeds/latest  "~Nintendo Life" "Games"
 https://www.openttd.org/feed.xml "~OpenTTD" "Games"
 
 https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~Amazon Web Services" "AWS"
