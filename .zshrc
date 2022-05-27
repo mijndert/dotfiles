@@ -23,12 +23,14 @@ cdpath=($HOME/dev)
 autoload -Uz compinit
 compinit
 
+# Set ps1 and include git branch
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1) /";
 }
 setopt PROMPT_SUBST
 PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f$ '
 
+# Import files
 source ~/.alias
 source ~/.functions
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
