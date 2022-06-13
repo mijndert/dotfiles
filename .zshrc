@@ -14,6 +14,7 @@ colors
 # Set history file for autocompletion
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+setopt APPEND_HISTORY
 
 # Quicker navigation to sub dirs in most visited dirs
 setopt auto_cd
@@ -28,7 +29,7 @@ function parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1) /";
 }
 setopt PROMPT_SUBST
-PS1='%F{green}%*%f %F{12}%~%f %F{13}$(parse_git_branch)%f$ '
+PS1='%F{green}%!%f %F{12}%~%f %F{13}$(parse_git_branch)%f$ '
 
 # Import files
 source ~/.alias
