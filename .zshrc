@@ -1,6 +1,8 @@
 export EDITOR=vim
-export LC_ALL=en_US.UTF-8  
-export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8  
+#export LANG=en_US.UTF-8
+export LC_ALL=C
+export LANG=C
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export GPG_TTY=$(tty)
 
