@@ -30,14 +30,14 @@ compinit
 function parse_git_branch() {
   branch=$(git symbolic-ref --short HEAD 2> /dev/null)
   if [ ! -z $branch ]; then
-    echo -n "$branch"
+    echo -n "$branch "
     if [ ! -z "$(git status --short)" ]; then
-      echo " %F{15}[✗]"
+      echo "%F{15}[✗] "
     fi
   fi
 }
 setopt PROMPT_SUBST
-PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f $ '
+PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f$ '
 
 # Import files
 source ~/.alias
