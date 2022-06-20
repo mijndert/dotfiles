@@ -28,10 +28,16 @@ compinit
 
 # Set ps1 and include git branch
 function parse_git_branch() {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1) /";
+  branch=$(git symbolic-ref --short HEAD 2> /dev/null)
+  if [ ! -z $branch ]; then
+    echo -n "$branch"
+    if [ ! -z "$(git status --short)" ]; then
+      echo " %F{15}[✗]"
+    fi
+  fi
 }
 setopt PROMPT_SUBST
-PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f$ '
+PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f $ '
 
 # Import files
 source ~/.alias
