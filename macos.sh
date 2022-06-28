@@ -105,6 +105,10 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Stop Photos from opening automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+# Disable press and hold in VScode
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+# defaults delete -g ApplePressAndHoldEnabled
+
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
