@@ -33,6 +33,7 @@ brew 'sceptre'
 brew 'node'
 brew 'aws-cdk'
 brew 'helm'
+brew 'irssi'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
