@@ -37,8 +37,8 @@ if [[ $(uname) == 'Darwin' ]]; then
   ln -sf "$DOTFILES_DIR/.zshrc" ~
 fi
 
-if [[ $(uname) == 'Linux' ]]; then
-  ln -sf "$DOTFILES_DIR/.zshrc.linux" ~/.zshrc
+if [[ $(uname) == 'OpenBSD' ]]; then
+  ln -sf "$DOTFILES_DIR/.zshrc.bsd" ~/.zshrc
 fi
 
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
