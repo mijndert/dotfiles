@@ -34,5 +34,5 @@ PS1='%F{12}%~%f %F{13}$(parse_git_branch)%f$ '
 # Import files
 source ~/.alias
 source ~/.functions
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
