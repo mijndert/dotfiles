@@ -30,7 +30,6 @@ function parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1 /";
 }
 setopt PROMPT_SUBST
-#PS1='%F{15}%m%f:%F{27}%~%f %F{15}$(parse_git_branch)%f$ '
 PS1='%m %F{33}%~%f $(parse_git_branch)$ '
 
 # Import files
