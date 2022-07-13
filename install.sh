@@ -33,10 +33,9 @@ if [[ $(uname) == 'Darwin' ]]; then
 
   ln -sf "$DOTFILES_DIR/bin/tm" $(brew --prefix)/bin/
   ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
-
-  ln -sf "$DOTFILES_DIR/.zshrc" ~
 fi
 
+ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
