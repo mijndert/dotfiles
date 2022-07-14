@@ -25,6 +25,7 @@
 
 [push]
 	default = current
+	autoSetupRemote = true
 
 [user]
 	name = Mijndert Stuij
