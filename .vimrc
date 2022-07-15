@@ -1,5 +1,5 @@
 syntax on
-colo torte
+colo murphy
 set background=dark
 set tabstop=2
 set shiftwidth=2
