@@ -24,4 +24,4 @@ alias t="tmux new -A -s 0"
 alias k="kubectl"
 alias watch='watch '
 alias tree="tree -C"
-alias awsaccount="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"
+alias account="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"

@@ -5,8 +5,6 @@ tap "homebrew/services"
 tap "homebrew/cask-fonts"
 
 brew 'zsh'
-brew 'zsh-autosuggestions'
-brew 'zsh-syntax-highlighting'
 brew 'coreutils'
 brew 'findutils'
 brew 'grep'
@@ -33,7 +31,6 @@ brew 'sceptre'
 brew 'node'
 brew 'aws-cdk'
 brew 'helm'
-brew 'irssi'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
@@ -45,3 +42,4 @@ brew 'irssi'
 # cask 'mouse-fix'
 # cask 'obsidian'
 # cask 'slack' 
+# cask 'iterm2'
