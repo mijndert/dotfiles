@@ -12,10 +12,3 @@ articlelist-format "%D  %?T?|%-17T| ?%t"
 browser "open '%u'"
 cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 
-color background          white   black
-color listnormal          white   black
-color listfocus           yellow  blue   
-color listnormal_unread   default black
-color listfocus_unread    default blue   
-color info                yellow  blue   
-color article             white   black
