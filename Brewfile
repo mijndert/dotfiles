@@ -31,6 +31,7 @@ brew 'sceptre'
 brew 'node'
 brew 'aws-cdk'
 brew 'helm'
+brew 'gnupg'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
