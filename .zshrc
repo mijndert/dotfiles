@@ -5,27 +5,21 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export GPG_TTY=$(tty)
 export DOCKER_BUILDKIT=1
 
-# Enable ctrl + R for backward search
 bindkey "^R" history-incremental-search-backward
 
-# Init colors
 autoload -U colors
 colors
 
-# Set history file for autocompletion
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 setopt APPEND_HISTORY
 
-# Quicker navigation to sub dirs in most visited dirs
 setopt auto_cd
 cdpath=($HOME/dev)
 
-# Use modern completion system
 autoload -Uz compinit
 compinit
 
-# Set ps1 and include git branch
 function detect_ssh() {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "→ "
@@ -39,7 +33,6 @@ function parse_git_branch() {
 setopt PROMPT_SUBST
 PS1='$(detect_ssh)%F{33}%~%f $(parse_git_branch)$ '
 
-# Import files
 source ~/.alias
 source ~/.functions
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
