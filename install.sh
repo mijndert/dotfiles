@@ -5,17 +5,11 @@ DOTFILES_DIR=$(pwd)
 
 if [[ $(uname) == 'Darwin' ]]; then
 
-  if [[ $(uname -m) == 'arm64' ]]; then
-    echo "Setting Path to /opt/homebrew/bin:\$PATH"
-      export PATH=/opt/homebrew/bin:$PATH
-  else
-    echo "Setting Path to /usr/local/bin:\$PATH"
-      export PATH=/usr/local/bin:$PATH
-  fi
-
   if [[ $(command -v brew) != 0 ]]; then
     echo 'Installing Homebrew and packages...'
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      [ -d "/opt/homebrew" ] && HOMEBREW_PREFIX="/opt/homebrew" || HOMEBREW_PREFIX="/usr/local"
+      eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
       brew update
       brew tap homebrew/bundle
       brew bundle
