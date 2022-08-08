@@ -1,5 +1,6 @@
 alias ..="cd .."
 alias ...="cd ../.."
+alias c="code ."
 alias dl="cd ~/Downloads"
 alias dev="cd ~/dev"
 alias g="git"
