@@ -25,14 +25,6 @@ if [[ $(uname) == 'Darwin' ]]; then
   sh ./macos.sh
 
   ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
-
-  ln -sf "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" $(brew --prefix)/bin/
-  VSCODE_HOME="$HOME/Library/Application Support/Code"
-  ln -sf "$DOTFILE_DIR/vscode/settings.json" "$VSCODE_HOME/User/settings.json"
-  cat $DOTFILE_DIR/vscode/extensions.txt | while read extension || [[ -n $extension ]];
-  do
-    code --install-extension $extension --force
-  done
 fi
 
 ln -sf "$DOTFILES_DIR/.zshrc" ~
