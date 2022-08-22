@@ -27,3 +27,4 @@ alias watch='watch '
 alias tree="tree -C"
 alias account="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"
 alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
+alias docker="lima nerdctl"
