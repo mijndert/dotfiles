@@ -26,6 +26,7 @@
   "window.restoreWindows": "none",
   "workbench.activityBar.visible": false,
   "breadcrumbs.enabled": false,
+  "workbench.layoutControl.enabled": false,
 
   // Suggestions
   "editor.suggest.showMethods": true,
