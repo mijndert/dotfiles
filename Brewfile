@@ -34,6 +34,7 @@ brew 'aws-cdk'
 brew 'helm'
 brew 'gnupg'
 brew 'cmake'
+brew 'lima'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
