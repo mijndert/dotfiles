@@ -38,6 +38,7 @@ ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
 
+ln -sf "$DOTFILES_DIR/.alacritty.yml" ~
 mkdir -p ~/.config/kitty; ln -sf "$DOTFILES_DIR/kitty.conf" ~/.config/kitty/kitty.conf
 
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
