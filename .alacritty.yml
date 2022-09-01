@@ -23,13 +23,13 @@ font:
     style: Regular
   bold:
     family: JetBrains Mono
-    style: Bold
+    style: Regular
   italic:
     family: JetBrains Mono
     style: Regular Italic
   bold_italic:
     family: JetBrains Mono
-    style: Bold Italic
+    style: Regular Italic
 
 cursor:
   style: Beam
