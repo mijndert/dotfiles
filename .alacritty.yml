@@ -17,20 +17,25 @@ font:
   draw_bold_text_with_bright_colors: false
   size: 12.0
   normal:
-    family: "JetBrains Mono"
+    family: JetBrains Mono
+    style: Regular
   bold:
-    family: "JetBrains Mono"
+    family: JetBrains Mono
+    style: Bold
   italic:
-    family: "JetBrains Mono"
+    family: JetBrains Mono
+    style: Regular Italic
+  bold_italic:
+    family: JetBrains Mono
+    style: Bold Italic
 
 cursor:
   style: Beam
 
 live_config_reload: true
 
-mouse:
-  hints:
-    launcher: open
+hints:
+  launcher: open
 
 colors:
   primary:
