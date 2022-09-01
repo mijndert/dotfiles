@@ -2,16 +2,19 @@ env:
   TERM: xterm-256color
 
 window:
-  decorations: none
+  decorations: buttonless
   dynamic_padding: false
   padding:
     x: 10
     y: 10
 
 scrolling:
-  history: 5000
+  history: 10000
+  multiplier: 3
 
 font:
+  use_thin_strokes: false
+  draw_bold_text_with_bright_colors: false
   size: 12.0
   normal:
     family: "JetBrains Mono"
