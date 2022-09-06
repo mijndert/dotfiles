@@ -27,11 +27,12 @@ function detect_ssh() {
     exit
   fi
 }
-function parse_git_branch() {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1 /";
-}
+# function parse_git_branch() {
+#   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1 /";
+# }
 setopt PROMPT_SUBST
-PS1='$(detect_ssh)%F{33}%~%f $(parse_git_branch)$ '
+#PS1='$(detect_ssh)%F{33}%~%f $(parse_git_branch)$ '
+PS1='$(detect_ssh)%F{33}%~%f $ '
 
 source ~/.alias
 source ~/.functions
