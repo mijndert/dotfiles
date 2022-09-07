@@ -33,6 +33,7 @@ brew 'node'
 brew 'aws-cdk'
 brew 'helm'
 brew 'cmake'
+brew 'pure'
 
 # cask 'font-jetbrains-mono'
 # cask 'firefox'
