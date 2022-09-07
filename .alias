@@ -8,8 +8,8 @@ alias h="history"
 alias v="vim"
 alias aws="noglob aws"
 alias awscred=". /Users/mijndert/dev/devops_library/scripts/credentials/aws_sso.sh"
-alias l="ls -lF"
-alias la="ls -laF"
+alias l="ls -lFG"
+alias la="ls -laFG"
 alias grep='grep --color=auto '
 alias hosts='sudo vim /etc/hosts'
 alias cp='cp -i'
