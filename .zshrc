@@ -19,22 +19,10 @@ colors
 autoload -Uz compinit
 compinit
 
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
+zstyle :prompt:pure:git:stash show yes
 prompt pure
-
-# function detect_ssh() {
-#   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-#     echo "→ "
-#   else
-#     exit
-#   fi
-# }
-# # function parse_git_branch() {
-# #   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1 /";
-# # }
-# setopt PROMPT_SUBST
-# #PS1='$(detect_ssh)%F{33}%~%f $(parse_git_branch)$ '
-# PS1='$(detect_ssh)%F{33}%~%f $ '
 
 source ~/.alias
 source ~/.functions

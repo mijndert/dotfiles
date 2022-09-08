@@ -6,5 +6,3 @@ Host *
   ServerAliveInterval 10
   ServerAliveCountMax 1
   
-Host vps
-  HostName ssh.mijndertstuij.nl
