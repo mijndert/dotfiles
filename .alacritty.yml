@@ -1,15 +1,12 @@
-env:
-  TERM: xterm-256color
-
 window:
   decorations: buttonless
   dynamic_padding: false
   padding:
-    x: 10
-    y: 10
+    x: 8
+    y: 8
 
 scrolling:
-  history: 10000
+  history: 5000
   multiplier: 3
 
 font:
