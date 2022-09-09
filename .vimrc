@@ -1,5 +1,4 @@
 syntax on
-colo default
 set background=dark
 set tabstop=2
 set shiftwidth=2
@@ -15,5 +14,7 @@ set wildmode=longest:list,full
 set pastetoggle=<leader>p 
 set noswapfile
 set clipboard=unnamed
+set termguicolors
 filetype plugin indent on
 nnoremap <esc><esc> :noh<return> 
+colo dracula
