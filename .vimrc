@@ -17,4 +17,5 @@ set clipboard=unnamed
 set termguicolors
 filetype plugin indent on
 nnoremap <esc><esc> :noh<return> 
+packadd! dracula
 colo dracula
