@@ -8,7 +8,15 @@ cleanup-on-quit yes
 delete-read-articles-on-quit yes
 show-read-feeds no
 feed-sort-order unreadarticlecount-asc
+feedlist-format "%4i  %t (%c)"
 articlelist-format "%D  %?T?|%-17T| ?%t"
 browser "open '%u'"
 cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 
+color background white black
+color listnormal magenta black
+color listfocus black magenta bold
+color listnormal_unread white black dim
+color listfocus_unread black magenta bold
+color info black magenta bold
+color article white black dim
