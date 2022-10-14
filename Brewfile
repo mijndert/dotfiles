@@ -34,6 +34,7 @@ brew 'aws-cdk'
 brew 'helm'
 brew 'cmake'
 brew 'pure'
+brew 'bensadeh/circumflex/circumflex'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
