@@ -13,7 +13,6 @@ scrolling:
   multiplier: 3
 
 font:
-  use_thin_strokes: false
   draw_bold_text_with_bright_colors: false
   offset:
     x: 1
