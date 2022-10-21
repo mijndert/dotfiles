@@ -13,10 +13,18 @@ articlelist-format "%D  %?T?|%-17T| ?%t"
 browser "open '%u'"
 cache-file "~/Library/Mobile Documents/com~apple~CloudDocs/Newsboat/cache.db"
 
-color background white black
-color listnormal magenta black
-color listfocus black magenta bold
-color listnormal_unread white black dim
-color listfocus_unread black magenta bold
-color info black magenta bold
-color article white black dim
+color background          color15    default
+color listnormal          color248   default
+color listnormal_unread   color4     default
+color listfocus           color0     color4
+color listfocus_unread    color0     color4   bold
+color info                color12    color0
+color article             color248   default
+
+# highlights
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color10 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
+highlight feedlist "^─.*$" color6 color0 bold
