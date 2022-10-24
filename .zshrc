@@ -7,6 +7,7 @@ export DOCKER_BUILDKIT=1
 
 bindkey "^R" history-incremental-search-backward
 
+setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
