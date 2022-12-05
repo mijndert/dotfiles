@@ -19,6 +19,11 @@ if [[ $(uname) == 'Darwin' ]]; then
       brew bundle
   fi
 
+  if [[ `uname -m` == 'arm64' ]]; then
+    echo "installing Rosetta"
+    softwareupdate --install-rosetta
+  fi
+
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
 
