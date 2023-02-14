@@ -7,7 +7,7 @@ alias g="git"
 alias h="history"
 alias v="vim"
 alias aws="noglob aws"
-alias awscred=". /Users/mijndert/dev/devops_library/scripts/credentials/aws_sso.sh"
+alias awscred=". /Users/mijndert/dev/inqdocloud-library/aws/iam/aws-sso-on-cli/aws_sso.sh"
 alias l="ls -lFG"
 alias la="ls -laFG"
 alias grep='grep --color=auto '
