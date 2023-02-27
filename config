@@ -5,4 +5,7 @@ Host *
   ConnectTimeout 30
   ServerAliveInterval 10
   ServerAliveCountMax 1
-  
+
+Host bitbucket.org
+  Hostname altssh.bitbucket.org
+  Port 443
