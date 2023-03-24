@@ -51,6 +51,7 @@ git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 exit 0;
