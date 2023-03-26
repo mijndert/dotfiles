@@ -3,14 +3,6 @@ env:
 
 window:
   decorations: none
-  dynamic_padding: false
-  padding:
-    x: 5
-    y: 1
-
-scrolling:
-  history: 5000
-  multiplier: 3
 
 font:
   draw_bold_text_with_bright_colors: false
