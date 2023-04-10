@@ -5,7 +5,6 @@ window:
   decorations: none
 
 font:
-  draw_bold_text_with_bright_colors: false
   offset:
     x: 1
   size: 12.0
@@ -29,9 +28,6 @@ live_config_reload: true
 
 hints:
   launcher: open
-
-selection:
-  save_to_clipboard: true
 
 colors:
   primary:
