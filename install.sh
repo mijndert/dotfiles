@@ -30,6 +30,7 @@ if [[ $(uname) == 'Darwin' ]]; then
   sh ./macos.sh
 
   ln -sf "$DOTFILES_DIR/bin/git-up" $(brew --prefix)/bin/
+  ln -sf "$DOTFILES_DIR/bin/chktf" $(brew --prefix)/bin/
 fi
 
 ln -sf "$DOTFILES_DIR/.zshrc" ~

@@ -1,0 +1,8 @@
+#!/bin/bash
+for d in */ ; do
+  cd "$d"
+  pwd
+  terraform init
+  terraform validate
+  cd ..
+done

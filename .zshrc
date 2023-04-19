@@ -2,7 +2,6 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export PATH=/usr/local/opt/python@/libexec/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export GPG_TTY=$(tty)
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
 
