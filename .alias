@@ -30,3 +30,4 @@ alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv;
 alias hn="clx"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
+alias lg="lazygit"
