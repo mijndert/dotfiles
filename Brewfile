@@ -58,3 +58,5 @@ cask 'bbedit'
 cask 'lens'
 cask 'opera'
 cask 'dbeaver-community'
+
+mas '1320666476' # wipr 
