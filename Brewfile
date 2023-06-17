@@ -47,6 +47,7 @@ cask 'visual-studio-code'
 cask 'docker'
 cask 'mouse-fix'
 cask 'obsidian'
+cask '1password'
 cask 'slack' 
 cask 'alacritty'
 cask 'things'
@@ -60,3 +61,4 @@ cask 'opera'
 cask 'dbeaver-community'
 
 mas '1320666476' # wipr 
+mas '1569813296' # 1password for safari
