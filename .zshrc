@@ -5,7 +5,6 @@ export PATH=/usr/local/opt/python@/libexec/bin:/opt/homebrew/bin:/usr/local/bin:
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
 export BAT_THEME="Dracula"
-#export KUBECONFIG="/Users/mijndert.stuij/.kube/production/microservices-1_22:/Users/mijndert.stuij/.kube/staging/microservices-1_22:/Users/mijndert.stuij/.kube/qa/config_k8_stage_tmp"
 export TFENV_ARCH=amd64
 
 bindkey "^R" history-incremental-search-backward
