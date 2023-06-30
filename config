@@ -1,11 +1,9 @@
-Host *
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-  ForwardAgent yes
-  ConnectTimeout 30
-  ServerAliveInterval 10
-  ServerAliveCountMax 1
-
+# Work
 Host bitbucket.org
-  Hostname altssh.bitbucket.org
-  Port 443
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/id_ed25519_otrium
+
+# Private
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_ed2551
