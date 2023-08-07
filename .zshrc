@@ -4,7 +4,6 @@ export LANG=en_US.UTF-8
 export PATH=/usr/local/opt/python@/libexec/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
-export BAT_THEME="Dracula"
 export TFENV_ARCH=amd64
 
 bindkey "^R" history-incremental-search-backward

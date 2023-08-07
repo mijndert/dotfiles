@@ -27,16 +27,10 @@
 	default = current
 	autoSetupRemote = true
 
-[user]
-	name = Mijndert Stuij
-	email = mijndert@mijndertstuij.nl
-	#signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnWvTU0JWTIwbKCSUUjRpYjFnhDDfdLLAlEe2xxlhdD mijndert@mijndertstuij.nl
-
-# [commit]
-# 	gpgsign = true
-
-# [gpg]
-# 	format = ssh
+[includeIf "gitdir:~/dev/personal/"]
+    path = .gitconfig-personal
+[includeIf "gitdir:~/dev/otrium/"]
+    path = .gitconfig-work
 
 [alias]
 	p = pull
@@ -49,5 +43,5 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-    l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
-    clean = fetch --prune origin
+  l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
+  clean = fetch --prune origin

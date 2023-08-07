@@ -1,0 +1,10 @@
+[user]
+	name = Mijndert Stuij
+	email = mijndert@mijndertstuij.nl
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnWvTU0JWTIwbKCSUUjRpYjFnhDDfdLLAlEe2xxlhdD mijndert@mijndertstuij.nl
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
