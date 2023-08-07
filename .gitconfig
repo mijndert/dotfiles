@@ -28,9 +28,9 @@
 	autoSetupRemote = true
 
 [includeIf "gitdir:~/dev/personal/"]
-    path = .gitconfig-personal
-[includeIf "gitdir:~/dev/otrium/"]
-    path = .gitconfig-work
+    path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dev/work/"]
+    path = ~/.gitconfig-work
 
 [alias]
 	p = pull
@@ -45,3 +45,4 @@
 	remotes = remote -v
   l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
   clean = fetch --prune origin
+	whoami = !git config --global user.name && git config --global user.email

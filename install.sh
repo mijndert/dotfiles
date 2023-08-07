@@ -35,6 +35,8 @@ fi
 
 ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
+ln -sf "$DOTFILES_DIR/.gitconfig-personal" ~
+ln -sf "$DOTFILES_DIR/.gitconfig-work" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
 ln -sf "$DOTFILES_DIR/.ansible.cfg" ~
