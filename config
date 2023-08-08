@@ -1,8 +1,3 @@
-Host *
-  ForwardAgent yes
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-
 # Work
 Host bitbucket.org
   HostName bitbucket.org
@@ -11,4 +6,5 @@ Host bitbucket.org
 # Private
 Host github.com
   HostName github.com
+  AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
