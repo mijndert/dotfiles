@@ -1,6 +1,7 @@
 # Work
 Host bitbucket.org
   HostName bitbucket.org
+  AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519_otrium
 
 # Private
