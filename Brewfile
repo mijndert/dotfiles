@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
+tap "hashicorp/tap/terraform"
 
 brew 'zsh'
 brew 'coreutils'
