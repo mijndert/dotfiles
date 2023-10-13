@@ -37,6 +37,7 @@ brew 'cmake'
 brew 'pure'
 brew 'bensadeh/circumflex/circumflex'
 brew 'aws-iam-authenticator'
+brew 'glow'
 
 cask 'font-jetbrains-mono'
 cask 'google-chrome'
