@@ -44,10 +44,6 @@ foreground = "#f8f8f2"
 background = "#ffb86c"
 foreground = "#44475a"
 
-[colors.search.footer_bar]
-background = "#282a36"
-foreground = "#f8f8f2"
-
 [colors.search.matches]
 background = "#50fa7b"
 foreground = "#44475a"
@@ -87,9 +83,6 @@ style = "Regular"
 
 [font.offset]
 x = 1
-
-[hints]
-launcher = "open"
 
 [window]
 decorations = "none"
