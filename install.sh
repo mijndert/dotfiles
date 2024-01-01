@@ -45,7 +45,7 @@ ln -sf "$DOTFILES_DIR/.alias" ~
 ln -sf "$DOTFILES_DIR/.functions" ~
 ln -sf "$DOTFILES_DIR/config" ~/.ssh/
 ln -sf "$DOTFILES_DIR/.newsboat" ~
-ln -sf "$DOTFILES_DIR/.alacritty.yml" ~
+ln -sf "$DOTFILES_DIR/.alacritty.toml" ~
 
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
 git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/plugins/start/editorconfig-vim
