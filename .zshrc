@@ -2,6 +2,7 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export PATH=/usr/local/opt/python@/libexec/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:$PATH
+
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
 export TFENV_ARCH=amd64
@@ -12,9 +13,6 @@ bindkey "^R" history-incremental-search-backward
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
-
-setopt auto_cd
-cdpath=($HOME/dev)
 
 autoload -U colors
 colors
