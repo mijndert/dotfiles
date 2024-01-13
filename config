@@ -1,3 +1,5 @@
+Include ~/.orbstack/ssh/config
+
 # Work
 Host bitbucket.org
   HostName bitbucket.org
