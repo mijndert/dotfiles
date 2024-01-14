@@ -8,3 +8,12 @@ dcleanup(){
 }
 
 0file() { curl -F"file=@$1" https://envs.sh ; }
+
+kubectl () {
+    command kubectl $*
+    if [[ -z $KUBECTL_COMPLETE ]]
+    then
+        source <(command kubectl completion zsh)
+        KUBECTL_COMPLETE=1 
+    fi
+}
