@@ -3,30 +3,12 @@ live_config_reload = true
 [cursor]
 style = "Beam"
 
-[env]
-TERM = "xterm-256color"
-
 [font]
-size = 12.0
-
-[font.bold]
-family = "JetBrains Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "JetBrains Mono"
-style = "Bold Italic"
-
-[font.italic]
-family = "JetBrains Mono"
-style = "Regular Italic"
+size = 12
 
 [font.normal]
 family = "JetBrains Mono"
 style = "Regular"
-
-[font.offset]
-x = 1
 
 [window]
 decorations = "none"
