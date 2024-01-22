@@ -7,6 +7,7 @@ export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
 export TFENV_ARCH=amd64
 export BAT_THEME="Dracula"
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 bindkey "^R" history-incremental-search-backward
 
