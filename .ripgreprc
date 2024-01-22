@@ -1,7 +1,5 @@
 --hidden
 --follow
---glob=!{.git,node_modules,vendor}
---glob=!*.{lock}
---glob=!{package-lock.json}
+--glob=!{.git,node_modules,vendor,package-lock.json}
 --smart-case
 --sort=path

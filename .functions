@@ -7,8 +7,6 @@ dcleanup(){
 	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
-0file() { curl -F"file=@$1" https://envs.sh ; }
-
 kubectl () {
     command kubectl $*
     if [[ -z $KUBECTL_COMPLETE ]]
