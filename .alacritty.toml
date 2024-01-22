@@ -1,5 +1,8 @@
 live_config_reload = true
 
+[env]
+TERM = "screen-256color"
+
 [cursor]
 style = "Beam"
 
