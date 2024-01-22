@@ -1,7 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
-tap "hashicorp/tap/terraform"
+tap "hashicorp/tap"
 
 brew 'zsh'
 brew 'coreutils'
@@ -16,8 +16,8 @@ brew 'watch'
 brew 'awscli'
 brew 'jq'
 brew 'tmux'
-brew 'terraform'
-brew 'terraform-ls'
+brew 'hashicorp/tap/terraform'
+brew 'hashicorp/tap/terraform-ls'
 brew 'telnet'
 brew 'tree'
 brew 'awk'
