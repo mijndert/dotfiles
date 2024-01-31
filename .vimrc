@@ -4,8 +4,6 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 
 syntax on                           
-
-highlight LineNr ctermfg=DarkGrey   
 nnoremap <esc><esc> :noh<return>    
 
 packadd! dracula
