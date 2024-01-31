@@ -7,7 +7,9 @@ syntax on
 
 highlight LineNr ctermfg=DarkGrey   
 nnoremap <esc><esc> :noh<return>    
-colorscheme Dracula
+
+packadd! dracula
+colorscheme dracula
 
 set tabstop=2                       
 set shiftwidth=2                    
