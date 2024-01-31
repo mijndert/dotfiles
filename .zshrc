@@ -6,7 +6,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
 export TFENV_ARCH=amd64
-export BAT_THEME="Solarized (dark)"
+export BAT_THEME="Nord"
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 bindkey "^R" history-incremental-search-backward

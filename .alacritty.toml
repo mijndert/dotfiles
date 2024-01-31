@@ -18,27 +18,27 @@ decorations = "none"
 
 # Default colors
 [colors.primary]
-background = '#002b36'
-foreground = '#839496'
+background = '#2E3440'
+foreground = '#D8DEE9'
 
 # Normal colors
 [colors.normal]
-black   = '#073642'
-red     = '#dc322f'
-green   = '#859900'
-yellow  = '#b58900'
-blue    = '#268bd2'
-magenta = '#d33682'
-cyan    = '#2aa198'
-white   = '#eee8d5'
+black   = '#3B4252'
+red     = '#BF616A'
+green   = '#A3BE8C'
+yellow  = '#EBCB8B'
+blue    = '#81A1C1'
+magenta = '#B48EAD'
+cyan    = '#88C0D0'
+white   = '#E5E9F0'
 
 # Bright colors
 [colors.bright]
-black   = '#002b36'
-red     = '#cb4b16'
-green   = '#586e75'
-yellow  = '#657b83'
-blue    = '#839496'
-magenta = '#6c71c4'
-cyan    = '#93a1a1'
-white   = '#fdf6e3'
+black   = '#4C566A'
+red     = '#BF616A'
+green   = '#A3BE8C'
+yellow  = '#EBCB8B'
+blue    = '#81A1C1'
+magenta = '#B48EAD'
+cyan    = '#8FBCBB'
+white   = '#ECEFF4'
