@@ -30,6 +30,8 @@ brew 'pure'
 brew 'aws-iam-authenticator'
 brew 'bat'
 brew 'ripgrep'
+brew 'ssss'
+brew 'k9s'
 
 cask 'font-jetbrains-mono'
 cask 'firefox'
