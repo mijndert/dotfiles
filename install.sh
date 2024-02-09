@@ -24,13 +24,16 @@ if [[ $(uname) == 'Darwin' ]]; then
   ln -sf "$(PWD)/bin/chktf" $(brew --prefix)/bin/
 
   sh ./macos.sh
-
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
 git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/plugins/start/editorconfig-vim
 git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -sf "$(PWD)/.zshrc" ~
 ln -sf "$(PWD)/.gitconfig" ~
