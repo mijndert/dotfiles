@@ -5,9 +5,13 @@ Host bitbucket.org
   HostName bitbucket.org
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519_otrium
+  User git
+  IdentitiesOnly yes
 
 # Private
 Host github.com
   HostName github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
+  User git
+  IdentitiesOnly yes
