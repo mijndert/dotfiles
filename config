@@ -2,12 +2,13 @@ Include ~/.orbstack/ssh/config
 
 # Work
 Host bitbucket.org
-  HostName bitbucket.org
+  Hostname altssh.bitbucket.org
+  Port 443
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519_otrium
   User git
   IdentitiesOnly yes
-
+  
 # Private
 Host github.com
   HostName github.com
