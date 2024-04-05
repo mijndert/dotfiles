@@ -16,18 +16,28 @@ style = "Regular"
 [window]
 decorations = "none"
 
-# Default colors
 [colors.primary]
-background = '0x1E1E1E'
-foreground = '0xD4D4D4'
+background = '#282a36'
+foreground = '#f8f8f2'
 
 # Normal colors
 [colors.normal]
-black =   '0x1E1E1E'
-red =     '0xF44747'
-green =    '0x608B4E'
-yellow =  '0xD7BA7D'
-blue =    '0x569CD6'
-magenta = '0xC586C0'
-cyan =    '0x9CDCFE'
-white =   '0xD4D4D4'
+black   = '#000000'
+red     = '#ff5555'
+green   = '#50fa7b'
+yellow  = '#f1fa8c'
+blue    = '#bd93f9'
+magenta = '#ff79c6'
+cyan    = '#8be9fd'
+white   = '#bbbbbb'
+
+# Bright colors
+[colors.bright]
+black   = '#555555'
+red     = '#ff5555'
+green   = '#50fa7b'
+yellow  = '#f1fa8c'
+blue    = '#caa9fa'
+magenta = '#ff79c6'
+cyan    = '#8be9fd'
+white   = '#ffffff'

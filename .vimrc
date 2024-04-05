@@ -3,8 +3,11 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-"syntax on                           
+syntax on                           
 nnoremap <esc><esc> :noh<return>    
+
+packadd! dracula
+colorscheme dracula
 
 set tabstop=2                       
 set shiftwidth=2                    
