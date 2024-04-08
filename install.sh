@@ -20,9 +20,6 @@ if [[ $(uname) == 'Darwin' ]]; then
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
 
-  ln -sf "$(PWD)/bin/git-up" $(brew --prefix)/bin/
-  ln -sf "$(PWD)/bin/chktf" $(brew --prefix)/bin/
-
   sh ./macos.sh
 fi
 
@@ -31,9 +28,13 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-sy
 
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
 git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/plugins/start/editorconfig-vim
-git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
+#git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+mkdir -p "$(bat --config-dir)/themes"
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
 
 ln -sf "$(PWD)/.zshrc" ~
 ln -sf "$(PWD)/.gitconfig" ~
