@@ -18,7 +18,7 @@ if [[ $(uname) == 'Darwin' ]]; then
   chsh -s $(brew --prefix)/bin/zsh "$USER"
 
   sh ./macos.sh
-s
+
   echo "installing Rosetta"
   softwareupdate --install-rosetta --agree-to-license
 fi
