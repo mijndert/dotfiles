@@ -20,7 +20,11 @@
   "tab_size": 2,
   "terminal": {
     "font_family": "JetBrains Mono",
-    "blinking": "off"
+    "blinking": "off",
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
   },
   "collaboration_panel": {
     "button": false
@@ -32,5 +36,10 @@
     "version": "1",
     "button": false,
     "enabled": false
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
   }
 }
