@@ -26,15 +26,15 @@ promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
+autoload -U +X bashcompinit && bashcompinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
+complete -o nospace -C /usr/local/bin/terraform terraform
+
 source ~/.alias
 source ~/.functions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-autoload -U +X bashcompinit && bashcompinit
-complete -C '/opt/homebrew/bin/aws_completer' aws
 source /opt/homebrew/etc/bash_completion.d/az
-complete -o nospace -C /usr/local/bin/terraform terraform
 
 # if [ -z "$(pgrep ssh-agent)" ]; then
 #     eval "$(ssh-agent -s)" > /dev/null
