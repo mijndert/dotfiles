@@ -43,4 +43,3 @@ ln -sf "$(PWD)/.curlrc" ~
 ln -sf "$(PWD)/.alacritty.toml" ~
 ln -sf "$(PWD)/.ripgreprc" ~
 mkdir ~/.ssh && ln -sf "$(PWD)/config" ~/.ssh/
-mkdir ~/.config/zed && ln -sf "$(PWD)/zed/settings.json" ~/.config/zed/
