@@ -18,3 +18,9 @@ Run script
 ```shell
 ./install.sh
 ```
+
+# Additional steps
+- 1Password for Safari
+- Wipr
+- Point iTerm2 to dotfiles repo
+- Login vscode using GitHub
