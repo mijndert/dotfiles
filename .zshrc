@@ -5,9 +5,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
 export DOCKER_BUILDKIT=1
 export HOMEBREW_NO_ANALYTICS=1
-export TFENV_ARCH=amd64
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
-export BAT_THEME="Catppuccin Mocha"
 
 bindkey "^R" history-incremental-search-backward
 

@@ -1,6 +1,5 @@
 alias ..="cd .."
 alias ...="cd ../.."
-alias c="code ."
 alias dl="cd ~/Downloads"
 alias dev="cd ~/dev"
 alias g="git"
@@ -16,7 +15,6 @@ alias mv='mv -i'
 alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
 alias tf="terraform"
 alias ap="ansible-playbook"
-alias nb="newsboat"
 alias o="open"
 alias dc='docker-compose'
 alias d="docker"
@@ -24,10 +22,7 @@ alias t="tmux new -A -s 0"
 alias k="kubectl"
 alias watch='watch '
 alias tree="tree -C"
-alias account="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"
+alias awsaccount="aws sts get-caller-identity --output text --query 'UserId' | cut -f 2 -d ':'"
 alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
-alias hn="clx"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
-alias b="bbedit"
-alias cat="bat -p"

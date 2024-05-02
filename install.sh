@@ -25,11 +25,6 @@ fi
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-mkdir -p "$(bat --config-dir)/themes"
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-bat cache --build
 
 ln -sf "$(PWD)/.zshrc" ~
 ln -sf "$(PWD)/.alias" ~
@@ -37,9 +32,9 @@ ln -sf "$(PWD)/.functions" ~
 ln -sf "$(PWD)/.gitconfig" ~
 ln -sf "$(PWD)/.gitconfig-personal" ~
 ln -sf "$(PWD)/.gitconfig-work" ~
-ln -sf "$(PWD)/.tmux.conf" ~
+#ln -sf "$(PWD)/.tmux.conf" ~
 ln -sf "$(PWD)/.vimrc" ~
 ln -sf "$(PWD)/.curlrc" ~
-ln -sf "$(PWD)/.alacritty.toml" ~
+#ln -sf "$(PWD)/.alacritty.toml" ~
 ln -sf "$(PWD)/.ripgreprc" ~
 mkdir ~/.ssh && ln -sf "$(PWD)/config" ~/.ssh/
