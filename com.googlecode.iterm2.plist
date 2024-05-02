@@ -993,6 +993,10 @@
 	<string>9DC6FFFE-5EAA-412E-83C4-151E49EF1A21</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideScrollbar</key>
+	<false/>
+	<key>HideTab</key>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_9DC6FFFE-5EAA-412E-83C4-151E49EF1A21</key>
@@ -1341,6 +1345,8 @@
 			<string>9DC6FFFE-5EAA-412E-83C4-151E49EF1A21</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
+			<key>Icon</key>
+			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Use Transparency</key>
@@ -1734,6 +1740,8 @@
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.053155719053398033</real>
+	<key>StretchTabsToFillBar</key>
+	<true/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>VisualIndicatorForEsc</key>
