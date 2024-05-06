@@ -1,7 +1,7 @@
 [user]
 	name = Mijndert Stuij
 	email = mijndert@mijndertstuij.nl
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnWvTU0JWTIwbKCSUUjRpYjFnhDDfdLLAlEe2xxlhdD mijndert@mijndertstuij.nl
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKLP14YjNzNNIfjXhNOoFG5PazRowaEDNdhfCiBuxQ6e mijndert@mijndertstuij.nl
 
 [commit]
 	gpgsign = true
