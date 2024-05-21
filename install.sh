@@ -32,9 +32,9 @@ ln -sf "$(PWD)/.functions" ~
 ln -sf "$(PWD)/.gitconfig" ~
 ln -sf "$(PWD)/.gitconfig-personal" ~
 ln -sf "$(PWD)/.gitconfig-work" ~
-#ln -sf "$(PWD)/.tmux.conf" ~
+ln -sf "$(PWD)/.tmux.conf" ~
 ln -sf "$(PWD)/.vimrc" ~
 ln -sf "$(PWD)/.curlrc" ~
-#ln -sf "$(PWD)/.alacritty.toml" ~
+ln -sf "$(PWD)/.alacritty.toml" ~
 ln -sf "$(PWD)/.ripgreprc" ~
 mkdir ~/.ssh && ln -sf "$(PWD)/config" ~/.ssh/
