@@ -32,7 +32,8 @@ source ~/.alias
 source ~/.functions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/etc/bash_completion.d/az
+#source /opt/homebrew/etc/bash_completion.d/az
+source <(fzf --zsh)
 
 # if [ -z "$(pgrep ssh-agent)" ]; then
 #     eval "$(ssh-agent -s)" > /dev/null

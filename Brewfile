@@ -30,6 +30,8 @@ brew 'aws-iam-authenticator'
 brew 'ripgrep'
 brew 'ssss'
 brew 'k9s'
+brew 'fzf'
+brew 'ripgrep'
 
 cask 'font-jetbrains-mono'
 cask 'rectangle'
