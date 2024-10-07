@@ -1,7 +1,8 @@
 live_config_reload = true
 
 [env]
-TERM = "xterm-256color"
+#TERM = "xterm-256color"
+TERM = "alacritty"
 
 [cursor]
 style = "Beam"
