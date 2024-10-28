@@ -25,6 +25,7 @@ fi
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
 
 ln -sf "$(PWD)/.zshrc" ~
 ln -sf "$(PWD)/.alias" ~

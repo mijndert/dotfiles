@@ -13,14 +13,12 @@ setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
-autoload -U colors
-colors
+autoload -U colors; colors
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
+source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 
-autoload -U promptinit
-promptinit
+autoload -U promptinit; promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
@@ -32,7 +30,6 @@ source ~/.alias
 source ~/.functions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /opt/homebrew/etc/bash_completion.d/az
 source <(fzf --zsh)
 
 # if [ -z "$(pgrep ssh-agent)" ]; then
