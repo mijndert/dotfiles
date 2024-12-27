@@ -47,6 +47,7 @@ cask 'calibre'
 cask 'netnewswire'
 cask 'monitorcontrol'
 cask 'tailscale'
+cask 'ghostty'
 
 # work
 cask 'google-chrome'
