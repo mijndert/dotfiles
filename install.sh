@@ -38,4 +38,5 @@ ln -sf "$(PWD)/.vimrc" ~
 ln -sf "$(PWD)/.curlrc" ~
 ln -sf "$(PWD)/.alacritty.toml" ~
 ln -sf "$(PWD)/.ripgreprc" ~
+mkdir ~/.config/ghostty && ln -sf "$(PWD)/ghostty_config" ~/.config/ghostty/config
 mkdir ~/.ssh && ln -sf "$(PWD)/config" ~/.ssh/

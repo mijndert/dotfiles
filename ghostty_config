@@ -1,0 +1,3 @@
+theme = catppuccin-mocha
+working-directory = inherit
+font-size = 12
