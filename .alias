@@ -27,6 +27,6 @@ alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv;
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 alias gcob='git branch | fzf | xargs git checkout'
-alias k8sprod='k9s --kubeconfig ~/kubeconfigs/production/eks-cluster-production -A'
-alias k8sstaging='k9s --kubeconfig ~/kubeconfigs/staging/eks-cluster-staging -A'
-alias k8sqa='k9s --kubeconfig ~/kubeconfigs/qa/eks-cluster-qa -A'
+alias k8sprod='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/production/eks-cluster-production -A'
+alias k8sstaging='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/staging/eks-cluster-staging -A'
+alias k8sqa='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/qa/eks-cluster-qa -A'
