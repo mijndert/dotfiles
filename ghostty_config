@@ -1,3 +1,4 @@
 theme = catppuccin-mocha
 working-directory = inherit
 font-size = 12
+cursor-style = bar
