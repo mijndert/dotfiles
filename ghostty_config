@@ -2,3 +2,5 @@ theme = catppuccin-mocha
 working-directory = inherit
 font-size = 12
 cursor-style = bar
+window-colorspace = display-p3
+macos-titlebar-style = tabs
