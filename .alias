@@ -31,3 +31,4 @@ alias k8sprod='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/produc
 alias k8sstaging='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/staging/eks-cluster-staging -A'
 alias k8sqa='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/qa/eks-cluster-qa -A'
 alias k8sdev='export TERM=xterm-256color; k9s --kubeconfig ~/kubeconfigs/dev/eks-cluster-dev -A'
+alias k8stc='export TERM=xterm-256color; k9s --kubeconfig /Users/mijndert.stuij/dev/personal/tc/platform/configs/production/output/kubeconfig.yaml -A'
