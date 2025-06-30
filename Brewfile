@@ -35,6 +35,7 @@ brew 'ripgrep'
 brew 'go-task/tap/go-task'
 brew 'direnv'
 brew 'talosctl'
+brew 'opentofu'
 
 cask 'font-jetbrains-mono'
 cask 'font-ibm-plex-mono'
