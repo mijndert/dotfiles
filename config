@@ -16,3 +16,10 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
   User git
   IdentitiesOnly yes
+
+Host old-tc 
+  HostName 195.201.28.10
+  IdentityFile ~/.ssh/id_ed25519
+  User root
+  RemoteCommand TERM=xterm $SHELL
+  RequestTTY yes

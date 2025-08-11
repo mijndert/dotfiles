@@ -1,8 +1,10 @@
+# taps
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
 tap "hashicorp/tap"
 
+# packages
 brew 'zsh'
 brew 'coreutils'
 brew 'findutils'
@@ -28,7 +30,6 @@ brew 'helm'
 brew 'pure'
 brew 'aws-iam-authenticator'
 brew 'ripgrep'
-brew 'ssss'
 brew 'k9s'
 brew 'fzf'
 brew 'ripgrep'
@@ -37,13 +38,14 @@ brew 'direnv'
 brew 'talosctl'
 brew 'opentofu'
 
+# desktop apps
 cask 'font-jetbrains-mono'
 cask 'font-ibm-plex-mono'
 cask 'firefox'
 cask 'scroll-reverser'
 cask 'spotify'
 cask 'visual-studio-code'
-cask 'docker'
+cask 'orbstack'
 cask 'obsidian'
 cask '1password'
 cask 'calibre'
