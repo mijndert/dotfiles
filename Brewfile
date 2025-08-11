@@ -1,7 +1,6 @@
 # taps
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "homebrew/cask-fonts"
 tap "hashicorp/tap"
 
 # packages
@@ -38,22 +37,22 @@ brew 'direnv'
 brew 'talosctl'
 brew 'opentofu'
 
-# desktop apps
-cask 'font-jetbrains-mono'
-cask 'font-ibm-plex-mono'
-cask 'firefox'
-cask 'scroll-reverser'
-cask 'spotify'
-cask 'visual-studio-code'
-cask 'orbstack'
-cask 'obsidian'
-cask '1password'
-cask 'calibre'
-cask 'netnewswire'
-cask 'tailscale'
-cask 'ghostty'
+# # desktop apps
+# cask 'font-jetbrains-mono'
+# cask 'font-ibm-plex-mono'
+# cask 'firefox'
+# cask 'scroll-reverser'
+# cask 'spotify'
+# cask 'visual-studio-code'
+# cask 'orbstack'
+# cask 'obsidian'
+# cask '1password'
+# cask 'calibre'
+# cask 'netnewswire'
+# cask 'tailscale'
+# cask 'ghostty'
 
-# work
-cask 'google-chrome'
-cask 'slack'
-cask 'cloudflare-warp'
+# # work
+# cask 'google-chrome'
+# cask 'slack'
+# cask 'cloudflare-warp'
