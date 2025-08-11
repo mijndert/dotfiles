@@ -36,6 +36,10 @@ if [ ! -d ~/.zsh/fzf-tab ]; then
     git clone https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
 fi
 
+# Vim plug 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Symlink all dotfiles 
 ln -sf "$PWD/.zshrc" ~
 ln -sf "$PWD/.alias" ~
