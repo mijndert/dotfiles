@@ -17,10 +17,10 @@ if [[ $(uname) == 'Darwin' ]]; then
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
   chsh -s $(brew --prefix)/bin/zsh "$USER"
 
-  sh ./macos.sh
-
   echo "installing Rosetta"
   softwareupdate --install-rosetta --agree-to-license
+
+  sh ./macos.sh
 fi
 
 # Install zsh plugins
@@ -36,26 +36,18 @@ if [ ! -d ~/.zsh/fzf-tab ]; then
     git clone https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
 fi
 
+# Symlink all dotfiles 
+ln -sf "$PWD/.zshrc" ~
+ln -sf "$PWD/.alias" ~
+ln -sf "$PWD/.functions" ~
+ln -sf "$PWD/.gitconfig" ~
+ln -sf "$PWD/.gitconfig-personal" ~
+ln -sf "$PWD/.gitconfig-work" ~
+ln -sf "$PWD/.tmux.conf" ~
+ln -sf "$PWD/.vimrc" ~
+ln -sf "$PWD/.curlrc" ~
+ln -sf "$PWD/.ripgreprc" ~
 
-# Get the absolute path of the script directory
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-
-# Create .config/k9s directory if it doesn't exist
-mkdir -p ~/.config/k9s
-
-# Symlink all dotfiles (ln -sf will overwrite existing symlinks)
-ln -sf "$DOTFILES_DIR/.zshrc" ~
-ln -sf "$DOTFILES_DIR/.alias" ~
-ln -sf "$DOTFILES_DIR/.functions" ~
-ln -sf "$DOTFILES_DIR/.gitconfig" ~
-ln -sf "$DOTFILES_DIR/.gitconfig-personal" ~
-ln -sf "$DOTFILES_DIR/.gitconfig-work" ~
-ln -sf "$DOTFILES_DIR/.tmux.conf" ~
-ln -sf "$DOTFILES_DIR/.vimrc" ~
-ln -sf "$DOTFILES_DIR/.curlrc" ~
-ln -sf "$DOTFILES_DIR/.ripgreprc" ~
-ln -sf "$DOTFILES_DIR/k9s_config.yml" ~/.config/k9s/config.yaml
-
-# Place ghostty and ssh config
-mkdir -p ~/.config/ghostty && ln -sf "$DOTFILES_DIR/ghostty_config" ~/.config/ghostty/config
-mkdir -p ~/.ssh && ln -sf "$DOTFILES_DIR/config" ~/.ssh/
+mkdir -p ~/.config/k9s && ln -sf "$PWD/k9s_config.yml" ~/Library/Application\ Support/k9s/config.yaml
+mkdir -p ~/.config/ghostty && ln -sf "$PWD/ghostty_config" ~/.config/ghostty/config
+mkdir -p ~/.ssh && ln -sf "$PWD/config" ~/.ssh/
