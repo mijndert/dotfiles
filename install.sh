@@ -55,3 +55,8 @@ ln -sf "$PWD/.ripgreprc" ~
 mkdir -p ~/.config/k9s && ln -sf "$PWD/k9s_config.yml" ~/Library/Application\ Support/k9s/config.yaml
 mkdir -p ~/.config/ghostty && ln -sf "$PWD/ghostty_config" ~/.config/ghostty/config
 mkdir -p ~/.ssh && ln -sf "$PWD/config" ~/.ssh/
+
+# Bat config
+mkdir -p "$(bat --config-dir)/themes"
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
