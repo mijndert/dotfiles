@@ -17,6 +17,9 @@ Plug 'junegunn/fzf.vim'
 " NERDTree for a file tree
 Plug 'preservim/nerdtree'
 
+" Bufferline
+Plug 'bling/vim-bufferline'
+
 " Terraform plugin
 Plug 'hashivim/vim-terraform'
 
@@ -69,6 +72,10 @@ set termguicolors
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>a
 
+" Bufferline config 
+let g:bufferline_echo = 1
+set laststatus=1
+
 " Find in files with Ctrl+Shift+F
 nnoremap <C-S-f> :Rg<CR>
 
@@ -84,3 +91,12 @@ nnoremap <C-l> <C-w>l
 
 " Open fzf with C-f 
 nnoremap <C-f> :Files<CR>
+
+" Open files in splits from fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Open rg with C-g 
+nnoremap <C-g> :Rg<CR>
