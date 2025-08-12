@@ -36,6 +36,7 @@ brew 'go-task/tap/go-task'
 brew 'direnv'
 brew 'talosctl'
 brew 'opentofu'
+brew 'bat'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
