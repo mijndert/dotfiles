@@ -37,6 +37,7 @@ brew 'direnv'
 brew 'talosctl'
 brew 'opentofu'
 brew 'bat'
+brew 'lazygit'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
