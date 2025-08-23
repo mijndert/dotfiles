@@ -53,6 +53,7 @@ brew 'lazygit'
 # cask 'netnewswire'
 # cask 'tailscale'
 # cask 'ghostty'
+# cask 'zed'
 
 # # work
 # cask 'google-chrome'
