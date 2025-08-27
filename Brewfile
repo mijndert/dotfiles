@@ -38,6 +38,7 @@ brew 'talosctl'
 brew 'opentofu'
 brew 'bat'
 brew 'lazygit'
+brew 'lazydocker'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
