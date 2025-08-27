@@ -54,6 +54,7 @@ brew 'lazydocker'
 # cask 'netnewswire'
 # cask 'tailscale'
 # cask 'ghostty'
+# cask 'zed'
 
 # # work
 # cask 'google-chrome'
