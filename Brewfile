@@ -39,6 +39,8 @@ brew 'opentofu'
 brew 'bat'
 brew 'lazygit'
 brew 'lazydocker'
+brew 'btop'
+brew 'circumflex'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
