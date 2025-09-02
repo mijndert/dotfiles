@@ -41,6 +41,7 @@ brew 'lazygit'
 brew 'lazydocker'
 brew 'btop'
 brew 'circumflex'
+brew 'aws-sso-cli'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
