@@ -13,7 +13,7 @@ alias hosts='sudo vim /etc/hosts'
 alias cp='cp -i'
 alias mv='mv -i'
 alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
-alias tf="terraform"
+alias tf="tofu"
 alias ap="ansible-playbook"
 alias o="open"
 alias dc='docker-compose'
