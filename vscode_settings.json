@@ -66,8 +66,8 @@
   "git.openRepositoryInParentFolders": "never",
   "github.copilot.nextEditSuggestions.enabled": true,
   "git.autofetch": true,
-  "github.copilot.selectedCompletionModel": "",
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "github.copilot.selectedCompletionModel": ""
+  // "[yaml]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // }
 }
