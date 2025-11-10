@@ -43,6 +43,7 @@ brew 'btop'
 brew 'circumflex'
 brew 'aws-sso-cli'
 brew 'mysql-client'
+brew 'fish'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
