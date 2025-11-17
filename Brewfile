@@ -44,6 +44,8 @@ brew 'circumflex'
 brew 'aws-sso-cli'
 brew 'mysql-client'
 brew 'fish'
+brew 'fisher'
+brew 'fd'
 
 # # desktop apps
 # cask 'font-jetbrains-mono'
