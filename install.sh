@@ -57,6 +57,11 @@ mkdir -p ~/.config/ghostty && ln -sf "$PWD/ghostty_config" ~/.config/ghostty/con
 mkdir -p ~/.ssh && ln -sf "$PWD/config" ~/.ssh/
 mkdir -p ~/Library/Application\ Support/Code/User && ln -sf "$PWD/vscode_settings.json" ~/Library/Application\ Support/Code/User/settings.json
 
+# Install k9s theme
+OUT="${XDG_CONFIG_HOME:-$HOME/.config}/k9s/skins"
+mkdir -p "$OUT"
+curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz | tar xz -C "$OUT" --strip-components=2 k9s-main/dist
+
 # Bat config
 mkdir -p "$(bat --config-dir)/themes"
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
