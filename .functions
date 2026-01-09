@@ -27,6 +27,17 @@ eks-auth() {
   task -d "$HOME/dev/work/kubernetes-auth" "eks-$env" role="$role"
 }
 
+weeks() {
+  local target="1987-08-13"
+  local now_ts target_ts diff_days
+
+  now_ts=$(gdate +%s)
+  target_ts=$(gdate -d "$target" +%s)
+  diff_days=$(( (now_ts - target_ts) / 86400 ))
+
+  echo "It's been $(( diff_days / 7 )) weeks since $target"
+}
+
 ### AWS SSO ###
 
 __aws_sso_profile_complete() {
