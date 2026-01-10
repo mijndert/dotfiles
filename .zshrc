@@ -1,26 +1,21 @@
 export EDITOR=vim
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
-
 export HOMEBREW_NO_ANALYTICS=1
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
-
 export BAT_THEME="Catppuccin Mocha"
 
-bindkey "^R" history-incremental-search-backward
-
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
-SAVEHIST=5000
+SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
-autoload -U promptinit; promptinit
-autoload -Uz bashcompinit; bashcompinit
-autoload -Uz compinit; compinit
+autoload -U promptinit; promptinit # Initialize the prompt system
+autoload -Uz bashcompinit; bashcompinit # Enable bash completion
+autoload -Uz compinit; compinit # Enable zsh completion
 
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
 complete -C '/opt/homebrew/bin/aws_completer' aws
-complete -o nospace -C /usr/local/bin/terraform terraform
 
 source ~/.alias
 source ~/.functions
