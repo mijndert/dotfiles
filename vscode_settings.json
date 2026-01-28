@@ -17,7 +17,6 @@
   "window.restoreWindows": "none",
   "editor.folding": false,
   "workbench.editor.tabActionCloseVisibility": false,
-  "workbench.layoutControl.enabled": false,
   // Suggestions
   "editor.suggest.showMethods": true,
   "editor.suggest.preview": true,
@@ -38,28 +37,28 @@
     "plaintext": true,
     "markdown": true,
     "scminput": false,
-    "yaml": true
+    "yaml": true,
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
   },
   "[dockercompose]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "terraform.experimentalFeatures.prefillRequiredFields": true,
   "terraform.languageServer.enable": true,
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
@@ -68,8 +67,10 @@
   "git.autofetch": true,
   "github.copilot.selectedCompletionModel": "",
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "workbench.layoutControl.enabled": false,
+  "claudeCode.preferredLocation": "panel",
   // "[yaml]": {
   //   "editor.defaultFormatter": "esbenp.prettier-vscode"
   // }
