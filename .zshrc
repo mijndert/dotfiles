@@ -1,5 +1,5 @@
 export EDITOR=vim
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$PATH
 export HOMEBREW_NO_ANALYTICS=1
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export BAT_THEME="Catppuccin Mocha"
