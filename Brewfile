@@ -62,6 +62,7 @@ brew 'fd'
 # cask 'tailscale'
 # cask 'ghostty'
 # cask 'zed'
+# cask 'logitune'
 
 # # work
 # cask 'google-chrome'
