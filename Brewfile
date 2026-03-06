@@ -1,7 +1,6 @@
 # taps
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "hashicorp/tap"
+tap "go-task/tap"
 
 # packages
 brew 'zsh'
@@ -60,6 +59,7 @@ cask 'calibre'
 cask 'netnewswire'
 cask 'tailscale-app'
 cask 'ghostty'
+cask 'rectangle'
 
 # # work
 cask 'google-chrome'

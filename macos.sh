@@ -109,9 +109,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 # defaults delete -g ApplePressAndHoldEnabled
 
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
-
 for app in "Dock" "Finder" "Safari"; do
     killall "${app}" > /dev/null 2>&1
 done

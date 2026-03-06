@@ -51,7 +51,7 @@ ln -sf "$PWD/.vimrc" ~
 ln -sf "$PWD/.curlrc" ~
 ln -sf "$PWD/.ripgreprc" ~
 
-mkdir -p ~/.config/k9s && ln -sf "$PWD/k9s_config.yml" ~/Library/Application\ Support/k9s/config.yaml
+mkdir -p ~/.config/k9s && ln -sf "$PWD/k9s_config.yml" ~/.config/k9s/config.yaml
 mkdir -p ~/.config/ghostty && ln -sf "$PWD/ghostty_config" ~/.config/ghostty/config
 mkdir -p ~/.ssh && ln -sf "$PWD/config" ~/.ssh/
 mkdir -p ~/Library/Application\ Support/Code/User && ln -sf "$PWD/vscode_settings.json" ~/Library/Application\ Support/Code/User/settings.json
