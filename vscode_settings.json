@@ -57,6 +57,7 @@
   },
   "terraform.experimentalFeatures.prefillRequiredFields": true,
   "terraform.languageServer.enable": true,
+  "terraform.languageServer.path": "terraform-ls",
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
   },

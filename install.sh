@@ -11,7 +11,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 
   echo 'Installing packages...'
   brew update
-  brew tap homebrew/bundle
   brew bundle
 
   grep -Fxq '$(brew --prefix)/bin/zsh' /etc/shells || sudo bash -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"

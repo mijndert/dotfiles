@@ -8,6 +8,8 @@ setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
+fpath+=/opt/homebrew/share/zsh/site-functions
+
 autoload -U promptinit; promptinit # Initialize the prompt system
 autoload -Uz bashcompinit; bashcompinit # Enable bash completion
 autoload -Uz compinit; compinit # Enable zsh completion

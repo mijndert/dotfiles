@@ -58,7 +58,7 @@ cask 'obsidian'
 cask '1password'
 cask 'calibre'
 cask 'netnewswire'
-cask 'tailscale'
+cask 'tailscale-app'
 cask 'ghostty'
 
 # # work
