@@ -3,6 +3,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$PATH
 export HOMEBREW_NO_ANALYTICS=1
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export BAT_THEME="Catppuccin Mocha"
+export K9S_CONFIG_DIR=~/.config/k9s
 
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=50000
