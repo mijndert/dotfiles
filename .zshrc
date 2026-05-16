@@ -9,13 +9,14 @@ setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
-fpath+=/opt/homebrew/share/zsh/site-functions
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U promptinit; promptinit # Initialize the prompt system
 autoload -Uz bashcompinit; bashcompinit # Enable bash completion
 autoload -Uz compinit; compinit # Enable zsh completion
 
 zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:git:dirty detailed yes
 prompt pure
 
 complete -C '/opt/homebrew/bin/aws_completer' aws
