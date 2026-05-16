@@ -65,3 +65,7 @@ curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz | tar xz -C "$OUT"
 mkdir -p "$(bat --config-dir)/themes"
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 bat cache --build
+
+# TPM 
+mkdir -p ~/.tmux/plugins/
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

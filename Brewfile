@@ -46,6 +46,7 @@ brew 'mysql-client'
 brew 'fish'
 brew 'fisher'
 brew 'fd'
+brew 'smug'
 
 # # desktop apps
 cask 'font-jetbrains-mono'
