@@ -62,6 +62,7 @@ cask 'netnewswire'
 cask 'tailscale-app'
 cask 'ghostty'
 cask 'rectangle'
+cask 'font-jetbrains-mono-nerd-font'
 
 # # work
 cask 'google-chrome'
