@@ -15,6 +15,10 @@ autoload -U promptinit; promptinit # Initialize the prompt system
 autoload -Uz bashcompinit; bashcompinit # Enable bash completion
 autoload -Uz compinit; compinit # Enable zsh completion
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" 
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
+
 zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:git:dirty detailed yes
 prompt pure
