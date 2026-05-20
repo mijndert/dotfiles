@@ -45,6 +45,8 @@ brew 'fish'
 brew 'fisher'
 brew 'fd'
 brew 'smug'
+brew 'nvm'
+brew 'goreleaser'
 
 # # desktop apps
 cask 'font-jetbrains-mono'
