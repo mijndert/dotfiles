@@ -12,12 +12,21 @@ HISTFILE=~/.zsh_history
 fpath+=(/opt/homebrew/share/zsh/site-functions)
 
 autoload -U promptinit; promptinit # Initialize the prompt system
-autoload -Uz bashcompinit; bashcompinit # Enable bash completion
-autoload -Uz compinit; compinit # Enable zsh completion
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qNmh-24) ]]; then
+  compinit -C
+else
+  compinit
+fi
+autoload -Uz bashcompinit; bashcompinit 
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" 
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
+nvm() {
+  unset -f nvm
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" --no-use
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  nvm "$@"
+}
 
 zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:git:dirty detailed yes
