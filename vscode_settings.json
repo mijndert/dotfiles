@@ -72,6 +72,7 @@
   },
   "workbench.layoutControl.enabled": false,
   "claudeCode.preferredLocation": "panel",
+  "catppuccin-noctis-icons.hidesExplorerArrows": false,
   // "[yaml]": {
   //   "editor.defaultFormatter": "esbenp.prettier-vscode"
   // }
