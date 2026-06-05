@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES="$PWD"
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 if [[ $(uname) == 'Darwin' ]]; then
   if ! command -v brew >/dev/null 2>&1; then

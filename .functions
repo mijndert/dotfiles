@@ -8,7 +8,7 @@ dcleanup(){
 }
 
 kubectl () {
-    command kubectl $*
+    command kubectl "$@"
     if [[ -z $KUBECTL_COMPLETE ]]
     then
         source <(command kubectl completion zsh)
