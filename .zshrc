@@ -14,13 +14,13 @@ autoload -U promptinit
 promptinit
 prompt pure
 
+autoload -Uz bashcompinit; bashcompinit 
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qNmh-24) ]]; then
   compinit -C
 else
   compinit
 fi
-autoload -Uz bashcompinit; bashcompinit 
 
 export NVM_DIR="$HOME/.nvm"
 nvm() {
@@ -30,7 +30,7 @@ nvm() {
   nvm "$@"
 }
 
-complete -C '/opt/homebrew/bin/aws_completer' aws
+# complete -C '/opt/homebrew/bin/aws_completer' aws
 
 source ~/.alias
 source ~/.functions
