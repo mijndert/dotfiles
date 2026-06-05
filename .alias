@@ -20,6 +20,7 @@ alias dc='docker-compose'
 alias d="docker"
 #alias t="tmux new -A -s 0"
 alias t=" tmux attach || tmux"
+alias cat="bat -p"
 alias k="kubectl"
 alias watch='watch '
 alias tree="tree -C"
