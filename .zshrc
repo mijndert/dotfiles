@@ -10,6 +10,9 @@ SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
 fpath+=(/opt/homebrew/share/zsh/site-functions)
+autoload -U promptinit
+promptinit
+prompt pure
 
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qNmh-24) ]]; then
@@ -26,8 +29,6 @@ nvm() {
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
   nvm "$@"
 }
-
-source ~/.prompt
 
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
