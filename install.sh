@@ -44,7 +44,7 @@ fi
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Symlink all dotfiles
-for f in .zshrc .alias .functions .gitconfig .gitconfig-personal .gitconfig-work .tmux.conf .vimrc .curlrc .ripgreprc; do
+for f in .zshrc .prompt .alias .functions .gitconfig .gitconfig-personal .gitconfig-work .tmux.conf .vimrc .curlrc .ripgreprc; do
   ln -sfn "$DOTFILES/$f" "$HOME/$f"
 done
 

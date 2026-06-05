@@ -11,7 +11,6 @@ HISTFILE=~/.zsh_history
 
 fpath+=(/opt/homebrew/share/zsh/site-functions)
 
-autoload -U promptinit; promptinit # Initialize the prompt system
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qNmh-24) ]]; then
   compinit -C
@@ -28,9 +27,7 @@ nvm() {
   nvm "$@"
 }
 
-zstyle :prompt:pure:git:stash show yes
-zstyle :prompt:pure:git:dirty detailed yes
-prompt pure
+source ~/.prompt
 
 complete -C '/opt/homebrew/bin/aws_completer' aws
 

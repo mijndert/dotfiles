@@ -1,0 +1,102 @@
+# Pure-style prompt in plain zsh: two lines, async git status via zle -F.
+# No plugins, no external prompt binary. Colors: Catppuccin Mocha.
+
+setopt PROMPT_SUBST
+autoload -Uz add-zsh-hook
+
+# Fall back to nearest 256-color match when the terminal lacks truecolor
+[[ $COLORTERM == (24bit|truecolor) ]] || zmodload -i zsh/nearcolor 2>/dev/null
+
+typeset -gA _pp_c=(
+  dir    '#b4befe'  # lavender
+  branch '#cba6f7'  # mauve
+  dirty  '#f38ba8'  # red
+  arrows '#89dceb'  # sky
+  host   '#7f849c'  # overlay1
+  ok     '#fab387'  # peach
+  err    '#f38ba8'  # red
+)
+
+typeset -g _pp_git_branch='' _pp_git_extra='' _pp_git_top=''
+typeset -g _pp_fd=0 _pp_runs=0
+
+# --- async git details: dirty marker, ahead/behind arrows, stash -------------
+# Runs in a background subshell; the prompt never waits for it.
+_pp_worker() {
+  local dirty='' arrows='' stash='' sym='' ahead=0 behind=0
+  [[ -n $(command git status --porcelain --ignore-submodules -unormal 2>/dev/null) ]] &&
+    dirty="%F{${_pp_c[dirty]}}*%f"
+  command git rev-list --count --left-right 'HEAD...@{upstream}' 2>/dev/null |
+    IFS=$'\t' read -r ahead behind
+  (( behind )) && sym+='⇣'
+  (( ahead ))  && sym+='⇡'
+  [[ -n $sym ]] && arrows=" %F{${_pp_c[arrows]}}${sym}%f"
+  command git rev-parse --verify -q refs/stash &>/dev/null &&
+    stash=" %F{${_pp_c[arrows]}}≡%f"
+  print -r -- "${dirty}${arrows}${stash}"
+}
+
+_pp_async_done() {
+  local fd=$1 line
+  zle -F $fd
+  IFS= read -r -u $fd line
+  exec {fd}<&-
+  _pp_fd=0
+  if [[ $line != $_pp_git_extra ]]; then
+    _pp_git_extra=$line
+    zle && zle reset-prompt
+  fi
+}
+
+_pp_async_start() {
+  if (( _pp_fd )); then  # a previous worker is still running; drop it
+    zle -F $_pp_fd 2>/dev/null
+    exec {_pp_fd}<&- 2>/dev/null
+    _pp_fd=0
+  fi
+  exec {_pp_fd}< <(_pp_worker)
+  zle -F $_pp_fd _pp_async_done 2>/dev/null
+}
+
+# --- hooks --------------------------------------------------------------------
+_pp_precmd() {
+  # branch name read straight from .git/HEAD with builtins — no forks;
+  # dirty/arrows/stash arrive async and repaint the prompt when ready
+  local dir=$PWD top='' gitdir='' head='' branch=''
+  while [[ -n $dir ]]; do
+    [[ -e $dir/.git ]] && { top=$dir; break }
+    dir=${dir%/*}
+  done
+  if [[ -n $top ]]; then
+    gitdir=$top/.git
+    if [[ -f $gitdir ]]; then  # worktree/submodule: .git is a pointer file
+      read -r gitdir < $gitdir
+      gitdir=${gitdir#gitdir: }
+      [[ $gitdir != /* ]] && gitdir=$top/$gitdir
+    fi
+    read -r head < $gitdir/HEAD 2>/dev/null
+    if [[ $head == ref:* ]]; then
+      branch=${${head#ref: }#refs/heads/}
+    else
+      branch=${head[1,7]}  # detached HEAD: short sha
+    fi
+  fi
+  if [[ -z $branch ]]; then
+    _pp_git_branch='' _pp_git_extra='' _pp_git_top=''
+  else
+    _pp_git_branch=" %F{${_pp_c[branch]}}%B${branch//\%/%%}%b%f"
+    [[ $top != $_pp_git_top ]] && _pp_git_extra=''  # changed repo: drop stale info
+    _pp_git_top=$top
+    _pp_async_start
+  fi
+
+  (( _pp_runs++ )) && print  # blank line between prompts, like pure
+}
+
+add-zsh-hook precmd _pp_precmd
+
+typeset -g _pp_ssh=''
+[[ -n $SSH_CONNECTION ]] && _pp_ssh=" %F{${_pp_c[host]}}%n@%m%f"
+
+PROMPT="%F{${_pp_c[dir]}}%B%~%b%f\${_pp_git_branch}\${_pp_git_extra}\${_pp_ssh}"$'\n'"%(?.%F{${_pp_c[ok]}}.%F{${_pp_c[err]}})❯%f "
+RPROMPT=''
