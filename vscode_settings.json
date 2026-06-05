@@ -17,6 +17,12 @@
   "window.restoreWindows": "none",
   "editor.folding": false,
   "workbench.editor.tabActionCloseVisibility": false,
+  // we try to make semantic highlighting look good
+  "editor.semanticHighlighting.enabled": true,
+  // prevent VSCode from modifying the terminal colors
+  "terminal.integrated.minimumContrastRatio": 1,
+  // make the window's titlebar use the workbench colors
+  "window.titleBarStyle": "custom",
   // Suggestions
   "editor.suggest.showMethods": true,
   "editor.suggest.preview": true,
@@ -62,7 +68,7 @@
     "editor.defaultFormatter": "vscode.json-language-features",
   },
   "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin noctis icons",
   "git.openRepositoryInParentFolders": "never",
   "github.copilot.nextEditSuggestions.enabled": true,
   "git.autofetch": true,
@@ -73,7 +79,10 @@
   "workbench.layoutControl.enabled": false,
   "claudeCode.preferredLocation": "panel",
   "catppuccin-noctis-icons.hidesExplorerArrows": false,
-  // "[yaml]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // }
+  "chat.titleBar.openInAgentsWindow.enabled": false,
+  "window.commandCenter": false,
+  "workbench.browser.showInTitleBar": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
