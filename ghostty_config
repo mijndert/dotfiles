@@ -5,3 +5,4 @@ cursor-style = bar
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = tabs
 keybind = shift+enter=text:\n
+window-colorspace = display-p3
