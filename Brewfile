@@ -47,7 +47,6 @@ brew 'fd'
 brew 'smug'
 brew 'nvm'
 brew 'goreleaser'
-brew 'mpv'
 
 # # desktop apps
 cask 'font-jetbrains-mono'
