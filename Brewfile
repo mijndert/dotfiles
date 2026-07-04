@@ -63,8 +63,10 @@ cask 'tailscale-app'
 cask 'ghostty'
 cask 'rectangle'
 cask 'font-jetbrains-mono-nerd-font'
+cask 'ungoogled-chromium'
+cask 'keepingyouawake'
 
 # # work
-cask 'google-chrome'
+# cask 'google-chrome'
 # cask 'slack'
 # cask 'cloudflare-warp'
