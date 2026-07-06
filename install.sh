@@ -73,3 +73,9 @@ fi
 # TPM
 [ -d ~/.tmux/plugins/tpm ] || \
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install vim plugins (requires the symlinked .vimrc above)
+vim +PlugInstall +qall
+
+# Install tmux plugins
+~/.tmux/plugins/tpm/bin/install_plugins
