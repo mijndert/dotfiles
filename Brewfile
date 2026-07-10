@@ -47,6 +47,7 @@ brew 'fd'
 brew 'smug'
 brew 'nvm'
 brew 'goreleaser'
+brew '514-labs/tap/dnsglobe'
 
 # # desktop apps
 cask 'font-jetbrains-mono'
