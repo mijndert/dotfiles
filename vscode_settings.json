@@ -80,9 +80,9 @@
   "claudeCode.preferredLocation": "panel",
   "catppuccin-noctis-icons.hidesExplorerArrows": false,
   "chat.titleBar.openInAgentsWindow.enabled": false,
-  "window.commandCenter": false,
   "workbench.browser.showInTitleBar": false,
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "window.commandCenter": false,
 }
