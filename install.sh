@@ -24,6 +24,9 @@ if [[ $(uname) == 'Darwin' ]]; then
     echo "Installing Rosetta..."
     softwareupdate --install-rosetta --agree-to-license
   fi
+
+  # Start container
+  brew services start container
 fi
 
 # Install zsh plugins

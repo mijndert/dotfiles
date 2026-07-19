@@ -21,4 +21,15 @@ Run script
 ./install.sh
 ```
 
-Cross fingers
+App Store apps
+
+- Things 3
+- uBlock Origin Lite
+- 1Password for Safari
+
+Container
+
+```shell
+brew services start container
+container system kernel set --recommended
+```
