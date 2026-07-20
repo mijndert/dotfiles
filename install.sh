@@ -26,7 +26,9 @@ if [[ $(uname) == 'Darwin' ]]; then
   fi
 
   # Start container
-  brew services start container
+  if [ ! -f "$HOME/Library/LaunchAgents/homebrew.mxcl.container.plist" ]; then
+    brew services start container
+  fi
 fi
 
 # Install zsh plugins
