@@ -1,12 +1,12 @@
 # dotfiles
 
-Install command line tools
+## Install command line tools
 
 ```shell
 xcode-select --install
 ```
 
-Clone this repository
+## Clone this repository
 
 ```shell
 mkdir -p ~/dev/personal
@@ -15,19 +15,15 @@ git clone git@github.com:mijndert/dotfiles.git
 cd dotfiles
 ```
 
-Run script
+## Run script
 
 ```shell
 ./install.sh
 ```
 
-App Store apps
+App Store apps are installed by `brew bundle` via `mas`. Sign in to the App Store first.
 
-- Things 3
-- uBlock Origin Lite
-- 1Password for Safari
-
-Container
+## Container
 
 ```shell
 brew services start container

@@ -41,8 +41,6 @@ brew 'btop'
 brew 'circumflex'
 brew 'aws-sso-cli'
 brew 'mysql-client'
-brew 'fish'
-brew 'fisher'
 brew 'fd'
 brew 'smug'
 brew 'nvm'
@@ -52,6 +50,8 @@ brew 'container'
 brew 'zsh-patina'
 brew 'fzf-tab'
 brew 'helix'
+brew 'mas'
+brew 'git-delta'
 
 # # desktop apps
 cask 'font-jetbrains-mono'
@@ -69,6 +69,11 @@ cask 'rectangle'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'ungoogled-chromium'
 cask 'keepingyouawake'
+
+# mac app store
+mas 'Things 3', id: 904280696
+mas '1Password for Safari', id: 1569813296
+mas 'uBlock Origin Lite', id: 6745342698
 
 # # work
 # cask 'google-chrome'

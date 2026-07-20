@@ -6,7 +6,7 @@
 
 [core]
 	editor = vim
-	pager = less -FRSX
+	pager = delta
 	fsmonitor = true
 	untrackedcache = true
 
@@ -23,9 +23,38 @@
 	changed = yellow
 	untracked = red
 
+[interactive]
+	diffFilter = delta --color-only
+	
+[delta]
+	navigate = true
+	line-numbers = true
+	syntax-theme = Catppuccin Mocha
+
 [push]
 	default = current
 	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[fetch]
+	prune = true
+
+[diff]
+	algorithm = histogram
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[commit]
+	verbose = true
 
 [includeIf "gitdir:~/dev/personal/"]
     path = ~/.gitconfig-personal
@@ -43,9 +72,10 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-  l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
-  clean = fetch --prune origin
+	l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
 	whoami = !git config --global user.name && git config --global user.email
+
 [user]
 	name = Mijndert Stuij
 	email = mijndert@mijndertstuij.nl
+
