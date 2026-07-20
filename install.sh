@@ -67,6 +67,10 @@ if [ ! -f "$BAT_THEME_FILE" ]; then
   bat cache --build
 fi
 
+# zsh-patina
+mkdir -p ~/.config/zsh-patina && \
+  ln -sfn "$DOTFILES/zsh-patina" ~/.config/zsh-patina/config.toml
+
 # TPM
 [ -d ~/.tmux/plugins/tpm ] || \
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
