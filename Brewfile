@@ -51,6 +51,7 @@ brew '514-labs/tap/dnsglobe'
 brew 'container'
 brew 'zsh-patina'
 brew 'fzf-tab'
+brew 'helix'
 
 # # desktop apps
 cask 'font-jetbrains-mono'

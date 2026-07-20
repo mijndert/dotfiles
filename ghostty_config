@@ -2,6 +2,7 @@ theme = Catppuccin Mocha
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 12
 cursor-style = bar
+cursor-style-blink = false
 macos-titlebar-proxy-icon = hidden
-keybind = shift+enter=text:\n
 window-colorspace = display-p3
+keybind = shift+enter=text:\n
