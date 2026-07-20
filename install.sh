@@ -33,12 +33,6 @@ fi
 [ -d ~/.zsh/zsh-autosuggestions ] || \
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
-[ -d ~/.zsh/zsh-syntax-highlighting ] || \
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-
-[ -d ~/.zsh/fzf-tab ] || \
-  git clone https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
-
 # Vim plug
 [ -f ~/.vim/autoload/plug.vim ] || \
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
