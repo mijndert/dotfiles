@@ -36,7 +36,7 @@
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
   // FMT
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
