@@ -5,6 +5,9 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export BAT_THEME="Catppuccin Mocha"
 export K9S_CONFIG_DIR=~/.config/k9s
 
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
