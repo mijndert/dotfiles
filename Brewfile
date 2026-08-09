@@ -46,17 +46,11 @@ brew 'smug'
 brew 'nvm'
 brew 'goreleaser'
 brew '514-labs/tap/dnsglobe'
-brew 'container'
 brew 'zsh-patina'
 brew 'fzf-tab'
 brew 'helix'
 brew 'mas'
 brew 'git-delta'
-
-# rust
-brew 'rustup'
-brew 'cloudflare-wrangler'
-brew 'binaryen'
 
 # desktop apps
 cask 'font-jetbrains-mono'
@@ -74,6 +68,7 @@ cask 'rectangle'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'ungoogled-chromium'
 cask 'keepingyouawake'
+cask 'orbstack'
 
 # mac app store
 mas 'Things 3', id: 904280696
