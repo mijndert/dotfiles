@@ -53,7 +53,12 @@ brew 'helix'
 brew 'mas'
 brew 'git-delta'
 
-# # desktop apps
+# rust
+brew 'rustup'
+brew 'cloudflare-wrangler'
+brew 'binaryen'
+
+# desktop apps
 cask 'font-jetbrains-mono'
 cask 'firefox'
 cask 'scroll-reverser'
