@@ -85,4 +85,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "window.commandCenter": false,
+  "update.mode": "none",
+  "update.showReleaseNotes": false,
 }

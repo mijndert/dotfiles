@@ -70,9 +70,6 @@ defaults write com.apple.dock autohide -bool true
 # Don't rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-# Show only active applications in the Dock
-defaults write com.apple.dock static-only -bool true
-
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
