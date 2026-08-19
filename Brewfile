@@ -1,6 +1,5 @@
 # taps
 tap "hashicorp/tap"
-tap "go-task/tap"
 
 # packages
 brew 'zsh'
@@ -30,10 +29,9 @@ brew 'aws-iam-authenticator'
 brew 'k9s'
 brew 'fzf'
 brew 'ripgrep'
-brew 'go-task/tap/go-task'
+brew 'go-task'
 brew 'go'
 brew 'direnv'
-brew 'talosctl'
 brew 'opentofu'
 brew 'bat'
 brew 'lazygit'
