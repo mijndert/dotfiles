@@ -47,6 +47,7 @@ done
 
 mkdir -p ~/.config/k9s && ln -sfn "$DOTFILES/k9s_config.yml" ~/.config/k9s/config.yaml
 mkdir -p ~/.config/ghostty && ln -sfn "$DOTFILES/ghostty_config" ~/.config/ghostty/config
+mkdir -p ~/.config && ln -sfn "$DOTFILES/helix" ~/.config/helix
 mkdir -p ~/.ssh && ln -sfn "$DOTFILES/config" ~/.ssh/config
 mkdir -p ~/Library/Application\ Support/Code/User && \
   ln -sfn "$DOTFILES/vscode_settings.json" ~/Library/Application\ Support/Code/User/settings.json

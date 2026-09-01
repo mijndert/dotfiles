@@ -1,0 +1,118 @@
+# ============================================================
+# Language servers
+# ============================================================
+
+# OpenTofu — drop-in for terraform-ls; understands .tf / .tfvars / .tofu.
+# Needs the `tofu` CLI on PATH too (that's what powers `tofu fmt`).
+[language-server.tofu-ls]
+command = "tofu-ls"
+args = ["serve"]
+
+# Helm. The mrjosh/helm-ls binary is `helm_ls` (underscore). Helix already
+# detects chart templates and routes them here; this just names the binary.
+[language-server.helm-ls]
+command = "helm_ls"
+args = ["serve"]
+
+# YAML — Kubernetes manifests, GitHub Actions, compose, renovate, etc.
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language-server.yaml-language-server.config.yaml]
+validation = true
+completion = true
+hover = true
+format = { enable = true }
+
+# Auto-pull schemas from SchemaStore: GitHub workflows, kustomization.yaml,
+# Chart.yaml, docker-compose, dependabot, renovate… no per-file config needed.
+[language-server.yaml-language-server.config.yaml.schemaStore]
+enable = true
+url = "https://www.schemastore.org/api/json/catalog.json"
+
+# Kubernetes schema, scoped to typical manifest paths so it doesn't false-flag
+# your Eleventy data files or CI YAML. Widen/narrow the globs to match your repos.
+[language-server.yaml-language-server.config.yaml.schemas]
+kubernetes = [
+  "k8s/**/*.{yml,yaml}",
+  "kubernetes/**/*.{yml,yaml}",
+  "manifests/**/*.{yml,yaml}",
+  "**/*.k8s.{yml,yaml}",
+]
+
+# Web trio, all from `vscode-langservers-extracted`.
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-json-language-server]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+
+# ============================================================
+# Languages
+# ============================================================
+
+# --- OpenTofu / Terraform -----------------------------------
+# .tf / .tofu / .hcl → OpenTofu. Formatting is `tofu fmt` via the LSP on save.
+[[language]]
+name = "hcl"
+language-id = "opentofu"
+file-types = ["tf", "tofu", "hcl", "nomad"]
+language-servers = ["tofu-ls"]
+auto-format = true
+
+[[language]]
+name = "tfvars"
+language-id = "opentofu-vars"
+file-types = ["tfvars"]
+language-servers = ["tofu-ls"]
+auto-format = true
+
+# --- YAML ----------------------------------------------------
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+auto-format = true
+
+# --- Helm ----------------------------------------------------
+# No override needed. Helix detects chart templates (templates/*.yaml, *.tpl,
+# _helpers.tpl) out of the box and sends them to helm-ls, which shells out to
+# yaml-language-server for values-aware completion. Just install `helm_ls`.
+
+# --- Web (Eleventy) -----------------------------------------
+# .njk / .liquid get HTML highlighting + html-ls. The template tags themselves
+# ({{ }}, {% %}) won't be understood, but structure will. Prettier formats.
+[[language]]
+name = "html"
+file-types = ["html", "htm", "xhtml", "njk", "liquid"]
+language-servers = ["vscode-html-language-server"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.scss"] }
+auto-format = true
+
+[[language]]
+name = "json"
+language-servers = ["vscode-json-language-server"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.json"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.md"] }
+auto-format = true
