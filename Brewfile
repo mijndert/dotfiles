@@ -47,7 +47,7 @@ brew '514-labs/tap/dnsglobe'
 brew 'zsh-patina'
 brew 'fzf-tab'
 brew 'helix'
-brew 'mas'
+# brew 'mas'
 brew 'git-delta'
 
 # desktop apps
@@ -69,9 +69,9 @@ cask 'keepingyouawake'
 cask 'orbstack'
 
 # mac app store
-mas 'Things 3', id: 904280696
-mas '1Password for Safari', id: 1569813296
-mas 'uBlock Origin Lite', id: 6745342698
+# mas 'Things 3', id: 904280696
+# mas '1Password for Safari', id: 1569813296
+# mas 'uBlock Origin Lite', id: 6745342698
 
 # # work
 # cask 'google-chrome'
