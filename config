@@ -1,5 +1,8 @@
 Include ~/.orbstack/ssh/config
 
+host *
+  ForwardAgent yes
+
 # Work
 Host bitbucket.org
   Hostname altssh.bitbucket.org
